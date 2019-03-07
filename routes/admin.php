@@ -44,6 +44,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('condition/delete/{id}','ConditionsController@delete');
     Route::get('condition/index','ConditionsController@index');
 
+    /*
+     * Currency routes
+     */
+    Route::post('currency/store','CurrencyController@store');
+    Route::post('currency/update/{id}','CurrencyController@update');
+    Route::get('currency/delete/{id}','CurrencyController@delete');
+    Route::get('currency/index','CurrencyController@index');
+
+
+
+
     Route::middleware(['admin.auth'])->group(function(){
 
 
