@@ -52,7 +52,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('currency/delete/{id}','CurrencyController@delete');
     Route::get('currency/index','CurrencyController@index');
 
+    /*
+     * Brand routes
+     */
 
+    Route::post('brand/store','BrandController@store');
+    Route::post('brand/update/{id}','BrandController@update');
+    Route::get('brand/delete/{id}','BrandController@delete');
+    Route::get('brand/index','BrandController@index');
 
 
     Route::middleware(['admin.auth'])->group(function(){

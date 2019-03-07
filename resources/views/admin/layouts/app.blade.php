@@ -48,6 +48,7 @@
                             <li><a href="{{ URL::to('admin') }}">Login</a></li>
                             <li><a href="{{ URL::to('admin/register') }}">Register</a></li>
                         @else
+                            <li><a href="{{action('Admin\BrandController@index')}}">Brand</a></li>
                             <li><a href="{{action('Admin\CurrencyController@index')}}">Currency</a></li>
                             <li><a href="{{action('Admin\ConditionsController@index')}}">Manage Conditions</a></li>
                             <li><a href="{{action('Admin\CategoriesController@index')}}">Manage Categories</a></li>
