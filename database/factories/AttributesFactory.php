@@ -46,3 +46,23 @@ $factory->define(\App\Brand::class, function (Faker $faker){
         'name'=> $faker->name,
     ];
 });
+/*
+ * factory of product's class
+ */
+$factory->define(\App\Product::class, function (Faker $faker){
+    return [
+        'affiliate_id'=>factory(\App\Affiliate::class)->create(),
+        'subcategory_id'=>factory(\App\SubCategory::class)->create(),
+        'currency_id'=>factory(\App\Currency::class)->create(),
+        'brand_id'=>factory(\App\Brand::class)->create(),
+        'condition_id'=>factory(\App\Condition::class)->create(),
+        'name'=> $faker->name,
+        'quantity'=>$faker->randomNumber(2),
+        'price'=>$faker->randomNumber(5),
+        'color'=>$faker->word,
+        'size'=>$faker->word,
+        'location'=>$faker->address,
+        'status'=>$faker->boolean,
+        'description'=>$faker->text,
+    ];
+});
