@@ -61,6 +61,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('brand/delete/{id}','BrandController@delete');
     Route::get('brand/index','BrandController@index');
 
+    /*
+     * Affiliates' routes
+     */
+    Route::get('affiliates/index','AffiliatesController@index');
+    Route::post('affiliate/change/status/{id}','AffiliatesController@changeStatus');
 
     Route::middleware(['admin.auth'])->group(function(){
 
