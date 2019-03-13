@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Affiliate;
 
+use App\Brand;
+use App\Condition;
+use App\Currency;
 use App\Http\Requests\ProductForm;
 use App\Product;
+use App\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,6 +16,17 @@ class ProductsController extends Controller
     public function __construct()
     {
         $this->middleware('affiliate.auth');
+    }
+    /*
+     * this method displays the index page of products
+     */
+    public function index(){
+        $conditions = Condition::get();
+        $subcategories = SubCategory::get();
+        $brands = Brand::get();
+        $currencies = Currency::get();
+        return view('affiliate.products.index')->with('conditions',$conditions)->with('subcategories',$subcategories)
+            ->with('brands',$brands)->with('currencies',$currencies);
     }
 /*
  * this method stores products in products database

@@ -26,6 +26,7 @@ Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () 
     Route::post('product/store','ProductsController@store');
     Route::post('product/update/{id}','ProductsController@update');
     Route::get('product/delete/{id}','ProductsController@delete');
+    Route::get('product/index','ProductsController@index');
 
     Route::middleware(['affiliate.auth'])->group(function(){
 
