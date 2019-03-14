@@ -29,8 +29,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     /*
      * sub categories routes
      */
-    Route::post('sub/categories/store/{id}','SubCategoriesController@store');
-    Route::post('sub/category/update/{id}','SubCategoriesController@update');
+    Route::resource('sub/categories','SubCategoriesController');
     Route::get('sub/category/delete/{id}','SubCategoriesController@delete');
 
 
