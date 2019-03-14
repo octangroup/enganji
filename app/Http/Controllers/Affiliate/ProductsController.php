@@ -6,6 +6,7 @@ use App\Brand;
 use App\Condition;
 use App\Currency;
 use App\Http\Requests\ProductForm;
+use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,8 +29,8 @@ class ProductsController extends Controller
         $subcategories = SubCategory::get();
         $brands = Brand::get();
         $currencies = Currency::get();
-
-        return view('affiliate.products.index', compact('conditions','subcategories','brands','currencies'));
+        $products = Product::get();
+        return view('affiliate.products.index', compact('conditions','subcategories','brands','currencies','products'));
 
         return redirect()->back();
     }
@@ -52,22 +53,7 @@ class ProductsController extends Controller
      */
     public function store(ProductForm $form)
     {
-//        try{
-//            $this->validate($request,[
-//                'subcategory_id' => 'required',
-//                'currency_id' => 'required',
-//                'brand_id' => 'required',
-//                'condition_id' => 'required',
-//                'name' => 'required|string',
-//                'quantity' => 'required|numeric',
-//                'price' => 'required|numeric',
-//                'color' => 'nullable|string',
-//                'size' => 'nullable|string',
-//                'description' => 'required|string',
-//            ]);
-//        }catch (\Exception $exception){
-//            dd($exception);
-//        }
+
 
         $form->createProduct();
         return back();
