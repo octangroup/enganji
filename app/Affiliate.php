@@ -28,4 +28,8 @@ class Affiliate extends Authenticatable
     ];
 
     protected $table = "affiliate_master";
+
+    public function product(){
+        return $this->hasMany(Product::class);
+    }
 }

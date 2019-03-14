@@ -2,31 +2,44 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Currency;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Currency;
 
 class CurrencyController extends Controller
 {
-    public function __construct()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function index()
     {
-        $this->middleware('admin.auth');
+        //
+        $currencies = Currency::get(); //retrieve all currencies in the database
+        return view('admin.currencies.index', compact('currencies'));
     }
 
-     /*
-      * This method displays the index page of currencies and list all
-      * types currencies in database
-      */
-     public function index(){
-         $currencies = Currency::get(); //retrieve all currencies in the database
-         return view('admin.currencies.index')->with('currencies',$currencies);
-     }
-    /*
-     * This method is used to store currencies
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
+    public function create()
+    {
+        //
+    }
 
-        //The function to validate if the name is filled
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
         $this->validate($request, [
             'name' => 'required|string'
         ]);
@@ -36,11 +49,38 @@ class CurrencyController extends Controller
         return back();
     }
 
-    /*
-     * This method is used to update a currency
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id){
-        //The function to validate if the name is filled
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
         $this->validate($request, [
             'name' => 'required|string'
         ]);
@@ -49,13 +89,18 @@ class CurrencyController extends Controller
         $add->save();
         return back();
     }
-    /*
-     * This method is used to delete a currency
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function delete($id){
+    public function destroy($id)
+    {
+        //
         $currency = Currency::findOrFail($id);
         $currency->delete();
         return back();
     }
-
 }

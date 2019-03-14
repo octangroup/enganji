@@ -11,81 +11,50 @@
                 {{__('Add product')}}
                 <button data-toggle="#add-post-form" class="btn btn-primary toggler">{{__('Add')}}</button>
             </div>
-
-
             <div id="add-post-form" class="card-body hidden-temp">
                 <form action="{{action('Affiliate\ProductsController@store')}}" method="POST" >
-
                     {{ csrf_field() }}
-
-
                     <div class="row">
-
-
                         <div class="col-md-5">
                             <div>
-
                                 <label>Name</label>
-
                                 <input type="text" name="name" class="form-control" required>
-
                             </div>
-
                         </div>
-
-
                         <div class="col-md-5">
                             <div>
                                 <label>Quantity</label>
-
                                 <input type="number" name="quantity" class="form-control" required>
                             </div>
                         </div>
-
-
                     </div>
-
-
                     <div class="col-md-5">
                         <div>
-
                             <label>Sub-category</label>
-
-
-                            <select class="form-control" name="currency" required>
+                            <select class="form-control" name="subcategory_id" required>
                                 <option selected disabled>Choose sub-category</option>
                                 @foreach($subcategories as $subcategory)
                                     <option value="{{$subcategory->id}}">{!! $subcategory->name !!}</option>
                                 @endforeach
                             </select>
-
-
                         </div>
-
                     </div>
-
-
                     <div class="row mt-2">
-
-
                         <div class="col-md-5">
                             <div>
                                 <label>brand</label>
-                                <select class="form-control" name="brand">
+                                <select class="form-control" name="brand_id">
                                     <option selected disabled>Choose brand</option>
                                     @foreach($brands as $brand)
                                         <option value="{{$brand->id}}">{{$brand->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
-
                         </div>
-
-
                         <div class="col-md-5">
                             <div>
                                 <label>Condition</label>
-                                <select class="form-control" name="condition" required>
+                                <select class="form-control" name="condition_id" required>
                                     <option selected disabled>Choose condition</option>
                                     @foreach($conditions as $condition)
                                         <option value="{{$condition->id}}">{{$condition->name}}</option>
@@ -95,30 +64,19 @@
                         </div>
                         <div class="col-md-5">
                             <div>
-
                                 <label>Currency</label>
-
-
-                                <select class="form-control" name="currency" required>
+                                <select class="form-control" name="currency_id" required>
                                     <option selected disabled>Choose currency</option>
                                     @foreach($currencies as $currency)
                                         <option value="{{$currency->id}}">{!! $currency->name !!}</option>
                                     @endforeach
                                 </select>
-
-
                             </div>
-
                         </div>
-
-
                         <div class="col-md-5">
                             <div>
-
                                 <label>Price</label>
-
                                 <input class="form-control" name="price" type="number" required>
-
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -128,36 +86,22 @@
                                 </label>
                                 <input class="form-control" name="color" type="text" required>
                             </div>
-
                         </div>
-
                         <div class="col-md-5">
                             <div>
                                 <label>Size</label>
                                 <input type="text" class="form-control" name="size">
                             </div>
                         </div>
-
                         <div class="col-md-5">
                             <div>
-                                <label>Location</label>
-                                <input type="text" class="form-control" name="location">
+                                <label>Description: </label>
+                                <input type="text" class="form-control" name="description" required>
                             </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-5">
-                        <div>
-
-                            <label>Description: </label>
-                            <input type="text" class="form-control" name="description" required>
                         </div>
                     </div>
-
 
                     <button class="btn btn-success mt-2 mr-1">Save</button>
-
                 </form>
             </div>
 

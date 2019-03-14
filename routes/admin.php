@@ -23,10 +23,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     /*
      * Categories routes
      */
-    Route::post('categories/store','CategoriesController@store');
-    Route::post('categories/update/{id}','CategoriesController@update');
+    Route::resource('categories', 'CategoriesController');
     Route::get('category/delete/{id}','CategoriesController@delete');
-    Route::get('categories/index','CategoriesController@index');
 
     /*
      * sub categories routes
@@ -34,32 +32,28 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('sub/categories/store/{id}','SubCategoriesController@store');
     Route::post('sub/category/update/{id}','SubCategoriesController@update');
     Route::get('sub/category/delete/{id}','SubCategoriesController@delete');
-    Route::get('sub/categories/index','SubCategoriesController@index');
+
 
     /*
      * Conditions routes
      */
-    Route::post('condition/store','ConditionsController@store');
-    Route::post('condition/update/{id}','ConditionsController@update');
+    Route::resource('conditions', 'ConditionsController');
     Route::get('condition/delete/{id}','ConditionsController@delete');
-    Route::get('condition/index','ConditionsController@index');
+
 
     /*
      * Currency routes
      */
-    Route::post('currency/store','CurrencyController@store');
-    Route::post('currency/update/{id}','CurrencyController@update');
+    Route::resource('currency', 'CurrencyController');
     Route::get('currency/delete/{id}','CurrencyController@delete');
-    Route::get('currency/index','CurrencyController@index');
 
     /*
      * Brand routes
      */
 
-    Route::post('brand/store','BrandController@store');
-    Route::post('brand/update/{id}','BrandController@update');
+    Route::resource('brand','BrandController');
     Route::get('brand/delete/{id}','BrandController@delete');
-    Route::get('brand/index','BrandController@index');
+
 
     /*
      * Affiliates' routes
