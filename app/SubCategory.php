@@ -9,12 +9,15 @@ class SubCategory extends Model
     protected $fillable = [
         'category_id','name',
     ];
-    protected $table='sub_categories';
 
     /*
     * the relationship of sub categories model and categories
     */
     public function category(){
-        return $this->belongsTo(Category::class,'category_id');
+        return $this->belongsTo(Category::class);
+    }
+
+    public function product(){
+        return $this->hasMany(Product::class);
     }
 }

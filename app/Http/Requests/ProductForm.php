@@ -26,17 +26,15 @@ class ProductForm extends FormRequest
     public function rules()
     {
         return [
-            'affiliate_id'=>'required|int',
-            'subcategory_id' => 'required|int',
-            'currency_id' => 'required|int',
-            'brand_id' => 'nullable|int',
-            'condition_id' => 'required|int',
+            'subcategory_id' => 'required',
+            'currency_id' => 'required',
+            'brand_id' => 'required',
+            'condition_id' => 'required',
             'name' => 'required|string',
             'quantity' => 'required|numeric',
             'price' => 'required|numeric',
             'color' => 'nullable|string',
             'size' => 'nullable|string',
-            'location' => 'nullable|string',
             'description' => 'required|string',
         ];
     }
@@ -44,6 +42,7 @@ class ProductForm extends FormRequest
     public function createProduct()
     {
         $product = new Product();
+        $product->affiliate_id = Auth::guard('affiliate')->user()->id;
         return $this->store($product);
 
     }
@@ -54,7 +53,7 @@ class ProductForm extends FormRequest
 
     protected function store(Product $product)
     {
-        $product->affiliate_id = Auth::guard('affiliate')->user()->id;
+        $product->affiliate_id;
         $product->subcategory_id = $this->subcategory_id;
         $product->currency_id = $this->currency_id;
         $product->brand_id = $this->brand_id;
@@ -64,8 +63,6 @@ class ProductForm extends FormRequest
         $product->price = $this->price;
         $product->color = $this->color;
         $product->size = $this->size;
-        $product->location = $this->location;
-        $product->status = $this->status;
         $product->description = $this->description;
         $product->save();
 
