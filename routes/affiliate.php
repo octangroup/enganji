@@ -25,7 +25,7 @@ Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () 
      */
 
     Route::resource('product', 'ProductsController');
-    Route::get('product/delete/{id}','ProductsController@delete');
+    Route::get('product/delete/{id}','ProductsController@destroy');
 
 
     Route::middleware(['affiliate.auth'])->group(function(){

@@ -29,7 +29,7 @@
                 <div class="list-group-item">
                     <h6>{{$category->name}}<span style="float: right"> <button data-toggle="#add-subcat-form{{$category->id}}" class="btn btn-primary toggler" >Sub category</button>
                             <button data-toggle="#modify-form{{$category->id}}" class="btn btn-success toggler" >Modify</button>
-                            <a class="btn btn-danger" href="{{action('Admin\CategoriesController@delete',$category->id)}}">delete</a>
+                            <a class="btn btn-danger" href="{{action('Admin\CategoriesController@destroy',$category->id)}}">delete</a>
                         </span></h6>
 
                     <div id="modify-form{{$category->id}}" class="card-body hidden-temp">

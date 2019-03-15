@@ -103,8 +103,7 @@ class ConditionsController extends Controller
     public function destroy($id)
     {
         //
-        $category = Condition::findOrFail($id);
-        $category->delete();
+        Condition::findOrFail($id)->delete();
         return back();
     }
 }

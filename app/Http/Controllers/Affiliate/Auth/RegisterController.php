@@ -54,6 +54,8 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'phone_number'=>'required|string|min:10',
+            'location'=>'nullable|string'
         ]);
     }
 
@@ -65,9 +67,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return Affiliate::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone_number'=>$data['phone_number'],
+            'location'=>$data['location'],
             'password' => bcrypt($data['password']),
         ]);
     }

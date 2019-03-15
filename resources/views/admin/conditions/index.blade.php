@@ -40,7 +40,7 @@
                         </div>
                         <div>
                             <button data-toggle="#mod-condition-{{$condition->id}}" class="btn btn-success toggler">Modify</button>
-                            <a class="btn btn-danger " href="{{action('Admin\ConditionsController@delete',[$condition->id])}}">Delete</a>
+                            <a class="btn btn-danger " href="{{action('Admin\ConditionsController@destroy',[$condition->id])}}">Delete</a>
                         </div>
 
                     </div>

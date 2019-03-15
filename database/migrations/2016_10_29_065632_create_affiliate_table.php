@@ -17,6 +17,9 @@ class CreateAffiliateTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->boolean('status')->default(true);
+            $table->string('phone_number');
+            $table->string('location')->nullable();
             $table->string('password');
             $table->rememberToken()->nullable();
             $table->timestamps();
