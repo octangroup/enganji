@@ -23,43 +23,38 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     /*
      * Categories routes
      */
-    Route::post('categories/store','CategoriesController@store');
+    Route::resource('categories', 'CategoriesController');
     Route::post('categories/update/{id}','CategoriesController@update');
-    Route::get('category/delete/{id}','CategoriesController@delete');
-    Route::get('categories/index','CategoriesController@index');
+    Route::get('category/delete/{id}','CategoriesController@destroy');
 
     /*
      * sub categories routes
      */
     Route::post('sub/categories/store/{id}','SubCategoriesController@store');
     Route::post('sub/category/update/{id}','SubCategoriesController@update');
-    Route::get('sub/category/delete/{id}','SubCategoriesController@delete');
-    Route::get('sub/categories/index','SubCategoriesController@index');
+    Route::get('sub/category/delete/{id}','SubCategoriesController@destroy');
+
 
     /*
      * Conditions routes
      */
-    Route::post('condition/store','ConditionsController@store');
-    Route::post('condition/update/{id}','ConditionsController@update');
-    Route::get('condition/delete/{id}','ConditionsController@delete');
-    Route::get('condition/index','ConditionsController@index');
+    Route::resource('conditions', 'ConditionsController');
+    Route::get('condition/delete/{id}','ConditionsController@destroy');
+
 
     /*
      * Currency routes
      */
-    Route::post('currency/store','CurrencyController@store');
-    Route::post('currency/update/{id}','CurrencyController@update');
+    Route::resource('currency', 'CurrencyController');
     Route::get('currency/delete/{id}','CurrencyController@delete');
-    Route::get('currency/index','CurrencyController@index');
 
     /*
      * Brand routes
      */
 
-    Route::post('brand/store','BrandController@store');
-    Route::post('brand/update/{id}','BrandController@update');
+    Route::resource('brand','BrandController');
     Route::get('brand/delete/{id}','BrandController@delete');
-    Route::get('brand/index','BrandController@index');
+
 
     /*
      * Affiliates' routes
@@ -67,6 +62,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('affiliates/index','AffiliatesController@index');
     Route::post('affiliate/change/status/{id}','AffiliatesController@changeStatus');
 
+    /*
+     * Products in admin side's route
+     */
+    Route::get('products/index','ProductsController@index');
+    Route::post('product/change/status/{id}','ProductsController@changeStatus');
     Route::middleware(['admin.auth'])->group(function(){
 
 

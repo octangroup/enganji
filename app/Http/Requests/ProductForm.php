@@ -35,7 +35,6 @@ class ProductForm extends FormRequest
             'price' => 'required|numeric',
             'color' => 'nullable|string',
             'size' => 'nullable|string',
-            'location' => 'nullable|string',
             'description' => 'required|string',
         ];
     }
@@ -63,8 +62,6 @@ class ProductForm extends FormRequest
         $product->price = $this->price;
         $product->color = $this->color;
         $product->size = $this->size;
-//        $product->status = $this->setDz
-        $product->location = $this->location;
         $product->description = $this->description;
         $product->save();
 

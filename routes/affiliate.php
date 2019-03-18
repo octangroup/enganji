@@ -23,10 +23,10 @@ Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () 
     /*
      * Products' routes
      */
-    Route::post('product/store','ProductsController@store');
-    Route::post('product/update/{id}','ProductsController@update');
-    Route::get('product/delete/{id}','ProductsController@delete');
-    Route::get('product/index','ProductsController@index');
+
+    Route::resource('product', 'ProductsController');
+    Route::get('product/delete/{id}','ProductsController@destroy');
+
 
     Route::middleware(['affiliate.auth'])->group(function(){
 

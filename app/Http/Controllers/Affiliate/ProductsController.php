@@ -13,41 +13,100 @@ use App\Http\Controllers\Controller;
 
 class ProductsController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function __construct()
     {
         $this->middleware('affiliate.auth');
     }
-    /*
-     * this method displays the index page of products
-     */
-    public function index(){
+    public function index()
+    {
+        //
         $conditions = Condition::get();
         $subcategories = SubCategory::get();
         $brands = Brand::get();
         $currencies = Currency::get();
-        return view('affiliate.products.index')->with('conditions',$conditions)->with('subcategories',$subcategories)
-            ->with('brands',$brands)->with('currencies',$currencies);
+        $products = Product::get();
+        return view('affiliate.products.index', compact('conditions','subcategories','brands','currencies','products'));
+
+        return redirect()->back();
     }
-/*
- * this method stores products in products database
- */
-    public function store(ProductForm $form){
-        $product =  $form->createProduct();
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(ProductForm $form)
+    {
+
+
+        $form->createProduct();
+        return back();
+
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ProductForm $form, $id)
+    {
+        //
+        $form->update($id);
         return back();
     }
-  /*
- * this method updates products in products database
- */
-  public function update(ProductForm $form,$id){
-     $product = $form->update($id);
-     return back();
-  }
-  /*
-   * this method deletes a selected product in a database
-   */
-  public function delete($id){
-      $product = Product::findOrfail($id);
-      $product->delete();
-      return back();
-  }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+        Product::findOrfail($id)->delete();
+
+        return redirect()->back();
+    }
 }
