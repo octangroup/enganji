@@ -12,7 +12,7 @@
                 <button data-toggle="#add-post-form" class="btn btn-primary toggler">{{__('Add')}}</button>
             </div>
             <div id="add-post-form" class="card-body hidden-temp">
-                <form action="{{action('Affiliate\ProductsController@store')}}" method="POST" >
+                <form action="{{action('Affiliate\ProductsController@store')}}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-5">
@@ -101,7 +101,19 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6  mt-3">
+                        <label>Product Cover</label>
+                        @if(($product ?? null) && $product->cover())
+                            <div class="w-50 my-3">
+                                <img class="w-100" src="{{$product->cover()}}">
+                            </div>
+                        @endif
+                        <input type="file" name="fileToUpload" class="w-100" id="fileToUpload">
+                    </div>
+
                     <button class="btn btn-success mt-2 mr-1">Save</button>
+
+
                 </form>
             </div><br>
 
@@ -269,7 +281,6 @@
                                                 {{--</span>--}}
                                 {{--@endif--}}
                             </div>
-
 
                             <button class="btn btn-success mt-2 mr-1">Save</button>
 

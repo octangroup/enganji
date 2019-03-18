@@ -51,12 +51,11 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductForm $form)
+    public function store(Request $request)
     {
-
-
-        $form->createProduct();
-        return back();
+        dd($request);
+//        $form->createProduct();
+//        return back();
 
     }
 
