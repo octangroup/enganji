@@ -19,6 +19,8 @@ class DealsTest extends TestCase
    }
 
    public function test_affiliate_can_add_deals(){
+
+       $this->withoutExceptionHandling();
      $data = [
         'product_id'=>factory(Product::class)->create()->id,
         'price'=>$this->faker->randomNumber(),

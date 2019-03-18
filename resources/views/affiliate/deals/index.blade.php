@@ -22,7 +22,7 @@
 
                  <div class="col-md-5">
                      <label>New price</label>
-                     <input class="form-control" placeholder="price">
+                     <input class="form-control" placeholder="price" name="price">
                  </div>
 
              </div>
@@ -46,7 +46,19 @@
          </div>
 
              @endforeach
-
+         <br>
+         @foreach($deals as $deal)
+             <div class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-10">
+                         <h4>{{$deal->product->name}}</h4>
+                         <p><strong>Starting on: </strong> {{$deal->begin_on}}</p>
+                         <p><strong>End at: </strong> {{$deal->end_at}}</p>
+                         <p><strong>Price: </strong> {{$deal->price}}</p>
+                     </div>
+                 </div>
+             </div>
+                     @endforeach
      </div>
  </div>
 

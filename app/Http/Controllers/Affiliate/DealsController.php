@@ -15,8 +15,9 @@ class DealsController extends Controller
      */
     public function index(){
         $products=Product::get();
+        $deals = Deal::get();
 
-        return view('affiliate.deals.index',compact('products'));
+        return view('affiliate.deals.index',compact('products', 'deals'));
     }
 
     public function store(Request $request){
