@@ -61,8 +61,15 @@ $factory->define(\App\Product::class, function (Faker $faker){
         'price'=>$faker->randomNumber(5),
         'color'=>$faker->word,
         'size'=>$faker->word,
-        'location'=>$faker->address,
         'status'=>$faker->boolean,
         'description'=>$faker->text,
+    ];
+});
+
+
+//deals factory
+$factory->define(\App\Deal::class, function (Faker $faker) {
+    return [
+
     ];
 });
