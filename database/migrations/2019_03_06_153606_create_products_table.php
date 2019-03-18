@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->double('quantity');
             $table->double('price');
-            $table->string('color');
+            $table->string('color')->nullable();
             $table->string('size')->nullable();
             $table->boolean('status')->default(false);
             $table->text('description');

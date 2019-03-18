@@ -84,12 +84,13 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         //
+
         $this->validate($request, [
             'name' => 'required|string'
         ]);
-        $add = Category::findOrFail($id);
-        $add->name = $request->name;
-        $add->save();
+        $category = Category::findOrFail($id);
+        $category->name = $request->name;
+        $category->save();
         return back();
     }
 
