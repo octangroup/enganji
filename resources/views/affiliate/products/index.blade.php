@@ -108,7 +108,7 @@
             @foreach($products as $product)
                 <div class="list-group-item">
                     <div class="row">
-                        <div class="col-md-10">
+                        <div class="col-md-9">
                             <h4>{{$product->name}}</h4>
                             <p><strong>Quantity: </strong> {{$product->quantity}}</p>
                             <p><strong>Price: </strong> {{$product->currency->name ?? null}} {{$product->price}}</p>
@@ -116,6 +116,11 @@
 
 
                         <div>
+                            <a href="{{action('Affiliate\DealsController@view',[$product->id])}}" class="btn btn-primary">
+
+                                Add deal
+                            </a>
+
                             <button data-toggle="#mod-category-{{$product->id}}" class="btn btn-success toggler">
                                 Modify
                             </button>
