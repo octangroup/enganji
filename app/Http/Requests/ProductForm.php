@@ -26,10 +26,10 @@ class ProductForm extends FormRequest
     public function rules()
     {
         return [
-            'subcategory_id' => 'required',
-            'currency_id' => 'required',
-            'brand_id' => 'required',
-            'condition_id' => 'required',
+            'subcategory_id' => 'required|int',
+            'currency_id' => 'required|int',
+            'brand_id' => 'nullable|int',
+            'condition_id' => 'required|int',
             'name' => 'required|string',
             'quantity' => 'required|numeric',
             'price' => 'required|numeric',
@@ -53,7 +53,6 @@ class ProductForm extends FormRequest
 
     protected function store(Product $product)
     {
-        $product->affiliate_id;
         $product->subcategory_id = $this->subcategory_id;
         $product->currency_id = $this->currency_id;
         $product->brand_id = $this->brand_id;

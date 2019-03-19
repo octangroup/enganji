@@ -62,6 +62,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('affiliates/index','AffiliatesController@index');
     Route::post('affiliate/change/status/{id}','AffiliatesController@changeStatus');
 
+    /*
+     * Products in admin side's route
+     */
+    Route::get('products/index','ProductsController@index');
+    Route::post('product/change/status/{id}','ProductsController@changeStatus');
     Route::middleware(['admin.auth'])->group(function(){
 
 

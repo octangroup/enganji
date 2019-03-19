@@ -2,20 +2,46 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\subCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\SubCategory;
 
 class SubCategoriesController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function __construct()
     {
         $this->middleware('admin.auth');
     }
-    /*
-     * The function/method used to store sub categories
-     */
-    public function store(request $request,$id){
+    public function store(Request $request, $id)
+    {
+        //
         $this->validate($request, [
             'name' => 'required|string'
         ]);
@@ -26,10 +52,38 @@ class SubCategoriesController extends Controller
         return back();
     }
 
-    /*
-     * this Method is in charge of updating sub categories
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id){
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
         $this->validate($request, [
             'category_id'=>'required|integer',
             'name' => 'required|string'
@@ -41,13 +95,17 @@ class SubCategoriesController extends Controller
         return back();
     }
 
-    /*
-     * the function that deletes the sub categories
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function delete($id){
-       $sub_category = SubCategory::findOrFail($id);
-       $sub_category->delete();
-       return back();
+    public function destroy($id)
+    {
+        //
+        $sub_category = SubCategory::findOrFail($id);
+        $sub_category->delete();
+        return back();
     }
-
 }

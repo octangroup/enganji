@@ -15,10 +15,13 @@ class DealsController extends Controller
      */
     public function index(){
         $products=Product::get();
+        $deals = Deal::get();
 
-        return view('affiliate.deals.index',compact('products'));
+        return view('affiliate.deals.index',compact('products', 'deals'));
     }
-
+    /*
+     * The function in charge to store deals in the database
+     */
     public function store(Request $request){
         $this->validate($request,[
            'product_id'=>'required|int',
@@ -36,21 +39,30 @@ class DealsController extends Controller
 
         return back();
     }
-
-
-
+    /*
+     * the function in charge of updating a certain deal
+     */
     public function update(Request $request,$id){
         $this->validate($request,[
             'product_id'=>'required|int',
             'price'=>'required|numeric',
             'begin_on'=>'required|date',
-            'end_at'=>'required|date',
+            'end_at'=>'required|date'
         ]);
-        $deal=Deal::findOrFail($id);
-        $deal->price=$request->price;
-        $deal->begin_on=$request->begin_on;
-        $deal->end_at=$request->end_at;
-        $deal->save();
-        return redirect()->back();
+        $add = Deal::findOrFail($id);
+        $add -> product_id = $request->product_id;
+        $add ->price = $request->price;
+        $add ->begin_on = $request->begin_on;
+        $add ->end_at = $request->end_at;
+        $add->save();
+        return back();
+    }
+
+    /*
+     * this function is in charge of deleting a deal
+     */
+    public function delete($id){
+        $deal = Deal::findOrFail($id)->delete();
+        return back();
     }
 }

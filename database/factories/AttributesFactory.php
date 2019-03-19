@@ -70,9 +70,10 @@ $factory->define(\App\Product::class, function (Faker $faker){
 //deals factory
 $factory->define(\App\Deal::class, function (Faker $faker) {
     return [
-      'product_id'=>factory(\App\Product::class)->create()->id,
-       'price'=>$faker->randomFloat(),
-        'begin_on'=>$faker->date('Y-m-d'),
-        'end_at'=>$faker->date('Y-m-d'),
+        'product_id'=>factory(\App\Product::class)->create(),
+        'price'=>$faker->randomNumber(3),
+        'begin_on'=>$faker->dateTime,
+        'end_at'=>$faker->dateTime,
+
     ];
 });
