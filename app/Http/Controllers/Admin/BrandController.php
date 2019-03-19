@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Brand;
+use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
 {
@@ -49,6 +50,7 @@ class BrandController extends Controller
         $add = new Brand();
         $add->name = $request->name;
         $add->save();
+        Session::flash('message','Brand Stored');
         return redirect()->back();
     }
 
@@ -90,6 +92,7 @@ class BrandController extends Controller
         $add = Brand::findOrFail($id);
         $add->name = $request->name;
         $add->save();
+        Session::flash('message','Brand Updated');
         return back();
     }
 
@@ -102,8 +105,8 @@ class BrandController extends Controller
     public function destroy($id)
     {
         //
-        $currency = Brand::findOrFail($id);
-        $currency->delete();
+        Brand::findOrFail($id)->delete();
+        Session::flash('message','Brand Deleted');
         return back();
     }
 }

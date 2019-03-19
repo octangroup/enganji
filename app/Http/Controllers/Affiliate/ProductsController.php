@@ -10,6 +10,7 @@ use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -55,7 +56,9 @@ class ProductsController extends Controller
     {
 
 
-        $form->createProduct();
+        if($form->createProduct()){
+        Session::flash('message','Product saved.It will be uploaded by the admin ');
+        };
         return back();
 
     }

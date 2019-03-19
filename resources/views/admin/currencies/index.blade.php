@@ -1,6 +1,11 @@
 @extends('admin.layouts.app')
 @section('content')
     <div class="container">
+        @if(\Illuminate\Support\Facades\Session::has('message'))
+        <div class="alert alert-info">
+            {{Session::get('message')}}
+        </div>
+        @endif
         <div class="card">
             <div class="card-header">
                 {{__('Currency')}}
@@ -36,7 +41,7 @@
                         </div>
                         <div>
                             <button data-toggle="#mod-currency-{{$currency->id}}" class="btn btn-success toggler ">Modify</button>
-                            <a href="{{action('Admin\CurrencyController@delete',[$currency->id])}}" class="btn btn-danger">Delete</a>
+                            <a href="{{action('Admin\CurrencyController@destroy',[$currency->id])}}" class="btn btn-danger">Delete</a>
                         </div>
 
                     </div>

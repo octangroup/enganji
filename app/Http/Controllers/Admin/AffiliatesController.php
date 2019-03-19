@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Affiliate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class AffiliatesController extends Controller
 {
@@ -34,7 +35,11 @@ class AffiliatesController extends Controller
         }
         $affiliate->save();
         return back();
+
+
+        Session::flash('message','Affiliate has be Banned');
     }
+
 
 
     }

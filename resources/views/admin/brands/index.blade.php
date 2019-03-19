@@ -2,6 +2,11 @@
 @section('content')
 
     <div class="container">
+        @if(Session::has('message'))
+            <div class="alert alert-info">
+                {{Session::get('message')}}
+            </div>
+            @endif
         <div class="card">
             <div class="card-header">
                 {{__(' Brand')}}
@@ -35,7 +40,7 @@
                         <div>
                             <button data-toggle="#modify-form-{{$brand->id}}" class="btn btn-success toggler">Modify
                             </button>
-                            <a href="{{action('Admin\BrandController@delete',[$brand->id])}}" class="btn btn-danger">delete</a>
+                            <a href="{{action('Admin\BrandController@destroy',[$brand->id])}}" class="btn btn-danger">delete</a>
 
                         </div>
 

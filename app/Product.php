@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property bool status
+ */
 class Product extends Model
 {
     //,
@@ -38,4 +41,26 @@ class Product extends Model
     public function affiliate(){
         return $this->belongsTo(Affiliate::class);
     }
+
+
+
+//function to check the status of the affiliate
+    public function isActive(): bool
+    {
+        return $this->status==true;
+    }
+//function to activate the status of the affiliate
+    public function activate(): void
+    {
+        $this->status= true;
+        $this->save();
+    }
+//function to deactivate the status of the affiliate
+    public function deactivate(): void
+    {
+        $this->status= false;
+        $this->save();
+    }
+
+
 }

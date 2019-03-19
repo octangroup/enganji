@@ -46,14 +46,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
      * Currency routes
      */
     Route::resource('currency', 'CurrencyController');
-    Route::get('currency/delete/{id}','CurrencyController@delete');
+    Route::get('currency/delete/{id}','CurrencyController@destroy');
 
     /*
      * Brand routes
      */
 
     Route::resource('brand','BrandController');
-    Route::get('brand/delete/{id}','BrandController@delete');
+    Route::get('brand/delete/{id}','BrandController@destroy');
 
 
     /*
@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
      * Products in admin side's route
      */
     Route::get('products/index','ProductsController@index');
-    Route::post('product/change/status/{id}','ProductsController@changeStatus');
+    Route::get('product/activation/{id}', 'ProductsController@changeStatus');
     Route::middleware(['admin.auth'])->group(function(){
 
 
