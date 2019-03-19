@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Affiliate;
+use App\Deal;
 use App\Product;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -33,6 +34,22 @@ class DealsTest extends TestCase
 
 
    public function test_affiliate_can_update_deals(){
+     $deal=factory(Deal::class)->create();
+     $attributes=[
+       'product_id'=>factory(Product::class)->create()->id,
+         'price'=>$this->faker->randomFloat(),
+         'begin_on'=>$this->faker->date('Y-m-d'),
+         'end_at'=>$this->faker->date('Y-m-d'),
+     ];
+//     assertSessionhasNoErro=checks validator
+//       assertredirect checks the return type might be return redirect back or a view
+    $this->actingAs($this->affiliate,'affiliate')->post(action('Affiliate\DealsController@update',$deal->id),$attributes)
+        ->assertSessionHasNoErrors()->assertRedirect();
+    $deal=$deal->refresh();
+    $this->assertEquals($deal->name,$attributes['price']);
+    $this->assertEquals($deal->name,$attributes['begin_on']);
+    $this->assertEquals($deal->name,$attributes['end_at']);
+
 
    }
 

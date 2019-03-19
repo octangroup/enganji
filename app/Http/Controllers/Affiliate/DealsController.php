@@ -36,4 +36,21 @@ class DealsController extends Controller
 
         return back();
     }
+
+
+
+    public function update(Request $request,$id){
+        $this->validate($request,[
+            'product_id'=>'required|int',
+            'price'=>'required|numeric',
+            'begin_on'=>'required|date',
+            'end_at'=>'required|date',
+        ]);
+        $deal=Deal::findOrFail($id);
+        $deal->price=$request->price;
+        $deal->begin_on=$request->begin_on;
+        $deal->end_at=$request->end_at;
+        $deal->save();
+        return redirect()->back();
+    }
 }

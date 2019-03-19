@@ -34,6 +34,7 @@ Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () 
 
     Route::get('deals','DealsController@index');
     Route::post('deals/save','DealsController@store');
+    Route::post('deals/update','DealsController@update');
 
 
     Route::middleware(['affiliate.auth'])->group(function(){
