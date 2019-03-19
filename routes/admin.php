@@ -60,7 +60,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
      * Affiliates' routes
      */
     Route::get('affiliates/index','AffiliatesController@index');
-    Route::post('affiliate/change/status/{id}','AffiliatesController@changeStatus');
+    Route::get('affiliate/change/status/{id}','AffiliatesController@changeStatus');
 
     /*
      * Products in admin side's route
