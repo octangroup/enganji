@@ -10,24 +10,17 @@
      <div class="card">
          <div class="card-header">
              {{__('Deals')}}
-             <button class="btn btn-primary toggler" data-toggle="#add-deal-form">{{_('Add')}}</button>
          </div>
 
-         <div id="add-deal-form" class="card-body hidden-temp">
+
              <form action="{{action('Affiliate\DealsController@store')}}" method="post">
                  {{csrf_field()}}
              <div class="row">
                  <div class="col-md-5">
                      <label>Name</label>
+                     <input value="{{$product->name}}" class="form-control" >
+                     <input value="{{$product->id}}" type="hidden" name="product_id">
 
-                     <select class="form-control" name="product_id">
-                         <option disabled selected> choose product</option>
-                       @foreach($products as $product)
-                           <option value="{{$product->id}}">{{$product->name}}</option>
-                           @endforeach
-                     </select>
-                     {{--<input value="{{$product->name}}" class="form-control" >--}}
-                     {{--<input value="{{$product->id}}" type="hidden" name="product_id">--}}
                  </div>
 
                  <div class="col-md-5">
@@ -53,7 +46,7 @@
                  <button class="btn btn-primary mt-2">Save</button>
              </div>
              </form>
-         </div>
+
 
 
          <br>
@@ -80,14 +73,8 @@
                              <div class="col-md-5">
                                  <label>Name</label>
 
-                                 <select class="form-control" name="product_id">
-                                     <option disabled selected> choose product</option>
-                                     @foreach($products as $product)
-                                         <option value="{{$product->id}}">{{$product->name}}</option>
-                                     @endforeach
-                                 </select>
-                                 {{--<input value="{{$product->name}}" class="form-control" >--}}
-                                 {{--<input value="{{$product->id}}" type="hidden" name="product_id">--}}
+                                 <input value="{{$product->name}}" class="form-control" >
+                                 <input value="{{$product->id}}" type="hidden" name="product_id">
                              </div>
 
                              <div class="col-md-5">

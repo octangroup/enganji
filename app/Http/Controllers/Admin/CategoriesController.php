@@ -21,7 +21,7 @@ class CategoriesController extends Controller
     public function index()
     {
         //
-        $categories = Category::get(); //retrieve all categories available in database
+        $categories = Category::with('subCategory')->get(); //retrieve all categories available in database
         return view('admin.categories.index', compact('categories'));
     }
 
