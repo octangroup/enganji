@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Affiliate;
 
 use App\Brand;
+use App\Category;
 use App\Condition;
 use App\Currency;
 use App\Http\Requests\ProductForm;
@@ -10,7 +11,6 @@ use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -27,13 +27,13 @@ class ProductsController extends Controller
     {
         //
         $conditions = Condition::get();
+        $categories = Category::get();
         $subcategories = SubCategory::get();
         $brands = Brand::get();
         $currencies = Currency::get();
         $products = Product::get();
-        return view('affiliate.products.index', compact('conditions','subcategories','brands','currencies','products'));
+        return view('affiliate.components.index', compact('conditions','subcategories','brands','currencies','products','categories'));
 
-        return redirect()->back();
     }
 
     /**
@@ -44,6 +44,12 @@ class ProductsController extends Controller
     public function create()
     {
         //
+        $conditions = Condition::get();
+        $subcategories = SubCategory::get();
+        $brands = Brand::get();
+        $currencies = Currency::get();
+        $products = Product::get();
+        return view('affiliate.components.create', compact('products','subcategories','brands','currencies','conditions'));
     }
 
     /**
@@ -54,12 +60,69 @@ class ProductsController extends Controller
      */
     public function store(ProductForm $form)
     {
-
-
-        if($form->createProduct()){
-        Session::flash('message','Product saved.It will be uploaded by the admin ');
-        };
+        $form->createProduct();
         return back();
+
+    }
+
+    public function search(Request $request){     // function to search product according to the keyword which will be input
+
+        $keyword = $request->keyword;
+        $conditions = Condition::get();
+        $subcategories = SubCategory::get();
+        $brands = Brand::get();
+        $currencies = Currency::get();
+        $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
+        return view('affiliate.components.index', compact('products', 'keyword', 'conditions', 'subcategories', 'brands', 'currencies'));
+    }
+
+    public function filter(Request $request){  // function which will filter according to the brand, categories, price and condition of product
+        $this->validate($request, [
+            'categories' => 'nullable',
+            'categories.*' => 'int|exists:categories,id',
+            'price' => 'nullable',
+            'price.*' => 'price',
+            'conditions' => 'nullable',
+            'conditions.*' => 'conditions',
+            'brands' => 'nullable',
+            'brands.*' => 'int|exists:brands,id'
+        ]);
+
+        $categories = Category::get();
+        $conditions = Condition::get();
+        $brands = Brand::get();
+        $query = Product::query();
+
+        if ($request->categories) {
+            foreach ($request->categories as $category) {
+                $query = $query->whereHas('subcategory', function ($q) use ($category) {
+                    $q->where('category_id', $category);
+                });
+            }
+        }
+
+        if ($request->conditions)
+        {
+            foreach ($request->conditions as $condition) {
+                $query = $query->where('condition_id', $condition);
+            }
+        }
+
+        if ($request->brands) {
+            foreach ($request->brands as $brand) {
+                $query = $query->where('brand_id', $brand);
+            }
+        }
+
+        if ($request->price)
+        {
+            foreach ($request->price as $price){
+            $query = $query->where('price', $price);
+            }
+        }
+            $products = $query->get();
+
+        return view('affiliate.components.index', compact('products','brands', 'conditions', 'categories'));
 
     }
 
@@ -83,6 +146,12 @@ class ProductsController extends Controller
     public function edit($id)
     {
         //
+        $conditions = Condition::get();
+        $subcategories = SubCategory::get();
+        $brands = Brand::get();
+        $currencies = Currency::get();
+        $product = Product::findorfail($id);
+        return view('affiliate.components.edit', compact('product','conditions','subcategories','brands','currencies'));
     }
 
     /**
@@ -92,11 +161,11 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductForm $form, $id)
+    public function update(ProductForm $form, Product $product)  // function to update product
     {
         //
-        $form->update($id);
-        return back();
+        $form->update($product);
+        return redirect()->action([self::class, 'show'],[$product->id,$product->name]);
     }
 
     /**
@@ -108,8 +177,7 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         //
-        Product::findOrfail($id)->delete();
-
-        return redirect()->back();
+        Product::find($id)->delete();
+        return redirect()->action([self::class, 'index']);
     }
 }
