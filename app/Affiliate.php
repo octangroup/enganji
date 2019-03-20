@@ -36,26 +36,20 @@ class Affiliate extends Authenticatable
 
 
 //function to check if the affiliate is active
-    public function check_subscription(){
 
-       if($this->status==true){
-           return 'Welcome';
-       }
-       return "You're banned";
-    }
 
 
 //checks if the affiliate is active
-    public function affiliateActive(){
+    public function is_Active(){
         return $this->status==true;
     }
 //activating the affiliate's status
-    public function activateAffiliate(){
+    public function activate(){
         $this->status=true;
         $this->save();
     }
 //deactivating the affiliate's status
-    public function deactivateAffiliate(){
+    public function deactivate(){
         $this->status=false;
         $this->save();
     }
