@@ -46,14 +46,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
      * Currency routes
      */
     Route::resource('currency', 'CurrencyController');
-    Route::get('currency/delete/{id}','CurrencyController@delete');
+    Route::get('currency/delete/{id}','CurrencyController@destroy');
 
     /*
      * Brand routes
      */
 
     Route::resource('brand','BrandController');
-    Route::get('brand/delete/{id}','BrandController@delete');
+    Route::get('brand/delete/{id}','BrandController@destroy');
 
 
     /*
