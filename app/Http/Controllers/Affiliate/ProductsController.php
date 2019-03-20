@@ -11,7 +11,6 @@ use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 class ProductsController extends Controller
 {
     /**
@@ -32,7 +31,7 @@ class ProductsController extends Controller
         $brands = Brand::get();
         $currencies = Currency::get();
         $products = Product::get();
-        return view('affiliate.components.index', compact('conditions','subcategories','brands','currencies','products','categories'));
+        return view('affiliate.components.index', compact('conditions','subcategories','brands','currencies','products', 'categories'));
 
     }
 
@@ -69,11 +68,12 @@ class ProductsController extends Controller
 
         $keyword = $request->keyword;
         $conditions = Condition::get();
+        $categories = Category::get();
         $subcategories = SubCategory::get();
         $brands = Brand::get();
         $currencies = Currency::get();
         $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
-        return view('affiliate.components.index', compact('products', 'keyword', 'conditions', 'subcategories', 'brands', 'currencies'));
+        return view('affiliate.components.index', compact('products', 'keyword', 'conditions', 'subcategories', 'brands', 'currencies', 'categories'));
     }
 
     public function filter(Request $request){  // function which will filter according to the brand, categories, price and condition of product
