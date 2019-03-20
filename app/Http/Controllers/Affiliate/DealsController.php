@@ -6,6 +6,7 @@ use App\Deal;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class DealsController extends Controller
 {
@@ -47,6 +48,7 @@ class DealsController extends Controller
             'begin_on'=>$request->begin_on,
             'end_at'=>$request->end_at,
         ]);
+        Session::flash('message', 'Deals Uploaded');
 
         return back();
     }

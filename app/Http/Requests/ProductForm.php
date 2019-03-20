@@ -65,7 +65,21 @@ class ProductForm extends FormRequest
         $product->description = $this->description;
         $product->save();
 
+        $this->uploadPictures($product);
+
         return true;
+    }
+
+    private function uploadPictures(Product $product): void
+    {
+        if ($this->fileToUpload) {
+            $product->clearMediaCollection();
+            $product->addMediaFromRequest('fileToUpload')
+                ->withCustomProperties(['mime-type' => 'image/jpeg'])
+                ->preservingOriginal()
+                ->toMediaCollection();
+        }
+
     }
 
 

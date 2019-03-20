@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Currency;
+use Illuminate\Support\Facades\Session;
 
 class CurrencyController extends Controller
 {
@@ -46,6 +47,7 @@ class CurrencyController extends Controller
         $add = new Currency();
         $add->name = $request->name;
         $add->save();
+        Session::flash('message','Currency Uploaded');
         return back();
     }
 
@@ -87,6 +89,7 @@ class CurrencyController extends Controller
         $add = Currency::findOrFail($id);
         $add->name = $request->name;
         $add->save();
+        Session::flash('message','Currency Updated');
         return back();
     }
 
@@ -99,8 +102,8 @@ class CurrencyController extends Controller
     public function destroy($id)
     {
         //
-        $currency = Currency::findOrFail($id);
-        $currency->delete();
+        Currency::findOrFail($id)->delete();
+        Session::flash('message','Currency Deleted');
         return back();
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Condition;
+use Illuminate\Support\Facades\Session;
 
 class ConditionsController extends Controller
 {
@@ -50,6 +51,7 @@ class ConditionsController extends Controller
         $add = new Condition();
         $add->name = $request->name;
         $add->save();
+        Session::flash('message','Condition Stored');
         return back();
     }
 
@@ -91,6 +93,7 @@ class ConditionsController extends Controller
         $add = Condition::findOrFail($id);
         $add->name = $request->name;
         $add->save();
+        Session::flash('message','Condition Updated');
         return back();
     }
 
@@ -104,6 +107,7 @@ class ConditionsController extends Controller
     {
         //
         Condition::findOrFail($id)->delete();
+        Session::flash('message','Condition deleted');
         return back();
     }
 }

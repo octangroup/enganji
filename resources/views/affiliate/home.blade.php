@@ -7,9 +7,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Affiliate Dashboard</div>
 
+
                 <div class="panel-body">
-                    You are logged in!
+                     {{$affiliate->check_subscription()}}
+
                 </div>
+
+
             </div>
         </div>
     </div>
