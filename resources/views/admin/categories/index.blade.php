@@ -42,8 +42,31 @@
                         <div>
                     <button data-toggle="#add-subcat-form{{$category->id}}" class="btn btn-primary toggler" >Sub category</button>
                             <button data-toggle="#modify-form{{$category->id}}" class="btn btn-success toggler" >Modify</button>
-                            <a class="btn btn-danger" href="{{action('Admin\CategoriesController@destroy',$category->id)}}">delete</a>
+                            <a class="btn btn-danger" data-toggle="modal" data-target="#delete-Modal-{{$category->id}}">delete</a>
                         </div>
+
+                        <div class="modal fade" id="delete-Modal-{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <a  href="{{action('Admin\CategoriesController@destroy',[$category->id])}}" class="btn btn-primary">yes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
 
                     <div id="modify-form{{$category->id}}" class="card-body hidden-temp">
                         <form action="{{action('Admin\CategoriesController@update',[$category->id])}}" method="POST">
@@ -81,8 +104,29 @@
                             </div>
                             <div>
                                 <button data-toggle="#modify-subcat-form{{$subcategory->id}}" class="btn btn-success toggler" >Modify</button>
-                                <a class="btn btn-danger" href="{{action('Admin\SubCategoriesController@destroy',$subcategory->id)}}">delete</a>
+                                <a class="btn btn-danger" data-toggle="modal" data-target="#delete-Modal-{{$subcategory->id}}">delete</a>
                             </div>
+
+                            <div class="modal fade" id="delete-Modal-{{$subcategory->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are you sure ?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <a  href="{{action('Admin\SubCategoriesController@destroy',[$subcategory->id])}}" class="btn btn-primary">yes</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div id="modify-subcat-form{{$subcategory->id}}" class="card-body hidden-temp">
                                 <form action="{{action('Admin\SubCategoriesController@update',[$subcategory->id,'category_id'=>$category->id])}}" method="POST">
                                     {{ csrf_field() }}
