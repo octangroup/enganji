@@ -42,7 +42,6 @@ class ProductForm extends FormRequest
     public function createProduct()
     {
         $product = new Product();
-        $product->affiliate_id = Auth::guard('affiliate')->user()->id;
         return $this->store($product);
 
     }

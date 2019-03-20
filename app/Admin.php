@@ -9,6 +9,11 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
+    public function category(){
+
+        return $this->hasMany(Category::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

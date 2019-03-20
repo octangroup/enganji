@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
@@ -41,15 +42,9 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $category)
     {
-        //
-        $this->validate($request, [
-            'name' => 'required|string'
-        ]);
-        $add = new Category();
-        $add->name = $request->name;
-        $add->save();
+       $category->createCategory();
         Session::flash('message','Category Uploaded');
         return back();
     }
@@ -83,16 +78,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $form, Category $category )
     {
         //
-
-        $this->validate($request, [
-            'name' => 'required|string'
-        ]);
-        $category = Category::findOrFail($id);
-        $category->name = $request->name;
-        $category->save();
+        $form->update($category);
         Session::flash('message','Category Updated');
         return back();
     }

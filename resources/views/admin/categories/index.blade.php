@@ -21,6 +21,9 @@
                         <div class="col">
                             <input class="form-control" type="text" name="name">
                         </div>
+                        <div>
+
+                        </div>
                         <div class="col">
                             <label></label>
                             <button class="btn btn-success mt-4"> save</button>

@@ -15,4 +15,9 @@ class Category extends Model
     public function subCategory(){
         return $this->hasMany(SubCategory::class);
     }
+
+    public function admin(){
+
+        return $this->belongsTo(Admin::class);
+    }
 }
