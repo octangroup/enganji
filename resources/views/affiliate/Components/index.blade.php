@@ -47,11 +47,12 @@
                                     @endforeach
                                 @endif
                             </div>
-                            <div class="text-center">
+                            <div>
                                 <button type="submit" class="btn btn-outline-primary">Filter</button>
                             </div>
                         </form>
                     </div>
+        </br>
             <div class="container">
                 @if($products && count($products))
                     @foreach($products as $product)
