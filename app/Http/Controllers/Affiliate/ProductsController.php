@@ -83,7 +83,7 @@ class ProductsController extends Controller
             'price' => 'nullable',
             'price.*' => 'price',
             'conditions' => 'nullable',
-            'conditions.*' => 'conditions',
+            'conditions.*' => 'int|exists:conditions,id',
             'brands' => 'nullable',
             'brands.*' => 'int|exists:brands,id'
         ]);
