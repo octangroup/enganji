@@ -40,11 +40,25 @@ class CategoryRequest extends FormRequest
         $category->name = $this->name;
         $category->save();
 
+        $this->uploadPicture($category);
+
         return true;
     }
 
     public function update($id){
         $category = Category::findorfail($id);
         return $this->store($category);
+    }
+
+    public function uploadPicture(Category $category)  : void
+    {
+
+        if ($this->fileToUpload) {
+            $category->clearMediaCollection();
+            $category->addMediaFromRequest('fileToUpload')
+                ->withCustomProperties(['mime-type' => 'image/jpeg'])
+                ->preservingOriginal()
+                ->toMediaCollection();
+        }
     }
 }

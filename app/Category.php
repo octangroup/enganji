@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Repository\MediaConversion;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 
-class Category extends Model
+class Category extends Model implements HasMedia
 {
+    use MediaConversion;
     protected $fillable = [
         'name',
     ];

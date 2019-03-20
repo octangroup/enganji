@@ -14,16 +14,23 @@
             </div>
 
             <div id="add-post-form" class="card-body hidden-temp">
-                <form action="{{action('Admin\CategoriesController@store')}}" method="POST">
+                <form action="{{action('Admin\CategoriesController@store')}}" method="POST" enctype="multipart/form-data" >
                     {{ csrf_field() }}
 
                     <div class="row">
                         <div class="col">
                             <input class="form-control" type="text" name="name">
                         </div>
-                        <div>
-
+                        <div class="col-md-6  mt-3">
+                            <label>Category Cover</label>
+                            @if(($prct ?? null) && $category->cover())
+                                <div class="w-50 my-3">
+                                    <img class="w-100" src="{{$category->cover()}}">
+                                </div>
+                            @endif
+                            <input type="file" name="fileToUpload" class="w-100" id="fileToUpload">
                         </div>
+
                         <div class="col">
                             <label></label>
                             <button class="btn btn-success mt-4"> save</button>
@@ -38,6 +45,9 @@
                     <div class="row">
                         <div class="col-md-9">
                          <strong> {{$category->name}}</strong>
+                        </div>
+                        <div class="w-30">
+                            <img class="w-100" src="{{$category->thumbnail()}}">
                         </div>
                         <div>
                     <button data-toggle="#add-subcat-form{{$category->id}}" class="btn btn-primary toggler" >Sub category</button>
@@ -64,9 +74,8 @@
                                 </div>
                             </div>
                         </div>
-
-
-
+                    </div>
+                </div>
 
                     <div id="modify-form{{$category->id}}" class="card-body hidden-temp">
                         <form action="{{action('Admin\CategoriesController@update',[$category->id])}}" method="POST">
