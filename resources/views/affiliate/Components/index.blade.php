@@ -70,9 +70,10 @@
                                 <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-primary mx-3"><i
                                                 class="fas fa-plus-circle"></i> Delete</a></h4>
                         </div>
+                        </div>
                     @endforeach
             @endif
-            </div>
+
                 </div>
         </div>
     </div>
