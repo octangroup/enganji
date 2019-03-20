@@ -10,13 +10,23 @@ class ProductsController extends Controller
     //
     public function index()
     {
-        $products=Product::get();
-        return view('home',compact('products'));
+        $conditions = Condition::get();
+        $categories = Category::get();
+        $subcategories = SubCategory::get();
+        $brands = Brand::get();
+        $currencies = Currency::get();
+        $products = Product::get();
+        return view('home', compact('conditions','subcategories','brands','currencies','products', 'categories'));
     }
 
 //function to each product that is clicked on
+
+
     public function show($id){
-        $product=Product::with('affiliate')->findorfail($id);
-        return view('product.view',compact('product'));
+        $product = Product::findorfail($id);
+        return view('product.view', compact('product'));
     }
+
+
+
 }

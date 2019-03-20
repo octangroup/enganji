@@ -22,5 +22,8 @@ Route::get('home', 'HomeController@index');
 //Product's route
 Route::get('product/index','ProductsController@index');
 Route::get('product/view/{id}','ProductsController@show');
+Route::get('search', 'ProductsController@search');
+Route::get('filter', 'ProductsController@filter');
+
 
 
