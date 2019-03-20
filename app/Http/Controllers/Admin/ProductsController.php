@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -23,13 +24,15 @@ class ProductsController extends Controller
      * This method changes the status of a product
      */
     public function changeStatus($id){
-        $product = Product::findOrFail($id);
-        if ($product->status === 0){
-            $product->status = 1;
-        }else{
-            $product->status = 0;
+        $product=Product::findorfail($id);
+
+        if(!$product->isActive()){
+            $product->activate();
+           Session::flash('success', 'The Product has been activated');
+            return back();
         }
-        $product->save();
+        $product->deactivate();
+        Session::flash('success', 'The Product has been deactivated');
         return back();
     }
 }

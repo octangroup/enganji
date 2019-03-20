@@ -3,13 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\Models\Media;;
 
-class Product extends Model implements HasMedia
+/**
+ * @property bool status
+ */
+class Product extends Model
 {
-    use  HasMediaTrait;
     //,
     protected $fillable=['affiliate_id','subcategory_id','currency_id','condition_id',
         'brand_id','name','quantity','price','color','size','status','description'
@@ -43,27 +42,25 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(Affiliate::class);
     }
 
-    public function thumbnail()
+
+
+//function to check the status of the affiliate
+    public function isActive(): bool
     {
-        if ($this->getFirstMedia()) {
-            return $this->getFirstMedia()->getUrl('thumb');
-        }
-        return null;
+        return $this->status==true;
     }
-
-    public function cover()
+//function to activate the status of the affiliate
+    public function activate(): void
     {
-        if ($this->getFirstMedia()) {
-            return $this->getFirstMedia()->getUrl('main');
-        }
-        return null;
+        $this->status= true;
+        $this->save();
+    }
+//function to deactivate the status of the affiliate
+    public function deactivate(): void
+    {
+        $this->status= false;
+        $this->save();
     }
 
-    public function registerMediaConversions(Media $media = null){
 
-        $this->addMediaConversion('thumb')
-            ->fit('fill', 480, 480);
-        $this->addMediaConversion('main')
-            ->fit('fill', 960, 960);
-    }
 }

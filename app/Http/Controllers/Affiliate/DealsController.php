@@ -6,6 +6,7 @@ use App\Deal;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class DealsController extends Controller
 {
@@ -14,11 +15,22 @@ class DealsController extends Controller
      * main function to view all the deals
      */
     public function index(){
+
+
         $products=Product::get();
         $deals = Deal::get();
 
         return view('affiliate.deals.index',compact('products', 'deals'));
     }
+
+    public function view($id){
+
+        $product=Product::findorfail($id);
+        $deals = Deal::get();
+        return view('affiliate.deals.index',compact('product', 'deals'));
+    }
+
+
     /*
      * The function in charge to store deals in the database
      */
@@ -36,6 +48,7 @@ class DealsController extends Controller
             'begin_on'=>$request->begin_on,
             'end_at'=>$request->end_at,
         ]);
+        Session::flash('message', 'Deals Uploaded');
 
         return back();
     }

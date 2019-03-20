@@ -10,6 +10,7 @@ use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -30,8 +31,9 @@ class ProductsController extends Controller
         $brands = Brand::get();
         $currencies = Currency::get();
         $products = Product::get();
-        return view('affiliate.components.index', compact('conditions','subcategories','brands','currencies','products'));
+        return view('affiliate.products.index', compact('conditions','subcategories','brands','currencies','products'));
 
+        return redirect()->back();
     }
 
     /**
@@ -42,12 +44,6 @@ class ProductsController extends Controller
     public function create()
     {
         //
-        $conditions = Condition::get();
-        $subcategories = SubCategory::get();
-        $brands = Brand::get();
-        $currencies = Currency::get();
-        $products = Product::get();
-        return view('affiliate.components.create', compact('products','subcategories','brands','currencies','conditions'));
     }
 
     /**
@@ -58,25 +54,12 @@ class ProductsController extends Controller
      */
     public function store(ProductForm $form)
     {
-        $form->createProduct();
+
+
+        if($form->createProduct()){
+        Session::flash('message','Product saved.It will be uploaded by the admin ');
+        };
         return back();
-
-    }
-
-    public function search(Request $request){     // function to search product according to the keyword which will be input
-
-        $keyword = $request->keyword;
-        $conditions = Condition::get();
-        $subcategories = SubCategory::get();
-        $brands = Brand::get();
-        $currencies = Currency::get();
-        $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
-        return view('affiliate.components.index', compact('products', 'keyword', 'conditions', 'subcategories', 'brands', 'currencies'));
-    }
-
-    public function filter(Request $request){  // function which will filter accordingly
-
-
 
     }
 
@@ -100,12 +83,6 @@ class ProductsController extends Controller
     public function edit($id)
     {
         //
-        $conditions = Condition::get();
-        $subcategories = SubCategory::get();
-        $brands = Brand::get();
-        $currencies = Currency::get();
-        $product = Product::findorfail($id);
-        return view('affiliate.components.edit', compact('product','conditions','subcategories','brands','currencies'));
     }
 
     /**
@@ -115,11 +92,11 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductForm $form, Product $product)  // function to update product
+    public function update(ProductForm $form, $id)
     {
         //
-        $form->update($product);
-        return redirect()->action([self::class, 'show'],[$product->id,$product->name]);
+        $form->update($id);
+        return back();
     }
 
     /**
@@ -131,7 +108,8 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         //
-        Product::find($id)->delete();
-        return redirect()->action([self::class, 'index']);
+        Product::findOrfail($id)->delete();
+
+        return redirect()->back();
     }
 }

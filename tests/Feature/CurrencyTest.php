@@ -56,7 +56,7 @@ class CurrencyTest extends TestCase
         ];
         $this->actingAs($this->admin, 'admin')->post(action('Admin\CurrencyController@update', $currency->id), $attributes)
             ->assertSessionHasNoErrors()->assertRedirect();
-        $currency = $currency->fresh();
+        $currency = $currency->refresh();
         $this->assertEquals($currency->name, $attributes['name']);
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Affiliate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class AffiliatesController extends Controller
 {
@@ -26,15 +27,25 @@ class AffiliatesController extends Controller
      * This function is in charge of changing the status of an affiliate
      */
     public function changeStatus($id){
-        $affiliate = Affiliate::findOrfail($id);
-        if ($affiliate->status === 1){
-          $affiliate->status = 0;
-        }else{
-            $affiliate->status = 1;
+//        $affiliate = Affiliate::findOrfail($id);
+//        if ($affiliate->status === 1){
+//          $affiliate->status = 0;
+//        }else{
+//            $affiliate->status = 1;
+//        }
+//        $affiliate->save();
+//        return back();
+        $affiliate= Affiliate::findorfail($id);
+        if(!$affiliate->affiliateActive()){
+            $affiliate->activateAffiliate();
+            Session::flash('message','Affiliate has been activated');
+            return back();
         }
-        $affiliate->save();
+        $affiliate->deactivateAffiliate();
+        Session::flash('message','Affiliate has been Banned');
         return back();
     }
+
 
 
     }
