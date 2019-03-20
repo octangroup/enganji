@@ -16,7 +16,7 @@
                     {!! $affiliate->name !!}
                 </div>
                 <div>
-                    @if($affiliate->affiliateActive())
+                    @if($affiliate->is_Active())
                         <a class="btn btn-danger" href="{{action('Admin\AffiliatesController@changeStatus',[$affiliate->id])}}">{{__('Disable')}}</a>
                      @else
                         <a class="btn btn-success" href="{{action('Admin\AffiliatesController@changeStatus',[$affiliate->id])}}" >{{__('Enable')}}</a>

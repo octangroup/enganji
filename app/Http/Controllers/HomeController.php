@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products=Product::get();
+        return view('home',compact('products'));
+    }
+
+//function to each product that is clicked on
+    public function show($id){
+        $product=Product::with('affiliate')->findorfail($id);
+        return view('product.view',compact('product'));
     }
 }
