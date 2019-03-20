@@ -49,7 +49,7 @@ class DealsTest extends TestCase
            'end_at'=>$this->faker->dateTime,
        ] ;
        //assertredirect->checks the type of redirect can be return back or return view
-       //AssertSessionHasNoErrors->validation
+       //assertSessionHasNoErrors->validation
        $this->actingAs($this->affiliate,'affiliate')->post(action('Affiliate\DealsController@update',$deal->id),$data)
            ->assertRedirect()->assertSessionHasNoErrors();
        $deal = $deal->fresh();

@@ -9,7 +9,7 @@
 
 
                 <div class="panel-body">
-                     {{$affiliate->check_subscription()}}
+                     {{$affiliate->is_Active()}}
 
                 </div>
 
