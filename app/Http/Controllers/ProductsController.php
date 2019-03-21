@@ -12,8 +12,13 @@ class ProductsController extends Controller
     //
     public function index()
     {
+        $conditions = Condition::get();
+        $categories = Category::get();
+        $subcategories = SubCategory::get();
+        $brands = Brand::get();
+        $currencies = Currency::get();
         $products = Product::get();
-        return view('home', compact('products'));
+        return view('home', compact('conditions','subcategories','brands','currencies','products', 'categories'));
     }
 
 //function to each product that is clicked on
@@ -44,13 +49,4 @@ class ProductsController extends Controller
         ]);
         return redirect()->back();
     }
-
-
-    public function getReviews($id){
-        $product = Product::with('affiliate')->findorfail($id);
-        $reviews=Review::get();
-
-        return view('product.view',compact('reviews','product'));
-    }
-
 }

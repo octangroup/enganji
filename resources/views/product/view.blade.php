@@ -1,34 +1,19 @@
 @extends('layouts.app')
 @section('content')
 
+    <div class="container mt-5">
+        <div class="card">
+            <div class="w-25">
+                <img width="50%" src="{{$product->cover()}}" class="clip-full">
+            </div>
+            <div class="w-65 text-left px-4">
+                <h3>{!! $product->name !!}</h3>
+                <p class="my-2"><strong>Price: </strong>{{$product->price}}</p>
+            </div>
 
-<div class="is-flex">
-
-    <div class="flex-75">
-
-
-    {{$product->name}}<br>
-    {{$product->quantity}}<br>
-  by{{$product->affiliate->name}}
-    <img src="{{asset($product->cover())}}" class="clip-full">
-
-</div>
-
-    <div class="flex-25">
-    <select class="form-control" name="rating">
-
-    </select>
-    <input class="form-control" name="title">
-    <input class="form-control" name="body">
+        </div>
+        <div class="w-90 mx-auto mt-5">
+            {!! $product->description !!}
+        </div>
     </div>
-
-</div>
-
-   <div>
-    @foreach($reviews as $review)
-    {{$review->title}}
-    @endforeach
-   </div>
-
-
 @endsection
