@@ -26,4 +26,10 @@ Route::get('search', 'ProductsController@search');
 Route::get('filter', 'ProductsController@filter');
 
 
+//Review's Route
+Route::post('review/{id}','ReviewController@store');
 
+
+//Cart's Route
+Route::get('add/','CartController@index');
+Route::post('add/cart','CartController@store');

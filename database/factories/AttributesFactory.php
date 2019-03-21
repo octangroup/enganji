@@ -90,3 +90,16 @@ $factory->define(\App\Review::class, function (Faker $faker) {
 
     ];
 });
+
+
+
+//cart's factory
+$factory->define(\App\Cart::class, function (Faker $faker) {
+    return [
+        'user_id'=>factory(\App\User::class)->create(),
+        'product_id'=>factory(\App\Product::class)->create(),
+        'quantity'=>1,
+
+    ];
+});
+

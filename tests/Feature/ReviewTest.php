@@ -33,7 +33,7 @@ class ReviewTest extends TestCase
             'body' => $this->faker->text,
 
         ];
-        $this->actingAs($this->user)->post(action('ProductsController@review',$product->id), $attributes)
+        $this->actingAs($this->user)->post(action('ReviewController@store',$product->id), $attributes)
             ->assertSessionHasNoErrors()
             ->assertRedirect();
 
@@ -43,7 +43,7 @@ class ReviewTest extends TestCase
 
     public function test_user_can_retrieve_review(){
         $product=factory(Product::class)->create();
-        $review=factory(Review::class)->create();
+        $review=factory(Review::class)->create(['product_id'=>$product->id]);
         $this->get(action('ProductsController@show',$product->id))
             ->assertSuccessful()
             ->assertSee($review->title);

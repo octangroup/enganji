@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -52,6 +53,13 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li class="mx-3">
+                                        <a href="{{action('CartController@index')}}" class="cursor-pointer inherit-color">
+                                           Cart
+                                        </a>
+                                    </li>
+
+
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -77,4 +85,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
+<script>
+    $('.toggler').click(function () {
+        let data = $(this).data('toggle');
+        $(data).toggle(100);
+    });
+</script>
 </html>
