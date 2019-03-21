@@ -45,7 +45,15 @@
 
                 </form>
 
-        </div>
+
+
+                <form action="{{action('ProductsController@addToWishList',[$product->id])}}" method="post">
+                    {{csrf_field()}}
+                    <button class="btn btn-dark-grey">Add to wish list</button>
+                </form>
+
+
+            </div>
         </div>
 
     </div>

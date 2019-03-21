@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*
+     * This function defines a relationship between a user and the wish list
+     */
+    public function wishList(){
+        return $this->hasMany(WishList::class,'user_id');
+    }
 }

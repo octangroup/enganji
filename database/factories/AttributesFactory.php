@@ -79,6 +79,15 @@ $factory->define(\App\Deal::class, function (Faker $faker) {
 });
 
 
+//wish list factory
+$factory->define(\App\WishList::class, function (Faker $faker) {
+    return [
+        'user_id'=>factory(\App\User::class)->create(),
+        'product_id'=>factory(\App\Product::class)->create(),
+
+    ];
+});
+
 //reviews factory
 $factory->define(\App\Review::class, function (Faker $faker) {
     return [

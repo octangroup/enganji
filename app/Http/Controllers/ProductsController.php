@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
+use App\Condition;
+use App\Currency;
+use App\Http\Requests\ProductFilterForm;
 use App\Product;
-use App\Review;
+use App\SubCategory;
+use App\WishList;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -33,6 +39,16 @@ class ProductsController extends Controller
     }
 
 
+    /*
+     * the function that will add a product to wish list
+     */
+    public function addToWishList(Request $request,$id){
 
+        $add = new WishList();
+        $add->user_id =Auth::user()->id;
+        $add->product_id = $id;
+        $add->save();
+        return back();
 
+    }
 }

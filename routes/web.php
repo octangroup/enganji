@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ProductsController@index');
 
 Auth::routes();
 
@@ -28,6 +26,10 @@ Route::get('filter', 'ProductsController@filter');
 
 //Review's Route
 Route::post('review/{id}','ReviewController@store');
+
+
+//Wishlist's Route
+Route::post('/add/wish list/{id}','ProductsController@addToWishList');
 
 
 //Cart's Route
