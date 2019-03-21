@@ -23,4 +23,7 @@ Route::get('product/view/{id}','ProductsController@show');
 Route::get('/search','ProductsController@search');
 Route::get('/filter','ProductsController@filter');
 
+//wish list route
+
+Route::post('/add/wish list/{id}','ProductsController@addToWishList');
 
