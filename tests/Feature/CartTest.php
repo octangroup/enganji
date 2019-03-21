@@ -48,5 +48,14 @@ class CartTest extends TestCase
     }
 
 
+    public function test_user_can_delete_cart(){
+
+        $cart = factory(Cart::class)->create();
+        $this->actingAs($this->user)->get(action('CartController@destroy', $cart->id))
+            ->assertSessionHasNoErrors()->assertRedirect();
+        $cart = $cart->fresh();
+        $this->assertEquals(0, $cart);
+    }
+
 
 }

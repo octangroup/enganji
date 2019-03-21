@@ -18,11 +18,6 @@
                         <div class="is-flex">
                             <div class="w-50">
 
-                                {{--<span class="text-grey-darkest text-base">Quantity:</span>--}}
-
-                                {{--<input min="1" type="number" name="quantity"--}}
-                                       {{--class="p-2 w-25 border-1 border-grey border-solid outline-none rounded has-text-centered"--}}
-                                       {{--value="1" required>--}}
 
                                 <input value="" type="hidden" name="product_id">
 
@@ -34,11 +29,10 @@
                         </div>
                     </div>
                     <div class="w-20  h-48 p-3 has-text-right">
-                        <p class="text-sm text-red-light m-0 ">
-                            {{--<a href="{{action('CartController@destroy',[$cart->id])}}">--}}
-                                {{--<i class="far fa-trash-alt"></i>--}}
-                                {{--Remove--}}
-                            {{--</a></p>--}}
+                        <p class="text text-red-light m-0 ">
+                            <a href="{{action('CartController@destroy',[$cart->id])}}">
+                                Remove
+                            </a></p>
 
                     </div>
 

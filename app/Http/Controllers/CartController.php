@@ -45,4 +45,11 @@ class CartController extends Controller
         Session::flash('message','Product not Added to Cart');
         return redirect()->back();
     }
+
+
+
+    public function destroy($id){
+        Cart::findorFail($id)->delete();
+        return back();
+    }
 }
