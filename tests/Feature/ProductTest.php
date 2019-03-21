@@ -32,6 +32,7 @@ class ProductTest extends TestCase
         $this->get(action('ProductsController@show',$product->id))
             ->assertSuccessful()
             ->assertSee($product->name);
+
     }
 
 
