@@ -36,3 +36,7 @@ Route::post('/add/wish list/{id}','ProductsController@addToWishList');
 Route::get('add/','CartController@index');
 Route::post('add/cart','CartController@store');
 Route::get('remove/cart/{id}','CartController@destroy');
+
+// User Profile Route
+
+Route::resource('profile', 'ProfileController');

@@ -63,6 +63,13 @@
                                         </a>
                                     </li>
 
+                                    <li>
+                                        <a class="dropdown-item hover:bg-grey-lighter" href="{{action('ProfileController@index')}}">
+
+                                            {{ __('Profile') }}
+                                        </a>
+                                    </li>
+
 
                                     <li>
                                         <a href="{{ route('logout') }}"
