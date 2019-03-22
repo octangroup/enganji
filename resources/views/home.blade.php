@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 {{--@extends('layouts.app')--}}
 {{--@section('content')--}}
 
@@ -86,7 +86,7 @@
         {{--</div><br>--}}
     {{--@endforeach--}}
 {{--@endsection--}}
-=======
+
 @extends('layouts.app')
 @section('content')
 
@@ -111,4 +111,4 @@
 
     </div>
 @endsection
->>>>>>> c889364f329d3145ae5c6e145d0cfbd7926fc2a4
+
