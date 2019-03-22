@@ -28,8 +28,10 @@ Route::get('filter', 'ProductsController@filter');
 Route::post('review/{id}','ReviewController@store');
 
 
-//Wishlist's Route
+//WishList's Route
 Route::post('/add/wish list/{id}','ProductsController@addToWishList');
+Route::get('/delete/wish list/{id}','ProductsController@deleteWishList');
+Route::get('/view/wish list','ProductsController@viewWishList');
 
 
 //Cart's Route
