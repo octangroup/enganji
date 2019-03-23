@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -17,10 +18,11 @@ class ProfileController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
         //
-        $user=Auth::user();
+        $user = Auth::user();
         return view('profile.index', compact('user'));
     }
 
@@ -37,7 +39,7 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -48,7 +50,7 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -59,35 +61,71 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $user = Auth::user();
+        return view('profile.edit',compact('user'));
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        /**
+         * Update the specified resource in storage.
+         *
+         * @param  \Illuminate\Http\Request $request
+         * @param  int $id
+         * @return \Illuminate\Http\Response
+         */
+        public function update(User $user)
+        {
+            //
+            if(Auth::user()->email == request('email')) {
+
+                $this->validate(request(), [
+                    'name' => 'required',
+                    //  'email' => 'required|email|unique:users',
+                    'password' => 'required|min:6|confirmed'
+                ]);
+
+                $user->name = request('name');
+                // $user->email = request('email');
+                $user->password = bcrypt(request('password'));
+
+                $user->save();
+
+                return back();
+
+            }
+            else{
+
+                $this->validate(request(), [
+                    'name' => 'required',
+                    'email' => 'required|email|unique:users',
+                    'password' => 'required|min:6|confirmed'
+                ]);
+
+                $user->name = request('name');
+                $user->email = request('email');
+                $user->password = bcrypt(request('password'));
+
+                $user->save();
+
+                return back();
+
+            }
+
+        }
+
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  int $id
+         * @return \Illuminate\Http\Response
+         */
+        public function destroy($id)
+        {
+            //
+        }
     }
-}

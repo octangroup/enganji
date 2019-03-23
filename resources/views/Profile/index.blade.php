@@ -15,13 +15,13 @@
                     </div>
 
                 </div>
-                <div class="w-30 p-4">
-                    <p class="text-2xl font-medium p-0 m-0 mt-2">{{$user->name}}</p>
-                    <button class="btn mt-3 border-1 border-solid border-grey rounded">
-                        <i class="fas fa-pen"></i>
-                        <spna>Edit profile</spna>
-                    </button>
-                </div>
+                {{--<div class="w-30 p-4">--}}
+                    {{--<p class="text-2xl font-medium p-0 m-0 mt-2">{{$user->name}}</p>--}}
+                    {{--<button class="btn mt-3 border-1 border-solid border-grey rounded">--}}
+                        {{--<i class="fas fa-pen"></i>--}}
+                        {{--<spna>Edit profile</spna>--}}
+                    {{--</button>--}}
+                {{--</div>--}}
 
                 <div class="w-40 mt-4 rounded  rounded-lg h-54 bg-white border-1 p-4 border-1 border-solid border-grey">
                     <h1 class="text-xl font-normal p-0 m-0 mt-2">About</h1>
@@ -34,7 +34,7 @@
                 <div class="w-@extends('layouts.app')
                 @section('content')
 
-                        <div class="panel bg-grey-lightest t w-100 mx-auto mb-5 pb-5">
+                        <div class="panel bg-grey-lightest t w-100 mx-auto mb-5 pb-5 ">
 
                 <div class="panel-body w-85 mx-auto">
                     <div class="flex">
@@ -51,10 +51,8 @@
                         </div>
                         <div class="w-30 p-4">
                             <p class="text-2xl font-medium p-0 m-0 mt-2">{{$user->name}}</p>
-                            <button class="btn mt-3 border-1 border-solid border-grey rounded">
-                                <i class="fas fa-pen"></i>
-                                <spna>Edit profile</spna>
-                            </button>
+                            <h4><a href="{{action('ProfileController@edit', [$user->id])}}" class="btn btn-primary mx-3"><i
+                                            class="fas fa-plus-circle"></i> Edit profile</a></h4>
                         </div>
 
                         <div class="w-40 mt-4 rounded  rounded-lg h-54 bg-white border-1 p-4 border-1 border-solid border-grey">
