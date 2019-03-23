@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-{{--@extends('layouts.app')--}}
-{{--@section('content')--}}
 
     {{--<div class="w-60 mx-auto">--}}
         {{--<form method="GET" action="{{action('ProductsController@search')}}">--}}
@@ -86,9 +83,17 @@
         {{--</div><br>--}}
     {{--@endforeach--}}
 {{--@endsection--}}
-=======
+
 @extends('layouts.app')
 @section('content')
+
+
+    <div class="w-60 mx-auto">
+        <form method="GET" action="{{action('ProductsController@search')}}">
+            <input type="text" name="keyword" class="form-control">
+            <button type="submit">search</button>
+        </form>
+    </div><br>
 
     <div class="container">
         @if($products && count($products))
