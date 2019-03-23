@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Illuminate\Support\Facades\Session;
 
 class ProfileController extends Controller
 {
@@ -78,45 +79,63 @@ class ProfileController extends Controller
          * @param  int $id
          * @return \Illuminate\Http\Response
          */
-        public function update(User $user)
+        public function update(Request $request)
         {
-            //
-            if(Auth::user()->email == request('email')) {
 
-                $this->validate(request(), [
+                $this->validate($request, [
                     'name' => 'required',
-                    //  'email' => 'required|email|unique:users',
-                    'password' => 'required|min:6|confirmed'
                 ]);
+               $user =  Auth::user();
+               $user->name = $request->name;
+               $user->save();
+               return back();
+               }
 
-                $user->name = request('name');
-                // $user->email = request('email');
-                $user->password = bcrypt(request('password'));
+        public function updatePassword(Request $request){
 
-                $user->save();
+            $this->validate($request, [
+
+                  'old' => 'required|min:6',
+                 'new_password' => 'required|min:6|confirmed'
+            ]);
+
+            $old = $request->old;
+            $new_password = $request->new_password;
+
+            $user = Auth::user();
+
+                if(password_verify($old, $user->password)){
+                    $new_password = bcrypt($new_password);
+                    $user->password = $new_password;
+                    $user->save();
+
+                    Session::flash('message','Password changed');
+
+                }
+                else{
+                    Session::flash('message','Password not changed');
+                }
 
                 return back();
-
-            }
-            else{
-
-                $this->validate(request(), [
-                    'name' => 'required',
-                    'email' => 'required|email|unique:users',
-                    'password' => 'required|min:6|confirmed'
-                ]);
-
-                $user->name = request('name');
-                $user->email = request('email');
-                $user->password = bcrypt(request('password'));
-
-                $user->save();
-
-                return back();
-
-            }
 
         }
+
+        public function updateProfile(Request $request){
+            $this->validate($request,[
+                'fileToUpload' => 'required'
+            ]);
+
+            $user = Auth::user();
+            if ($request->fileToUpload) {
+                $user->clearMediaCollection();
+                $user->addMediaFromRequest('fileToUpload')
+                    ->withCustomProperties(['mime-type' => 'image/jpeg'])
+                    ->preservingOriginal()
+                    ->toMediaCollection();
+            }
+            return back();
+
+    }
 
         /**
          * Remove the specified resource from storage.

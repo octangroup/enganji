@@ -52,7 +52,6 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a href="{{action('ProductsController@viewWishList')}}">wish list<i class="fal fa-heart-circle"></i></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -63,6 +62,10 @@
                                         <a href="{{action('CartController@index')}}" class="cursor-pointer inherit-color">
                                            Cart
                                         </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{action('ProductsController@viewWishList')}}" class="cursor-pointer inherit-color">WishList</a>
+
                                     </li>
 
                                     <li>
