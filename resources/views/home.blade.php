@@ -1,4 +1,7 @@
 
+{{--@extends('layouts.app')--}}
+{{--@section('content')--}}
+
     {{--<div class="w-60 mx-auto">--}}
         {{--<form method="GET" action="{{action('ProductsController@search')}}">--}}
             {{--<input type="text" name="keyword" class="form-control">--}}
@@ -116,3 +119,4 @@
 
     </div>
 @endsection
+

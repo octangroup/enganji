@@ -47,7 +47,7 @@ class CartController extends Controller
     }
 
 
-
+//function to delete item from cart
     public function destroy($id){
         Cart::findorFail($id)->delete();
         return back();

@@ -83,4 +83,9 @@ class Product extends Model implements HasMedia
     }
 
 
+    public function scopeWhereActivated($query){
+        return $query->where('status',1);
+    }
+
+
 }
