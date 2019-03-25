@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductFilterForm extends FormRequest
@@ -26,26 +27,27 @@ class ProductFilterForm extends FormRequest
         return [
             'brands' => 'nullable',
             'brands.*' => 'nullable|int',
+            'categories' => 'nullable',
+            'categories.*'=>'nullable|int',
             'min' => 'nullable|required_with:max',
             'max' => 'nullable|required_with:min',
-            'categories' => 'nullable',
-            'categories.*' => 'nullable|int',
             'conditions' => 'nullable',
             'conditions.*' => 'nullable|int',
             'keyword' => 'nullable|string'
         ];
     }
 
-    public function handle(Builder $query){
+    public function handle(Builder $query)
+    {
 
-            $query = $this->search($query);
-            $query = $this->filterByBrand($query);
-            $query = $this->filterByCategory($query);
-            $query = $this->filterByCondition($query);
-            $query = $this->filterByPrice($query);
-            $query = $this->sort($query);
-            return $query;
-            }
+        $query = $this->search($query);
+        $query = $this->filterByBrand($query);
+        $query = $this->filterByCondition($query);
+        $query = $this->filterByCategory($query);
+        $query = $this->filterByPrice($query);
+        $query = $this->sort($query);
+        return $query;
+    }
 
     private function sort(Builder $query)
     {
@@ -75,6 +77,7 @@ class ProductFilterForm extends FormRequest
         return $query;
     }
 
+
     /**
      * @param Builder $query
      * @return Builder
@@ -82,7 +85,7 @@ class ProductFilterForm extends FormRequest
     private function filterByCategory(Builder $query)
     {
         if ($this->categories) {
-            $query = $query->whereIn('category_id', $this->categories);
+            $query = $query->whereIn('subcategory_id', $this->categories);
         }
         return $query;
     }
@@ -94,7 +97,7 @@ class ProductFilterForm extends FormRequest
     private function filterByCondition(Builder $query)
     {
         if ($this->conditions) {
-            $query = $query->whereIn('condition_id', $this->cconditiond);
+            $query = $query->whereIn('condition_id', $this->conditions);
         }
         return $query;
     }
@@ -133,4 +136,4 @@ class ProductFilterForm extends FormRequest
         return $query;
     }
 
- }
+}

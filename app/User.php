@@ -1,13 +1,15 @@
 <?php
-
 namespace App;
-
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements HasMedia
 {
-    use Notifiable;
+    use Notifiable, HasMediaTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -27,10 +29,47 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = ['avatar', 'avatar_original'];
+
+    public function getAvatarAttribute()
+    {
+        return $this->avatar();
+    }
+
+
+    public function avatar(){
+        if( $this->getFirstMedia()){
+            return $this->getFirstMedia()->getUrl('avatar');
+        }
+    }
+
+    public function avatarOriginal(){
+        if( $this->getFirstMedia()){
+            return $this->getFirstMedia()->getUrl('original');
+        }
+    }
+
+    public function registerMediaConversions(Media $media = null){
+
+        $this->addMediaConversion('avatar')
+            ->fit('fill', 120, 120);
+        $this->addMediaConversion('original')
+            ->fit('fill', 240, 240);
+
+
+    }
     /*
      * This function defines a relationship between a user and the wish list
      */
+
     public function wishList(){
         return $this->hasMany(WishList::class,'user_id');
     }
+
+    public function cart(){
+
+        return $this->hasMany(Cart::class);
+    }
+
+
 }

@@ -38,3 +38,10 @@ Route::get('/view/wish list','ProductsController@viewWishList');
 Route::get('add/','CartController@index');
 Route::post('add/cart','CartController@store');
 Route::get('remove/cart/{id}','CartController@destroy');
+
+// User Profile Route
+
+Route::resource('profile', 'ProfileController');
+Route::patch('profile/update/details', 'ProfileController@update');
+Route::patch('profile/update/password', 'ProfileController@updatePassword');
+Route::patch('profile/update/picture', 'ProfileController@updateProfile');
