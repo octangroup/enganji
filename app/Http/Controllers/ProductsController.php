@@ -20,33 +20,6 @@ class ProductsController extends Controller
 
 
 
-//    public function index()
-//    {
-//        $conditions = Condition::get();
-//        $categories = Category::get();
-//        $subcategories = SubCategory::get();
-//        $brands = Brand::get();
-//        $currencies = Currency::get();
-//        $products = Product::get();
-//        return view('home', compact('conditions','subcategories','brands','currencies','products', 'categories'));
-//    }
-
-    /*
-     * function to search product according to the keyword which will be input
-     */
-
-//    public function search(Request $request){
-//
-//        $keyword = $request->keyword;
-//        $conditions = Condition::get();
-//        $categories = Category::get();
-//        $subcategories = SubCategory::get();
-//        $brands = Brand::get();
-//        $currencies = Currency::get();
-//        $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
-//        return view('product.index', compact('products', 'keyword', 'conditions', 'subcategories', 'brands', 'currencies', 'categories'));
-//    }
-
     public function index(ProductFilterForm $filterForm, $category_name, $category_id, $subcategory_name = null, $subcategory_id = null)
     {
         $query = Product::query();
@@ -83,25 +56,30 @@ class ProductsController extends Controller
     {
         $categories=Category::get();
         $query = Product::query();
-        $query = $query->whereIsActive();
+      // $query = $query->isActive();
         $brands = $this->findBrands($query);
+        $category = $this->findCategories($query);
         $conditions = $this->findConditions($query);
         $query = $filterForm->handle($query);
-        $products = $query->with('currency', 'brand', 'affiliate')->get();
+        $products = $query->with('currency','condition', 'brand','subcategory', 'affiliate')->get();
         $attributes = $filterForm;
         $keyword = $filterForm->keyword;
-        return view('product.index', compact('products', 'brands','conditions', 'attributes','categories', 'keyword'));
+        return view('product.index', compact('products', 'brands','conditions','category', 'attributes','categories', 'keyword'));
     }
 
-
-
-//function to each product that is clicked on
+    /*
+     * function to each product that is clicked on
+     */
     public function show($id)
     {
 
         $product = Product::with('affiliate','reviews.user')->findorfail($id);
         return view('product.view', compact('product'));
     }
+
+    /*
+     *  the function which is in charge of retrieving products which belongs to a certain brand
+     */
 
     private function findBrands($query)
     {
@@ -115,9 +93,31 @@ class ProductsController extends Controller
         return $brands;
     }
 
+    /*
+     *  the function which is in charge of retrieving products which belongs to a certain category
+     */
+
+
+    private function findCategories($query)
+    {
+        $products = $query->get()->groupBy('category_id');
+        $categories = collect();
+        foreach ($products as $product){
+            if($product->first() && $product->first()->subcategory){
+                $categories->push($product->first()->subcategory);
+            }
+        }
+        return $categories;
+    }
+
+    /*
+     *  the function which is in charge of retrieving products which belongs to a certain condition
+     */
+
+
     private function findConditions($query)
     {
-        $products = $query->get()->groupBy('brand_id');
+        $products = $query->get()->groupBy('condition_id');
         $conditions = collect();
         foreach ($products as $product){
             if($product->first() && $product->first()->condition){
