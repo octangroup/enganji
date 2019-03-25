@@ -89,7 +89,7 @@
 
 
     <div class="w-60 mx-auto">
-        <form method="GET" action="{{action('ProductsController@search')}}">
+        <form method="GET" action="{{action('ProductsController@index')}}">
             <input type="text" name="keyword" class="form-control">
             <button type="submit">search</button>
         </form>
