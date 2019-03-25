@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Product;
+use Carbon\Carbon;
+
 
 class HomeController extends Controller
 {
@@ -24,6 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $today_products = Product::whereDate('created_at', '=',Carbon::now())->count();
+        $last_week_products = Product::whereDate('created_at', '>=', Carbon::now()->subWeek()->startOfWeek())
+            ->whereDate('created_at','<=', Carbon::now()->subWeek()->endOfWeek())
+            ->count();
+        $this_week = Product::whereDate('created_at', '=', Carbon::now()->startOfWeek())->count();
+
+        $chart = new Echart();
+
+
+        return view('admin.home', compact('today_products','last_week_products', 'this_week'));
     }
 }
