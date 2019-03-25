@@ -87,5 +87,16 @@ class Product extends Model implements HasMedia
         return $query->where('status',1);
     }
 
+    public function visits(){
+        return $this->hasMany(Visits::class,'product_id');
+    }
+
+
+    public function incrementVisits(){
+        $this->visits()->create();
+
+    }
+
+
 
 }

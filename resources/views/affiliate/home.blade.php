@@ -37,8 +37,33 @@
                     </div>
 
 
+                    {{--<div class="flex-30 rounded-ma mx-3 px-3 py-3 bg-white border-none has-text-centered border-solid shadow">--}}
+                        {{--<div class="text-centered">--}}
+                            {{--{{__('Visits')}}<br>--}}
+                        {{--</div>--}}
+
+
+                        {{--<div class="text-centered">--}}
+                            {{--{{$product_visits->visits->count()}}--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+
+                </div>
+
+
+
+
+
+
                 </div>
             </div>
+
+
+        <div class="mt-6 w-50 ml-5">
+            {!! $chart->container() !!}
+        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+        {!! $chart->script() !!}
 
 </div>
 </div>

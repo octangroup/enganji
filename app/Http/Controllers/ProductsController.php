@@ -74,6 +74,7 @@ class ProductsController extends Controller
     {
 
         $product = Product::with('affiliate','reviews.user')->findorfail($id);
+        $product->incrementVisits();
         return view('product.view', compact('product'));
     }
 

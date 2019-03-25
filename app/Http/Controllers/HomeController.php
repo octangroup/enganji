@@ -31,6 +31,7 @@ class HomeController extends Controller
 //function to each product that is clicked on
     public function show($id){
         $product=Product::with('affiliate')->findorfail($id);
+//        $product->incrementVisits();
         return view('product.view',compact('product'));
     }
 }
