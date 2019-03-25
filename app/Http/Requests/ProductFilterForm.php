@@ -27,6 +27,8 @@ class ProductFilterForm extends FormRequest
         return [
             'brands' => 'nullable',
             'brands.*' => 'nullable|int',
+            'categories' => 'nullable',
+            'categories.*'=>'nullable|int',
             'min' => 'nullable|required_with:max',
             'max' => 'nullable|required_with:min',
             'conditions' => 'nullable',
@@ -41,6 +43,7 @@ class ProductFilterForm extends FormRequest
         $query = $this->search($query);
         $query = $this->filterByBrand($query);
         $query = $this->filterByCondition($query);
+        $query = $this->filterByCategory($query);
         $query = $this->filterByPrice($query);
         $query = $this->sort($query);
         return $query;
@@ -79,10 +82,22 @@ class ProductFilterForm extends FormRequest
      * @param Builder $query
      * @return Builder
      */
+    private function filterByCategory(Builder $query)
+    {
+        if ($this->categories) {
+            $query = $query->whereIn('subcategory_id', $this->categories);
+        }
+        return $query;
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
     private function filterByCondition(Builder $query)
     {
         if ($this->conditions) {
-            $query = $query->whereIn('condition_id', $this->cconditiond);
+            $query = $query->whereIn('condition_id', $this->conditions);
         }
         return $query;
     }
