@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use Carbon\Carbon;
+use App\Charts\Echarts;
 
 
 class HomeController extends Controller
@@ -33,9 +34,11 @@ class HomeController extends Controller
             ->count();
         $this_week = Product::whereDate('created_at', '=', Carbon::now()->startOfWeek())->count();
 
-        $chart = new Echart();
+        $chart = new Echarts();
+        $chart->labels(['Last Week', 'Today', 'This Week']);
+        $chart->dataset('product chart view','line',[$last_week_products,$today_products,$this_week]);
+        $chart->loaderColor('#0d3659');
 
-
-        return view('admin.home', compact('today_products','last_week_products', 'this_week'));
+        return view('admin.home', compact('today_products','last_week_products', 'this_week','chart'));
     }
 }

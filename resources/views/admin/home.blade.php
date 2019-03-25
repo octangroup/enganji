@@ -9,13 +9,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Admin Dashboard</div>
 
-                {{$today_products}}
-                {{$last_week_products}}
-                {{$this_week}}
+            {!! $chart->container() !!}
             </div>
         </div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+
+{!! $chart->script() !!}
 
 
 @endsection
