@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Affiliate;
+use App\Events\Admin\ActivateAffiliate;
+use App\Notifications\ActivateAffiliateNotification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -32,9 +34,11 @@ class AffiliatesController extends Controller
         if(!$affiliate->is_Active()){
             $affiliate->activate();
             Session::flash('message','Affiliate has been activated');
+            event(new ActivateAffiliate($affiliate));
             return back();
         }
         $affiliate->deactivate();
+        event(new ActivateAffiliate($affiliate));
         Session::flash('message','Affiliate has been Banned');
         return back();
     }

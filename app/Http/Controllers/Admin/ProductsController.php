@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\Admin\ProductApproved;
+use App\Notifications\ProductApprovedNotification;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,6 +30,7 @@ class ProductsController extends Controller
 
         if(!$product->isActive()){
             $product->activate();
+            event(new ProductApproved($product));
            Session::flash('success', 'The Product has been activated');
             return back();
         }
