@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Affiliate;
 
 use App\Affiliate;
 use App\Http\Controllers\Controller;
+use App\Product;
 use Illuminate\Http\Request;
 use Auth;
+
 
 class HomeController extends Controller
 {
@@ -27,8 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $affiliate=Auth::guard('affiliate')->user();
-//        dd($affiliate->check_subscription());
-
-        return view('affiliate.home',compact('affiliate'));
+        $products=$affiliate->product()->WhereActivated()->get();
+        return view('affiliate.home',compact('affiliate','products'));
     }
 }
