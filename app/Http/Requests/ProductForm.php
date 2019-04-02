@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Events\Affiliate\ProductUploaded;
 use App\Product;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +44,8 @@ class ProductForm extends FormRequest
     {
         $product = new Product();
         $product->affiliate_id = Auth::guard('affiliate')->user()->id;
-        return $this->store($product);
+        $this->store($product);
+        event(new ProductUploaded($product));
 
     }
     public function update($id){
