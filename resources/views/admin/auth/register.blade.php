@@ -60,6 +60,20 @@
                             </div>
                         </div>
 
+
+
+                            <div class="col-md-6">
+                                @if(count($roles))
+                                    @foreach($roles as $role)
+                                        <p><label class="checkcontainer"> {{$role->name}}
+                                                <input type="checkbox"name="roles[]" value="{{$role->id}}">
+                                                <span class="checkmark"></span>
+                                            </label></p>
+                                    @endforeach
+                                @endif
+                            </div>
+
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

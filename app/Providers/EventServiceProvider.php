@@ -22,6 +22,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Admin\ActivateAffiliate' => [
             'App\Listeners\Admin\ActivateAffiliateListener',
         ],
+        'Illuminate\Auth\Events\Registered' => [
+            'App\Listeners\UserCreatedListener',
+        ],
     ];
 
     /**

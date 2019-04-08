@@ -112,3 +112,12 @@ $factory->define(\App\Cart::class, function (Faker $faker) {
     ];
 });
 
+/*
+ * factory of condition's class
+ */
+$factory->define(\App\Role::class, function (Faker $faker){
+    return [
+        'name'=> $faker->name,
+        'slug'=>$faker->slug,
+    ];
+});

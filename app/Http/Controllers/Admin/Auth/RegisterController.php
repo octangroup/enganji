@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Admin;
 use App\Http\Controllers\Controller;
+use App\Role;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -29,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -38,7 +41,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin.guest');
+        $this->middleware('admin.auth');
     }
 
     /**
@@ -64,16 +67,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Admin::create([
+        $new_admin =  Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        foreach ($data['roles'] as $role) {
+            $new_admin->roles()->attach($role);
+        }
+        return $new_admin;
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+       return back();
     }
 
     public function showRegistrationForm()
     {
-        return view('admin.auth.register');
+        $roles = Role::get();
+        return view('admin.auth.register',compact('roles'));
     }
 
     protected function guard()

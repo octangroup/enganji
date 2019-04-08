@@ -70,6 +70,26 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::middleware(['admin.auth'])->group(function(){
 
 
+        /*
+         * Roles' routes
+         */
+
+     Route::post('role/store','RolesController@store');
+     Route::get('roles/index','RolesController@index');
+     Route::post('role/update/{id}','RolesController@update');
+     Route::get('role/delete/{id}','RolesController@delete');
+
+     /*
+      * Admin management's routes
+      */
+        Route::get('admins/index','AdminsController@index');
+        Route::post('admin/change_status/{id}','AdminsController@changeStatus');
+        Route::get('admins/delete/role/{admin_id}/{role_id}','AdminsController@deleteRole');
+        Route::post('admins/add/role/{admin_id}','AdminsController@addRole');
+
+
+
         Route::get('home', 'HomeController@index');
+
     });
 });
