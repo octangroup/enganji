@@ -18,16 +18,13 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-5">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">{{__('Currency')}}</div>
-                                </div>
-                                <input type="text" name="name" class="form-control">
 
-                            </div>
+                            <label>Name</label>
+                            <input class="form-control" name="name" type="text">
+
                         </div>
+                        <button class="btn btn-success mt-4">{{__('save')}}</button>
                     </div>
-                    <button class="btn btn-success mt-3">Save</button>
                 </form>
             </div><br>
 
@@ -51,19 +48,15 @@
                         <form action="{{action('Admin\CurrencyController@update',[$currency->id])}}" method="post">
                             {{csrf_field()}}
                             @method('put')
-                            <div class="row mt-2">
+                            <div class="row">
                                 <div class="col-md-5">
 
-                                    <div class="input-group">
-                                        <input type="text" name="name" class="form-control" value="{{$currency->name}}">
-                                    </div>
+                                    <input class="form-control" name="name" type="text" value="{{$currency->name}}">
 
-                                    <button class="btn btn-success mt-2">Save</button>
                                 </div>
-
-
-
+                                <button class="btn btn-success mt-4">{{__('save')}}</button>
                             </div>
+
 
                         </form>
                     </div>

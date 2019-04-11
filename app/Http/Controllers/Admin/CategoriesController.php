@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\CategoryForm;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
@@ -42,11 +42,17 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $category)
+    public function store(CategoryForm $category)
     {
        $category->createCategory();
         Session::flash('message','Category Uploaded');
         return back();
+    }
+
+    public function search(Request $request){
+        $keyword = $request->keyword;
+        $categories = Category::where('name','like','%'.$keyword.'%')->get();
+        return view('admin.categories.index', compact('categories','keyword'));
     }
 
     /**
@@ -78,10 +84,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $form, Category $category )
+    public function update(CategoryForm $form, $id)
     {
-        //
-        $form->update($category);
+        $form->update($id);
         Session::flash('message','Category Updated');
         return back();
     }

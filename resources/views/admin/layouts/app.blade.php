@@ -16,7 +16,6 @@
     <link href="{{asset('css/helpers.css')}}" rel="stylesheet">
     <link href="{{asset('css/desktop.css')}}" rel="stylesheet">
     <link href="{{asset('css/mobile.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
 </head>
 <body>
