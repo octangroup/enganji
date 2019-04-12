@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'ProductsController@index');
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
