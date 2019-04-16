@@ -25,6 +25,12 @@ class AffiliatesController extends Controller
         return view('admin.affiliates.index')->with('affiliates', $affiliates);
     }
 
+    public function search(Request $request){
+        $keyword = $request->keyword;
+        $affiliates = Affiliate::where('name','like','%'.$keyword.'%')->get();
+        return view('admin.affiliates.index', compact('affiliates','keyword'));
+    }
+
     /*
      * This function is in charge of changing the status of an affiliate
      */

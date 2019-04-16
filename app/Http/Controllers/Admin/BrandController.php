@@ -54,6 +54,12 @@ class BrandController extends Controller
         return redirect()->back();
     }
 
+    public function search(Request $request){
+        $keyword = $request->keword;
+        $brands = Brand::where('name','like','%'.$keyword.'%')->get();
+        return view('admin.brands.index', compact('brands','keyword'));
+    }
+
     /**
      * Display the specified resource.
      *

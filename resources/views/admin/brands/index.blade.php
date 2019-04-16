@@ -13,6 +13,13 @@
                 <button data-toggle="#add-brand-form" class="btn btn-primary toggler">{{__('Add')}}</button>
             </div>
 
+            <div class="w-60 mx-auto">
+                <form method="GET" action="{{action('Admin\BrandController@search')}}">
+                    <input type="text" name="keyword" class="form-control">
+                    <button type="submit">search</button>
+                </form>
+            </div>
+
 
             <div id="add-brand-form" class="card-body hidden-temp">
                 <form action="{{action('Admin\BrandController@store')}}" method="post">

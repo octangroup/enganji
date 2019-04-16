@@ -6,7 +6,7 @@ use App\Category;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CategoryRequest extends FormRequest
+class CategoryForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

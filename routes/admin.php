@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('categories', 'CategoriesController');
     Route::post('categories/update/{id}','CategoriesController@update');
     Route::get('category/delete/{id}','CategoriesController@destroy');
+    Route::get('category/search','CategoriesController@search');
 
     /*
      * sub categories routes
@@ -54,6 +55,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::resource('brand','BrandController');
     Route::get('brand/delete/{id}','BrandController@destroy');
+    Route::get('search/brands','BrandController@search');
 
 
     /*
@@ -61,6 +63,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
      */
     Route::get('affiliates/index','AffiliatesController@index');
     Route::get('affiliate/change/status/{id}','AffiliatesController@changeStatus');
+    Route::get('affiliates/search', 'AffiliatesController@search');
 
     /*
      * Products in admin side's route
