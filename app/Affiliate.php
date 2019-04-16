@@ -53,4 +53,9 @@ class Affiliate extends Authenticatable
         $this->status=false;
         $this->save();
     }
+    public function conversation(){
+        return $this->hasMany(Conversation::class,'affiliate_id');
+    }
+
+
 }

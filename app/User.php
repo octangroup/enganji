@@ -43,7 +43,7 @@ class User extends Authenticatable implements HasMedia
         }
     }
 
-    public function avatarOriginal(){
+    public function getAvatarOriginalAttribute(){
         if( $this->getFirstMedia()){
             return $this->getFirstMedia()->getUrl('original');
         }
@@ -70,6 +70,11 @@ class User extends Authenticatable implements HasMedia
 
         return $this->hasMany(Cart::class);
     }
+
+    public function conversations(){
+        return $this->hasMany(Conversation::class,'user_id');
+    }
+
 
 
 }

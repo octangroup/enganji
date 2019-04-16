@@ -18,6 +18,11 @@
     <link href="{{asset('css/mobile.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
+
+    <!-- Script -->
+
+
+
 </head>
 <body>
     <div id="app">

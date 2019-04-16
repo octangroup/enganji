@@ -22,8 +22,8 @@ class ProductsController extends Controller
 
     public function index(ProductFilterForm $filterForm, $category_name, $category_id, $subcategory_name = null, $subcategory_id = null)
     {
-        $query = Product::query();
-//        if ($subcategory_id) {
+       $query = Product::query();
+//       if ($subcategory_id) {
 //            $selected_subcategory = Subcategory::whereHas('category')->findOrFail($subcategory_id);
 //            $category = $selected_subcategory->category;
 //
@@ -38,13 +38,14 @@ class ProductsController extends Controller
 //            });
 //        }
 //        $query = $query->whereIsActive();
+
         $brands = $this->findBrands($query);
         $conditions = $this->findConditions($query);
         $query = $filterForm->handle($query);
         $products = $query->with('currency', 'brand', 'affiliate')->get();
         $attributes = $filterForm;
         $categories = Category::get()->take(8);
-        return view('product.index', compact('products', 'brands','conditions', 'category', 'selected_subcategory', 'attributes','categories'));
+        return view('product.index', compact('products', 'brands','conditions', 'attributes','categories'));
     }
 
 
@@ -54,9 +55,10 @@ class ProductsController extends Controller
      */
     public function search(ProductFilterForm $filterForm)
     {
+        // $query = $query->isActive();
+
         $categories=Category::get();
         $query = Product::query();
-      // $query = $query->isActive();
         $brands = $this->findBrands($query);
         $category = $this->findCategories($query);
         $conditions = $this->findConditions($query);

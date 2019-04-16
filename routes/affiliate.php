@@ -12,7 +12,6 @@
 */
 
 
-
 Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () {
     Route::get('/', 'Auth\LoginController@showLoginForm');
     Route::post('login', 'Auth\LoginController@login')->name('affiliate.login');
@@ -25,7 +24,7 @@ Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () 
      */
 
     Route::resource('product', 'ProductsController');
-    Route::get('product/delete/{id}','ProductsController@destroy');
+    Route::get('product/delete/{id}', 'ProductsController@destroy');
     Route::get('search', 'ProductsController@search');
     Route::get('filter', 'ProductsController@filter');
 
@@ -34,14 +33,22 @@ Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () 
      * Deals' Routes
      */
 
-    Route::get('deals/page','DealsController@index');
-    Route::get('deals/page/{id}','DealsController@view');
-    Route::post('deal/store','DealsController@store');
-    Route::post('deal/update/{id}','DealsController@update');
-    Route::get('deal/delete/{id}','DealsController@delete');
+    Route::get('deals/page', 'DealsController@index');
+    Route::get('deals/page/{id}', 'DealsController@view');
+    Route::post('deal/store', 'DealsController@store');
+    Route::post('deal/update/{id}', 'DealsController@update');
+    Route::get('deal/delete/{id}', 'DealsController@delete');
+
+    /*
+     * Message Routes
+    */
+    Route::get('message/index', 'ChatsController@index');
+    Route::get('fetch/conversations', 'ChatsController@fetchConversations');
+    Route::post('send/message', 'ChatsController@send');
+    Route::get('fetch/messages', 'ChatsController@fetchMessages');
 
 
-    Route::middleware(['affiliate.auth'])->group(function(){
+    Route::middleware(['affiliate.auth'])->group(function () {
 
 
         Route::get('home', 'HomeController@index');
