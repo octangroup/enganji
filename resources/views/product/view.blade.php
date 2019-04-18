@@ -77,7 +77,6 @@
         <div>
             <div class="row">
 
-
                     <input type="text" name="title" placeholder="title"
                            class="form-control mx-auto w-40 mb-3 mt-5">
 

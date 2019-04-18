@@ -1,48 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-
-    @foreach($carts as $cart)
-
-        <div class="panel-body p-0">
-
-            <div class=" w-65 h-48 bg-white mb-3 shadow is-centered p-0">
-                <div class="is-flex">
-                    <div class="w-30 h-48">
-
-                        <img src="" class="clip-full">
-                    </div>
-                    <div class="w-50 h-48 p-3">
-                        <h2 class="text-xl m-0">{{$cart->product->name}}</h2>
-                        <p class="text-xl m-0 pt-2">{{$cart->product->condition->name}}</p>
-                        <div class="is-flex">
-                            <div class="w-50">
-
-
-                                <input value="" type="hidden" name="product_id">
-
+    <div class="w-100 bg-white-smoke p-2">
+        <div class="w-90 mx-auto">
+            <h1 class="text-3xl pl-2">SHOPPING CART</h1>
+            <div class="w-100 flex">
+                @foreach($carts as $cart)
+                <div class="w-65 relative mx-2">
+                    <div class="w-100 border-ful bg-white p-3">
+                        <div class="flex">
+                            <div class="w-30 pl-5 pr-3 ">
+                                <a href="{{action('ProductsController@show',[$cart->product->id])}}"> <img src="{{asset($cart->product->thumbnail())}}" class="clip-full"></a>
                             </div>
-                            <p class="text-xl m-0 pt-2 w-50 my-auto">
-                       <span
-                               class="has-text-black text-xl">Price: </span> {{$cart->product->price}}
-                            </p>
+                            <div class="w-70 text-sm">
+                                <!--small summary about the product-->
+                                <div>
+                                    <p class="line-height-small">{{$cart->product->name}}</p>
+                                </div>
+                                <!--end of summary-->
+                                <div class="line-height-small pt-3">
+                                    <p>Size: {{$cart->product->size}} </p>
+                                    <p>Quantity: <input class="w-10" type="text"> {{$cart->product->quantity}} </p>
+                                    <p class="font-bold text-red">Price : {{$cart->product->price}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="w-20  h-48 p-3 has-text-right">
-                        <p class="text text-red-light m-0 ">
-                            <a href="{{action('CartController@destroy',[$cart->id])}}">
-                                Remove
-                            </a></p>
-
+                    @endforeach
+                    <div class="w-35 mx-3 relative ">
+                        <div class="w-100 p-3 bg-white border-ful">
+                            <div class="p-2">
+                                <span class="font-bold">Price Details</span>
+                                <p>Item : &emsp;{{$cart->product->count()}}</p>
+                                <p>Sub total : </p>
+                            </div>
+                            <div class="w-95 border-top mx-auto mt-1"></div>
+                        </div>
                     </div>
-
                 </div>
             </div>
-
-
-
         </div>
-
-
-    @endforeach
+    </div>
+   --}}
 @endsection

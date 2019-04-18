@@ -91,13 +91,6 @@
 @section('content')
 
 
-    <div class="w-60 mx-auto">
-        <form method="GET" action="{{action('ProductsController@index')}}">
-            <input type="text" name="keyword" class="form-control">
-            <button type="submit">search</button>
-        </form>
-    </div><br>
-
     <div class="container">
         @if($products && count($products))
             @foreach($products as $product)

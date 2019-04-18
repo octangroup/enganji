@@ -1,13 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-    <div class="w-60 mx-auto">
-    <form method="GET" action="{{action('ProductsController@search')}}">
-    <input type="text" name="keyword" class="form-control">
-    <button type="submit">search</button>
-    </form>
-    </div>
-
     <div class="card-body">
     <form method="GET" action="{{action('ProductsController@search')}}">
     <div class="my-2">

@@ -1955,7 +1955,7 @@
   }
 
   .md\:bg-primary {
-    background-color: #1b6d85 !important;
+    background-color: #292929 !important;
   }
 
   .md\:btn-round {
@@ -1968,13 +1968,13 @@
 
   .md\:btn-outline-primary {
     background: white;
-    border-color: #1b6d85;
-    color: #1b6d85;
+    border-color: #292929;
+    color: #292929;
   }
 
   .md\:btn-primary {
-    background: #1b6d85;
-    border-color: #1b6d85;
+    background: #292929;
+    border-color: #292929;
     color: white;
   }
 

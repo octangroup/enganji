@@ -1968,7 +1968,7 @@
   }
 
   .lg\:bg-primary {
-    background-color: #1b6d85 !important;
+    background-color: #292929 !important;
   }
 
   .lg\:btn-round {
@@ -1989,12 +1989,12 @@
 
   .lg\:btn-outline-primary {
     background: white;
-    border-color: #1b6d85;
-    color: #1b6d85;
+    border-color: #292929;
+    color: #292929;
   }
 
   .lg\:text-primary {
-    color: #1b6d85 !important;
+    color: #292929 !important;
   }
 
   .lg\:text-white {
@@ -2002,8 +2002,8 @@
   }
 
   .lg\:btn-primary {
-    background: #1b6d85;
-    border-color: #1b6d85;
+    background: #292929;
+    border-color: #292929;
     color: white;
   }
 
@@ -4187,7 +4187,7 @@
 
   .swoosh-home {
     background: url("../img/Asset 2.svg ") no-repeat, url("../img/Asset 1.svg") no-repeat;
-    background-position: left -10%, 110% 45%;
+    background-position: left -11%, 110% 160%;
     background-size: 25% 300px, 53% 730px;
   }
 
@@ -4404,7 +4404,7 @@
   }
 
   .xl\:bg-primary {
-    background-color: #1b6d85 !important;
+    background-color: #292929 !important;
   }
 
   .xl\:btn-round {
@@ -4417,13 +4417,13 @@
 
   .xl\:btn-outline-primary {
     background: white;
-    border-color: #1b6d85;
-    color: #1b6d85;
+    border-color: #292929;
+    color: #292929;
   }
 
   .xl\:btn-primary {
-    background: #1b6d85;
-    border-color: #1b6d85;
+    background: #292929;
+    border-color: #292929;
     color: white;
   }
 

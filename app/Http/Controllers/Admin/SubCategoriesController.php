@@ -16,7 +16,6 @@ class SubCategoriesController extends Controller
     public function index()
     {
         //
-
     }
 
     /**

@@ -1904,8 +1904,8 @@ textarea {
 
   .sm\:btn-outline-primary {
     background: white;
-    border-color: #1b6d85;
-    color: #1b6d85;
+    border-color: #292929;
+    color: #292929;
   }
 
   .swoosh-home {
@@ -2350,7 +2350,7 @@ textarea {
   }
 
   .sm\:bg-primary {
-    background-color: #1b6d85 !important;
+    background-color: #292929 !important;
   }
 
   .sm\:bg-white {
@@ -4699,8 +4699,8 @@ textarea {
 
   .xs\:btn-outline-primary {
     background: white;
-    border-color: #1b6d85;
-    color: #1b6d85;
+    border-color: #292929;
+    color: #292929;
   }
 
   .swoosh-home {
@@ -5145,7 +5145,7 @@ textarea {
   }
 
   .xs\:bg-primary {
-    background-color: #1b6d85 !important;
+    background-color: #292929 !important;
   }
 
   .xs\:bg-white {

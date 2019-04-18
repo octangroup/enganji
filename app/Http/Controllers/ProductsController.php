@@ -73,9 +73,26 @@ class ProductsController extends Controller
     public function show($id)
     {
 
-        $product = Product::with('affiliate','reviews.user')->findorfail($id);
-        $product->incrementVisits();
-        return view('product.view', compact('product'));
+        $product = Product::with(
+            'affiliate',
+            'currency',
+            'reviews.user'
+        )->with(
+            ['subcategory.category.products' => function ($q) {
+                $q->whereActive();
+            }],
+            ['subcategory.products' => function ($q) {
+                $q->whereActive();
+            }]
+        )
+            ->findOrFail($id);
+        $medias = collect();
+        $thumbnails = collect();
+        foreach ($product->getMedia() as $media) {
+            $medias->push($media->getFullUrl('main'));
+            $thumbnails->push($media->getFullUrl('thumb'));
+        }
+        return view('product.view', compact('product', 'medias', 'thumbnails'));
     }
 
     /*
