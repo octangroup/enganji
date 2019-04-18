@@ -16,6 +16,18 @@
     <link rel="stylesheet" href="css/tablet.css">
     <link rel="stylesheet" href="css/fonts/_flaticon.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css/helpers.css')}}" rel="stylesheet">
+    <link href="{{asset('css/desktop.css')}}" rel="stylesheet">
+    <link href="{{asset('css/mobile.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
+
+    <!-- Script -->
+
+
+
 </head>
 <body>
     <div id="app">
@@ -119,7 +131,6 @@
         </nav>
 
         @yield('content')
-        @include('layouts.inc.footer')
     </div>
 
     <!-- Scripts -->

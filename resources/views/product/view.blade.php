@@ -4,6 +4,12 @@
     {{--<div class="panel-body">--}}
         {{--<div class="is-flex">--}}
             {{--<div class="w-40">--}}
+    <chat @guest :is_guest="true" @endif
+     :product="{{$product}}"
+    >
+
+    </chat>
+
     <div class="panel-body">
         <div class="is-flex">
             <div class="w-40">
@@ -167,3 +173,9 @@
     @endforeach
 
 @endsection
+<script>
+    import ChatPopUp from "../../js/components/chatPopUp";
+    export default {
+        components: {ChatPopUp}
+    }
+</script>
