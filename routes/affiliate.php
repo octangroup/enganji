@@ -27,6 +27,7 @@ Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () 
     Route::get('product/delete/{id}', 'ProductsController@destroy');
     Route::get('search', 'ProductsController@search');
     Route::get('filter', 'ProductsController@filter');
+    Route::get('products/show/{id}', 'ProductsController@show');
 
 
     /*

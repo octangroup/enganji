@@ -20,6 +20,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('register', 'Auth\RegisterController@showRegistrationForm');
     Route::post('register', 'Auth\RegisterController@register')->name('admin.register');
 
+
+    // Ads Controller
+
+    Route::resource('ads','AdsController');
+    Route::get('ads/delete/{id}','AdsController@destroy');
+    Route::get('search/ads','AdsController@search');
+
     /*
      * Categories routes
      */

@@ -31,7 +31,7 @@ class ProductsController extends Controller
         $brands = Brand::get();
         $currencies = Currency::get();
         $products = Product::get();
-        return view('affiliate.components.index', compact('conditions','subcategories','brands','currencies','products', 'categories'));
+        return view('affiliate.product.index', compact('conditions','subcategories','brands','currencies','products', 'categories'));
 
     }
 
@@ -48,7 +48,7 @@ class ProductsController extends Controller
         $brands = Brand::get();
         $currencies = Currency::get();
         $products = Product::get();
-        return view('affiliate.components.create', compact('products','subcategories','brands','currencies','conditions'));
+        return view('affiliate.product.create', compact('products','subcategories','brands','currencies','conditions'));
     }
 
     /**
@@ -73,7 +73,7 @@ class ProductsController extends Controller
         $brands = Brand::get();
         $currencies = Currency::get();
         $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
-        return view('affiliate.components.index', compact('products', 'keyword', 'conditions', 'subcategories', 'brands', 'currencies', 'categories'));
+        return view('affiliate.product.index', compact('products', 'keyword', 'conditions', 'subcategories', 'brands', 'currencies', 'categories'));
     }
 
     public function filter(Request $request){  // function which will filter according to the brand, categories, price and condition of product
@@ -122,7 +122,7 @@ class ProductsController extends Controller
         }
             $products = $query->get();
 
-        return view('affiliate.components.index', compact('products','brands', 'conditions', 'categories'));
+        return view('affiliate.product.index', compact('products','brands', 'conditions', 'categories'));
 
     }
 
@@ -134,7 +134,22 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::with(
+            'affiliate',
+            'currency',
+            'reviews.user'
+        )->forAffiliate()->findOrFail($id);
+        $medias = collect();
+        $thumbnails = collect();
+        foreach ($product->getMedia() as $media) {
+            $medias->push($media->getFullUrl('main'));
+            $thumbnails->push($media->getFullUrl('thumb'));
+        }
+        return view(
+            'affiliate.product.view',
+            compact('product', 'medias', 'thumbnails')
+        );
+
     }
 
     /**
@@ -151,7 +166,7 @@ class ProductsController extends Controller
         $brands = Brand::get();
         $currencies = Currency::get();
         $product = Product::findorfail($id);
-        return view('affiliate.components.edit', compact('product','conditions','subcategories','brands','currencies'));
+        return view('affiliate.product.edit', compact('product','conditions','subcategories','brands','currencies'));
     }
 
     /**
