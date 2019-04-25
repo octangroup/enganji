@@ -58,6 +58,7 @@
                             <li><a href="{{action('Admin\ConditionsController@index')}}">Manage Conditions</a></li>
                             <li><a href="{{action('Admin\CategoriesController@index')}}">Manage Categories</a></li>
                             <li><a href="{{action('Admin\RolesController@index')}}">Roles</a></li>
+                            <li><a href="{{action('Admin\AdsController@index')}}">Ads</a></li>
                             <li><a href="{{action('Admin\Auth\RegisterController@showRegistrationForm')}}">Add admin</a></li>
                             <li><a href="{{action('Admin\AdminsController@index')}}">Manage admins</a></li>
                             <li class="dropdown">

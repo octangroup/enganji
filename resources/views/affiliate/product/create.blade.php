@@ -8,7 +8,7 @@
                 <div id="mod-category" class="card-body">
                     <form enctype="multipart/form-data" method="POST" action="{{action('Affiliate\ProductsController@store')}}">
                         {{ csrf_field() }}
-                        @include('affiliate.components.Form.productForm')
+                        @include('form.productForm')
                     </form>
                 </div>
 

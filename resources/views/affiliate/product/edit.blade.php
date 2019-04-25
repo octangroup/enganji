@@ -9,7 +9,7 @@
                     <form enctype="multipart/form-data" method="POST" action="{{action('Affiliate\ProductsController@update',[$product->id])}}">
                         {{ csrf_field() }}
                         @method('PUT')
-                        @include('affiliate.components.Form.productForm')
+                        @include('form.productForm')
                     </form>
                 </div>
 

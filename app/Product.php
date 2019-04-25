@@ -4,6 +4,7 @@ namespace App;
 
 use App\Repository\MediaConversion;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
@@ -95,6 +96,14 @@ class Product extends Model implements HasMedia
     public function incrementVisits(){
         $this->visits()->create();
 
+    }
+
+    public function scopeForAffiliate($query, $affiliate = null)
+    {
+        if (!$affiliate) {
+            $affiliate = Auth::guard('affiliate')->user();
+        }
+        return $query->where('affiliate_id', $affiliate->id);
     }
 
 

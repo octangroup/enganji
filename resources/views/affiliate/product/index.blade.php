@@ -58,8 +58,9 @@
                     @foreach($products as $product)
                         <div class="py-4 px-2 bg-white border-1 border-solid border-grey-light rounded-lg">
                             <div class="flex">
-                                <div class="w-30">
-                                        <img class="w-100" src="{{$product->thumbnail()}}">
+                                <div class="flex-20">
+                                    <a href="{{action('Affiliate\ProductsController@show',[$product->id])}}"> <img
+                                                src="{{$product->thumbnail()}}" class="clip-full"></a>
                                 </div>
                                 <div class="w-50 pl-3">
                                     <h3>{!! $product->name !!}</h3>
