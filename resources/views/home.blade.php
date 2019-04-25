@@ -92,30 +92,101 @@
 
 
 
-    <div class="w-60 mx-auto">
-        <form method="GET" action="{{action('ProductsController@index')}}">
-            <input type="text" name="keyword" class="form-control">
-            <button type="submit">search</button>
-        </form>
-    </div><br>
+    {{--<div class="w-60 mx-auto">--}}
+        {{--<form method="GET" action="{{action('ProductsController@index')}}">--}}
+            {{--<input type="text" name="keyword" class="form-control">--}}
+            {{--<button type="submit">search</button>--}}
+        {{--</form>--}}
+    {{--</div><br>--}}
 
-    <div class="container">
+    <div class=" ">
+        <div class=" w-100">
+            <div class=" w-100  h-px-400 ">
+                <img src="{{asset('img/873620de-ee5b-47b8-a411-18aace61543b1552928480621-Mango_DesktopSlider.jpg')}}" class="clip-full">
+            </div>
+        </div>
         @if($products && count($products))
+            <div class="w-100 bg-white pt-3 pb-3">
+                <div class="w-90 xs:w-85 mx-auto">
+                    <p class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Top Deals</p>
+                </div>
+
+                <div class="flex w-90 mx-auto border-top border-bottom  p-2 relative whitespace-no-wrap overflow-hidden px-3">
             @foreach($products as $product)
-                <div class="py-4 px-2 bg-white border-1 border-solid border-grey-light rounded-lg">
-                    <div class="flex">
-                        <div class="w-30">
+
+                        <div class="w-25  border-right    rounded   ">
+                            <div class=" w-100 py-3 relative z-50 bg-white  px-3  ">
+
                             <a href="{{action('ProductsController@show',[$product->id,kebab_case($product->name)])}}">
-                                <img class="w-100" src="{{$product->thumbnail()}}">
+                                <img class="w-70" src="{{$product->thumbnail()}}">
                             </a>
                         </div>
-                        <div class="w-50 pl-3">
-                            <h3>{!! $product->name !!}</h3>
-                            <p class="my-2"><strong>Price: </strong>{{$product->price}}</p>
+                        <div class=" pt-3 z-50 relative bg-white  overflow-hidden  px-3 ">
+                            <h2 class="text-sm font-bold sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h2>
+                            <p class="text-lg xs:text-base md:text-sm lg:text-base mt-2 xs:mb-2">Price:{{$product->price}}</p>
+                        </div>
+                        </div>
+
+            @endforeach
+                </div>
+            </div>
+
+        @endif
+    @if($products && count($products))
+        <div class="w-100 bg-white-smoke pt-3 pb-3">
+            <div class="w-90 xs:w-85 mx-auto">
+                <p class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Trending Products</p>
+            </div>
+
+            <div class="flex w-90 pb-3 mx-auto pt-2  relative whitespace-no-wrap overflow-hidden px-3">
+                @foreach($products as $product)
+
+                    <div class="w-20 bg-white   mx-2 rounded  shadow">
+                        <div class=" w-100 text-center relative z-50 bg-white  px-2  ">
+
+                            <a href="{{action('ProductsController@show',[$product->id,kebab_case($product->name)])}}">
+                                <img class="w-70" src="{{$product->thumbnail()}}" >
+                            </a>
+                        </div>
+                        <div class="py-1  my-3 z-50 relative bg-white  overflow-hidden  px-3 ">
+                            <h2 class="text-sm font-bold sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h2>
+                            <p class="text-lg xs:text-base md:text-sm lg:text-base mt-2 xs:mb-2">{{$product->price}}</p>
                         </div>
                     </div>
+
+                @endforeach
+            </div>
+        </div>
+
+        @endif
+
+
+        @if($products && count($products))
+            <div class="w-100 bg-white pt-3 pb-3">
+                <div class="w-90 xs:w-85 mx-auto">
+                    <p class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Top Categories</p>
                 </div>
-            @endforeach
+
+                <div class="flex w-90 pb-3 mx-auto pt-3  relative whitespace-no-wrap overflow-hidden px-3">
+                    @foreach($products as $product)
+
+                        <div class="w-25  mx-3 rounded p-3 ">
+                            <div class=" w-100 py-3 relative z-50 bg-white  px-3  ">
+
+                                <a href="{{action('ProductsController@show',[$product->id,kebab_case($product->name)])}}">
+                                    <img class="w-70" src="{{$product->thumbnail()}}">
+                                </a>
+                            </div>
+                            <div class="py-1 pt-3 z-50 relative bg-white  overflow-hidden  px-3 ">
+                                <h2 class="text-sm font-bold sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h2>
+                                <p class="text-lg xs:text-base md:text-sm lg:text-base mt-2 xs:mb-2">{{$product->price}}</p>
+                            </div>
+                        </div>
+
+                    @endforeach
+                </div>
+            </div>
+
         @endif
 
     </div>
