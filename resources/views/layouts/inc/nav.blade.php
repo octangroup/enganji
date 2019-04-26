@@ -215,7 +215,7 @@
         <div class="w-25 text-center text-white">
             <ul class="list inline-block -mt-2 text-sm text-center">
 
-                <li class="mx-3"><a href="{{action('ProductsController@viewWishList')}}"
+                <li class="mx-3"><a href="{{action('WishListController@index')}}"
                                     class="cursor-pointer inherit-color">
                         Favorites<i class="fi flaticon-like-1 mx-1 text-red"></i>
                     </a></li>

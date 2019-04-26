@@ -263,10 +263,15 @@
                             <button class="bg-red border-0 text-white cursor-pointer hover:bg-primary px-3 py-2 ">Add Cart</button>
                         </div>
                     </div>
-                    <div class="mt-3">
-                         <p class="fi flaticon-menu"> Add to Favorite</p>
+                    <div class="inline-block xl:ml-4 relative">
+                        <form action="{{action('WishListController@add',[$product->id])}}" method="post">
+                            {{csrf_field()}}
+                            <button class="bg-transparent border-0 my-0 -mt-2"><i
+                                        class="fi flaticon-like-1 text-3xl text-grey float-left -mt-2"></i><span
+                                        class="pl-2 text-base xs:text-sm">Add to Favorites</span>
+                            </button>
+                        </form>
                     </div>
-
                     <div class="mt-3">
                         <p class="fi flaticon-menu"> Share</p>
                     </div>
