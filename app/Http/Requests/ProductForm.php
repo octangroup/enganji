@@ -44,8 +44,11 @@ class ProductForm extends FormRequest
     {
         $product = new Product();
         $product->affiliate_id = Auth::guard('affiliate')->user()->id;
-        $this->store($product);
+        $product->affiliate_id = true;
+        $product = $this->store($product);
         event(new ProductUploaded($product));
+
+        return $product;
 
     }
     public function update($id){
@@ -69,7 +72,7 @@ class ProductForm extends FormRequest
 
         $this->uploadPictures($product);
 
-        return true;
+        return $product;
     }
 
     private function uploadPictures(Product $product): void

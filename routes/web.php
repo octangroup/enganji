@@ -29,7 +29,7 @@ Route::post('review/{id}','ReviewController@store');
 
 
 //WishList's Route
-Route::post('/add/wish list/{id}','ProductsController@addToWishList');
+Route::post('/add/wishLlist/{id}','ProductsController@addToWishList');
 Route::get('/delete/wish list/{id}','ProductsController@deleteWishList');
 Route::get('/view/wish list','ProductsController@viewWishList');
 

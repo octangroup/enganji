@@ -1,6 +1,12 @@
 @extends('admin.layouts.app')
 @section('content')
     <div class="container">
+        <div class="w-60 mx-auto">
+            <form method="GET" action="{{action('Admin\AffiliatesController@search')}}">
+                <input type="text" name="keyword" class="form-control">
+                <button type="submit">search</button>
+            </form>
+        </div>
         @if(Session::has('message'))
         <div class="alert alert-info">
             {{Session::get('message')}}
@@ -8,14 +14,6 @@
         @endif
 
         <div class="card">
-
-
-            <div class="w-60 mx-auto">
-                <form method="GET" action="{{action('Admin\AffiliatesController@search')}}">
-                    <input type="text" name="keyword" class="form-control">
-                    <button type="submit">search</button>
-                </form>
-            </div>
     @if(count($affiliates))
     @foreach($affiliates as $affiliate)
         <div class="list-group-item">
