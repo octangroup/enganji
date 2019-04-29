@@ -31,6 +31,7 @@ class CartController extends Controller
 
   //function to store cart
     public function store(Request $request){
+
         $this->validate($request, [
             'product_id' => 'required|int',
             'quantity' => 'required|int'

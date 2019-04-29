@@ -6,7 +6,9 @@ use App\Deal;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Session;
+use Auth;
 
 class DealsController extends Controller
 {
@@ -17,7 +19,7 @@ class DealsController extends Controller
     public function index(){
 
 
-        $products=Product::get();
+        $products=Auth::guard('affiliate')->User()->product()->get();
         $deals = Deal::get();
 
         return view('affiliate.deals.index',compact('products', 'deals'));

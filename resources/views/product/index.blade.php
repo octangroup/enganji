@@ -96,55 +96,35 @@
 
                 <h3 class="text-base font-bold font-primary mx-auto "> Categories</h3>
                 <div class="py-2 ">
-                    <p>Electronics</p>
-                    <div class="ml-3">
-                        <p class="my-2 text-sm">
-                            <a href="#">Computer</a>
-                        </p>
-                        <p class="my-2 text-sm">
-                            <a href="#">Phone</a>
-                        </p>
-                        <p class="my-2 text-sm">
-                            <a href="#">Speaker</a>
-                        </p>
+                    @foreach ($categories as $category)
+                        <div class="ml-3">
+                            <p class="my-2 text-sm">
+                                <input type="checkbox" name="categories[]"
+                                       value="{{$category->id}}"> {{$category->name}}
+                            </p>
+                        </div>
 
-                    </div>
+                    @endforeach
+
                 </div>
                 <form>
                     <div class="py-2 ">
                         <h3 class="text-base font-bold font-primary">Brand</h3>
 
                     </div>
-                    <div class="ml-3 flex">
-                        <p class="font-medium w-50 text-sm">Apple</p>
-                        <label class="checkcontainer w-50"><input  type="checkbox" name="" value="4" >
-                            <span class="checkmark "></span></label></p>
+                    @foreach ($brands as $brand)
 
-                    </div>
-                    <div class="ml-3 flex">
-                        <p class="font-medium w-50 text-sm">Iphone  </p>
-                        <label class="checkcontainer w-50"><input  type="checkbox" name="" value="4" >
-                            <span class="checkmark "></span></label></p>
+                        <div class="ml-3 flex">
 
-                    </div>
-                    <div class="ml-3 flex">
-                        <p class="font-medium w-50 text-sm">Idol</p>
-                        <label class="checkcontainer w-50"><input  type="checkbox" name="" value="4" >
-                            <span class="checkmark "></span></label></p>
+                            <p>
+                                {{$brand->name}}
+                                <input type="checkbox" name="brands[]" value="{{$brand->id}}">
+                            </p>
 
-                    </div>
-                    <div class="ml-3 flex">
-                        <p class="font-medium w-50 text-sm">Samshine  </p>
-                        <label class="checkcontainer w-50"><input  type="checkbox" name="" value="4" >
-                            <span class="checkmark "></span></label></p>
+                        </div>
+                    @endforeach
 
-                    </div>
-                    <div class="ml-3 flex">
-                        <p class="font-medium w-50 text-sm">DanForce </p>
-                        <label class="checkcontainer w-50"><input  type="checkbox" name="" value="4" >
-                            <span class="checkmark "></span></label></p>
 
-                    </div>
                 </form>
 
                 <div class="py-2 ">

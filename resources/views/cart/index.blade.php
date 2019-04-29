@@ -49,12 +49,13 @@
                     <h3 class="px-5 text-xl">SHOPPING CART</h3>
 
                 </div>
+                @foreach($carts as $cart)
                 <div class="flex bg-white rounded  mx-5 m-3 mb-4 p-2 border-1 border-solid border-grey-light">
                     <div class="w-30 mx-auto text-center mx-3 my-2">
                         <img src="{{asset('img/51YXG1bDM5L._AC_UL436_.jpg')}}" class="w-70 ">
                     </div>
                     <div class="w-70 my-3">
-                        <h3 class="text-sm my-1">Apple iPhone 6 Dual Core IOS Mobile Phone 4.7'   IPS 1GB RAM 16/64/128GB ROM 4G LTE </h3>
+                        <h3 class="text-sm my-1">{{$cart->product->name}} </h3>
 
                         <div class="flex mt-2">
                             <p class="w-10">
@@ -62,7 +63,7 @@
 
                             </p>
                             <p class="w-90">
-                                4.5
+                                {{$cart->product->size}}
                             </p>
                         </div>
 
@@ -72,7 +73,7 @@
 
                             </p>
                             <p class="w-85">
-                                2
+                                {{$cart->product->quantity}}
                             </p>
                         </div>
 
@@ -83,7 +84,7 @@
 
                             </p>
                             <p class="w-85 font-bold text-red">
-                                $700
+                                {{$cart->product->price}}
                             </p>
                         </div>
                     </div>
@@ -91,6 +92,7 @@
 
 
                 </div>
+                    @endforeach
             </div>
 
             <div class="w-40 mt-4 ">

@@ -80,7 +80,7 @@ class ProductsController extends Controller
             'currency',
             'reviews.user'
         )->with(
-            ['subcategory.category.products' => function ($q) {
+            ['category.subcategory.products' => function ($q) {
                 $q->whereActive();
             }],
             ['subcategory.products' => function ($q) {
