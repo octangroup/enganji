@@ -21,8 +21,7 @@ class CartController extends Controller
 
     public function index(){
         $categories = Category::get()->take(8);
-        $user = Auth::user()->id;
-        $carts = Cart::where('user_id', 'like', '%' . $user . '%')->with('product')->get();
+        $carts = Auth::User()->cart()->with('product')->get();
         return view('cart.index', compact('carts','categories'));
     }
 

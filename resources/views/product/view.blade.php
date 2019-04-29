@@ -251,7 +251,7 @@
                     </div>
                     <div class="flex w-40">
                         <div class="w-40">
-                            <form action="{{action('ProductsController@addToWishList',[$product->id])}}" method="post" >
+                            <form action="{{action('WishListController@add',[$product->id])}}" method="post" >
                                 {{csrf_field()}}
                             <button class="bg-white border-1 border-solid border-red text-red cursor-pointer px-3 py-2 hover:bg-primary font-bold text-sm">WishList</button>
                             </form>

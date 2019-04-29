@@ -52,7 +52,7 @@
                 @foreach($carts as $cart)
                 <div class="flex bg-white rounded  mx-5 m-3 mb-4 p-2 border-1 border-solid border-grey-light">
                     <div class="w-30 mx-auto text-center mx-3 my-2">
-                        <img src="{{asset('img/51YXG1bDM5L._AC_UL436_.jpg')}}" class="w-70 ">
+                        <img src="{{asset($cart->product->thumbnail())}}" class="w-70 ">
                     </div>
                     <div class="w-70 my-3">
                         <h3 class="text-sm my-1">{{$cart->product->name}} </h3>
@@ -108,7 +108,7 @@
 
                         </p>
                         <p class="w-15">
-                            4
+                            {{$cart->product->quantity}}
                         </p>
                     </div>
                     <div class="flex text-sm my-0">
@@ -118,7 +118,7 @@
 
                         </p>
                         <p class="w-15">
-                            $700
+                            {{$cart->product->price}}
 
                         </p>
                     </div>
@@ -150,7 +150,7 @@
 
                         </p>
                         <p class="w-15 text-red font-bold ">
-                            $700
+                            {{$cart->product->price}}
 
                         </p>
                     </div>
