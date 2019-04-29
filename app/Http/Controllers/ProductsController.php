@@ -149,30 +149,30 @@ class ProductsController extends Controller
     /*
      * the function that will add a product to wish list
      */
-    public function addToWishList(Request $request,$id){
-
-        $add = new WishList();
-        $add->user_id =Auth::user()->id;
-        $add->product_id = $id;
-        $add->save();
-        return back();
-
-    }
-
-    /*
-     * this function will delete a certain product in item
-     */
-    public function deleteWishList($id){
-        $product = WishList::findOrFail($id)->delete();
-        return back();
-    }
-
-    /*
-   * this function will view products in a wishList of a certain user
-   */
-
-    public function viewWishList(){
-        $wishLists = WishList::with('product.condition')->where('user_id','=',Auth::user()->id)->get();
-        return view('wishList.index',compact('wishLists'));
-    }
+//    public function addToWishList(Request $request,$id){
+//
+//        $add = new WishList();
+//        $add->user_id =Auth::user()->id;
+//        $add->product_id = $id;
+//        $add->save();
+//        return back();
+//
+//    }
+//
+//    /*
+//     * this function will delete a certain product in item
+//     */
+//    public function deleteWishList($id){
+//        $product = WishList::findOrFail($id)->delete();
+//        return back();
+//    }
+//
+//    /*
+//   * this function will view products in a wishList of a certain user
+//   */
+//
+//    public function viewWishList(){
+//        $wishLists = WishList::with('product.condition')->where('user_id','=',Auth::user()->id)->get();
+//        return view('wishList.index',compact('wishLists'));
+//    }
 }

@@ -62,6 +62,11 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(Affiliate::class);
     }
 
+    public function wishLists(){
+
+        return $this->hasMany(WishList::class);
+    }
+
 
 //function to check the status of the affiliate
     public function isActive(): bool
@@ -111,6 +116,22 @@ class Product extends Model implements HasMedia
         return $query->where('affiliate_id', $affiliate->id);
     }
 
+    public function isInWishList()
+    {
+        return $this->wishLists()->where('user_id', Auth::user()->id)->count() > 0;
+    }
+
+    public function addToWishList(): bool
+    {
+        if (!$this->isInWishList()) {
+            WishList::create([
+                'user_id' => Auth::user()->id,
+                'product_id' => $this->id,
+            ]);
+            return true;
+        }
+        return false;
+    }
 
 
 }
