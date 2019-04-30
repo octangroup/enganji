@@ -33,6 +33,7 @@
     <div id="app">
 
         @include('layouts.inc.nav')
+
         {{--<nav class="navbar navbar-default navbar-static-top">--}}
             {{--<div class="container">--}}
                 {{--<div class="navbar-header">--}}
@@ -135,6 +136,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @include('layouts.inc.footer')
 </body>
 <script>
     $('.toggler').click(function () {

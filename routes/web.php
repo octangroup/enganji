@@ -29,9 +29,9 @@ Route::post('review/{id}','ReviewController@store');
 
 
 //WishList's Route
-Route::post('/add/wishLlist/{id}','ProductsController@addToWishList');
-Route::get('/delete/wish list/{id}','ProductsController@deleteWishList');
-Route::get('/view/wish list','ProductsController@viewWishList');
+Route::resource('wishlist','WishListController');
+Route::post('add/wishLlist/{id}','WishListController@add');
+Route::get('/delete/wish list/{id}','WishListController@destroy');
 
 
 //Cart's Route

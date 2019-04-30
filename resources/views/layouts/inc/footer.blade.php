@@ -1,5 +1,5 @@
 <div class="w-100 bg-primary p-4">
-    <div class="w-85 flex mx-auto text-white">
+    <div class="w-85 flex mx-auto mt-4 text-white">
         <div class="w-25 ">
             <h1 class="text-xl">Customer Services</h1>
             <ul class="list text-sm pt-1">
