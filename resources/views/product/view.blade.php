@@ -36,6 +36,7 @@
             {{--<input value="{{$product->id}}" type="hidden" name="product_id">--}}
 
         {{--</p>--}}
+    {{--</form>--}}
 {{--<div class="flex">--}}
     {{--<p class="w-40">--}}
 
@@ -181,6 +182,9 @@
 
 {{--@endsection--}}
 
+
+
+
     <div class="panel panel-default">
         <div class="panel-body w-90 mx-auto">
             <div class=" flex">
@@ -188,6 +192,7 @@
                     <div class="flex">
                         <div class="w-40 border border-solid ">
                             <img  src="{{$product->cover()}}" class="transition-500ms ">
+
                         </div>
                         <div class="w-40 border border-solid mx-2">
                             <img  src="{{$product->cover()}}" class="transition-500ms ">
@@ -226,18 +231,7 @@
                                      </span>
                         <p class="text-black font-bold mx-2 text-sm  mt-2">28 views</p>
                     </div>
-                    <div class="flex">
-                        <div class="w-10 mt-2">
-                            <p>Quantity:</p>
-                        </div>
-                        <div class="w-90 flex py-1 m-0 mx-3">
-                            <div class="h-8 w-8 rounded-full border-black border-solid border-1 text-center text-sm py-1 mx-1"> 2.4 </div>
-                            <div class="h-8 w-8 rounded-full border-black border-solid border-1 text-center text-sm py-1 mx-1"> 2.4 </div>
-                            <div class="h-8 w-8 rounded-full border-black border-solid border-1 text-center text-sm py-1 mx-1"> 2.4 </div>
-                            <div class="h-8 w-8 rounded-full border-black border-solid border-1 text-center text-sm py-1 mx-1"> 2.4 </div>
-                        </div>
 
-                    </div>
                     <div class="flex">
                         <div class="w-10">
                             <p>Shipping:</p>
@@ -257,21 +251,37 @@
                     </div>
                     <div class="flex w-40">
                         <div class="w-40">
-                            <button class="bg-white border-1 border-solid border-red text-red cursor-pointer px-3 py-2 hover:bg-primary font-bold text-sm">Buy Now</button>
+                            <form action="{{action('WishListController@add',[$product->id])}}" method="post" >
+                                {{csrf_field()}}
+                            <button class="bg-white border-1 border-solid border-red text-red cursor-pointer px-3 py-2 hover:bg-primary font-bold text-sm">WishList</button>
+                            </form>
+
                         </div>
+
                         <div class="w-60 mx-1 text-red text-base ">
-                            <button class="bg-red border-0 text-white cursor-pointer hover:bg-primary px-3 py-2 ">Add Cart</button>
+
+                            <form action="{{action('CartController@store')}}" method="post" class="w-50">
+                                {{csrf_field()}}
+                                <input min="1" type="number" name="quantity"
+                                       class="p-2 w-15 border-1 border-grey border-solid outline-none rounded has-text-centered"
+                                       value="1" required>
+                                <div class="flex">
+                                    <div class="w-10 mt-2">
+                                        <p>Quantity:</p>
+                                    </div>
+                                    <div class="w-90 flex py-1 m-0 mx-3">
+                                        <input value="{{$product->id}}" type="hidden" name="product_id">
+                                    </div>
+
+                                </div>
+                            {{--<span class="text-black text-base xs:text-sm text-muted">Quantity:</span>--}}
+                            {{--<input value="{{$product->id}}" type="hidden" name="product_id">--}}
+                            <button class="bg-red border-0 text-white cursor-pointer hover:bg-primary px-3 py-2 ">AddCart</button>
+                            </form>
+
                         </div>
                     </div>
-                    <div class="inline-block xl:ml-4 relative">
-                        <form action="{{action('WishListController@add',[$product->id])}}" method="post">
-                            {{csrf_field()}}
-                            <button class="bg-transparent border-0 my-0 -mt-2"><i
-                                        class="fi flaticon-like-1 text-3xl text-grey float-left -mt-2"></i><span
-                                        class="pl-2 text-base xs:text-sm">Add to Favorites</span>
-                            </button>
-                        </form>
-                    </div>
+
                     <div class="mt-3">
                         <p class="fi flaticon-menu"> Share</p>
                     </div>

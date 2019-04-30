@@ -12,7 +12,7 @@
              {{__('Deals')}}
          </div>
 
-
+@foreach($products as $product)
              <form action="{{action('Affiliate\DealsController@store')}}" method="post">
                  {{csrf_field()}}
              <div class="row">
@@ -47,7 +47,7 @@
              </div>
              </form>
 
-
+@endforeach
 
          <br>
          @foreach($deals as $deal)

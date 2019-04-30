@@ -21,8 +21,7 @@ class CartController extends Controller
 
     public function index(){
         $categories = Category::get()->take(8);
-        $user = Auth::user()->id;
-        $carts = Cart::where('user_id', 'like', '%' . $user . '%')->with('product')->get();
+        $carts = Auth::User()->cart()->with('product')->get();
         return view('cart.index', compact('carts','categories'));
     }
 
@@ -31,6 +30,7 @@ class CartController extends Controller
 
   //function to store cart
     public function store(Request $request){
+
         $this->validate($request, [
             'product_id' => 'required|int',
             'quantity' => 'required|int'

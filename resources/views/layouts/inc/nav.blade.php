@@ -197,9 +197,9 @@
         <div class="w-50">
             <nav>
 
-                <ul class="list inline-block ml-7 -mt-2 text-white text-sm">
+                <ul class="list inline-block ml-7  -mt-2 text-white text-sm">
                     @foreach(\App\Category::get()->take(8) as $category)
-                        <li class=" inline-block"><a
+                        <li class=" inline-block mx-3"><a
                                     href="{{action('ProductsController@index',[$category->name,$category->id])}}"
                                     class="inherit-color">{{__($category->name)}}</a></li>
                     @endforeach

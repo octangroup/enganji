@@ -22,23 +22,7 @@ class ProductsController extends Controller
 
     public function index(ProductFilterForm $filterForm, $category_name, $category_id, $subcategory_name = null, $subcategory_id = null)
     {
-       $query = Product::query();
-//       if ($subcategory_id) {
-//            $selected_subcategory = Subcategory::whereHas('category')->findOrFail($subcategory_id);
-//            $category = $selected_subcategory->category;
-//
-//            $query = $query->where('subcategory_id', $subcategory_id);
-//
-//        } else {
-//            $selected_subcategory = null;
-//            $category = Category::findOrFail($category_id);
-//
-//            $query = $query->whereHas('subcategory', function ($q) use ($category_id) {
-//                $q->where('category_id', $category_id);
-//            });
-//        }
-//        $query = $query->whereIsActive();
-
+        $query = Product::query();
         $brands = $this->findBrands($query);
         $conditions = $this->findConditions($query);
         $query = $filterForm->handle($query);
@@ -80,7 +64,7 @@ class ProductsController extends Controller
             'currency',
             'reviews.user'
         )->with(
-            ['subcategory.category.products' => function ($q) {
+            ['category.subcategory.products' => function ($q) {
                 $q->whereActive();
             }],
             ['subcategory.products' => function ($q) {
