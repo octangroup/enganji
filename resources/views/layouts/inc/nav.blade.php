@@ -121,22 +121,22 @@
 {{--</div>--}}
 <div class="w-100 bg-white py-4">
     <div class="flex w-90 mx-auto">
-        <div class="w-30">
+        <div class="w-30 pt-1">
             <h1 class="text-4xl text-grey-darker">ENGANJI</h1>
         </div>
         <div class="w-50">
-            <div class="w-100 flex pt-4">
-                <div class="w-80">
-                    <input class="form-input border-red " type="text" placeholder="search">
+            <div class="w-100 flex pt-2">
+                <div class="w-80 ">
+                    <input class="form-input border-red py-1" type="text" placeholder="search">
                 </div>
-                <div class="w-20 mx-1">
-                    <button class="btn bg-red"><i class="fi flaticon-search-1"></i></button>
+                <div class="w-15 mx-1 py-0">
+                    <button class="btn bg-red py-1"><i class="fas fa-search text-white text-xs"></i></button>
                 </div>
             </div>
         </div>
 
         @guest
-            <div class="w-30 pt-4 text-center">
+            <div class="w-30 pt-1 text-center">
                 <ul class="list inline-block ">
                     @if (Route::has('register'))
                         <li class="mx-2"><i class="fas fa-sign-in-alt mx-1"></i><a

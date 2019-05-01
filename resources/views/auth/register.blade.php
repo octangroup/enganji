@@ -4,7 +4,7 @@
     <div class="w-80 mx-auto xs:w-90 mt-70 mb-70">
         <div class="panel panel-default xs:w-100 shadow-md w-65 mx-auto mt-70 rounded-lg">
             <div class="panel-body py-5">
-                <h2 class="text-center my-3 font-primary">{{ __('Register') }}</h2>
+                <h2 class="text-center my-4 font-primary">{{ __('Register') }}</h2>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="w-50 xs:w-100 mx-auto mt-2">
@@ -80,10 +80,10 @@
                     </div>
                     <div class="w-60 mx-auto xs:w-100 mt-2 text-center mt-4">
                         <a href="{{ route('login') }}"
-                           class="btn border-1 text-primary border-primary hover:bg-accent rounded-full mx-3">
+                           class="btn border-1 text-primary border-primary hover:bg-grey-dark rounded-full mx-3">
                             {{ __('Already have an account?') }}
                         </a>
-                        <button type="submit" class="btn btn-primary xs:mt-3 hover:bg-accent rounded-full mx-3">
+                        <button type="submit" class="btn btn-primary xs:mt-3 hover:bg-grey-dark rounded-full mx-3">
                             {{ __('Register') }}
                         </button>
                     </div>

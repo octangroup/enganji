@@ -45,11 +45,11 @@
                         <div class="w-100 mx-auto mt-1 text-center mt-4">
 
                             <a href="{{ route('register') }}"
-                               class="btn border-1 text-primary border-primary hover:bg-accent rounded-full mx-3">
+                               class="btn border-1 text-primary border-primary hover:bg-grey-dark rounded-full mx-3">
                                 {{ __('Register') }}
                             </a>
 
-                            <button type="submit" class="btn btn-primary hover:bg-accent rounded-full mx-3 ">
+                            <button type="submit" class="btn btn-primary hover:bg-grey-dark rounded-full mx-3 ">
                                 {{ __('Login') }}
                             </button>
                         </div>

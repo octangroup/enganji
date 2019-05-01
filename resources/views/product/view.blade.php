@@ -313,7 +313,72 @@
                     <p class="text-xs my-0">Toe Shape </p>
                 </div>
             </div>
+            <div class="flex">
+                <h5 class="w-80 text-2xl xs:text-lg font-normal font-primary my-4">Reviews</h5>
+                <p data-toggle="#product-review" class="w-20 toggler text-2xl text-right my-auto  pr-3 my-4">
+                    <i class="fi flaticon-plus cursor-pointer"></i></p>
+            </div>
+            <div class="p-3 xs:p-1" id="product-review">
+                <div class="xl:flex md:flex lg:flex ">
+                    <div class="w-30  xs:text-xs2 xs:w-60">
+                        <h5 class="xs:text-sm font-normal mt-0 mb-3">Item rating</h5>
 
+                        <div class="flex">
+                        <span class="text-orange mt-2">
+                                                                ★
+                                            ★
+                                     </span>
+
+                            <span class="text-orange mt-2">
+                                                                ★
+
+                                     </span>
+                            <span class=" mt-2">
+                                                                ★
+                                            ★
+                                     </span>
+
+                        </div>
+                        <div class="flex">
+                        <span class="text-orange mt-2">
+                                                                ★
+                                            ★
+                                     </span>
+
+                            <span class="text-orange mt-2">
+                                                                ★
+
+                                     </span>
+                            <span class=" mt-2">
+                                                                ★
+                                            ★
+                                     </span>
+
+                        </div>
+                        <div class="flex">
+                        <span class="text-orange mt-2">
+                                                                ★
+                                            ★
+                                     </span>
+
+                            <span class="text-orange mt-2">
+                                                                ★
+
+                                     </span>
+                            <span class=" mt-2">
+                                                                ★
+                                            ★
+                                     </span>
+
+                        </div>
+                    </div>
+                    <div class="w-70">
+                        <div class="w-70 xs:w-100 pl-5 xs:pl-3">
+                            <h5 class="text-xl xs:text-sm mt-0 mb-3 p-0 font-normal">Overview Rating</h5>
+                            <p class="text-dodge-blue xs:text-sm m-0 mb-4"></p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
