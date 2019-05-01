@@ -99,31 +99,30 @@
         {{--</form>--}}
     {{--</div><br>--}}
 
-    <div class=" ">
+    <div class="">
         <div class=" w-100">
             <div class=" w-100  h-px-400 ">
                 <img src="{{asset('img/873620de-ee5b-47b8-a411-18aace61543b1552928480621-Mango_DesktopSlider.jpg')}}" class="clip-full">
             </div>
         </div>
-        @if($products && count($products))
             <div class="w-100 bg-white pt-3 pb-3">
                 <div class="w-90 xs:w-85 mx-auto">
-                    <h4 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Top Deals</h4>
+                    <p class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Top Deals</p>
                 </div>
 
                 <div class="flex w-90 mx-auto border-top border-bottom  p-2 relative whitespace-no-wrap overflow-hidden px-3">
-            @foreach($products as $product)
+            @foreach($deals as $deal)
 
                         <div class="w-25  border-right    rounded   ">
                             <div class=" w-100 py-3 relative z-50 bg-white  px-3  ">
 
-                            <a href="{{action('ProductsController@show',[$product->id,kebab_case($product->name)])}}">
-                                <img class="w-70" src="{{$product->thumbnail()}}">
+                            <a href="{{action('ProductsController@show',[$deal->id,kebab_case($deal->product->name)])}}">
+                                <img class="w-70" src="{{$deal->product->thumbnail()}}">
                             </a>
                         </div>
                         <div class=" pt-3 z-50 relative bg-white  overflow-hidden  px-3 ">
-                            <h5 class="text-base  font-medium sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h5>
-                            <p class="text-sm text-accent font-normal md:text-sm lg:text-base mt-2 xs:mb-2">{{$product->price}}</p>
+                            <h2 class="text-sm font-bold sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $deal->product->name !!}</h2>
+                            <p class="text-lg xs:text-base md:text-sm lg:text-base mt-2 xs:mb-2">Price:{{$deal->product->price}}</p>
                         </div>
                         </div>
 
@@ -131,11 +130,11 @@
                 </div>
             </div>
 
-        @endif
+
     @if($products && count($products))
         <div class="w-100 bg-white-smoke pt-3 pb-3">
             <div class="w-90 xs:w-85 mx-auto">
-                <h4 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Trending Products</h4>
+                <p class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Trending Products</p>
             </div>
 
             <div class="flex w-90 pb-3 mx-auto pt-2  relative whitespace-no-wrap overflow-hidden px-3">
@@ -149,8 +148,8 @@
                             </a>
                         </div>
                         <div class="py-1  my-3 z-50 relative bg-white  overflow-hidden  px-3 ">
-                            <h5 class="text-base  font-medium sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h5>
-                            <p class="text-sm  font-normal xs:text-base md:text-sm lg:text-base mt-2 xs:mb-2"><span class="text-sm">{{$product->currency->name}}</span> {{$product->price}}</p>
+                            <h2 class="text-sm font-bold sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h2>
+                            <p class="text-lg xs:text-base md:text-sm lg:text-base mt-2 xs:mb-2">{{$product->price}}</p>
                         </div>
                     </div>
 
@@ -164,7 +163,7 @@
         @if($products && count($products))
             <div class="w-100 bg-white pt-3 pb-3">
                 <div class="w-90 xs:w-85 mx-auto">
-                    <h4 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Top Categories</h4>
+                    <p class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-bold text-black">Top Categories</p>
                 </div>
 
                 <div class="flex w-90 pb-3 mx-auto pt-3  relative whitespace-no-wrap overflow-hidden px-3">
@@ -178,8 +177,8 @@
                                 </a>
                             </div>
                             <div class="py-1 pt-3 z-50 relative bg-white  overflow-hidden  px-3 ">
-                                <h5 class="text-base  font-medium sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h5>
-                                <p class="text-sm  font-normal xs:text-base md:text-sm lg:text-base mt-2 xs:mb-2">{{$product->price}}</p>
+                                <h2 class="text-sm font-bold sm:text-sm md:text-base lg:text-xl xs:text-sm m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h2>
+                                <p class="text-lg xs:text-base md:text-sm lg:text-base mt-2 xs:mb-2">{{$product->price}}</p>
                             </div>
                         </div>
 

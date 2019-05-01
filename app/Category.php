@@ -23,4 +23,7 @@ class Category extends Model implements HasMedia
 
         return $this->belongsTo(Admin::class);
     }
+    public function Product(){
+        return $this->hasMany(Product::class,'category_id');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Deal;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $products=Product::get();
-        return view('home',compact('products'));
+        $deals=Deal::with('product')->get();
+
+        return view('home',compact('products','deals'));
     }
 
 //function to each product that is clicked on

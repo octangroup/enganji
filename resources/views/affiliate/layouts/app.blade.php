@@ -50,6 +50,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ URL::to('affiliate/register') }}">Register</a></li>
                     @else
                         <li class="nav-item"><a class="nav-link" href="{{action('Affiliate\ProductsController@index')}}">Manage products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{action('Affiliate\DealsController@index')}}">Deals</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{action('Affiliate\ChatsController@index')}}">{{__('Chat')}}</a> </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
