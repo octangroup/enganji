@@ -24,6 +24,9 @@ window.Vue = require('vue');
 Vue.component('chat', require('./components/chatPopUp.vue').default);
 Vue.component('chat-room', require('./components/affiliate/chatRoom.vue').default);
 
+
+Vue.component('notification', require('./components/Notification.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

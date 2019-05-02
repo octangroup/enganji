@@ -8,7 +8,13 @@
     <p><i class="fi flaticon-user-3 text-5xl"></i></p>
     <h4 class="font-primary">Edit</h4>
     </div>
+    <form method="post" action="{{ action('ProfileController@update', [$user->id]) }}}">
+        {{ csrf_field() }}
+        @method('PATCH')
     <div class="bg-white py-4 shadow my-5 w-70 flex mx-auto rounded-lg">
+
+
+
         <div class="w-80">
             <div class="border-1 border-solid  mx-4  relative border-grey">
 
@@ -27,10 +33,17 @@
             </div>
         </div>
 
+
         <div class=" w-20  mx-3">
             <button type="submit" class=" btn btn-primary rounded-full xs:py-2 "> Change </button>
         </div>
+
     </div>
+    </form>
+
+
+
+
     <div class="bg-white py-4 shadow my-5 w-70 flex mx-auto rounded-lg">
         <div class="w-80">
             <div class="border-1 border-solid  mx-4  relative border-grey">
@@ -54,6 +67,11 @@
             <button type="submit" class=" btn btn-primary rounded-full xs:py-2 "> Change </button>
         </div>
     </div>
+
+
+    <form method="post" action="{{action('ProfileController@updatePassword',[$user->id])}}">
+        {{csrf_field()}}
+        @method('PATCH')
     <div class="bg-white py-5 shadow my-5 w-70 flex mx-auto rounded-lg">
         <div class="w-80">
             <div class="border-1 border-solid  mx-4  relative border-grey">
@@ -103,6 +121,8 @@
             <button type="submit" class=" btn btn-primary rounded-full xs:py-2 "> Change </button>
         </div>
     </div>
+
+    </form>
 
     <div class="bg-white py-4 shadow my-5 w-70 flex mx-auto rounded-lg">
         <div class=" w-100">
@@ -160,7 +180,7 @@
     {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}
-</div>
+{{--</div>--}}
     {{--<div class="card">--}}
 
         {{--<form method="post" action="{{action('ProfileController@updatePassword',[$user->id])}}">--}}

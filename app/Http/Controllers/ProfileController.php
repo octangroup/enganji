@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Helpers\Flash;
 use Illuminate\Support\Facades\Session;
 
 class ProfileController extends Controller
@@ -68,83 +69,88 @@ class ProfileController extends Controller
     public function edit(User $user)
     {
         $user = Auth::user();
-        return view('profile.edit',compact('user'));
+        return view('profile.edit', compact('user'));
 
     }
 
-        /**
-         * Update the specified resource in storage.
-         *
-         * @param  \Illuminate\Http\Request $request
-         * @param  int $id
-         * @return \Illuminate\Http\Response
-         */
-        public function update(Request $request)
-        {
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request)
+    {
 
-                $this->validate($request, [
-                    'name' => 'required',
-                ]);
-               $user =  Auth::user();
-               $user->name = $request->name;
-               $user->save();
-               return back();
-               }
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->save();
+        Flash::push(
+            'success', 'UserName Changed',
+            'Profile'
+        );
+        return back();
+    }
 
-        public function updatePassword(Request $request){
+    public function updatePassword(Request $request)
+    {
 
-            $this->validate($request, [
+        $this->validate($request, [
 
-                  'old' => 'required|min:6',
-                 'new_password' => 'required|min:6|confirmed'
-            ]);
+            'old' => 'required|min:6',
+            'new_password' => 'required|min:6|confirmed'
+        ]);
 
-            $old = $request->old;
-            $new_password = $request->new_password;
+        $old = $request->old;
+        $new_password = $request->new_password;
 
-            $user = Auth::user();
+        $user = Auth::user();
 
-                if(password_verify($old, $user->password)){
-                    $new_password = bcrypt($new_password);
-                    $user->password = $new_password;
-                    $user->save();
+        if (password_verify($old, $user->password)) {
+            $new_password = bcrypt($new_password);
+            $user->password = $new_password;
+            $user->save();
 
-                    Session::flash('message','Password changed');
+            Session::flash('message', 'Password changed');
 
-                }
-                else{
-                    Session::flash('message','Password not changed');
-                }
-
-                return back();
-
+        } else {
+            Session::flash('message', 'Password not changed');
         }
 
-        public function updateProfile(Request $request){
-            $this->validate($request,[
-                'fileToUpload' => 'required'
-            ]);
-
-            $user = Auth::user();
-            if ($request->fileToUpload) {
-                $user->clearMediaCollection();
-                $user->addMediaFromRequest('fileToUpload')
-                    ->withCustomProperties(['mime-type' => 'image/jpeg'])
-                    ->preservingOriginal()
-                    ->toMediaCollection();
-            }
-            return back();
+        return back();
 
     }
 
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param  int $id
-         * @return \Illuminate\Http\Response
-         */
-        public function destroy($id)
-        {
-            //
+    public function updateProfile(Request $request)
+    {
+        $this->validate($request, [
+            'fileToUpload' => 'required'
+        ]);
+
+        $user = Auth::user();
+        if ($request->fileToUpload) {
+            $user->clearMediaCollection();
+            $user->addMediaFromRequest('fileToUpload')
+                ->withCustomProperties(['mime-type' => 'image/jpeg'])
+                ->preservingOriginal()
+                ->toMediaCollection();
         }
+        return back();
+
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

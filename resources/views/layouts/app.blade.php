@@ -34,6 +34,12 @@
 
         @include('layouts.inc.nav')
 
+        @yield('notification')
+        <div id="notification-section" class="w-25 fixed xs:relative md:relative sm:relative z-99 r-2 mt-3 xs:mt-0 sm:mt-0 pt-4 md:mt-0">
+            @include('layouts.notifications')
+            @yield('notification')
+        </div>
+
         {{--<nav class="navbar navbar-default navbar-static-top">--}}
             {{--<div class="container">--}}
                 {{--<div class="navbar-header">--}}
