@@ -39,10 +39,14 @@ class ProductsController extends Controller
      */
     public function search(ProductFilterForm $filterForm)
     {
+
+
+
         // $query = $query->isActive();
 
         $categories=Category::get();
         $query = Product::query();
+        // $query = $query->isActive();
         $brands = $this->findBrands($query);
         $category = $this->findCategories($query);
         $conditions = $this->findConditions($query);

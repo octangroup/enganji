@@ -23,7 +23,6 @@ class WishListController extends Controller
     {
         //
         $wishLists = WishList::with('product')->where('user_id','=',Auth::user()->id)->get();
-//        dd($wishLists);
         return view('wishList.index',compact('wishLists'));
     }
 

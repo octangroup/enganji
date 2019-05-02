@@ -124,15 +124,18 @@
         <div class="w-30 pt-1">
             <h1 class="text-4xl text-grey-darker">ENGANJI</h1>
         </div>
-        <div class="w-50">
+        <div class="w-50">         <form name="search_form" method="get" action="{{action('ProductsController@search')}}">
             <div class="w-100 flex pt-2">
+
                 <div class="w-80 ">
-                    <input class="form-input border-red py-1" type="text" placeholder="search">
+                    <input class="form-input border-red py-1" name="keyword" type="text" placeholder="search">
+
                 </div>
                 <div class="w-15 mx-1 py-0">
                     <button class="btn bg-red py-1"><i class="fas fa-search text-white text-xs"></i></button>
                 </div>
-            </div>
+
+            </div></form>
         </div>
 
         @guest
