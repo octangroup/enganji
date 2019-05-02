@@ -249,45 +249,53 @@
                             <p>$ 700</p>
                         </div>
                     </div>
+                    <div class="w-60 mx-1  text-base ">
+
+                        <form action="{{action('CartController@store')}}" method="post" class="w-50">
+                            {{csrf_field()}}
+
+                            <div class="flex">
+                                <div class="w-70 mt-2">
+                                    <p>Quantity:</p>
+                                </div>
+                                <div class="w-30  py-1 m-0 mx-3">
+                                    <input min="1" type="number" name="quantity"
+                                           class="  border-1 border-grey border-solid outline-none rounded text-center"
+                                           value="1" required>
+                                    <input value="{{$product->id}}" type="hidden" name="product_id">
+                                </div>
+
+                            </div>
+                            {{--<span class="text-black text-base xs:text-sm text-muted">Quantity:</span>--}}
+                            {{--<input value="{{$product->id}}" type="hidden" name="product_id">--}}
+
+                        </form>
+
+                    </div>
                     <div class="flex w-40">
-                        <div class="w-40">
+                        <div class="w-50">
                             <form action="{{action('WishListController@add',[$product->id])}}" method="post" >
                                 {{csrf_field()}}
                             <button class="bg-white border-1 border-solid border-red text-red cursor-pointer px-3 py-2 hover:bg-primary font-bold text-sm">WishList</button>
                             </form>
 
                         </div>
-
-                        <div class="w-60 mx-1 text-red text-base ">
-
-                            <form action="{{action('CartController@store')}}" method="post" class="w-50">
-                                {{csrf_field()}}
-                                <input min="1" type="number" name="quantity"
-                                       class="p-2 w-15 border-1 border-grey border-solid outline-none rounded has-text-centered"
-                                       value="1" required>
-                                <div class="flex">
-                                    <div class="w-10 mt-2">
-                                        <p>Quantity:</p>
-                                    </div>
-                                    <div class="w-90 flex py-1 m-0 mx-3">
-                                        <input value="{{$product->id}}" type="hidden" name="product_id">
-                                    </div>
-
-                                </div>
-                            {{--<span class="text-black text-base xs:text-sm text-muted">Quantity:</span>--}}
-                            {{--<input value="{{$product->id}}" type="hidden" name="product_id">--}}
+                        <div class="w-50 mx-3">
                             <button class="bg-red border-0 text-white cursor-pointer hover:bg-primary px-3 py-2 ">AddCart</button>
-                            </form>
-
                         </div>
-                    </div>
 
+                    </div>
                     <div class="mt-3">
                         <p class="fi flaticon-menu"> Share</p>
                     </div>
                     <div class="mt-3">
                         <p class="text-sm font-semibold"> Return Policy: 14­day refund or replacement</p>
                     </div>
+
+                    </div>
+            </div>
+
+
 
 
 
@@ -298,8 +306,8 @@
 
             </div>
 
-            <div class="panel panel-default w-80">
-                <div class="mt-3">   
+            <div class="panel panel-default ">
+                <div class="mt-3 w-90 mx-auto">   
                     <h6 class="font-bold text-base"> PRODUCT DETAILS </h6>
                     <p class="text-xs">A pair of round­toe solid black sneakers, has regular styling, lace­up detail  Canvas upper Cushioned footbed Textured and patterned outsole   Warranty : 1 month Warranty provided by brand/manufacturer</p>
                     <div class="flex">
@@ -316,20 +324,20 @@
 
                 </div>
 
-                <div class="my-0">   
+                <div class="my-0 w-90 mx-auto">   
                     <h6 class="font-bold text-base"> Specifications </h6>
                     <p class="text-xs my-0">Type  </p>
                     <p class="text-xs my-0">Sneakers  </p>
                     <p class="text-xs my-0">Toe Shape </p>
                 </div>
             </div>
-            <div class="flex">
+            <div class="flex w-90 mx-auto">
                 <h5 class="w-80 text-2xl xs:text-lg font-normal font-primary my-4">Reviews</h5>
                 <p data-toggle="#product-review" class="w-20 toggler text-2xl text-right my-auto  pr-3 my-4">
                     <i class="fi flaticon-plus cursor-pointer"></i></p>
             </div>
-            <div class="p-3 xs:p-1" id="product-review">
-                <div class="xl:flex md:flex lg:flex ">
+            <div class="p-3 xs:p-1 w-90 mx-auto" id="product-review">
+                <div class="flex ">
                     <div class="w-30  xs:text-xs2 xs:w-60">
                         <h5 class="xs:text-sm font-normal mt-0 mb-3">Item rating</h5>
 
