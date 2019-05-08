@@ -5,6 +5,7 @@ namespace App;
 use App\Repository\MediaConversion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
@@ -20,6 +21,13 @@ class Product extends Model implements HasMedia
         'brand_id', 'name', 'quantity', 'price', 'color', 'size', 'status', 'description'
     ];
 
+    protected $appends = ['stripped_name'];
+
+    public function getStrippedNameAttribute()
+    {
+        $string = preg_replace('/[^A-Za-z0-9\-]/', ' ', Str::lower($this->name)); // Removes special chars.
+        return Str::kebab($string);
+    }
     /*
    * This function defines the relationship between product and condition
    */

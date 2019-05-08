@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="w-80 mx-auto xs:w-90 mt-70 mb-70">
-        <div class="panel panel-default xs:w-100 shadow-md w-65 mx-auto mt-70 rounded-lg">
+        <div class="panel panel-default xs:w-100 border-1 border-solid border-grey-light w-65 mx-auto mt-70 rounded-lg">
             <div class="panel-body py-5">
                 <h2 class="text-center my-4 font-primary">{{ __('Register') }}</h2>
                 <form method="POST" action="{{ route('register') }}">
@@ -41,13 +41,13 @@
                                                                     <strong>{{ $errors->first('email') }}</strong>
                             </span>
                         @endif
-                        <div
-                                class="border-1 border-solid  mt-4 relative z-100 {{ $errors->has('phone_number') ? ' border-red' : 'border-white' }}">
-                            <phone-input  v-bind:class="'w-100 border-0 shadow-none-focused focus:border-accent py-1'"
+{{--                        <div--}}
+{{--                                class="border-1 border-solid  mt-4 relative z-100 {{ $errors->has('phone_number') ? ' border-red' : 'border-white' }}">--}}
+{{--                            <phone-input  v-bind:class="'w-100 border-0 shadow-none-focused focus:border-accent py-1'"--}}
 
-                                          field_name="phone_number"></phone-input>
+{{--                                          field_name="phone_number"></phone-input>--}}
 
-                        </div>
+{{--                        </div>--}}
                         @if ($errors->has('phone_number'))
                             <span class="invalid-feedback block" role="alert">
                                                                     <strong>{{ $errors->first('phone_number') }}</strong>

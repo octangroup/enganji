@@ -1,304 +1,55 @@
-{{--<div class="w-100 bg-white py-4">--}}
-{{--<div class="flex w-90 mx-auto">--}}
-{{--<div class="w-30">--}}
-{{--<h1 class="text-4xl text-grey-darker">ENGANJI</h1>--}}
-{{--</div>--}}
-{{--<div class="w-50">--}}
-{{--<div class="w-100 flex pt-4">--}}
-{{--<div class="w-80">--}}
-{{--<input class="form-input border-red " type="text" placeholder="search">--}}
-{{--</div>--}}
-{{--<div class="w-20 mx-1">--}}
-{{--<button class="btn bg-red"><i class="fi flaticon-search-1"></i></button>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--</div>--}}
-{{--<div class="w-50 text-center mx-auto py-4 lg:mx-2">--}}
-
-{{--<div class="bg-white rounded-full border-1 border-solid border-grey-light">--}}
-{{--<form name="search_form" method="get" action="{{action('ProductsController@search')}}">--}}
-{{--<input name="keyword" type="text" placeholder="Search.." value="{{$keyword ?? null}}"--}}
-{{--class="bg-transparent appearance-none outline-none border-none p-3 m-0 w-80" required>--}}
-{{--<button class="rounded-full btn bg-primary text-white ">Search</button>--}}
-{{--</form>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--@guest--}}
-{{--<div class="w-30 pt-4 text-center">--}}
-{{--<ul class="list inline-block ">--}}
-{{--<li class="mx-2"><i class="fi flaticon-exclamation-sign-in-a-circle"></i><a--}}
-{{--class="inherit-color hover:bg-grey-lighter"--}}
-{{--href="{{ route('login') }}">{{ __('Login') }}</a><i class="fas fa-user-plus mx-1"></i></li>--}}
-{{--@if (Route::has('register'))--}}
-{{--<li class="mx-2"><i class="fas fa-sign-in-alt mx-1"></i><a class="inherit-color hover:bg-grey-lighter"--}}
-{{--href="{{ route('register') }}">{{ __('Register') }}</a>--}}
-{{--</li>--}}
-{{--@endif--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--@else--}}
-{{--<li class="mx-3 inline-block text-white">--}}
-{{--<a href="{{action('ProductsController@viewWishList')}}" class="cursor-pointer inherit-color">--}}
-{{--<i class="fi flaticon-like-2 text-2xl"></i>--}}
-{{--</a>--}}
-{{--</li>--}}
-
-{{--<li class="mx-3 inline-block text-white">--}}
-{{--<a href="{{action('CartController@index')}}" class="cursor-pointer inherit-color">--}}
-{{--<i class="fi flaticon-shopping-cart text-2xl"></i>--}}
-{{--</a>--}}
-
-{{--</li>--}}
-{{--<li class="dropdown ml-2 inline-block text-black">--}}
-{{--<a class="inherit-color font-primary">--}}
-{{--{{ title_case(Auth::user()->name) }} <i class="fas fa-chevron-circle-down"></i>--}}
-{{--</a>--}}
-{{--<div class="dropdown-content w-rem-74 mx-0 -ml-16 text-left rounded-lg font-roboto font-normal shadow mt-0--}}
-{{--border-2 border-solid border-white cursor-pointer overflow-hidden">--}}
-{{--<a class="dropdown-item hover:bg-grey-lighter" href="{{action('ProfileController@index')}}">--}}
-
-{{--{{ __('Profile') }}--}}
-{{--</a>--}}
-
-{{--<a class="dropdown-item hover:bg-grey-lighter" href="{{ route('logout') }}"--}}
-{{--onclick="event.preventDefault();--}}
-{{--document.getElementById('logout-form').submit();">--}}
-{{--{{ __('Logout') }}--}}
-{{--</a>--}}
-{{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-{{--@csrf--}}
-{{--</form>--}}
-{{--</div>--}}
-{{--</li>--}}
-{{--@endguest--}}
-{{--</ul>--}}
-
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="bg-primary">--}}
-{{--<div class="flex w-90 mx-auto py-4 ">--}}
-{{--<div class="w-25 text-white  flex">--}}
-{{--<div class="w-10">--}}
-{{--<i class="fas fa-bars text-xl"></i>--}}
-{{--</div>--}}
-
-{{--<div class="w-90 mx-1">--}}
-{{--<h5 class="my-0 py-0">Category</h5>--}}
-
-{{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="w-50">--}}
-{{--<div>--}}
-{{--<ul class="list inline-block text-white text-sm">--}}
-{{--@foreach(\App\Category::get()->take(8) as $category)--}}
-{{--<li class=" inline-block"><a--}}
-{{--href="{{action('ProductsController@index',[$category->name,$category->id])}}"--}}
-{{--class="inherit-color">{{__($category->name)}}</a></li>--}}
-{{--@endforeach--}}
-{{--&nbsp;--}}
-
-{{--</ul>--}}
-{{--</div>--}}
-
-{{--</div>--}}
-{{--<div class="w-25 text-center text-white">--}}
-{{--<ul class="list inline-block  text-sm text-center">--}}
-{{--<li class="mx-3"><a href="{{action('ProductsController@viewWishList')}}" class="cursor-pointer inherit-color">--}}
-{{--Favorites  <i class="fi flaticon-like-2 text-2xl"></i>--}}
-{{--</a></li>--}}
-{{--<li class="mx-1"><a href="{{action('CartController@index')}}" class="cursor-pointer inherit-color">--}}
-{{--Cart <i class="fi flaticon-shopping-cart text-2xl"></i>--}}
-{{--</a><i class="fas fa-shopping-cart text-red mx-2"></i></li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-
-{{--</div>--}}
-<div class="w-100 bg-white py-4">
-    <div class="flex w-90 mx-auto">
-        <div class="w-30 pt-1">
-            <h1 class="text-4xl text-grey-darker">ENGANJI</h1>
-        </div>
-        <div class="w-50">         <form name="search_form" method="get" action="{{action('ProductsController@search')}}">
-            <div class="w-100 flex pt-2">
-
-                <div class="w-80 ">
-                    <input class="form-input border-red py-1" name="keyword" type="text" placeholder="search">
-
-                </div>
-                <div class="w-15 mx-1 py-0">
-                    <button class="btn bg-red py-1"><i class="fas fa-search text-white text-xs"></i></button>
-                </div>
-
-            </div></form>
-        </div>
-
-        @guest
-            <div class="w-30 pt-1 text-center">
-                <ul class="list inline-block ">
-                    @if (Route::has('register'))
-                        <li class="mx-2"><i class="fas fa-sign-in-alt mx-1"></i><a
-                                    class="inherit-color hover:bg-grey-lighter"
-                                    href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-
-                    <li class="mx-2"><i class="fi flaticon-exclamation-sign-in-a-circle"></i><a
-                                class="inherit-color hover:bg-grey-lighter"
-                                href="{{ route('login') }}">{{ __('Login') }}</a><i
-                                class="fas fa-user-plus mx-1"></i></li>
-
-                </ul>
-            </div>
-
-@else
-
-
-
-            <li class="dropdown ml-2 inline-block text-black">
-                <a class="inherit-color font-primary">
-                    {{ title_case(Auth::user()->name) }} <i class="fas fa-chevron-circle-down"></i>
+<nav class="w-90 mx-auto rounded-b-xlg -mt-3  mb-4 py-4 bg-white-smoke ">
+    <div class="w-90 mx-auto flex flex-wrap">
+        <ul class="w-50 list my-0   text-black-dark">
+            <li class=" my-0 ">
+                <a href="{{action('HomeController@index')}}"
+                   class="font-primary font-medium text-3xl inherit-color no-underline">
+                    {{env('APP_NAME')}}
                 </a>
-                <div class="dropdown-content w-rem-74 mx-0 -ml-16 text-left rounded-lg font-roboto font-normal shadow mt-0
-    border-2 border-solid border-white cursor-pointer overflow-hidden">
-                    <a class="dropdown-item hover:bg-grey-lighter" href="{{action('ProfileController@index')}}">
-
-                        {{ __('Profile') }}
-                    </a>
-
-                    <a class="dropdown-item hover:bg-grey-lighter" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
             </li>
-
-@endguest
-
-    </div>
-</div>
-<div class="w-100 bg-primary">
-
-    <div class="flex w-90 mx-auto p-3">
-        <div class="w-25 flex text-white text-sm">
-            <div class="w-20">
-                <i class="fas fa-bars text-xl"></i>
-            </div>
-            <div class="w-70">
-                Categories
-            </div>
-        </div>
-        <div class="w-50">
-            <nav>
-
-                <ul class="list inline-block ml-7  -mt-2 text-white text-sm">
-                    @foreach(\App\Category::get()->take(8) as $category)
-                        <li class=" inline-block mx-3"><a
-                                    href="{{action('ProductsController@index',[$category->name,$category->id])}}"
-                                    class="inherit-color">{{__($category->name)}}</a></li>
-                    @endforeach
-                    &nbsp;
-
-                </ul>
-
-            </nav>
-        </div>
-
-
-
-        <div class="w-25 text-center text-white">
-            <ul class="list inline-block -mt-2 text-sm text-center">
-
-                <li class="mx-3"><a href="{{action('WishListController@index')}}"
-                                    class="cursor-pointer inherit-color">
-                        Favorites<i class="fi flaticon-like-1 mx-1 text-red"></i>
-                    </a></li>
-
-                <li class="mx-3 inline-block text-white">
-                    <a href="{{action('CartController@index')}}" class="cursor-pointer inherit-color">
-                        Cart <i class="fas fa-shopping-cart text-red mx-1">
-                        </i>
-                    </a>
+        </ul>
+        <ul class="w-50 list my-0 text-right text-black-dark">
+            <li class="text-xl mt-0 pt-0 w-60 mr-4 inline-block font-primary font-medium">
+                <form class="flex my-0">
+                    <div class="flex-90">
+                        <input type="search" name=""
+                               class="text-right text-black-dark bg-transparent focus:shadow-none font-medium form-input border-none border-none p-0 m-0"
+                               placeholder="Search">
+                    </div>
+                    <div class="flex-10 text-right p-0">
+                        <button type="submit"
+                                class="btn bg-transparent shadow-none py-0 m-0 appearance-none -mt-1 hover:text-primary focus:text-primary">
+                            <i
+                                class="fi flaticon-search  text-xl leading-0"></i></button>
+                    </div>
+                </form>
+            </li>
+            <li class="text-xl  mt-0 pt-2 mr-4 inline-block font-primary font-medium">
+                <a href="{{action('WishListController@index')}}" class="inherit-color no-underline">
+                    <i class="fi flaticon-like-1"></i>
+                </a>
+            </li>
+            <li class="text-xl  mt-0 pt-2 mr-4 inline-block font-primary font-medium">
+                <a href="{{action('CartController@index')}}"  class="inherit-color no-underline">
+                    <i class="fi flaticon-shopping-cart"></i>
+                </a>
+            </li>
+            <li class="text-xl  mt-0 pt-2  inline-block font-primary font-medium">
+                <i class="fi flaticon-user"></i>
+            </li>
+        </ul>
+        <ul class="list w-100 text-center text-black-dark   text-sm">
+            @foreach(\App\Category::get()->take(6) as $category)
+                <li class="inline-block mx-3"><a
+                        href="{{action('ProductsController@index',[$category->stripped_name,$category->id])}}"
+                        class="inherit-color text-sm font-primary font-medium  no-underline">{{__($category->name)}}</a>
                 </li>
-            </ul>
+            @endforeach
+            <li class="inline-block mx-3"><a
 
-        </div>
+                    class=" text-sm font-primary font-medium text-accent no-underline">Deals</a></li>
 
-
-
+        </ul>
     </div>
 
-</div>
-
-{{--<div class="w-100 bg-primary">--}}
-    {{--<div class="flex w-90 mx-auto p-3">--}}
-        {{--<div class="w-25 flex text-white text-sm">--}}
-            {{--<div class="w-20">--}}
-                {{--<i class="fas fa-bars text-xl"></i>--}}
-            {{--</div>--}}
-            {{--<div class="w-70">--}}
-                {{--Catetgories--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="w-50">--}}
-            {{--<nav>--}}
-
-                {{--<ul class="list inline-block ml-7 -mt-2 text-white text-sm">--}}
-                    {{--@foreach(\App\Category::get()->take(8) as $category)--}}
-                        {{--<li class=" inline-block"><a--}}
-                                    {{--href="{{action('ProductsController@index',[$category->name,$category->id])}}"--}}
-                                    {{--class="inherit-color">{{__($category->name)}}</a></li>--}}
-                    {{--@endforeach--}}
-                    {{--&nbsp;--}}
-
-                {{--</ul>--}}
-
-            {{--</nav>--}}
-        {{--</div>--}}
-        {{--<div class="w-25 text-center text-white">--}}
-            {{--<ul class="list inline-block -mt-2 text-sm text-center">--}}
-
-                {{--<li class="mx-3"><a href="{{action('ProductsController@viewWishList')}}"--}}
-                                    {{--class="cursor-pointer inherit-color">--}}
-                        {{--Favorites<i class="fi flaticon-like-1 mx-1 text-red"></i>--}}
-                    {{--</a></li>--}}
-
-                {{--<li class="mx-3 inline-block text-white">--}}
-                    {{--<a href="{{action('CartController@index')}}" class="cursor-pointer inherit-color">--}}
-                        {{--Cart <i class="fas fa-shopping-cart text-red mx-1">--}}
-                        {{--</i>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="w-100 bg-primary">--}}
-{{--<div class="flex w-90 mx-auto p-3">--}}
-{{--<div class="w-25 flex text-white text-sm">--}}
-{{--<div class="w-30">--}}
-{{--<i class="fas fa-bars text-xl"></i>--}}
-{{--</div>--}}
-{{--<div class="w-70">--}}
-{{--Categories--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="w-50">--}}
-{{----}}
-
-
-{{--</div>--}}
-
-
-{{--</div>--}}
-{{--</div>--}}
+</nav>

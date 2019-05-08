@@ -19,17 +19,34 @@ class ProductsController extends Controller
     //
 
 
-
     public function index(ProductFilterForm $filterForm, $category_name, $category_id, $subcategory_name = null, $subcategory_id = null)
     {
         $query = Product::query();
+        $category = Category::with('subcategories')->findOrFail($category_id);
+        if ($subcategory_id) {
+            $selected_subcategory = Subcategory::whereHas('category')
+                ->findOrFail($subcategory_id);
+
+            $query = $query->where('subcategory_id', $subcategory_id);
+
+        } else {
+            $selected_subcategory = null;
+
+
+            $query = $query->whereHas(
+                'subcategory', function ($q) use ($category_id) {
+                $q->where('category_id', $category_id);
+            }
+            );
+
+        }
+//        $query = $query->whereIsActive();
         $brands = $this->findBrands($query);
         $conditions = $this->findConditions($query);
         $query = $filterForm->handle($query);
         $products = $query->with('currency', 'brand', 'affiliate')->get();
         $attributes = $filterForm;
-        $categories = Category::get()->take(8);
-        return view('product.index', compact('products', 'brands','conditions', 'attributes','categories'));
+        return view('product.index', compact('products', 'brands', 'conditions', 'attributes', 'category'));
     }
 
 
@@ -41,20 +58,19 @@ class ProductsController extends Controller
     {
 
 
-
         // $query = $query->isActive();
 
-        $categories=Category::get();
+        $categories = Category::get();
         $query = Product::query();
         // $query = $query->isActive();
         $brands = $this->findBrands($query);
         $category = $this->findCategories($query);
         $conditions = $this->findConditions($query);
         $query = $filterForm->handle($query);
-        $products = $query->with('currency','condition', 'brand','subcategory', 'affiliate')->get();
+        $products = $query->with('currency', 'condition', 'brand', 'subcategory', 'affiliate')->get();
         $attributes = $filterForm;
         $keyword = $filterForm->keyword;
-        return view('product.index', compact('products', 'brands','conditions','category', 'attributes','categories', 'keyword'));
+        return view('product.index', compact('products', 'brands', 'conditions', 'category', 'attributes', 'categories', 'keyword'));
     }
 
     /*
@@ -82,7 +98,9 @@ class ProductsController extends Controller
             $medias->push($media->getFullUrl('main'));
             $thumbnails->push($media->getFullUrl('thumb'));
         }
-        return view('product.view', compact('product', 'medias', 'thumbnails'));
+        $similar_products = $product->subcategory->products()->where('id','!=',$product->id)->get()->take(15);
+        return view('product.view', compact('product', 'medias', 'thumbnails','similar_products'))
+            ->with('hot_products', Product::latest()->where('id','!=',$product->id)->get()->take(8));
     }
 
     /*
@@ -93,8 +111,8 @@ class ProductsController extends Controller
     {
         $products = $query->get()->groupBy('brand_id');
         $brands = collect();
-        foreach ($products as $product){
-            if($product->first() && $product->first()->brand){
+        foreach ($products as $product) {
+            if ($product->first() && $product->first()->brand) {
                 $brands->push($product->first()->brand);
             }
         }
@@ -110,8 +128,8 @@ class ProductsController extends Controller
     {
         $products = $query->get()->groupBy('category_id');
         $categories = collect();
-        foreach ($products as $product){
-            if($product->first() && $product->first()->subcategory){
+        foreach ($products as $product) {
+            if ($product->first() && $product->first()->subcategory) {
                 $categories->push($product->first()->subcategory);
             }
         }
@@ -127,8 +145,8 @@ class ProductsController extends Controller
     {
         $products = $query->get()->groupBy('condition_id');
         $conditions = collect();
-        foreach ($products as $product){
-            if($product->first() && $product->first()->condition){
+        foreach ($products as $product) {
+            if ($product->first() && $product->first()->condition) {
                 $conditions->push($product->first()->condition);
             }
         }

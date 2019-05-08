@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="w-80 mx-auto xs:w-90  mt-70 mb-70">
-        <div class="panel panel-default xs:w-100 sm:w-100 md:w-100 shadow-md w-65 mx-auto mt-70 rounded-lg">
+        <div class="panel panel-default xs:w-100 sm:w-100 md:w-100 border-1 border-solid border-grey-light w-65 mx-auto mt-70 rounded-lg">
             <div class="panel-body py-5">
                 <h2 class="text-center my-3 font-primary">{{ __('Login') }}</h2>
                 <form method="POST" action="{{ route('login') }}">
