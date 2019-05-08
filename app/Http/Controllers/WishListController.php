@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Flash;
 use App\Product;
 use App\WishList;
 use Illuminate\Http\Request;
@@ -29,6 +30,10 @@ class WishListController extends Controller
     public function add($id){
         $product = Product::findOrFail($id);
         $product->addToWishList();
+        Flash::push(
+            'success', 'The Product stored',
+            'WishList'
+        );
         return back();
     }
 
@@ -96,7 +101,7 @@ class WishListController extends Controller
     public function destroy($id)
     {
         //
-        $product = WishList::findOrFail($id)->delete();
+        WishList::findOrFail($id)->delete();
         return back();
     }
 }

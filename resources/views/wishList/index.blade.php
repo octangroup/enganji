@@ -33,9 +33,11 @@
                 My wishlist
             </h5>
         </div>
-        @foreach($wishLists as $wishList)
+
             <div class=" w-80 mx-auto border mb-3 border-b-1 my-4 border-r-0 border-l-0 border-t-0">
+                @foreach($wishLists as $wishList)
                 <div class="flex">
+
                     <div class="w-10 ">
                         <p></p>
 
