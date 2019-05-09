@@ -102,7 +102,7 @@ class ProductsController extends Controller
             $medias->push($media->getFullUrl('main'));
             $thumbnails->push($media->getFullUrl('thumb'));
         }
-        $similar_products = $product->subcategory->products()->with('currency')->where('id', '!=', $product->id)->get()->take(15);
+        $similar_products = $product->subcategory->products()->with('currency','brand')->where('id', '!=', $product->id)->get()->take(15);
         return view('product.view', compact('product', 'medias', 'thumbnails', 'similar_products'))
             ->with('hot_products', Product::latest()->with('currency')->where('id', '!=', $product->id)->get()->take(8));
     }
