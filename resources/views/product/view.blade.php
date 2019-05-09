@@ -3,18 +3,18 @@
     <chat @guest :is_guest="true" @endif
     :product="{{$product}}"
     >
-
     </chat>
     <div class="panel panel-default">
         <div class="panel-body w-90 mx-auto">
-            <div class=" flex">
+            <div class="flex">
                 <div class="w-50">
                     <div class="flex">
                         <div class="w-40 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
 
                         </div>
-                        <div class="w-40 p-3  border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">
+                        <div
+                            class="w-40 p-3  border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
                         </div>
 
@@ -109,20 +109,24 @@
         <div class="mt-3 w-90 mx-auto">   
             <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Product Details</h3>
-            <p class="text-base">{{$product->description}}</p>
+            <div class="px-3">
+                <p class="text-base">{{$product->description}}</p>
+            </div>
         </div>
 
         <div class="my-3 w-90 mx-auto">   
             <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Specifications</h3>
-            <p class="text-xs my-0">Type  </p>
-            <p class="text-xs my-0">Sneakers  </p>
-            <p class="text-xs my-0">Toe Shape </p>
+            <div class="px-3">
+                <p class="text-xs my-0">Type  </p>
+                <p class="text-xs my-0">Sneakers  </p>
+                <p class="text-xs my-0">Toe Shape </p>
+            </div>
         </div>
         <div class="my-3 w-90 mx-auto">   
             <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Reviews</h3>
-            <div class="flex ">
+            <div class="flex px-3">
                 <div class="w-30  xs:text-xs2 xs:w-60">
                     <h5 class="xs:text-sm font-normal mt-0 mb-3">Item rating</h5>
 
@@ -185,21 +189,8 @@
         </div>
 
     </div>
-    @component('product.components.listing.section',['products'=>$similar_products,'title'=>'Similar Product'])
-    @endcomponent
+    <product-section title="Similar Products" :products="{{$similar_products}}"></product-section>
 
-
-
-    @component('product.components.listing.section',['products'=>$hot_products,'title'=>'Hot Products'])
-    @endcomponent
-
-
-    <script>
-        import ChatPopUp from "../../js/components/chatPopUp";
-
-        export default {
-            components: {ChatPopUp}
-        }
-    </script>
+    <product-section title="Hot Products" :products="{{$hot_products}}"></product-section>
 
 @endsection

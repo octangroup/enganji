@@ -27,6 +27,11 @@ trait MediaConversion
 
     public function cover()
     {
+        return $this->mainPicture();
+    }
+
+    public function mainPicture()
+    {
         if ($this->getFirstMedia()) {
             return $this->getFirstMedia()->getUrl('main');
         }

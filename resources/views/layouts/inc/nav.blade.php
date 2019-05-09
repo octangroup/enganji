@@ -10,11 +10,10 @@
         </ul>
         <ul class="w-50 list my-0 text-right text-black-dark">
             <li class="text-xl mt-0 pt-0 w-60 mr-4 inline-block font-primary font-medium">
-                <form class="flex my-0">
+                <form name="search_form" method="get" action="{{action('ProductsController@search')}}" class="flex my-0">
                     <div class="flex-90">
-                        <input type="search" name=""
-                               class="text-right text-black-dark bg-transparent focus:shadow-none font-medium form-input border-none border-none p-0 m-0"
-                               placeholder="Search">
+                        <input name="keyword" type="text" placeholder="Search" value="{{$keyword ?? null}}"
+                               class="text-right text-black-dark bg-transparent focus:shadow-none font-medium form-input border-none border-none p-0 m-0">
                     </div>
                     <div class="flex-10 text-right p-0">
                         <button type="submit"

@@ -1,20 +1,21 @@
 <div class="p-5 bg-white-smoke rounded-xlg">
-
-    <h3 class="text-base font-bold font-primary mx-auto ">{{$category->name}}</h3>
-    <div class="py-2 ">
-        <div class="ml-3">
-            @foreach($category->subcategories as $subcategory)
-                <p class="my-2 text-sm">
-                    <a href="{{action('ProductsController@index',[$category->name,$category->id,$subcategory->name,$subcategory->id, http_build_query($attributes->all())])}}">{{$subcategory->name}}</a>
-                </p>
-            @endforeach
+    @if($category ?? null)
+        <h3 class="text-base font-bold font-primary mx-auto ">{{$category->name}}</h3>
+        <div class="py-2 ">
+            <div class="ml-3">
+                @foreach($category->subcategories as $subcategory)
+                    <p class="my-2 text-sm">
+                        <a href="{{action('ProductsController@index',[$category->name,$category->id,$subcategory->name,$subcategory->id, http_build_query($attributes->all())])}}">{{$subcategory->name}}</a>
+                    </p>
+                @endforeach
+            </div>
         </div>
-    </div>
+    @endif
     <form
         @if($category ?? null)
         action="{{action('ProductsController@index',[$category->name,$category->id,$selected_subcategory->name ?? null,$selected_subcategory->id ?? null])}}"
         @elseif($keyword ?? null)
-        action="{{action('ProductController@search')}}"
+        action="{{action('ProductsController@search')}}"
         @endif
         onChange="this.form.submit()"
         method="get">

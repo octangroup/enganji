@@ -17,6 +17,7 @@
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/_flaticon.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css"
@@ -39,7 +40,7 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 @include('layouts.inc.footer')
 </body>
 <script>

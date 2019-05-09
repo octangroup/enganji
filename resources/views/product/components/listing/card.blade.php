@@ -1,4 +1,4 @@
-<div class="w-20  mx-3 p-3 border-1 border-grey-light border-solid rounded-xlg inline-block">
+<div class="w-20  mr-3 p-3 border-1 border-grey-light border-solid rounded-xlg inline-block">
     <div class="py-1 pt-0 z-50 relative bg-white  px-2  w-100 mx-auto">
         <h4 class="text-lg font-primary font-semibold sm:text-base md:text-base lg:text-xl xs:text-base m-0 p-0 whitespace-no-wrap overflow-hidden">{!! $product->name !!}</h4>
         <div class="w-100 flex my-1 text-sm">

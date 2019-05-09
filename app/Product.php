@@ -21,13 +21,39 @@ class Product extends Model implements HasMedia
         'brand_id', 'name', 'quantity', 'price', 'color', 'size', 'status', 'description'
     ];
 
-    protected $appends = ['stripped_name'];
+    protected $appends = ['thumbnail', 'cover', 'cover_srcset', 'stripped_name'];
 
     public function getStrippedNameAttribute()
     {
         $string = preg_replace('/[^A-Za-z0-9\-]/', ' ', Str::lower($this->name)); // Removes special chars.
         return Str::kebab($string);
     }
+
+
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getThumbnailAttribute()
+    {
+
+        return $this->thumbnail();
+    }
+
+    public function getCoverAttribute()
+    {
+        return $this->mainPicture();
+    }
+
+    public function getCoverSrcSetAttribute()
+    {
+        if ($this->getFirstMedia()) {
+            return $this->getFirstMedia()->getSrcset('main');
+        }
+        return null;
+    }
+
     /*
    * This function defines the relationship between product and condition
    */
@@ -60,8 +86,9 @@ class Product extends Model implements HasMedia
     /*
     * This function defines the relationship between product and brand
     */
-    public function reviews(){
-        return $this->hasMany(Review::class,'product_id');
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'product_id');
     }
 
 
@@ -70,7 +97,8 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(Affiliate::class);
     }
 
-    public function wishLists(){
+    public function wishLists()
+    {
 
         return $this->hasMany(WishList::class);
     }
@@ -96,22 +124,30 @@ class Product extends Model implements HasMedia
         $this->save();
     }
 
-
-    public function scopeWhereActivated($query){
-        return $query->where('status',1);
+    public function scopeWhereActive($query)
+    {
+        return $query->where('status', 1);
     }
 
-    public function visits(){
-        return $this->hasMany(Visits::class,'product_id');
+    public function scopeWhereActivated($query)
+    {
+        return $query->where('status', 1);
+    }
+
+    public function visits()
+    {
+        return $this->hasMany(Visits::class, 'product_id');
     }
 
 
-    public function category(){
-        return $this->belongsTo(Category::class,'category_id');
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
 
-    public function incrementVisits(){
+    public function incrementVisits()
+    {
         $this->visits()->create();
 
     }

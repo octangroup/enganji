@@ -40,7 +40,7 @@ class ProductsController extends Controller
             );
 
         }
-//        $query = $query->whereIsActive();
+        $query = $query->whereActive();
         $brands = $this->findBrands($query);
         $conditions = $this->findConditions($query);
         $query = $filterForm->handle($query);
@@ -58,19 +58,23 @@ class ProductsController extends Controller
     {
 
 
-        // $query = $query->isActive();
-
         $categories = Category::get();
         $query = Product::query();
-        // $query = $query->isActive();
+        $query = $query->whereActive();
         $brands = $this->findBrands($query);
-        $category = $this->findCategories($query);
-        $conditions = $this->findConditions($query);
         $query = $filterForm->handle($query);
-        $products = $query->with('currency', 'condition', 'brand', 'subcategory', 'affiliate')->get();
+        $products = $query->with('currency', 'brand', 'affiliate')->paginate(25);
         $attributes = $filterForm;
         $keyword = $filterForm->keyword;
-        return view('product.index', compact('products', 'brands', 'conditions', 'category', 'attributes', 'categories', 'keyword'));
+        $attributes_mobile = json_encode($filterForm->toArray());
+        return view(
+            'product.index', compact(
+                'products',
+                'brands', 'attributes',
+                'attributes_mobile',
+                'categories', 'keyword'
+            )
+        );
     }
 
     /*
@@ -98,9 +102,9 @@ class ProductsController extends Controller
             $medias->push($media->getFullUrl('main'));
             $thumbnails->push($media->getFullUrl('thumb'));
         }
-        $similar_products = $product->subcategory->products()->where('id','!=',$product->id)->get()->take(15);
-        return view('product.view', compact('product', 'medias', 'thumbnails','similar_products'))
-            ->with('hot_products', Product::latest()->where('id','!=',$product->id)->get()->take(8));
+        $similar_products = $product->subcategory->products()->with('currency')->where('id', '!=', $product->id)->get()->take(15);
+        return view('product.view', compact('product', 'medias', 'thumbnails', 'similar_products'))
+            ->with('hot_products', Product::latest()->with('currency')->where('id', '!=', $product->id)->get()->take(8));
     }
 
     /*
