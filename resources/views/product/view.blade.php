@@ -118,9 +118,9 @@
             <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Specifications</h3>
             <div class="px-3">
-                <p class="text-xs my-0">Type  </p>
-                <p class="text-xs my-0">Sneakers  </p>
-                <p class="text-xs my-0">Toe Shape </p>
+                <p class="text-md my-0">Brand Name:{{$product->brand->name}}</p>
+                <p class="text-md my-0">Condition:{{$product->condition->name}}</p>
+                <p class="text-md my-0">Color:{{$product->color}}</p>
             </div>
         </div>
         <div class="my-3 w-90 mx-auto">   
