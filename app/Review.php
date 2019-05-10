@@ -17,8 +17,9 @@ class Review extends Model
     }
 
     public function user(){
-        return $this->belongsTo(Product::class,'user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
+
     public function ratingCategory(): string
     {
         return RatingCategoryCalculator::handle($this->rating);
