@@ -29,6 +29,7 @@ class HomeController extends Controller
         $deals=Deal::with('product')->get();
         $ads[] = ['picture'=>'img/cover.png'];
         $ads[] = ['picture'=>'img/cover-2.png'];
+        $ads[] = ['picture'=>'img/cover-3.png'];
         $ads = json_encode($ads);
         return view('home',compact('products','deals','ads'));
     }

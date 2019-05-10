@@ -12,6 +12,9 @@
                     @slot('right_section')
                         <form action="{{action('CartController@store')}}" method="post">
                             {{csrf_field()}}
+                            <input min="1" type="hidden" name="quantity"
+                                   value="1" required>
+                            <input value="{{$wishList->product->id}}" type="hidden" name="product_id">
                             <div class="w-100  text-right">
                                 <button class="btn btn-accent rounded-full">
                                     Add to cart
