@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Helpers\RatingCategoryCalculator;
 use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
@@ -18,5 +19,10 @@ class Review extends Model
     public function user(){
         return $this->belongsTo(Product::class,'user_id');
     }
+    public function ratingCategory(): string
+    {
+        return RatingCategoryCalculator::handle($this->rating);
+    }
+
 
 }

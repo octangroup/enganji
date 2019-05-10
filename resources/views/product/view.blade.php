@@ -196,7 +196,7 @@
                                 <span>Write Review</span>
                             </button>
                             <div id="review-form"
-                                 class="w-100 my-5 border-1 bg-white rounded shadow-lg border-grey border-solid  hidden-temp">
+                                 class="w-100 my-5 border-1 bg-white rounded shadow-lg border-grey border-solid">
                                 <div class="xl:flex md:flex lg:flex">
                                     <div class="w-30 xs:w-100 px-3 border-0 border-solid border-grey border-r-1">
                                         <div class="h-100 py-5"><img
@@ -246,6 +246,50 @@
                                 </div>
                             </div>
                         @endauth
+
+
+
+                        @foreach($product->reviews as $review)
+                            <div class="flex p-4 mt-3">
+
+                                <div class="w-20  text-center">
+                                    {{--<img src="{{$review->user->avatar}}" class="rounded-full p-3 m-0 w-65 mt-4">--}}
+
+                                    <p class="text-dodge-blue m-0 p-0">{{$review->user->name}}</p>
+
+                                </div>
+                                <div class="w-80 p-4 ml-4">
+                                    <p title="0 Star item" class="mb-2 mt-2 m-0 w-auto tooltip">
+                                   <span class="text-orange">
+                           @for($j=1;$j<=$review->rating;$j++)
+                                           ★
+                                       @endfor
+                                    </span>
+                                        <span class="text-grey-light">
+                                         @for($j=1;$j<=(5-$review->rating);$j++)
+                                                ★
+                                            @endfor
+                                    </span>
+                                        <span class="pl-4 text-grey text-sm"><i class="far fa-clock"></i> {{$review->created_at->toFormattedDateString()}}</span>
+                                    </p>
+                                    <p class="text-dodge-blue m-0">{{$review->ratingCategory()}}</p>
+
+                                    <h1 class="text-xl text-grey-dark font-primary">{{$review->title}}</h1>
+
+                                    <p class="my-1">
+                                        <strong class="text-2xl italic">" </strong> {!! $review->body !!} <strong
+                                                class="text-2xl italic">"</strong>
+
+                                    </p>
+
+
+                                </div>
+                            </div>
+
+                        @endforeach
+
+
+
 
 
                     </div>
