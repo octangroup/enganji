@@ -21,7 +21,7 @@ class ReviewController extends Controller
     {
 
          $this->validate($request, [
-            'rating' => 'required|numeric',
+            'rating' => 'required|integer',
             'title' => 'required|string',
             'body' => 'required|string',
         ]);

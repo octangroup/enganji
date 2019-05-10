@@ -28,6 +28,7 @@ Vue.use(Vue2TouchEvents);
 Vue.component('chat', require('./components/chatPopUp.vue').default);
 Vue.component('chat-room', require('./components/affiliate/chatRoom.vue').default);
 Vue.component('alert', require('./components/Alert').default);
+Vue.component('star-rating', require('./components/StarRating').default);
 Vue.component('notification', require('./components/Notification').default);
 Vue.component('product-section', require('./components/product/section').default);
 Vue.component('main-slideshow', require('./components/MainSlideshow').default);
