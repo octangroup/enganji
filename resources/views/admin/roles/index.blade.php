@@ -26,22 +26,26 @@
 
     @if(count($roles))
         @foreach($roles as $role)
-            <div class="list-group-item">
-                <div class="row">
-                    <div class="col-md-2">
+            <div class=" mt-4   text-center mx-4 bg-white shadow rounded-xl  mb-4 p-2 py-4 ">
+                <div class="flex">
+                    <div class="w-40 px-4">
                         {{$role->name}}
                     </div>
-                    <div class="w-30 text-right">
+                </div>
+
+
+
+                    <div class=" text-right mr-3">
                         <button data-toggle="#mod-post-form{{$role->id}}"
-                                class="btn btn-outline-success rounded-full px-3 text-sm py-2 font-primary toggler">{{__('Modify')}}</button>
-                    </div>
-                    <div class="w-30 text-right">
-                        <form method="get" action="{{action('Admin\RolesController@delete',[$role->id])}}">
-                            {{csrf_field()}}
+                                class="btn btn-outline-success rounded-full px-3 text-sm py-2 font-primary toggler">{{__('Modify')}}
+                        </button>
+
+
+                        <a  href="{{action('Admin\RolesController@delete',[$role->id])}}">
                             <button class="btn btn-outline-danger rounded-full px-3 text-sm py-2 font-primary ">{{__('Delete')}}</button>
-                        </form>
+                        </a>
                     </div>
-                </div><br>
+                <br>
             </div>
             <div id="mod-post-form{{$role->id}}" class="card hidden-temp rounded-none border-none shadow">
                 <div class="card-body">
