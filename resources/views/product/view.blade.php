@@ -35,14 +35,14 @@
                         <h1 class="text-4xl  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                     </div>
                     <div class="mt-3">
-                        <div class="mr-3 pt-1 text-accent inline-block">
-                            <i class="fi flaticon-star-4"></i>
-                            <i class="fi flaticon-star-4"></i>
-                            <i class="fi flaticon-star-4"></i>
-                            <i class="fi flaticon-star"></i>
-                            <i class="fi flaticon-star"></i>
-                        </div>
-                        <p class="text-black mx-2 text-xs  mt-2 inline-block">28 reviews</p>
+
+                        <span class="text-orange">
+                                        @for($j=1;$j<=$product->rating();$j++)
+                                ★
+                            @endfor
+                 </span>
+
+                        <p class="text-black mx-2 text-xs  mt-2 inline-block">{{$product->reviews->count()}} reviews</p>
                     </div>
 
                     <div class="w-100">
