@@ -25,5 +25,11 @@
                 </div>
             </div>
         </div>
+        <div class="w-70 pl-5">
+            @foreach(Auth::user()->reviews as $review)
+                @component('product.components.reviews.card',['review'=>$review,'show_product'=>true])
+                @endcomponent
+            @endforeach
+        </div>
     </div>
 @endsection

@@ -7557,6 +7557,9 @@ a.text-danger:hover, a.text-danger:focus {
 .tracking-wide {
     letter-spacing: 0.05em !important;
 }
+.tracking-ultra-wide {
+    letter-spacing: 0.1em !important;
+}
 
 .align-items-start {
     align-items: flex-start !important;

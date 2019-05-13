@@ -75,6 +75,10 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(Conversation::class,'user_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class,'user_id');
+    }
 
 
 }

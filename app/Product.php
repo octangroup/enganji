@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Helpers\RatingCategoryCalculator;
 use App\Repository\MediaConversion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -21,12 +22,17 @@ class Product extends Model implements HasMedia
         'brand_id', 'name', 'quantity', 'price', 'color', 'size', 'status', 'description'
     ];
 
-    protected $appends = ['thumbnail', 'cover', 'cover_srcset', 'stripped_name'];
+    protected $appends = ['thumbnail', 'cover', 'cover_srcset', 'stripped_name', 'rating'];
 
     public function getStrippedNameAttribute()
     {
         $string = preg_replace('/[^A-Za-z0-9\-]/', ' ', Str::lower($this->name)); // Removes special chars.
         return Str::kebab($string);
+    }
+
+    public function getRatingAttribute()
+    {
+        return $this->rating();
     }
 
 
@@ -177,10 +183,33 @@ class Product extends Model implements HasMedia
         return false;
     }
 
-
+    /**
+     * this functions calculates the average rating and returns it
+     * @return float
+     */
     public function rating(): float
     {
         return round($this->reviews()->average('rating'), 2);
+    }
+    /**
+     * this functions counts the number of reviews having that rating
+     * @param $rate
+     * @return float
+     */
+    public function ratingCountOf($rate): float
+    {
+        return $this->reviews()->where('rating', '>=', $rate)->where('rating', '<', $rate + 1)->count();
+    }
+
+
+    /**
+     * this functions takes the number of ratings and returns a category corresponding to it
+     * @return string
+     */
+    public function ratingCategory(): string
+    {
+        $rating = $this->rating();
+        return RatingCategoryCalculator::handle($rating);
     }
 
 }

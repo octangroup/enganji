@@ -38968,7 +38968,23 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "w-100 flex my-1 text-sm" }, [
-            _vm._m(0),
+            _c(
+              "div",
+              { staticClass: "w-50 pt-1 text-accent" },
+              [
+                _vm._l(_vm.product.rating, function(i) {
+                  return _c("span", { staticClass: "tracking-ultra-wide" }, [
+                    _c("i", { staticClass: "fi flaticon-star-4" })
+                  ])
+                }),
+                _vm._l(5 - _vm.product.rating, function(i) {
+                  return _c("span", { staticClass: "tracking-ultra-wide" }, [
+                    _c("i", { staticClass: "fi flaticon-star" })
+                  ])
+                })
+              ],
+              2
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "text-right w-50" }, [
               _c(
@@ -39018,24 +39034,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-50 pt-1 text-accent" }, [
-      _c("i", { staticClass: "fi flaticon-star-4" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fi flaticon-star-4" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fi flaticon-star-4" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fi flaticon-star" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fi flaticon-star" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -54293,8 +54292,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xamp1\htdocs\enganji\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xamp1\htdocs\enganji\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/yannick/Sites/enganji/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/yannick/Sites/enganji/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
