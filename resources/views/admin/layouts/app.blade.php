@@ -23,7 +23,7 @@
 
     <div class="flex">
         <div class="w-15">
-            @include('admin.layouts.sidebar')
+            @include('admin.layouts.sidebar.index')
         </div>
         <div class="w-85 px-3">
             @yield('content')
