@@ -6,15 +6,28 @@
                 {{Session::get('success')}}
             </div>
         @endif
-        <div>
-            <h4 class=" font-primary inline-block  text-3xl">Product</h4>
+            <div class="bg-transparent  w-100  ">
+
+                <form name="search_form" method="get"  class="flex my-4">
+                    <div class="w-50 mx-auto  py-2 ">
+                        <input name="keyword" type="text" placeholder="Search...."
+                               class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
+                    </div>
+
+
+
+                </form>
+            </div>
+
+        <div class=" w-80 mx-auto">
+            <h4 class=" font-primary inline-block  text-xl">Product</h4>
             <button
-                class="rounded-r-xxl rounded-l-xxl hover:bg-black text-base bg-black-darker text-white py-3 px-3 border-0 mx-3 shadow inline-block">
+                class="  btn btn-primary text-sm  rounded-full mx-2 border-0   inline-block">
                 ADD PRODUCT
             </button>
         </div>
         {{--@if(count($products))--}}
-        <div class="flex w-80 mx-auto">
+        <div class="flex w-80 mx-auto mt-3">
             {{--            <div class="w-25">--}}
             {{--                <div class="bg-white-smoke mb-4 px-4 font-primary text-black shadow rounded-xl">--}}
             {{--                </div>--}}
@@ -53,7 +66,7 @@
 
                                 <div>
                                     @if($product->isActive())
-                                        <a class="btn btn-primary"
+                                        <a class="btn btn-primary rounded hover:bg-white mt-2"
                                            href="{{action('Admin\ProductsController@changeStatus',[$product->id])}}"
                                         >
                                             {{__('Disable')}}
@@ -62,7 +75,7 @@
 
                                     @else
                                         <a href="{{action('Admin\ProductsController@changeStatus',[$product->id])}}"
-                                           class="btn btn-primary">
+                                           class="btn btn-primary rounded hover:bg-white mt-2">
 
                                             {{__('Activate')}}
                                         </a>
