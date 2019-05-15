@@ -5,11 +5,11 @@
                 {{product.name}}</h4>
             <div class="w-100 flex my-1 text-sm">
                 <div class="w-50 pt-1 text-accent">
-                    <i class="fi flaticon-star-4"></i>
-                    <i class="fi flaticon-star-4"></i>
-                    <i class="fi flaticon-star-4"></i>
-                    <i class="fi flaticon-star"></i>
-                    <i class="fi flaticon-star"></i>
+                    <span class="tracking-ultra-wide" v-for="i in product.rating">
+                          <i class="fi flaticon-star-4"></i>
+                    </span><span class="tracking-ultra-wide" v-for="i in (5- product.rating)">
+                        <i class="fi flaticon-star"></i>
+                    </span>
                 </div>
                 <div class="text-right w-50">
                     <p class="text-lg font-primary font-medium text-accent md:text-sm lg:text-base my-0">

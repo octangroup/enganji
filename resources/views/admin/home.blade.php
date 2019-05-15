@@ -6,34 +6,28 @@
     <div class="container">
 
 
-        <div class="flex w-85 mx-auto  mt-2 ">
+        <div class=" w-85 mx-auto  mt-2 text-center">
 
-            <div class="w-25  bg-orange my-5 rounded-lg">
+            <div class="w-25 bg-orange my-5 rounded-lg inline-block">
                 <div class="text-center text-white">
-                    {{__('Affiliates')}}<br>
-
-                    {{$affiliates->count()}}
-
+                    <h4 class="my-4 text-2xl">{{$affiliates->count()}}</h4>
+                    <p class="my-3">{{__('Affiliates')}}</p>
                 </div>
             </div>
 
 
-            <div class="w-25 mx-3 bg-blue-light my-5  rounded-lg">
+            <div class="w-25 mx-3 bg-blue-light my-5  rounded-lg inline-block">
                 <div class="text-center text-white">
-                    {{__('Users')}}<br>
-
-                    {{$users->count()}}
-
+                    <h4 class="my-4 text-2xl"> {{$users->count()}}</h4>
+                    <p class="my-3">{{__('Users')}}</p>
                 </div>
             </div>
 
 
-            <div class="w-25 mx-3 bg-pink-darker opacity-75 my-5 rounded-lg">
+            <div class="w-25 mx-3 bg-pink-darker opacity-75 my-5 rounded-lg inline-block">
                 <div class="text-center text-white">
-                    {{__('Products')}}<br>
-
-                    {{$products->count()}}
-
+                    <h4 class="my-4 text-2xl">{{$products->count()}}</h4>
+                    <p class="my-3">{{__('Products')}}</p>
                 </div>
             </div>
 
