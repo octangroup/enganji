@@ -20,65 +20,75 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel mb-5">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div id="app" class="relative">
 
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
+        <div class="flex">
+            <div class="w-15">
+                @include('affiliate.layouts.sidebar')
+            </div>
+            <div class="w-85 px-3">
+                @yield('content')
+            </div>
         </div>
+    </div>
+    {{--<nav class="navbar navbar-expand-md navbar-light navbar-laravel mb-5">--}}
+        {{--<div class="container">--}}
+            {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
+                {{--{{ config('app.name', 'Laravel') }}--}}
+            {{--</a>--}}
+            {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"--}}
+                    {{--aria-controls="navbarSupportedContent" aria-expanded="false"--}}
+                    {{--aria-label="{{ __('Toggle navigation') }}">--}}
+                {{--<span class="navbar-toggler-icon"></span>--}}
+            {{--</button>--}}
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
+            {{--<!-- Branding Image -->--}}
+            {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
+                {{--{{ config('app.name', 'Laravel') }}--}}
+            {{--</a>--}}
+        {{--</div>--}}
 
-            </ul>
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    @if (!Auth::guard('affiliate')->check())
-                        <li class="nav-item"><a class="nav-link" href="{{ URL::to('affiliate') }}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ URL::to('affiliate/register') }}">Register</a></li>
-                    @else
-                        <li class="nav-item"><a class="nav-link" href="{{action('Affiliate\ProductsController@index')}}">Manage products</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{action('Affiliate\DealsController@index')}}">Deals</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{action('Affiliate\ChatsController@index')}}">{{__('Chat')}}</a> </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">
-                                {{ Auth::guard('affiliate')->user()->name }} <span class="caret"></span>
-                            </a>
+        {{--<div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
+            {{--<!-- Left Side Of Navbar -->--}}
+            {{--<ul class="navbar-nav mr-auto">--}}
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ route('affiliate.logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+            {{--</ul>--}}
+                {{--<!-- Right Side Of Navbar -->--}}
+                {{--<ul class="navbar-nav ml-auto">--}}
+                    {{--<!-- Authentication Links -->--}}
+                    {{--@if (!Auth::guard('affiliate')->check())--}}
+                        {{--<li class="nav-item"><a class="nav-link" href="{{ URL::to('affiliate') }}">Login</a></li>--}}
+                        {{--<li class="nav-item"><a class="nav-link" href="{{ URL::to('affiliate/register') }}">Register</a></li>--}}
+                    {{--@else--}}
+                        {{--<li class="nav-item"><a class="nav-link" href="{{action('Affiliate\ProductsController@index')}}">Manage products</a></li>--}}
+                        {{--<li class="nav-item"><a class="nav-link" href="{{action('Affiliate\DealsController@index')}}">Deals</a></li>--}}
+                        {{--<li class="nav-item"><a class="nav-link" href="{{action('Affiliate\ChatsController@index')}}">{{__('Chat')}}</a> </li>--}}
+                        {{--<li class="dropdown">--}}
+                            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"--}}
+                               {{--aria-expanded="false">--}}
+                                {{--{{ Auth::guard('affiliate')->user()->name }} <span class="caret"></span>--}}
+                            {{--</a>--}}
 
-                                    <form id="logout-form" action="{{ route('affiliate.logout') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-        </div>
-</nav>
+                            {{--<ul class="dropdown-menu" role="menu">--}}
+                                {{--<li>--}}
+                                    {{--<a href="{{ route('affiliate.logout') }}"--}}
+                                       {{--onclick="event.preventDefault();--}}
+                                                     {{--document.getElementById('logout-form').submit();">--}}
+                                        {{--Logout--}}
+                                    {{--</a>--}}
 
-@yield('content')
+                                    {{--<form id="logout-form" action="{{ route('affiliate.logout') }}" method="POST"--}}
+                                          {{--style="display: none;">--}}
+                                        {{--{{ csrf_field() }}--}}
+                                    {{--</form>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                    {{--@endif--}}
+                {{--</ul>--}}
+        {{--</div>--}}
+{{--</nav>--}}
+
 </div>
 
 
