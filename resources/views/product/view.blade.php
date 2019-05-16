@@ -35,14 +35,17 @@
                         <h1 class="text-4xl  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                     </div>
                     <div class="mt-3">
-                        <div class="mr-3 pt-1 text-accent inline-block">
-                            <i class="fi flaticon-star-4"></i>
-                            <i class="fi flaticon-star-4"></i>
-                            <i class="fi flaticon-star-4"></i>
-                            <i class="fi flaticon-star"></i>
-                            <i class="fi flaticon-star"></i>
-                        </div>
-                        <p class="text-black mx-2 text-xs  mt-2 inline-block">28 reviews</p>
+
+                        <span class="text-accent">
+                            @for($j=1;$j<=$product->rating;$j++)
+                                <i class="fi flaticon-star-4"></i>
+                            @endfor
+                            @for($j=1;$j<=(5- $product->rating);$j++)
+                                <i class="fi flaticon-star"></i>
+                            @endfor
+                        </span>
+
+                        <p class="text-black mx-2 text-xs  mt-2 inline-block">{{$product->reviews->count()}} reviews</p>
                     </div>
 
                     <div class="w-100">
@@ -90,12 +93,10 @@
                         </div>
 
                     </div>
-                    <div class="mt-3">
-                        <p class="fi flaticon-menu"> Share</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="text-sm font-semibold"> Return Policy: 14­day refund or replacement</p>
-                    </div>
+{{--                    <div class="mt-3">--}}
+{{--                        <p class="fi flaticon-menu"> Share</p>--}}
+{{--                    </div>--}}
+
 
                 </div>
             </div>
@@ -126,65 +127,55 @@
         <div class="my-3 w-90 mx-auto">   
             <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Reviews</h3>
-            <div class="flex px-3">
-                <div class="w-30  xs:text-xs2 xs:w-60">
-                    <h5 class="xs:text-sm font-normal mt-0 mb-3">Item rating</h5>
+            <div class="flex px-3 pb-4">
+                <div class="w-30  xs:text-xs2 xs:w-60 pt-3">
+                    @for($i = 5;$i>0;$i--)
+                        <p title="0 Star item" class="mb-2 mt-2 w-auto tooltip">
+                            <span class="pr-3">{{$i}} star</span>
+                            <span class="text-accent">
+                                        @for($j=1;$j<=$i;$j++)
+                                    <i class="fi flaticon-star-4"></i>
+                                @endfor
 
-                    <div class="flex">
-                        <span class="text-orange mt-2">
-                                                                ★
-                                            ★
-                                     </span>
-
-                        <span class="text-orange mt-2">
-                                                                ★
-
-                                     </span>
-                        <span class=" mt-2">
-                                                                ★
-                                            ★
-                                     </span>
-
-                    </div>
-                    <div class="flex">
-                        <span class="text-orange mt-2">
-                                                                ★
-                                            ★
-                                     </span>
-
-                        <span class="text-orange mt-2">
-                                                                ★
-
-                                     </span>
-                        <span class=" mt-2">
-                                                                ★
-                                            ★
-                                     </span>
-
-                    </div>
-                    <div class="flex">
-                        <span class="text-orange mt-2">
-                                                                ★
-                                            ★
-                                     </span>
-
-                        <span class="text-orange mt-2">
-                                                                ★
-
-                                     </span>
-                        <span class=" mt-2">
-                                                                ★
-                                            ★
-                                     </span>
-
-                    </div>
+                                @for($j=1;$j<=(5-$i);$j++)
+                                    <i class="fi flaticon-star"></i>
+                                @endfor
+                                </span>
+                            <span class="pl-3">{{$product->ratingCountOf($i)}}</span>
+                        </p>
+                    @endfor
                 </div>
                 <div class="w-70">
                     <div class="w-70 xs:w-100 pl-5 xs:pl-3">
-                        <h5 class="text-xl xs:text-sm mt-0 mb-3 p-0 font-normal">Overview Rating</h5>
-                        <p class="text-dodge-blue xs:text-sm m-0 mb-4"></p>
+                        <h5 class="text-xl  mt-0 mb-3 p-0 font-medium font-primary">Overview Rating</h5>
+                        <p class="text-dodge-blue xs:text-sm m-0 mb-4">{{$product->rating()}} {{$product->ratingCategory()}}</p>
+                        @guest()
+                            <a href="{{action('Auth\LoginController@showLoginForm')}}"
+                               class="btn mt-3 border-1 inherit-color border-solid mt-5  xs:text-sm border-grey rounded-full toggler uppercase text-sm">
+                                <i class="far mr-2 fa-edit"></i>
+                                <span>Login to Review</span>
+                            </a>
+                        @endguest
+
+                        @auth()
+                            <button data-toggle="#review-form"
+                                    class="btn mt-3 border-1 border-solid xs:text-sm border-grey rounded-full toggler text-sm uppercase">
+                                <i class="far mr-2 fa-edit"></i>
+                                <span>Write Review</span>
+                            </button>
+                            @include('product.components.reviews.form')
+                        @endauth
+
+
                     </div>
                 </div>
+
+            </div>
+            <div class="w-70 mx-auto">
+                @foreach($product->reviews as $review)
+                    @component('product.components.reviews.card',['review'=>$review])
+                    @endcomponent
+                @endforeach
             </div>
         </div>
 

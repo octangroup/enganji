@@ -99,9 +99,9 @@
                         <div class="col-md-7 text-right">
                         <span data-toggle="#mod-category-{{$ad->id}}" class="mr-3 cursor-pointer text-xl toggler">
                            <i class="fi flaticon-edit"></i>
-                        </span>    <a class=" my-0 text-xl text-red" title="Delete"
-                                      href="{{action('Admin\AdsController@destroy',[$ad->id])}}"> <i
-                                        class="fi flaticon-trash"></i>
+                        </span> <a class=" my-0 text-xl text-red" title="Delete"
+                                   href="{{action('Admin\AdsController@destroy',[$ad->id])}}"> <i
+                                    class="fi flaticon-trash"></i>
                             </a>
                         </div>
                     </div>

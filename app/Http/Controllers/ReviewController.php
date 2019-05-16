@@ -20,11 +20,13 @@ class ReviewController extends Controller
     public function store(Request $request, $id)
     {
 
+
          $this->validate($request, [
             'rating' => 'required|numeric',
             'title' => 'required|string',
             'body' => 'required|string',
         ]);
+
         Review::create([
             'user_id' => Auth::User()->id,
             'product_id' => $id,

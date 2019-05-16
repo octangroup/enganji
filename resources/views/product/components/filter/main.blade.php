@@ -1,4 +1,4 @@
-<div class="p-5 bg-white-smoke rounded-xlg">
+<div class="px-5 py-4 bg-white-smoke rounded-xlg">
     @if($category ?? null)
         <h3 class="text-base font-bold font-primary mx-auto ">{{$category->name}}</h3>
         <div class="py-2 ">

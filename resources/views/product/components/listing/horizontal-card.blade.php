@@ -14,11 +14,14 @@
         <span class="text-xs my-0 text-grey-darker">by {{$product->affiliate->name}}</span>
 
         <div class=" pt-1 text-accent text-sm">
-            <i class="fi flaticon-star-4"></i>
-            <i class="fi flaticon-star-4"></i>
-            <i class="fi flaticon-star-4"></i>
-            <i class="fi flaticon-star"></i>
-            <i class="fi flaticon-star"></i>
+           <span class="text-accent">
+               @for($j=1;$j<=$product->rating;$j++)
+                   <i class="fi flaticon-star-4"></i>
+               @endfor
+               @for($j=1;$j<=(5- $product->rating);$j++)
+                   <i class="fi flaticon-star"></i>
+               @endfor
+            </span>
         </div>
         {!! $slot !!}
         <div class="my-3">

@@ -9,95 +9,59 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <script src="{{ asset('js/app.js') }}" ></script>
-
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{asset('css/helpers.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/desktop.css')}}" rel="stylesheet">
     <link href="{{asset('css/mobile.css')}}" rel="stylesheet">
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
+    <link href="{{asset('fonts/_flaticon.css')}}" rel="stylesheet">
+    <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<div id="app" class="relative">
+    <div class="bg-transparent  w-100  ">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (!Auth::guard('admin')->check())
-                            <li><a href="{{ URL::to('admin') }}">Login</a></li>
-                            {{--<li><a href="{{ URL::to('admin/register') }}">Add admin</a></li>--}}
-                        @else
-                            <li><a href="{{action('Admin\ProductsController@index')}}">Manage products</a></li>
-                            <li><a href="{{action('Admin\AffiliatesController@index')}}">Affiliates</a></li>
-                            <li><a href="{{action('Admin\BrandController@index')}}">Brand</a></li>
-                            <li><a href="{{action('Admin\CurrencyController@index')}}">Currency</a></li>
-                            <li><a href="{{action('Admin\ConditionsController@index')}}">Manage Conditions</a></li>
-                            <li><a href="{{action('Admin\CategoriesController@index')}}">Manage Categories</a></li>
-                            <li><a href="{{action('Admin\RolesController@index')}}">Roles</a></li>
-                            <li><a href="{{action('Admin\AdsController@index')}}">Ads</a></li>
-                            <li><a href="{{action('Admin\Auth\RegisterController@showRegistrationForm')}}">Add admin</a></li>
-                            <li><a href="{{action('Admin\AdminsController@index')}}">Manage admins</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('admin.logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
+        <form name="search_form" method="get"  class="flex my-4">
+            <div class="w-50 mx-auto  py-2 ">
+                <input name="keyword" type="text" placeholder="Search...."
+                       class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
             </div>
-        </nav>
 
-        @yield('content')
+
+
+
+        </form>
     </div>
-    <script defer>
-        $('.toggler').click(function (){
-            let toggle = $(this).data('toggle');
-            $(toggle).toggle(150);
-            //   alert('hello');
-        });
-        // $(document).ready(function (){
-        //     alert('hello');
-        // })
-    </script>
-    @yield('script')
+
+            {{--<form name="search_form" method="get" action="{{action('Admin\AdsController@search')}}">--}}
+                {{--<input name="keyword" type="text" placeholder="Search.." value="{{$keyword ?? null}}"--}}
+                       {{--class="bg-transparent appearance-none outline-none border-none p-3 xs:text-xs m-0 w-80 md:w-70 xs:w-60"--}}
+                       {{--required>--}}
+                {{--<button class="rounded-full btn bg-primary text-white ">Search</button>--}}
+            {{--</form>--}}
+
+
+    <div class="flex">
+        <div class="w-15">
+            @include('admin.layouts.sidebar.index')
+        </div>
+        <div class="w-85 px-3">
+            @yield('content')
+        </div>
+    </div>
+</div>
+<script src="{{ asset('js/app.js') }}"></script>
+<script defer>
+    $('.toggler').click(function () {
+        let toggle = $(this).data('toggle');
+        $(toggle).toggle(150);
+        //   alert('hello');
+    });
+    // $(document).ready(function (){
+    //     alert('hello');
+    // })
+</script>
+@yield('script')
 </body>
 </html>

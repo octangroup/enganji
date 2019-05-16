@@ -17,7 +17,7 @@
                 @endforeach
             </div>
 
-            <div class="w-30 px-3">
+            <div class="w-30 pl-3">
                 <div class="bg-white-smoke rounded-xlg w-100 mb-4 p-4 ">
                     <h5 class="text-lg font-bold my-2 font-primary">
                         Price Details
