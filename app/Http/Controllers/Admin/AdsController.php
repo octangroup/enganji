@@ -20,6 +20,7 @@ class AdsController extends Controller
     }
     public function index()
     {
+
         if (\Auth::guard('admin')->user()->canManageAffiliates()) {
             $ads = Advertisment::paginate(20);
             return view('admin.ads.index', compact('ads'));

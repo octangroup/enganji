@@ -1,18 +1,18 @@
 @extends('admin.layouts.app',['title'=>'Roles'])
 @section('content')
 <div class="container">
-    <div class="bg-transparent  w-100  ">
+    {{--<div class="bg-transparent  w-100  ">--}}
 
-        <form name="search_form" method="get"  class="flex my-4">
-            <div class="w-50 mx-auto  py-2 ">
-                <input name="keyword" type="text" placeholder="Search...."
-                       class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
-            </div>
+        {{--<form name="search_form" method="get"  class="flex my-4">--}}
+            {{--<div class="w-50 mx-auto  py-2 ">--}}
+                {{--<input name="keyword" type="text" placeholder="Search...."--}}
+                       {{--class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">--}}
+            {{--</div>--}}
 
 
 
-        </form>
-    </div>
+        {{--</form>--}}
+    {{--</div>--}}
     <div class="w-80 mx-auto  pb-4  ">
         <div class="inline-block">
             <h1 class="font-normal text-2xl font-primary">Roles</h1>

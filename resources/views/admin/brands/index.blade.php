@@ -13,11 +13,17 @@
                 <button data-toggle="#add-brand-form" class="btn btn-primary toggler">{{__('Add')}}</button>
             </div>
 
-            {{--<div class="w-60 mx-auto">--}}
-            {{--<form method="GET" action="{{action('Admin\BrandController@search')}}">--}}
-            {{--<input type="text" name="keyword" class="form-control">--}}
-            {{--<button type="submit">search</button>--}}
-            {{--</form>--}}
+            {{--<div class="bg-transparent  w-100  ">--}}
+
+                {{--<form name="search_form" method="get"  class="flex my-4">--}}
+                    {{--<div class="w-50 mx-auto  py-2 ">--}}
+                        {{--<input name="keyword" type="text" placeholder="Search...."--}}
+                               {{--class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">--}}
+                    {{--</div>--}}
+
+
+
+                {{--</form>--}}
             {{--</div>--}}
 
 
