@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Admin;
+use App\Role;
 use Illuminate\Console\Command;
 
 class AddRoles extends Command
@@ -11,14 +13,14 @@ class AddRoles extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'add:roles {email}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Add roles to the admin';
 
     /**
      * Create a new command instance.
@@ -37,6 +39,11 @@ class AddRoles extends Command
      */
     public function handle()
     {
-        //
+        $admin = Admin::where('email', $this->argument('email'))->firstOrFail();
+        $roles = Role::get();
+        foreach ($roles as $role){
+            $admin->roles()->detach($role->id);
+            $admin->roles()->attach($role->id);
+        }
     }
 }
