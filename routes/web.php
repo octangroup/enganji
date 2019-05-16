@@ -18,8 +18,8 @@ Auth::routes();
 Route::get('home', 'HomeController@index');
 
 //Product's route
-Route::get('product/index','ProductsController@index');
-Route::get('product/view/{id}','ProductsController@show');
+Route::get('c/{name}/{id}/{subcategory_name?}/{subcategory_id?}', 'ProductsController@index');
+Route::get('itm/view/{id}/{name?}', 'ProductsController@show');
 Route::get('search', 'ProductsController@search');
 Route::get('filter', 'ProductsController@filter');
 
@@ -30,7 +30,7 @@ Route::post('review/{id}','ReviewController@store');
 
 //WishList's Route
 Route::resource('wishlist','WishListController');
-Route::post('add/wishLlist/{id}','WishListController@add');
+Route::get('add/wishLlist/{id}','WishListController@add');
 Route::get('/delete/wish list/{id}','WishListController@destroy');
 
 

@@ -2,29 +2,28 @@
 @section('content')
 
 
-    <div class="list-group-item">
-        @foreach($wishLists as $wishList)
-        <div class="row">
-            <div class="w-50 h-48 p-3">
-                <h2 class="text-xl m-0">{{$wishList->product->name}}</h2>
-                {{--<p class="text-xl m-0 pt-2">{{$wishList->product->condition->name}}</p>--}}
-                <p class="text-xl m-0 pt-2">{{$wishList->product->price}}</p>
-
-                <div class="w-20  h-48 p-3 has-text-right">
-                    <p class="text text-red-light m-0 ">
-                        <a href="{{action('WishListController@destroy',[$wishList->id])}}">
-                            Remove
-                        </a></p>
-                </div>
-
+    <div class="panel mx-auto w-90">
+        <div class="pt-2 pb-4">
+            <h1 class=" text-2xl font-primary">Wishlist</h1>
         </div>
+        <div class="w-70 mx-auto">
+            @foreach($wishLists as $wishList)
+                @component('product.components.listing.horizontal-card',['product'=>$wishList->product])
+                    @slot('right_section')
+                        <form action="{{action('CartController@store')}}" method="post">
+                            {{csrf_field()}}
+                            <div class="w-100  text-right">
+                                <button class="btn btn-accent rounded-full">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </form>
+                    @endslot
+                @endcomponent
+            @endforeach
+        </div>
+
     </div>
-        @endforeach
-    </div>
 
 
-        {{--<div class="panel panel-default">--}}
-
-        {{--</div>--}}
-
-    @endsection
+@endsection

@@ -9,6 +9,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+
+import Vue2TouchEvents from 'vue2-touch-events'
+
+Vue.use(Vue2TouchEvents);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -23,6 +27,10 @@ window.Vue = require('vue');
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('chat', require('./components/chatPopUp.vue').default);
 Vue.component('chat-room', require('./components/affiliate/chatRoom.vue').default);
+Vue.component('alert', require('./components/Alert').default);
+Vue.component('notification', require('./components/Notification').default);
+Vue.component('product-section', require('./components/product/section').default);
+Vue.component('main-slideshow', require('./components/MainSlideshow').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

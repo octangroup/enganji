@@ -4,6 +4,7 @@ namespace App;
 
 use App\Repository\MediaConversion;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 
 class Category extends Model implements HasMedia
@@ -12,18 +13,39 @@ class Category extends Model implements HasMedia
     protected $fillable = [
         'name',
     ];
+
+    protected $appends = ['stripped_name'];
+
+    public function getStrippedNameAttribute()
+    {
+        $string = preg_replace('/[^A-Za-z0-9\-]/', ' ', Str::lower($this->name)); // Removes special chars.
+        return $string;
+    }
+
     /*
      * the relationship of categories model and sub categories
      */
-    public function subCategory(){
+    public function subCategory()
+    {
+        return $this->subcategories();
+    }
+
+    /*
+    * the relationship of categories model and sub categories
+    */
+    public function subcategories()
+    {
         return $this->hasMany(SubCategory::class);
     }
 
-    public function admin(){
+    public function admin()
+    {
 
         return $this->belongsTo(Admin::class);
     }
-    public function Product(){
-        return $this->hasMany(Product::class,'category_id');
+
+    public function Product()
+    {
+        return $this->hasMany(Product::class, 'category_id');
     }
 }

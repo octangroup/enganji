@@ -27,6 +27,11 @@ trait MediaConversion
 
     public function cover()
     {
+        return $this->mainPicture();
+    }
+
+    public function mainPicture()
+    {
         if ($this->getFirstMedia()) {
             return $this->getFirstMedia()->getUrl('main');
         }
@@ -36,9 +41,12 @@ trait MediaConversion
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->fit('fill', 480, 480);
+            ->fit('fill', 480, 480)
+            ->background('fff');
         $this->addMediaConversion('main')
-            ->fit('fill', 960, 960);
+            ->fit('fill', 960, 960)
+            ->background('fff')
+            ->withResponsiveImages();
     }
 
 }

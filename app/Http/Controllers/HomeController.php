@@ -25,10 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products=Product::get();
+        $products=Product::with('currency')->get();
         $deals=Deal::with('product')->get();
-
-        return view('home',compact('products','deals'));
+        $ads[] = ['picture'=>'img/cover.png'];
+        $ads[] = ['picture'=>'img/cover-2.png'];
+        $ads = json_encode($ads);
+        return view('home',compact('products','deals','ads'));
     }
 
 //function to each product that is clicked on

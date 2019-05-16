@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="w-80 mx-auto xs:w-90  mt-70 mb-70">
-        <div class="panel panel-default xs:w-100 sm:w-100 md:w-100 shadow-md w-65 mx-auto mt-70 rounded-lg">
+        <div class="panel panel-default xs:w-100 sm:w-100 md:w-100 border-1 border-solid border-grey-light w-65 mx-auto mt-70 rounded-xlg">
             <div class="panel-body py-5">
                 <h2 class="text-center my-3 font-primary">{{ __('Login') }}</h2>
                 <form method="POST" action="{{ route('login') }}">
@@ -45,11 +45,11 @@
                         <div class="w-100 mx-auto mt-1 text-center mt-4">
 
                             <a href="{{ route('register') }}"
-                               class="btn border-1 text-primary border-primary hover:bg-accent rounded-full mx-3">
+                               class="btn border-1 text-primary border-primary hover:bg-grey-dark rounded-full mx-3">
                                 {{ __('Register') }}
                             </a>
 
-                            <button type="submit" class="btn btn-primary hover:bg-accent rounded-full mx-3 ">
+                            <button type="submit" class="btn btn-primary hover:bg-grey-dark rounded-full mx-3 ">
                                 {{ __('Login') }}
                             </button>
                         </div>

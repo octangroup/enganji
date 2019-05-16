@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Flash;
 use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class RolesController extends Controller
 {
@@ -25,6 +27,14 @@ class RolesController extends Controller
      * This function store a role in database
      */
     public function store(Request $request){
+
+        if (\Auth::guard('admin')->user()->canUpdateContent()) {
+            $this->validate($request, [
+                'name' => 'required|string'
+            ]);
+
+
+
        $this->validate($request,[
            'name'=>'required|string'
        ]) ;
@@ -33,6 +43,12 @@ class RolesController extends Controller
        $add->name = $request->name;
        $add->save();
        return back();
+        }
+        Flash::push(
+            'success', 'Not allowed to add roles',
+            'Roles'
+        );
+        return back();
     }
 
     public function update(Request $request,$id)
@@ -53,6 +69,7 @@ class RolesController extends Controller
 
     public function delete($id)
     {
+
             $role = Role::findOrFail($id)->delete();
             return back();
 

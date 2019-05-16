@@ -51,8 +51,7 @@ class ProductForm extends FormRequest
         return $product;
 
     }
-    public function update($id){
-        $product = Product::findOrFail($id);
+    public function update(Product $product){
         return $this->store($product);
     }
 
