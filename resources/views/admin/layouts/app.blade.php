@@ -23,13 +23,16 @@
 
     <div class="flex">
         <div class="w-15">
+            @if(Auth::guard('admin')->check())
             @include('admin.layouts.sidebar.index')
+                @endif
         </div>
         <div class="w-85 px-3">
             @yield('content')
         </div>
     </div>
 </div>
+
 <script src="{{ asset('js/app.js') }}"></script>
 <script defer>
     $('.toggler').click(function () {
