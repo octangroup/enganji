@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Roboto:300,400,500');
 
+// Typography
+$primary-font: 'Comfortaa', cursive;
+$secondary-font: 'Comfortaa', cursive;
+$font-family-sans-default: "Roboto", sans-serif;
 // Body
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
+$font-family-sans-serif: "Roboto", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -18,3 +23,24 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+$primary-lightest: #0d8ab2;
+$primary-lighter: #1b8ba3;
+$primary-light: #3d9ba5;
+$primary:  #3d9ba5;
+$primary_semi_transparent: #3d9ba5;
+$primary-dark: #1c5d76;
+$primary-darker: #1c4e67;
+$primary-darkest: #194158;
+
+$accent-dark: #a1f5cc;
+$accent-darker: #97ebc2;
+$accent-darkest: #8de1b8;
+$accent : #aaffd6;
+$accent-light: #FFA500;
+$accent-lighter : #00d8ff;
+$accent-lightest: #FFA500;
+
+$full-radius: 9999px;
+$white-smoke: #f7f7f7;
+

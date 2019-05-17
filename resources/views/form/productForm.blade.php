@@ -101,15 +101,15 @@
         @endif
     </div>
 
-    <div class="col-md-6  mt-3">
-        <label>Product Cover</label>
-        @if(($prct ?? null) && $product->cover())
-            <div class="w-50 my-3">
-                <img class="w-100" src="{{$product->cover()}}">
-            </div>
-        @endif
-        <input type="file" name="fileToUpload" class="w-100" id="fileToUpload">
-    </div>
+    {{--<div class="col-md-6  mt-3">--}}
+        {{--<label>Product Cover</label>--}}
+        {{--@if(($prct ?? null) && $product->cover())--}}
+            {{--<div class="w-50 my-3">--}}
+                {{--<img class="w-100" src="{{$product->cover()}}">--}}
+            {{--</div>--}}
+        {{--@endif--}}
+        {{--<input type="file" name="fileToUpload" class="w-100" id="fileToUpload">--}}
+    {{--</div>--}}
 
 </div>
 <div class="col-md-6">
