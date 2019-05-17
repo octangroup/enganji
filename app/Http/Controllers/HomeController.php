@@ -25,19 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products=Product::with('currency')->get();
-        $deals=Deal::with('product')->get();
-        $ads[] = ['picture'=>'img/cover.png'];
-        $ads[] = ['picture'=>'img/cover-2.png'];
-        $ads[] = ['picture'=>'img/cover-3.png'];
+        $products = Product::with('currency')->get();
+        $deals = Deal::with('product')->get();
+        $ads[] = ['picture' => 'img/cover.png'];
+        $ads[] = ['picture' => 'img/cover-2.png'];
+        $ads[] = ['picture' => 'img/cover-3.png'];
         $ads = json_encode($ads);
-        return view('home',compact('products','deals','ads'));
+        return view('home', compact('products', 'deals', 'ads'));
     }
 
 //function to each product that is clicked on
-    public function show($id){
-        $product=Product::with('affiliate')->findorfail($id);
+    public function show($id)
+    {
+        $product = Product::with('affiliate')->findorfail($id);
 //        $product->incrementVisits();
-        return view('product.view',compact('product'));
+        return view('product.view', compact('product'));
     }
 }
