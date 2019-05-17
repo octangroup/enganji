@@ -23,7 +23,6 @@ class AdminsController extends Controller
             $roles = Role::get();
             $admins = Admin::with('roles')->get();
             return view('admin.admins.index',compact('admins','roles'));
-
     }
 
     /*
@@ -66,5 +65,14 @@ class AdminsController extends Controller
             $admin->save();
             return back();
 
+    }
+
+    public function search(Request $request){
+
+        $keyword = $request->keyword;
+        $roles = Role::get();
+        $admins = Admin::where('name','like','%'.$keyword.'%')->get();
+
+        return view('admin.admins.index', compact('admins','keyword','roles'));
     }
 }

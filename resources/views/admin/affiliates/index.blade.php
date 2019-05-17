@@ -7,7 +7,24 @@
             </div>
         @endif
 
+            {{--<div class="bg-transparent  w-100  ">--}}
+
+                {{--<form name="search_form" method="get"  class="flex my-4">--}}
+                    {{--<div class="w-50 mx-auto  py-2 ">--}}
+                        {{--<input name="keyword" type="text" placeholder="Search...."--}}
+                               {{--class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">--}}
+                    {{--</div>--}}
+
+
+
+                {{--</form>--}}
+            {{--</div>--}}
+
         <div class="card">
+            <div class=" w-80 mx-auto ">
+                <h4 class=" font-primary   text-2xl">Affiliates</h4>
+
+            </div>
 
 
             {{--<div class="w-60 mx-auto">--}}
@@ -16,15 +33,17 @@
                     {{--<button type="submit">search</button>--}}
                 {{--</form>--}}
             {{--</div>--}}
+
             @if(count($affiliates))
                 @foreach($affiliates as $affiliate)
-                    <div class=" mt-4   text-center mx-4 bg-white shadow rounded-xl  mb-4 p-2 py-4 ">
+                    <div class=" w-80 mx-auto mt-5">
+                    <div class=" mx-4 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3 ">
                         <div class="flex">
-                            <div class="w-40 px-4">
+                            <div class="w-60 mx-5">
                                 {!! $affiliate->name !!}
                             </div>
-                        </div>
-                        <div class=" text-right mr-3">
+
+                            <div class=" w-40 text-right mr-3">
                                 @if($affiliate->is_Active())
                                     <a class="btn btn-outline-danger rounded-full px-3 text-sm py-2 font-primary"
                                        href="{{action('Admin\AffiliatesController@changeStatus',[$affiliate->id])}}">{{__('Disable')}}</a>
@@ -34,9 +53,12 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
+
+                        </div>
+            </div>
                 @endforeach
             @endif
+
         </div>
     </div>
 @endsection

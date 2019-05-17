@@ -23,7 +23,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     // Ads Controller
 
-    Route::resource('ads','AdsController');
+    Route::resource('ads/index','AdsController');
     Route::get('ads/delete/{id}','AdsController@destroy');
     Route::get('search/ads','AdsController@search');
 
@@ -77,6 +77,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
      */
     Route::get('products/index','ProductsController@index');
     Route::get('product/activation/{id}', 'ProductsController@changeStatus');
+    Route::get('product/search','ProductsController@search');
+    Route::get('product/filter', 'ProductsController@filter');
     Route::middleware(['admin.auth'])->group(function(){
 
 
@@ -96,6 +98,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('admin/change_status/{id}','AdminsController@changeStatus');
         Route::get('admins/delete/role/{admin_id}/{role_id}','AdminsController@deleteRole');
         Route::post('admins/add/role/{admin_id}','AdminsController@addRole');
+        Route::get('affiliate/search','AdminsController@search');
 
 
 

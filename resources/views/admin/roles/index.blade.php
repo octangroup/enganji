@@ -1,24 +1,40 @@
 @extends('admin.layouts.app',['title'=>'Roles'])
 @section('content')
 <div class="container">
-    <div class="w-100 flex pb-4 border-0 border-b-1 border-solid border-grey">
-        <div class="w-70">
+    {{--<div class="bg-transparent  w-100  ">--}}
+
+        {{--<form name="search_form" method="get"  class="flex my-4">--}}
+            {{--<div class="w-50 mx-auto  py-2 ">--}}
+                {{--<input name="keyword" type="text" placeholder="Search...."--}}
+                       {{--class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">--}}
+            {{--</div>--}}
+
+
+
+        {{--</form>--}}
+    {{--</div>--}}
+    <div class="w-80 mx-auto  pb-4  ">
+        <div class="inline-block">
             <h1 class="font-normal text-2xl font-primary">Roles</h1>
         </div>
-        <div class="w-30 text-right">
+        <div class="inline-block mx-3">
             <button data-toggle="#add-post-form"
-                    class="btn btn-outline-dark rounded-full px-3 text-sm py-2 font-primary toggler">{{__('ADD NEW')}}</button>
+                    class="btn btn-primary text-sm  rounded-full mx-2 border-0 toggler">{{__('ADD NEW')}}</button>
         </div>
     </div>
 
     <div id="add-post-form" class="card hidden-temp rounded-none border-none shadow">
-        <div class="card-body">
-            <form action="{{action('Admin\RolesController@store')}}" method="POST" >
+        <div class="">
+            <form action="{{action('Admin\RolesController@store')}}" method="POST flex" >
                 {{ csrf_field() }}
-                <div class="col-md-8">
-                    <input class="form-control" name="name" type="text" placeholder="name">
+                <div class="">
+                    <input class="inline-block" name="name" type="text" placeholder="name">
+                    <button class="btn inline-block btn-success rounded-full uppercase px-3 text-sm mt-2 mr-1">Save</button>
                 </div>
-                <button class="btn btn-success rounded-full uppercase px-3 text-sm mt-2 mr-1">Save</button>
+
+
+
+
 
             </form>
         </div>
@@ -26,7 +42,8 @@
 
     @if(count($roles))
         @foreach($roles as $role)
-            <div class=" mt-4   text-center mx-4 bg-white shadow rounded-xl  mb-4 p-2 py-4 ">
+            <div class=" w-80 mx-auto mt-3">
+            <div class=" mx-4 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3">
                 <div class="flex">
                     <div class="w-40 px-4">
                         {{$role->name}}
@@ -59,8 +76,9 @@
                     </form>
                 </div>
             </div><br>
-
+            </div>
         @endforeach
     @endif
+
 </div>
     @endsection

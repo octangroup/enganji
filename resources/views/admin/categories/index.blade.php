@@ -7,19 +7,15 @@
                 {{Session::get('message')}}
             </div>
         @endif
-        <div class="card">
-            <div class="card-header">
-                {{__('Categories')}}
-                <button data-toggle="#add-post-form" class="btn btn-primary toggler">{{__('Add')}}</button>
-            </div>
-
             <div class="w-60 mx-auto">
                 <form method="GET" action="{{action('Admin\CategoriesController@search')}}">
                     <input type="text" name="keyword" class="form-control">
                     <button type="submit">search</button>
                 </form>
             </div>
-
+                {{__('Categories')}}
+                <button data-toggle="#add-post-form" class="btn btn-primary toggler">{{__('Add')}}</button>
+            <div class="card">
             <div id="add-post-form" class="card-body hidden-temp">
                 <form action="{{action('Admin\CategoriesController@store')}}" method="POST" enctype="multipart/form-data" >
                     {{ csrf_field() }}

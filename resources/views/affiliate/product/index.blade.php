@@ -9,7 +9,10 @@
                         <button type="submit">search</button>
                 </form>
             </div>
-        <div class="card-body">
+        <div class="flex">
+            <div class="w-25">
+                <div class="bg-white-smoke mb-4 px-4 font-primary text-black shadow rounded-xl">
+
                         <form method="GET" action="{{action('Affiliate\ProductsController@filter')}}">
                             <div class="my-2">
                                 <h4>Categories</h4>
@@ -51,14 +54,16 @@
                                 <button type="submit" class="btn btn-outline-primary">Filter</button>
                             </div>
                         </form>
-                    </div>
-        </br>
-            <div class="container">
+                </div>
+            </div>
+
+        <div class="w-75">
                 @if($products && count($products))
                     @foreach($products as $product)
-                        <div class="py-4 px-2 bg-white border-1 border-solid border-grey-light rounded-lg">
+                        <div class=" mx-4 bg-white shadow rounded w-80 mb-4 p-2 py-3 ">
                             <div class="flex">
-                                <div class="flex-20">
+
+                            <div class="flex-20">
                                     <a href="{{action('Affiliate\ProductsController@show',[$product->id])}}"> <img
                                                 src="{{$product->thumbnail()}}" class="clip-full"></a>
                                 </div>
@@ -77,6 +82,7 @@
             @endif
 
                 </div>
+        </div>
         </div>
     </div>
 @endsection
