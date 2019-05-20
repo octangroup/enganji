@@ -60,7 +60,7 @@
         <div class="w-75">
                 @if($products && count($products))
                     @foreach($products as $product)
-                        <div class=" mx-4 bg-white shadow rounded w-80 mb-4 p-2 py-3 ">
+                    <div class="mx-4 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3 ">
                             <div class="flex">
 
                             <div class="flex-20">
@@ -68,14 +68,26 @@
                                                 src="{{$product->thumbnail()}}" class="clip-full"></a>
                                 </div>
                                 <div class="w-50 pl-3">
-                                    <h3>{!! $product->name !!}</h3>
-                                    <p class="my-2"><strong>Quantity: </strong>{{$product->quantity}}</p>
+                                    <p class="text-base font-primary  font-bold">
+                                        {{$product->name}}
+                                    </p>
+                                    <div class="w-35">
+                                        <div class="font-primary ">
+                                            <p class="text-base">
+
+                                                Quantity:{{$product->quantity}}
+                                            </p>
+                                        </div>
+
+                                    </div>
                                     <p class="my-2"><strong>Price: </strong>{{$product->price}}</p>
                                 </div>
-                                <h4><a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}" class="btn btn-primary mx-3"><i
+
+                                <h4 ><a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}" class="btn btn-primary mx-3 hover:bg-white hover:text-black rounded"><i
                                                 class="fas fa-plus-circle"></i> Update</a></h4>
-                                <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-primary mx-3"><i
+                                <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-primary mx-3 rounded hover:bg-white hover:text-black"><i
                                                 class="fas fa-plus-circle"></i> Delete</a></h4>
+
                         </div>
                         </div>
                     @endforeach
