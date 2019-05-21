@@ -20,7 +20,6 @@ test:
     - cp .env.testing .env
     - php artisan key:generate
     - php artisan config:cache
-    - php artisan route:cache
     - npm install
     - npm run prod
     - php artisan migrate --seed

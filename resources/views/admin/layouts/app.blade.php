@@ -19,9 +19,7 @@
 </head>
 
 <body>
-
-<div id="app" class="relative text-black">
-
+<div id="app" class="relative">
     <div class="bg-transparent  w-100  ">
 
         <form name="search_form" method="get"  class="flex my-4">
@@ -46,23 +44,12 @@
 
     <div class="flex">
         <div class="w-15">
-<<<<<<< HEAD
-
-
-            @if (Auth::guard('admin')->check() )
-            @include('admin.layouts.sidebar.index')
-             @endif
-=======
             @if(Auth::guard('admin')->check())
             @include('admin.layouts.sidebar.index')
                 @endif
->>>>>>> origin/dev
         </div>
-
         <div class="w-85 px-3">
-            @include('admin.layouts.nav')
             @yield('content')
-
         </div>
     </div>
 </div>
