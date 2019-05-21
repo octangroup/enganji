@@ -2,15 +2,29 @@
 @section('content')
 
     <div class="container">
+        <div class="bg-transparent  w-100  ">
+
+            <form name="search_form" method="get"  class="flex my-4">
+                <div class="w-50 mx-auto  py-2 ">
+                    <input name="keyword" type="text" placeholder="Search...."
+                           class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
+                </div>
+
+
+
+            </form>
+        </div>
         @if(Session::has('message'))
             <div class="alert alert-info">
                 {{Session::get('message')}}
             </div>
         @endif
-        <div class="card">
-            <div class="card-header">
+        <div class="w-80 mx-auto  pb-4  ">
+            <div class="inline-block">
                 {{__(' Brand')}}
-                <button data-toggle="#add-brand-form" class="btn btn-primary toggler">{{__('Add')}}</button>
+            </div>
+            <div class="inline-block mx-3">
+                <button data-toggle="#add-brand-form" class="btn btn-primary text-sm  rounded-full mx-2 border-0 toggler">{{__('Add NEW')}}</button>
             </div>
 
             {{--<div class="bg-transparent  w-100  ">--}}
@@ -27,25 +41,28 @@
             {{--</div>--}}
 
 
-            <div id="add-brand-form" class="card-body hidden-temp">
+            <div id="add-brand-form" class="card hidden-temp rounded-none border-none shadow">
                 <form action="{{action('Admin\BrandController@store')}}" method="post">
                     {{csrf_field()}}
-                    <div class="row">
-                        <div class="col-md-5">
 
-                            <label>Name</label>
-                            <input class="form-control" name="name" type="text">
-
+                    <div class="flex mx-auto">
+                        <div class="w-30 mt-3 my-3 mx-3 ">
+                            <label class="inline-block">Name</label>
+                            <input class="inline-block" name="name" type="text">
                         </div>
-                        <button class="btn btn-success mt-4">{{__('save')}}</button>
-                    </div>
+                        <div class="w-70 mx-4">
+                            <button class="btn btn-success rounded py-1 mt-5">{{__('save')}}</button>
+                        </div>
+
+            </div>
                 </form>
             </div>
             <br>
 
 
             @foreach($brands as $brand)
-                <div class=" mt-4   text-center mx-4 bg-white shadow rounded-xl  mb-4 p-2 py-4 ">
+                <div class=" w-80  mt-3">
+                    <div class=" mx-2 mt-3 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3">
                     <div class="flex">
                         <div class="w-40 px-4">
                             {!! $brand->name !!}
@@ -82,7 +99,7 @@
 
 
                 </div>
-
+                </div>
 
             @endforeach
 

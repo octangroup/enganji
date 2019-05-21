@@ -6,6 +6,7 @@ use App\Brand;
 use App\Category;
 use App\Condition;
 use App\Currency;
+use App\Events\Affiliate\ProductUploaded;
 use App\Http\Requests\ProductForm;
 use App\Product;
 use App\SubCategory;
@@ -59,8 +60,12 @@ class ProductsController extends Controller
      */
     public function store(ProductForm $form)
     {
-        $form->createProduct();
-        return back();
+        $product = $form->createProduct();
+//        if ($product) {
+//            Session::flash('message', 'Your Product will be uploaded by the admin');
+//            event(new ProductUploaded($product));
+//        }
+        return redirect()->action('Affiliate\ProductsController@picturesPage', [$product->id]);
 
     }
 
@@ -149,6 +154,32 @@ class ProductsController extends Controller
             'affiliate.product.view',
             compact('product', 'medias', 'thumbnails')
         );
+
+    }
+
+    public function picturesPage($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('form.pictureForm',compact('product'));
+    }
+
+    public function addPictures($id){
+        $product = Product::findorFail($id);
+
+        $product->clearMediaCollection();
+        $product->addAllMediaFromRequest('files')
+            ->each(
+                function ($fileAdder) {
+                    $fileAdder->usingFileName(
+                        time()
+                        . '-' .
+                        random_int(1, 999999999)
+                    )->toMediaCollection();
+                }
+            );
+
+        return redirect()->back();
 
     }
 

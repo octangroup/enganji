@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    <div class="w-60 mx-auto">
+        <form method="GET" action="{{action('Admin\AdminsController@search')}}">
+            <input type="text" name="keyword" class="form-control">
+            <button type="submit">search</button>
+        </form>
+    </div>
         @if(count($admins))
             @foreach($admins as $admin)
                 <div class="list-group-item">

@@ -46,11 +46,17 @@
 
     <div class="flex">
         <div class="w-15">
+<<<<<<< HEAD
 
 
             @if (Auth::guard('admin')->check() )
             @include('admin.layouts.sidebar.index')
              @endif
+=======
+            @if(Auth::guard('admin')->check())
+            @include('admin.layouts.sidebar.index')
+                @endif
+>>>>>>> origin/dev
         </div>
 
         <div class="w-85 px-3">
@@ -60,6 +66,7 @@
         </div>
     </div>
 </div>
+
 <script src="{{ asset('js/app.js') }}"></script>
 <script defer>
     $('.toggler').click(function () {
