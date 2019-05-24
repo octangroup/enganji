@@ -72,7 +72,7 @@ class ProductsTest extends TestCase
             'status' => $this->faker->boolean,
             'description' => $this->faker->text,
         ];
-        $this->actingAs($this->affiliate, 'affiliate')->post(action('Affiliate\ProductsController@update', $product->id), $attributes)
+        $this->actingAs($this->affiliate, 'affiliate')->patch(action('Affiliate\ProductsController@update', $product->id), $attributes)
             ->assertSessionHasNoErrors()->assertRedirect();
         $product = $product->fresh();
         $this->assertEquals($product->price, $attributes['price']);
@@ -86,7 +86,7 @@ class ProductsTest extends TestCase
     {
         $this->withExceptionHandling();
         $product = factory(Product::class)->create();
-        $this->actingAs($this->affiliate, 'affiliate')->get(action('Affiliate\ProductsController@delete', $product->id))
+        $this->actingAs($this->affiliate, 'affiliate')->get(action('Affiliate\ProductsController@destroy', $product->id))
             ->assertSessionHasNoErrors()->assertRedirect();
         $product = $product->fresh();
         $this->assertEquals(0, $product);
