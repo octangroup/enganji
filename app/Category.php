@@ -19,7 +19,7 @@ class Category extends Model implements HasMedia
     public function getStrippedNameAttribute()
     {
         $string = preg_replace('/[^A-Za-z0-9\-]/', ' ', Str::lower($this->name)); // Removes special chars.
-        return $string;
+        return Str::kebab($string);
     }
 
     /*

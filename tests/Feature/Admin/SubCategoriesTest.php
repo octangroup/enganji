@@ -55,7 +55,7 @@ class SubCategoriesTest extends TestCase
     public function test_can_delete_subcategory(){
         $this->withExceptionHandling();
         $sub_category = factory(SubCategory::class)->create();
-        $this->actingAs($this->admin,'admin')->get(action('Admin\SubCategoriesController@delete',$sub_category->id))
+        $this->actingAs($this->admin,'admin')->get(action('Admin\SubCategoriesController@destroy',$sub_category->id))
             ->assertSessionHasNoErrors();
         $sub_category = $sub_category->fresh();
         $this->assertEquals(0,$sub_category);

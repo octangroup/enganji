@@ -20,7 +20,7 @@
 
         <div class="w-70 mx-auto  flex text-base">
             <div class="w-25 ">
-                <p class="my-3  font-primary  text-xl"><i class="fi flaticon-like"></i></p>
+                <p class="my-3  font-primary  text-xl"><i class="fi flaticon-file"></i></p>
             </div>
             <div class="w-75 flex align-items-center">
                 <a class="w-75   font-primary my-3" href="{{action('Affiliate\ProductsController@index')}}">Manage products</a>
@@ -30,7 +30,7 @@
 
         <div class="w-70 mx-auto flex text-base">
             <div class="w-25 ">
-                <p class="font-primary my-3 text-2xl"><i class="fi flaticon-users-1"></i></p>
+                <p class="font-primary my-3 text-2xl"><i class="fi flaticon-spotlight"></i></p>
             </div>
             <div class="w-75 flex align-items-center">
                 <a class="w-75   font-primary my-3" href="{{action('Affiliate\DealsController@index')}}">Deals</a>

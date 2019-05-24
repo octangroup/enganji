@@ -4,9 +4,10 @@ namespace Tests\Feature;
 
 use App\Admin;
 use App\Currency;
-use Tests\TestCase;
+
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class CurrencyTest extends TestCase
 {
@@ -54,7 +55,7 @@ class CurrencyTest extends TestCase
         $attributes = [
             'name' => $this->faker->name,
         ];
-        $this->actingAs($this->admin, 'admin')->post(action('Admin\CurrencyController@update', $currency->id), $attributes)
+        $this->actingAs($this->admin, 'admin')->patch(action('Admin\CurrencyController@update', $currency->id), $attributes)
             ->assertSessionHasNoErrors()->assertRedirect();
         $currency = $currency->refresh();
         $this->assertEquals($currency->name, $attributes['name']);
@@ -70,7 +71,7 @@ class CurrencyTest extends TestCase
     {
         $this->withExceptionHandling();
         $currency = factory(Currency::class)->create();
-        $this->actingAs($this->admin, 'admin')->get(action('Admin\CurrencyController@delete', $currency->id))
+        $this->actingAs($this->admin, 'admin')->get(action('Admin\CurrencyController@destroy', $currency->id))
             ->assertSessionHasNoErrors()->assertRedirect();
         $currency = $currency->fresh();
         $this->assertEquals(0,$currency);

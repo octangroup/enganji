@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
      * Categories routes
      */
     Route::resource('categories', 'CategoriesController');
-    Route::post('categories/update/{id}','CategoriesController@update');
+    Route::patch('categories/update/{id}','CategoriesController@update');
     Route::get('category/delete/{id}','CategoriesController@destroy');
     Route::get('category/search','CategoriesController@search');
 

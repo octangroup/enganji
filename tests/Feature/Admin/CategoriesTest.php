@@ -61,7 +61,7 @@ class CategoriesTest extends TestCase
         $attributes = [
             'name' => $this->faker->name,
         ];
-        $this->actingAs($this->admin, 'admin')->post(action('Admin\CategoriesController@update', $category->id), $attributes)
+        $this->actingAs($this->admin, 'admin')->patch(action('Admin\CategoriesController@update', $category->id), $attributes)
             ->assertSessionHasNoErrors()->assertRedirect();
         $category = $category->fresh();
         $this->assertEquals($category->name, $attributes['name']);
@@ -77,7 +77,7 @@ class CategoriesTest extends TestCase
     {
         $this->withExceptionHandling();
         $category = factory(Category::class)->create();
-        $this->actingAs($this->admin, 'admin')->get(action('Admin\CategoriesController@delete', $category->id))
+        $this->actingAs($this->admin, 'admin')->get(action('Admin\CategoriesController@destroy', $category->id))
             ->assertSessionHasNoErrors()->assertRedirect();
          $category = $category->fresh();
         $this->assertEquals(0,$category);

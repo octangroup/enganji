@@ -21,6 +21,7 @@ class ProductsController extends Controller
 
     public function index(ProductFilterForm $filterForm, $category_name, $category_id, $subcategory_name = null, $subcategory_id = null)
     {
+        dump($category_name);
         $query = Product::query();
         $category = Category::with('subcategories')->findOrFail($category_id);
         if ($subcategory_id) {
@@ -185,4 +186,7 @@ class ProductsController extends Controller
 //        $wishLists = WishList::with('product.condition')->where('user_id','=',Auth::user()->id)->get();
 //        return view('wishList.index',compact('wishLists'));
 //    }
+
+
+
 }
