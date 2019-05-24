@@ -42,17 +42,17 @@
 
     @if(count($roles))
         @foreach($roles as $role)
-            <div class=" w-80 mx-auto mt-3">
-            <div class=" mx-4 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3">
+            <div class=" w-80 xs:w-100 mx-auto xl:mt-3">
+            <div class=" mx-4 xs:mx-0 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3">
                 <div class="flex">
-                    <div class="w-40 px-4">
+                    <div class="w-40 xs:w-100 px-4 my-2">
                         {{$role->name}}
                     </div>
                 </div>
 
 
 
-                    <div class=" text-right mr-3">
+                    <div class=" text-right mr-3 my-2">
                         <button data-toggle="#mod-post-form{{$role->id}}"
                                 class="btn btn-outline-success rounded-full px-3 text-sm py-2 font-primary toggler">{{__('Modify')}}
                         </button>

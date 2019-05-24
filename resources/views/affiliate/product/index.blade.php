@@ -1,17 +1,19 @@
 @extends('affiliate.layouts.app')
 @section('content')
-    <div class="container">
-                <h4><a href="{{action('Affiliate\ProductsController@create')}}" class="btn btn-primary mx-3"><i
-                                class="fas fa-plus-circle"></i> Add</a></h4>
-            <div class="w-60 mx-auto">
-                <form method="GET" action="{{action('Affiliate\ProductsController@search')}}">
-                    <input type="text" name="keyword" class="form-control">
-                        <button type="submit">search</button>
-                </form>
-            </div>
-        <div class="flex">
-            <div class="w-25">
-                <div class="bg-white-smoke mb-4 px-4 font-primary text-black shadow rounded-xl">
+    <div class="container mx-3">
+        <div class=" w-80 xs:w-100 mx-auto ">
+            <h4 class=" font-primary inline-block  text-xl">Product</h4>
+            <a href="{{action('Affiliate\ProductsController@create')}}" class="btn btn-primary text-sm text-white  rounded-full mx-2 border-0   inline-block">ADD PRODUCT</a>
+
+
+        </div>
+
+        <div >
+            <i data-toggle="#filter" class="fi flaticon-menu toggler text-black"></i>
+        </div>
+        <div  class="flex xs:block ">
+            <div id="filter" class="w-20 xs:w-90 xs:hidden-temp ">
+                <div class="bg-white mb-4 px-4 font-primary text-black border-1 border-solid border-grey-light rounded-xl">
 
                         <form method="GET" action="{{action('Affiliate\ProductsController@filter')}}">
                             <div class="my-2">
@@ -50,36 +52,46 @@
                                     @endforeach
                                 @endif
                             </div>
-                            <div>
-                                <button type="submit" class="btn btn-outline-primary">Filter</button>
+                            <div class="w-50 mx-auto">
+                                <button type="submit" class="btn btn-outline-primary text-center rounded my-3">Filter</button>
                             </div>
                         </form>
                 </div>
             </div>
 
-        <div class="w-75">
+            <div class=" w-80 xs:w-90 my-4">
                 @if($products && count($products))
                     @foreach($products as $product)
-                        <div class=" mx-4 bg-white shadow rounded w-80 mb-4 p-2 py-3 ">
-                            <div class="flex">
 
-                            <div class="flex-20">
+                        <div class=" mx-4 xs:mx-0 bg-white border-1 border-solid border-grey-light rounded  mb-4 p-2 py-3">
+                            <div class="xl:flex ">
+
+                            <div class="w-20 xs:w-90 mx-auto  text-center">
                                     <a href="{{action('Affiliate\ProductsController@show',[$product->id])}}"> <img
-                                                src="{{$product->thumbnail()}}" class="clip-full"></a>
+                                                src="{{$product->thumbnail()}}" class="w-80  mx-auto text-center"></a>
                                 </div>
-                                <div class="w-50 pl-3">
-                                    <h3>{!! $product->name !!}</h3>
-                                    <p class="my-2"><strong>Quantity: </strong>{{$product->quantity}}</p>
-                                    <p class="my-2"><strong>Price: </strong>{{$product->price}}</p>
+                                <div class="w-50 xs:w-100 mx-4 ">
+                                    <h5 class="font-primary my-2 text-xl font-bold">{!! $product->name !!}</h5>
+                                    <p class="my-2  font-primary font-normal "><strong>Quantity: </strong>{{$product->quantity}}</p>
+                                    <p class="my-2 font-primary font-normal"><strong>Price: </strong>{{$product->price}}</p>
                                 </div>
-                                <h4><a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}" class="btn btn-primary mx-3"><i
-                                                class="fas fa-plus-circle"></i> Update</a></h4>
-                                <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-primary mx-3"><i
-                                                class="fas fa-plus-circle"></i> Delete</a></h4>
+                                <div class="flex">
+                                    <div class="w-50">
+                                        <h4><a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}" class="btn btn-primary rounded mx-3"><i
+                                                        class="fas fa-plus-circle"></i> Update</a></h4>
+                                    </div>
+                                    <div class="w-50">
+                                        <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-primary rounded mx-3"><i
+                                                        class="fas fa-plus-circle"></i> Delete</a></h4>
+                                    </div>
+
+                                </div>
                         </div>
                         </div>
+
                     @endforeach
             @endif
+            </div>
 
                 </div>
         </div>

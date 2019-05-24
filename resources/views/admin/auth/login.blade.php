@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="bg-white py-5 shadow-lg my-5 w-60 mt-5 xs:w-100 mx-auto rounded-lg">
+        <div class="bg-white py-5  border-1 border-solid border-grey-light my-5 w-60 mt-5 xs:w-100 mx-auto rounded-lg">
             <div class="w-75 xs:w-100 xs:px-3 mx-auto mb-5 pt-3">
                 <div class="w-50 mx-auto text-center mb-5">
 

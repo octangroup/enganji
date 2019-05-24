@@ -27,7 +27,7 @@
             </button>
         </div>
         {{--@if(count($products))--}}
-        <div class="flex w-80 mx-auto mt-3">
+        <div class="flex w-80 mx:w-90 xs:w-100 mx-auto mt-3">
             {{--            <div class="w-25">--}}
             {{--                <div class="bg-white-smoke mb-4 px-4 font-primary text-black shadow rounded-xl">--}}
             {{--                </div>--}}
@@ -36,35 +36,35 @@
 
             <div class="w-100">
                 @foreach($products as $product)
-                    <div class="mx-4 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3 ">
-                        <div class="flex">
+                    <div class="mx-4 xs:mx-0 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3 ">
+                        <div class="flex xs:block mx-auto text-center">
 
-                            <div class="flex-65 flex">
-                                <div class="w-40 px-4">
+                            <div class="w-70 xs:w-100 flex xs:block">
+                                <div class="w-35 xs:w-100 xl:px-4">
                                     <p class="text-base font-primary  font-bold">
                                         {{$product->name}}
                                     </p>
                                 </div>
 
-                                <div class="w-35">
-                                    <div class="font-primary ">
+                                <div class="w-35 md:mx-2 xs:w-100">
+
                                         <p class="text-base">
 
-                                            Quantity:{{$product->quantity}}
+                                            <strong class="font-primary">Quantity:</strong> {{$product->quantity}}
                                         </p>
-                                    </div>
+
 
                                 </div>
-                                <div class="w-45">
-                                    <p><strong>Price: </strong> {{$product->currency->name ?? null}} {{$product->price}}
+                                <div class="w-45 md:mx-2 xs:w-100">
+                                    <p class="text-base"><strong class="font-primary">Price: </strong> {{$product->currency->name ?? null}} {{$product->price}}
                                     </p>
                                 </div>
                             </div>
-                            <div class="flex-35 text-right mr-3">
+                            <div class="w-30 xs:w-100 xs:mx-auto  xl:mr-3">
                                 {{--<p class="fi flaticon-edit mx-2 text-xl inline-block "></p>--}}
                                 {{--<p class="fi flaticon-locked text-green font-bold mx-2 text-xl inline-block"></p>--}}
 
-                                <div>
+                                <div  class="">
                                     @if($product->isActive())
                                         <a class="btn btn-primary rounded hover:bg-white mt-2"
                                            href="{{action('Admin\ProductsController@changeStatus',[$product->id])}}"

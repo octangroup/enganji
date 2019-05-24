@@ -1,5 +1,13 @@
-<div class="w-15 h-100 fixed t-0 bg-white-smoke rounded-r-xxl text-black ">
-    <h2 class="w-70 mx-auto  font-primary  py-4">Engaji</h2>
+<div id="nav-mobile-admin" class="w-15 xs:w-60 lg:w-20 md:w-25 z-9999 h-100 fixed md:hidden-temp xs:hidden-temp  t-0 bg-white-smoke  rounded-r-xxl text-black ">
+    <div class="mx-3">
+        <h2 class="w-70 mx-auto  font-primary  py-4 inline-block">Engaji</h2>
+        <button data-toggle="#nav-mobile-admin"
+                class=" text-black xl:hidden lg:hidden  bg-transparent inline-block toggler border-0 ">
+            <i class="fi flaticon-close text-red font-bold md:text-2xl text-lg"></i>
+
+        </button>
+    </div>
+
     <div class="mt-2">
         @component('admin.layouts.sidebar.sidebar-item',['url'=>action('Admin\HomeController@index')])
             @slot('icon')

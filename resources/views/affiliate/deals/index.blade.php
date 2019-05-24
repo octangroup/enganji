@@ -20,13 +20,13 @@
 
          <br>
          @foreach($deals as $deal)
-             <div class="mx-4 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3 ">
-                 <div class="flex">
-                     <div class="w-40 px-4">
-                         <h4>{{$deal->product->name}}</h4>
-                         <p><strong>Starting on: </strong> {{$deal->begin_on}}</p>
-                         <p><strong>End at: </strong> {{$deal->end_at}}</p>
-                         <p><strong>Price: </strong> {{$deal->price}}</p>
+             <div class="mx-4 bg-white border-1 w-80 border-solid border-grey-light rounded mx-auto mb-4 p-2  ">
+                 <div class="flex xs:block">
+                     <div class="w-40 xs:w-100 px-2 text-base">
+                         <h4 class="font-primary">{{$deal->product->name}}</h4>
+                         <p><strong class="font-primary">Starting on: </strong> {{$deal->begin_on}}</p>
+                         <p><strong class="font-primary">End at: </strong> {{$deal->end_at}}</p>
+                         <p><strong class="font-primary">Price: </strong> {{$deal->price}}</p>
                      </div>
                  </div>
                      <div class=" text-right mr-3">
