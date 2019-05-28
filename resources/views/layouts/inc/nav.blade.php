@@ -33,7 +33,15 @@
                 <a href="{{action('CartController@index')}}" class="inherit-color no-underline">
                     <i class="fi flaticon-shopping-cart"></i>
                 </a>
+
             </li>
+
+            <li class="text-xl mt-0 pt-2 mr-4 inline-block font-primary font-medium hover:text-accent transition-250ms">
+                    <a href="{{action('ChatsController@index')}}" class="inherit-color no-underline">
+                        <i class="fi flaticon-chat"></i>
+                    </a>
+            </li>
+
             <li class="text-xl  mt-0 pt-2  inline-block font-primary font-medium hover:text-accent transition-250ms relative dropdown mx-0 z-999">
                 <a class="inherit-color font-primary"><i class="fi flaticon-user"></i> <i
                         class="fas fa-chevron-down text-xs"></i></a>
