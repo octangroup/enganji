@@ -1,5 +1,5 @@
 <template>
-    <div class="panel panel-default p-0 w-100 mx-auto shadow-lg">
+    <div class="panel panel-default p-0 w-100 mx-auto ">
         <div class="xl:flex lg:flex">
             <div class="w-30 xs:w-100 p-3 border-2 border-solid border-primary bg-white">
                 <h1 class="text-base">Chat</h1>
@@ -10,7 +10,7 @@
                         </div>
                         <div class="w-90">
                             <input name="keyword" type="text" placeholder="Search.."
-                                   class="outline-none bg-grey-lighter border-none p-3 m-0  w-100">
+                                   class="bg-white-smoke rounded-full appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
                         </div>
                     </div>
                 </form>

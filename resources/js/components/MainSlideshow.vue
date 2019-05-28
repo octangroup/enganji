@@ -1,7 +1,7 @@
 <template>
     <div class=" w-100 relative">
         <div class=" w-90 mx-auto rounded-xlg overflow-hidden relative z-40">
-            <div class="w-100 relative h-px-500">
+            <div class="w-100 relative h-px-500 xs:h-px-100">
                 <transition
                     mode="in-out"
                     name="custom-classes-transition"

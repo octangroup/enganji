@@ -22,15 +22,27 @@
     <div id="app" class="relative">
 
 
-        <div class="mx-5 my-3 lg:hidden">
+        <div class="mx-3 my-3 lg:hidden">
 
-            <button data-toggle="#nav-affiliate" class=" text-black  bg-transparent toggler border-0 ">
+            <button data-toggle="#nav-affiliate" class=" hidden xs:block text-black  bg-transparent toggler border-0 ">
                 <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
 
             </button>
 
         </div>
+        <div class="bg-transparent  w-100  ">
 
+            <form name="search_form" method="get"  class="flex my-4">
+                <div class="w-50 md:w-80 xs:w-80 mx-auto  py-2 ">
+                    <input name="keyword" type="text" placeholder="Search...."
+                           class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
+                </div>
+
+
+
+
+            </form>
+        </div>
         <div class="flex ">
 
             <div class="w-15 xs:hidden">

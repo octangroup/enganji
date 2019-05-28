@@ -1,4 +1,4 @@
-<nav class="w-90 mx-auto rounded-b-xlg -mt-3  mb-4 py-4 bg-white-smoke ">
+<nav class="xs:hidden w-90 mx-auto rounded-b-xlg -mt-3  mb-4 py-4 bg-white-smoke ">
     <div class="w-90 mx-auto flex flex-wrap">
         <ul class="w-50 list my-0   text-black-dark">
             <li class="pb-4 pt-1">
