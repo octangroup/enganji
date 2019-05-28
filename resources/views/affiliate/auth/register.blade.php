@@ -2,86 +2,62 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Affiliate Register</div>
-                <div class="panel-body">
+    <div class="bg-white py-5  border-1 border-solid border-grey-light my-5 w-70 xs:w-100 mx-auto rounded-lg">
+        <div class="w-75 mx-auto mb-5 pt-3">
+            <div class="w-50 mx-auto text-center mb-5">
+
+                <h4 class="font-primary">Register</h4>
+            </div>
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('affiliate.register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                            <div
+                                    class="border-1 border-solid  relative {{ $errors->has('name') ? ' border-red' : 'border-grey' }}">
+                                <label for="name"
+                                       class="my-0 absolute  z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
+                                       style="top: -25%;">{{ __('Names') }}</label>
+                                <input id="name" type="text"
+                                       class="form-control my-0 border-none px-3 relative shadow-none py-0 mt-2 rounded-none"
+                                       value="{{old('name')}}"
+                                       name="name"
+                                >
                             </div>
                         </div>
-
-
-
-
-
-
-
-
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+                            <div class="border-1 border-solid  relative mt-4 {{ $errors->has('email') ? ' border-red' : 'border-grey' }}">
+                                <label for="email"
+                                       class="my-0 absolute  z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
+                                       style="top: -25%;">{{ __('Email') }}</label>
+                                <input id="email" type="email"
+                                       class="form-control my-0 border-none px-3 relative shadow-none py-0 mt-2 rounded-none"
+                                       autocomplete="false"
+                                       value="{{old('email')}}"
+                                       name="email"
+                                       required>
+                            </div>
+                            @if ($errors->has('email'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
 
 
-
-
-                        <div class="form-group">
-                            <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
-
-                            {{--<div class="col-md-6">--}}
-                                {{--<input id="phone_number" type="text" class="form-control" name="phone_number"  required>--}}
-
-                              {{--<phone-input v-bind:class="'border-1 border-solid w-100 rounded'"--}}
-                                                     {{--field_name="phone_number"></phone-input>--}}
-                                {{----}}
-
-                            {{--</div>--}}
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="phone_number" required>
+                        <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div class="border-1 border-solid  mt-4 relative {{ $errors->has('name') ? ' border-red' : 'border-grey' }}">
+                                <label for="password"
+                                       class="my-0 absolute z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
+                                       style="top: -25%;">{{ __('Password') }}</label>
+                                <input id="password" type="password"
+                                       class="form-control my-0 border-none relative px-3 shadow-none py-0 mt-2 rounded-none"
+                                       name="password"
+                                       required>
                             </div>
-
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="location" class="col-md-4 control-label">Location</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="location">
 
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -91,6 +67,15 @@
                             </div>
                         </div>
 
+                        <div class="border-1 border-solid border-grey relative mt-4">
+                            <label for="password_confirmation"
+                                   class="my-0 absolute z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
+                                   style="top: -25%;">{{ __('Confirm Password') }}</label>
+                            <input id="password_confirmation" type="password"
+                                   class="form-control my-0 border-none relative px-3 shadow-none py-0 mt-2 rounded-none"
+                                   name="password_confirmation"
+                                   required>
+                        </div><br>
 
 
 
@@ -98,16 +83,8 @@
 
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="w-50 xs:w-100 text-right">
+                                <button class="btn btn-dark px-4 hover:bg-white hover:text-black py-2 uppercase text-xs rounded-full mx-0">
                                     Register
                                 </button>
                             </div>

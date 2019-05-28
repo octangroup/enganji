@@ -2,18 +2,7 @@
 @section('content')
 
     <div class="container">
-        <div class="bg-transparent  w-100  ">
 
-            <form name="search_form" method="get"  class="flex my-4">
-                <div class="w-50 mx-auto  py-2 ">
-                    <input name="keyword" type="text" placeholder="Search...."
-                           class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
-                </div>
-
-
-
-            </form>
-        </div>
         @if(Session::has('message'))
             <div class="alert alert-info">
                 {{Session::get('message')}}
@@ -61,20 +50,20 @@
 
 
             @foreach($brands as $brand)
-                <div class=" w-80  mt-3">
-                    <div class=" mx-2 mt-3 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3">
-                    <div class="flex">
-                        <div class="w-40 px-4">
+                <div class=" w-80 md:w-100 xs:w-100 mt-5 ">
+                    <div class=" xl:mx-2 mt-3 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3">
+
+                        <div class="w-40 px-4 my-2">
                             {!! $brand->name !!}
                         </div>
-                    </div>
+
                     <div class=" text-right mr-3">
                         <button data-toggle="#modify-form-{{$brand->id}}"
-                                class="btn btn-outline-success rounded-full px-3 text-sm py-2 font-primary toggler">
+                                class="btn btn-outline-success xs:text-xs rounded-full px-3 text-sm py-2 font-primary toggler">
                             Modify
                         </button>
                         <a href="{{action('Admin\BrandController@destroy',[$brand->id])}}"
-                           class="btn btn-outline-danger rounded-full px-3 text-sm py-2 font-primary">delete</a>
+                           class="btn btn-outline-danger rounded-full xs:text-xs px-3 text-sm py-2 font-primary">delete</a>
 
                     </div>
 
