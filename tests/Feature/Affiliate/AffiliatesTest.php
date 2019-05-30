@@ -45,9 +45,7 @@ class AffiliatesTest extends TestCase
     public function test_admin_can_changeStatus()
     {
         $this->withExceptionHandling();
-        Event::fake([
-            ActivateAffiliate::class,
-        ]);
+        Event::fake();
         Notification::fake();
         $affiliate = factory(Affiliate::class)->create(['status' => 0]);
         $this->assertNotTrue($affiliate->isActive());
