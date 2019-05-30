@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="Fix affiliate status test&#10;&#10;Fixed the test by casting the status field to boolean in the &#10;affiliate table">
+    <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php" afterDir="false" />
     </list>
@@ -23,36 +23,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="59" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="277">
               <caret line="22" selection-start-line="22" selection-end-line="23" selection-end-column="18" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1451" />
           </provider>
         </entry>
       </file>
@@ -77,8 +52,38 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="262">
+              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+              <folding>
+                <element signature="e#33#47#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AffiliatesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="42" selection-start-line="42" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Events/Admin/ActivateAffiliate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Listeners/Admin/ActivateAffiliateListener.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -86,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Affiliate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+            <state relative-caret-position="342">
+              <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
               <folding>
                 <element signature="e#23#78#0#PHP" expanded="true" />
               </folding>
@@ -145,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/product/components/reviews/form.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/resources/views/Profile/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/product/components/reviews/card.blade.php" />
@@ -195,6 +199,7 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/app/Affiliate.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AffiliatesController.php" />
         <option value="$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php" />
       </list>
     </option>
@@ -336,21 +341,20 @@
               <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
               <item name="enganji" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Listeners" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
               <item name="enganji" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Listeners" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
               <item name="enganji" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Listeners" type="462c0819:PsiDirectoryNode" />
               <item name="Affiliate" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -605,7 +609,7 @@
       <workItem from="1559219147225" duration="361000" />
       <workItem from="1559226311702" duration="24000" />
       <workItem from="1559226382302" duration="1529000" />
-      <workItem from="1559227951304" duration="3186000" />
+      <workItem from="1559227951304" duration="4451000" />
     </task>
     <task id="LOCAL-00001" summary="Fix duplicate class package for forgot password&#10;&#10;Rename class ForgotPasswordController package form&#10;admin to affiliate">
       <created>1552394851667</created>
@@ -768,43 +772,57 @@
       <option name="project" value="LOCAL" />
       <updated>1559231372900</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fix affiliate change status test&#10;&#10;Fixed the test by change the initial affiliate to have a false status">
+      <created>1559231830480</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1559231830481</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Add event mocking in admin can change affiliate status test&#10;&#10;Added event mocking and asserted to check if affiliate activated &#10;event was fired">
+      <created>1559233007503</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1559233007503</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="tests - 2019.05.30 at 17h 36m 29s.xml">
-      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="tests - 2019.05.30 at 17h 36m 36s.xml">
-      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 36m 43s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 37m 05s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 46m 05s.xml">
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 03m 16s.xml">
       <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 46m 09s.xml">
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 04m 17s.xml">
       <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 46m 12s.xml">
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 06m 32s.xml">
       <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 47m 14s.xml">
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 07m 24s.xml">
       <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 47m 16s.xml">
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 10m 10s.xml">
       <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 48m 11s.xml">
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 10m 18s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 11m 49s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 12m 12s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 12m 44s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 18h 13m 06s.xml">
       <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77054000" />
+    <option name="totallyTimeSpent" value="78319000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -819,7 +837,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4954296" visible="true" weight="0.18097281" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4954296" visible="true" weight="0.18097281" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" sideWeight="0.5009141" side_tool="true" weight="0.27110156" />
       <window_info id="npm" order="3" sideWeight="0.50457036" side_tool="true" weight="0.29756796" />
@@ -830,11 +848,11 @@
       <window_info id="UI Designer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923833" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3280098" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3280098" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3992629" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32923833" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32923833" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" weight="0.3243243" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -888,7 +906,9 @@
     <MESSAGE value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continuous integration&#10;script." />
     <MESSAGE value="Include admin and affiliate routes directly in route&#10;&#10;Included them directly to allow route caching" />
     <MESSAGE value="Fix affiliate status test&#10;&#10;Fixed the test by casting the status field to boolean in the &#10;affiliate table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix affiliate status test&#10;&#10;Fixed the test by casting the status field to boolean in the &#10;affiliate table" />
+    <MESSAGE value="Fix affiliate change status test&#10;&#10;Fixed the test by change the initial affiliate to have a false status" />
+    <MESSAGE value="Add event mocking in admin can change affiliate status test&#10;&#10;Added event mocking and asserted to check if affiliate activated &#10;event was fired" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add event mocking in admin can change affiliate status test&#10;&#10;Added event mocking and asserted to check if affiliate activated &#10;event was fired" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -903,6 +923,11 @@
           <line>27</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php</url>
+          <line>44</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -911,17 +936,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="26" column="9" selection-start-line="28" selection-end-line="28" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/view.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/telescope.php" />
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Testing/RefreshDatabase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1210,18 +1224,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Affiliate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+        <state relative-caret-position="342">
+          <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
           <folding>
             <element signature="e#23#78#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/Admin/ActivateAffiliateListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/Admin/ActivateAffiliate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AffiliatesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="42" selection-start-line="42" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        <state relative-caret-position="262">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+          <folding>
+            <element signature="e#33#47#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
