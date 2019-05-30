@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,48 +24,58 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/RolesTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-              <folding>
-                <element signature="e#33#47#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/RolesTableSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding>
-                <element signature="e#7#46#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/CartTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+            <state relative-caret-position="150">
+              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="59" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1451" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="670">
+              <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Feature/ProductTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
@@ -88,36 +100,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phpunit.xml">
+        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="32" column="86" selection-start-line="32" selection-start-column="86" selection-end-line="32" selection-end-column="86" />
+            <state relative-caret-position="378">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repository/Seeders/RolesSeeder.php">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="41" column="10" selection-start-line="17" selection-start-column="7" selection-end-line="41" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/chat/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/cart/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-              <folding>
-                <element signature="e#704#2002#0#HTML" />
-              </folding>
+            <state relative-caret-position="38">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -153,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/resources/js/components/product/card.vue" />
         <option value="$PROJECT_DIR$/app/Product.php" />
         <option value="$PROJECT_DIR$/resources/views/product/components/reviews/form.blade.php" />
@@ -188,13 +182,10 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/phpunit.xml" />
         <option value="$PROJECT_DIR$/.env.testing" />
-        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/RolesSeeder.php" />
         <option value="$PROJECT_DIR$/tests/Feature/RolesTest.php" />
         <option value="$PROJECT_DIR$/app/Repository/Seeders/RolesSeeder.php" />
@@ -202,8 +193,12 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
         <option value="$PROJECT_DIR$/resources/views/cart/index.blade.php" />
         <option value="$PROJECT_DIR$/tests/Feature/CartTest.php" />
-        <option value="$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php" />
         <option value="$PROJECT_DIR$/tests/Feature/ProductTest.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
+        <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -343,7 +338,33 @@
               <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
               <item name="enganji" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="enganji" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="enganji" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Providers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="enganji" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="enganji" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="Seeders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
@@ -396,6 +417,13 @@
               <item name="enganji" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="Feature" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="enganji" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Feature" type="462c0819:PsiDirectoryNode" />
+              <item name="Affiliate" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -478,8 +506,12 @@
     </option>
   </component>
   <component name="RunManager" selected="PHPUnit.Feature">
-    <configuration name="CartTest.test_user_can_view_cart" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\CartTest" directory="$PROJECT_DIR$/tests" file="$PROJECT_DIR$/tests/Feature/CartTest.php" method="test_user_can_view_cart" scope="Method" />
+    <configuration name="CartTest.test_user_can_add_to_cart" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\CartTest" file="$PROJECT_DIR$/tests/Feature/CartTest.php" method="test_user_can_add_to_cart" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ConditionsTest.test_can_retrieve_conditions" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ConditionsTest" file="$PROJECT_DIR$/tests/Feature/Admin/ConditionsTest.php" method="test_can_retrieve_conditions" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Feature" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -488,10 +520,6 @@
     </configuration>
     <configuration name="ProductsTest.test_affiliate_create_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\ProductsTest" file="$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php" method="test_affiliate_create_product" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="RolesTest.test_admin_can_add_role" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\RolesTest" file="$PROJECT_DIR$/tests/Feature/RolesTest.php" method="test_admin_can_add_role" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -514,10 +542,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.Feature" />
-        <item itemvalue="PHPUnit.ProductsTest.test_affiliate_create_product" />
-        <item itemvalue="PHPUnit.CartTest.test_user_can_view_cart" />
         <item itemvalue="PHPUnit.tests" />
-        <item itemvalue="PHPUnit.RolesTest.test_admin_can_add_role" />
+        <item itemvalue="PHPUnit.CartTest.test_user_can_add_to_cart" />
+        <item itemvalue="PHPUnit.ConditionsTest.test_can_retrieve_conditions" />
+        <item itemvalue="PHPUnit.ProductsTest.test_affiliate_create_product" />
       </list>
     </recent_temporary>
   </component>
@@ -564,7 +592,7 @@
       <workItem from="1559219147225" duration="361000" />
       <workItem from="1559226311702" duration="24000" />
       <workItem from="1559226382302" duration="1529000" />
-      <workItem from="1559227951304" duration="1444000" />
+      <workItem from="1559227951304" duration="2277000" />
     </task>
     <task id="LOCAL-00001" summary="Fix duplicate class package for forgot password&#10;&#10;Rename class ForgotPasswordController package form&#10;admin to affiliate">
       <created>1552394851667</created>
@@ -692,13 +720,31 @@
       <option name="project" value="LOCAL" />
       <updated>1559229039532</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Remove deleted seeder from database seeder&#10;&#10;Replaced the roles seeder class in database seeder with the RolesTableSeeder class">
+      <created>1559229728333</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1559229728333</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continious integration &#10;script.">
+      <created>1559230130694</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1559230130694</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continuous integration&#10;script.">
+      <created>1559230196351</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1559230196351</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature - 2019.05.30 at 17h 06m 57s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
     <history-entry file="Feature - 2019.05.30 at 17h 07m 26s.xml">
       <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
@@ -726,14 +772,18 @@
     <history-entry file="Feature - 2019.05.30 at 17h 07m 49s.xml">
       <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
+    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 26m 31s.xml">
+      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75312000" />
+    <option name="totallyTimeSpent" value="76145000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4954296" visible="true" weight="0.18097281" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4954296" visible="true" weight="0.18097281" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" sideWeight="0.5009141" side_tool="true" weight="0.27110156" />
       <window_info id="npm" order="3" sideWeight="0.50457036" side_tool="true" weight="0.29756796" />
@@ -750,7 +800,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" visible="true" weight="0.3243243" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" weight="0.3243243" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007153" side_tool="true" weight="0.32555282" />
       <window_info anchor="bottom" content_ui="combo" id="Terminal" order="11" sideWeight="0.49928468" weight="0.45823097" />
@@ -796,7 +846,11 @@
     <MESSAGE value="Fix package json dependencies&#10;&#10;Added all the dependencies required by the project inside the&#10;package.json file which we removed fixing the mockery test issue" />
     <MESSAGE value="Remove import of global inside app.scss&#10;&#10;Remove unused and unavailable import of global.scss file inside &#10;the app.scss file" />
     <MESSAGE value="Fix product listing not found page error&#10;&#10;Fixed the error and made sure all the tests are green" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix product listing not found page error&#10;&#10;Fixed the error and made sure all the tests are green" />
+    <MESSAGE value="Remove deleted seeder from database seeder&#10;&#10;Replaced the roles seeder class in database seeder with the RolesTableSeeder class" />
+    <MESSAGE value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continious integration &#10;script." />
+    <MESSAGE value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continuous integration &#10;script." />
+    <MESSAGE value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continuous integration&#10;script." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continuous integration&#10;script." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -819,23 +873,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1186" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/Admin/CurrencyTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
@@ -925,13 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="59" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/cache.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -948,13 +978,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env.example">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -989,13 +1012,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -1038,13 +1054,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/chat/index.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1110,13 +1119,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/ProductTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1124,6 +1126,60 @@
           <folding>
             <element signature="e#33#50#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="59" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1451" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
         </state>
       </provider>
     </entry>
