@@ -1,4 +1,4 @@
-<div class="w-90 mx-auto p-4 px-5 bg-primary rounded-t-xlg mt-5">
+<div class="w-90 hidden xl:hidden mx-auto p-4 px-5 bg-primary rounded-t-xlg mt-5">
     <div class="w-100 flex mx-auto  px-2 text-white ">
         <div class="w-20 mx-auto">
             <h5 class="text-xl my-3 font-primary font-semibold">Customer Services</h5>

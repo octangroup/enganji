@@ -37,18 +37,18 @@
             @if(count($affiliates))
                 @foreach($affiliates as $affiliate)
                     <div class=" w-80 xs:w-100 mx-auto mt-5">
-                    <div class=" xl:mx-4 bg-white border-1 border-solid border-grey-light rounded w-100 mb-4 p-2 py-3 ">
+                    <div class="  bg-white border-1 border-solid border-grey-light rounded-xlg w-100 mb-4 p-2 py-5 ">
                         <div class="flex">
-                            <div class="w-60 xs:mx-2 mx-5">
-                                {!! $affiliate->name !!}
+                            <div class="w-60 xs:mx-2 font-primary font-bold mx-5">
+                               <p class="my-0 capitalize">{!! $affiliate->name !!}</p>
                             </div>
 
                             <div class=" w-40 text-right xs:mr-2 mr-3">
                                 @if($affiliate->is_Active())
-                                    <a class="btn btn-outline-danger rounded-full px-3 text-sm py-2 font-primary"
+                                    <a class="btn btn-outline-danger rounded-full px-3 text-sm py-2 font-primary toggler"
                                        href="{{action('Admin\AffiliatesController@changeStatus',[$affiliate->id])}}">{{__('Disable')}}</a>
                                 @else
-                                    <a class="btn btn-outline-success rounded-full px-3 text-sm py-2 font-primary toggler"
+                                    <a class="btn btn-outline-success rounded-full px-3 text-sm py-2 font-primary  toggler"
                                        href="{{action('Admin\AffiliatesController@changeStatus',[$affiliate->id])}}">{{__('Enable')}}</a>
                                 @endif
                             </div>

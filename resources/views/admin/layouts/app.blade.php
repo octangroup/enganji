@@ -22,20 +22,20 @@
 <div id="app" class="relative">
 <div class="mx-5 my-3 lg:hidden">
 
-            <button data-toggle="#nav-mobile-admin"
-                    class=" text-black  bg-transparent toggler border-0 ">
+            <button data-toggle="#nav-mobile"
+                    class=" text-black xl:hidden bg-transparent toggler border-0 ">
                 <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
 
             </button>
 
 </div>
 
-    <div class="bg-transparent  w-100  ">
+    <div class="bg-transparent  mt-2 my-4">
 
-        <form name="search_form" method="get"  class="flex my-4">
-            <div class="w-50 md:w-80 xs:w-80 mx-auto  py-2 ">
+        <form name="search_form" method="get"  class="mx-5  w-40 mx-auto text-right text-center ">
+            <div class=" w-90 md:w-80 xs:w-80 mx-auto text-center border-1 border-solid border-grey-light rounded-full  py-2 ">
                 <input name="keyword" type="text" placeholder="Search...."
-                       class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
+                       class="bg-white appearance-none  rounded-full px-3 outline-none border-none  m-0 w-100">
             </div>
 
 

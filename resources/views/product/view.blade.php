@@ -7,31 +7,58 @@
     <div class="panel panel-default">
         <div class="panel-body w-90 mx-auto">
             <div class="xl:flex ">
-                <div class="w-50">
-                    <div class="flex ">
-                        <div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">
+                <div class="xl:w-50 xs:w-100 xl:flex">
+                    {{--<div class="flex ">--}}
+                        {{--<div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+
+                        {{--</div>--}}
+                        {{--<div--}}
+                            {{--class="w-40 p-3 xs:w-50 border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                        {{--</div>--}}
+
+                    {{--</div>--}}
+                    {{--<div class="flex mt-2 ">--}}
+                        {{--<div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-bl-xxl overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                        {{--</div>--}}
+                        {{--<div class="w-40 xs:w-50 p-3 border border-solid mx-2 border-grey-light rounded-br-xxl overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                        {{--</div>--}}
+
+                    {{--</div>--}}
+
+                {{--</div>--}}
+
+                    <div class="w-30 xs:hidden">
+                        <div class=" w-65 p-3 border border-solid border-grey-light rounded-xl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
 
                         </div>
-                        <div
-                            class="w-40 p-3 xs:w-50 border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">
+                        <div class=" w-65 p-3 border border-solid border-grey-light mt-4 rounded-xl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
+
+                        </div>
+
+                        <div class=" w-65 p-3 border border-solid border-grey-light mt-4 rounded-xl overflow-hidden">
+                            <img src="{{$product->cover()}}" class="transition-500ms ">
+
                         </div>
 
                     </div>
-                    <div class="flex mt-2 ">
-                        <div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-bl-xxl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
+                    <div class="xl:w-70 xs:w-100 ">
+                        <div class="mt-2 ">
+                            <h1 class="xl:text-4xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                         </div>
-                        <div class="w-40 xs:w-50 p-3 border border-solid mx-2 border-grey-light rounded-br-xxl overflow-hidden">
+                        <div class="  border border-solid border-grey-light rounded-xlg overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
-                        </div>
 
+                        </div>
                     </div>
-
                 </div>
-                <div class="w-50">
-                    <div class="mt-3">
+                <div class="w-50 mx-5">
+                    <div class="mt-2 ">
                         <h1 class="xl:text-4xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                     </div>
                     <div class="mt-3">

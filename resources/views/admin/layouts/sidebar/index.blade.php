@@ -1,4 +1,4 @@
-<div class="w-15 h-100 fixed t-0 bg-white-smoke rounded-r-xxl text-black ">
+<div id="nav-mobile" class="w-15 xs:w-60 h-100  fixed t-0 bg-white-smoke rounded-r-xlg xs:hidden-temp text-black ">
     <h2 class="w-70 mx-auto  font-primary  py-4">Enganji</h2>
     <div class="mt-2">
         @component('admin.layouts.sidebar.sidebar-item',['url'=>action('Admin\HomeController@index')])

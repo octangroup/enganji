@@ -7,7 +7,7 @@
         <div class="w-90 pb-3 mx-auto pt-2  relative whitespace-no-wrap overflow-hidden px-3">
             <div class="absolute l-0 t-40 xs:t-25 z-60">
                 <button v-show="hasLeftSlide" @click="slideLeft"
-                        class="btn btn-default hover:bg-grey-lightest transition-250ms  h-13 w-rem-13 border-1 border-solid border-grey rounded-full">
+                        class="btn btn-default hover:bg-grey-lightest transition-250ms  xs:h-12 xs:w-rem-12 xl:h-13 xl:w-rem-13 border-1 border-solid border-grey rounded-full">
                     <i class="fas fa-chevron-left"></i>
                 </button>
             </div>
@@ -19,7 +19,7 @@
             </div>
             <div class="absolute r-0 t-40 xs:t-25 z-60">
                 <button v-show="hasRightSlide" @click="slideRight"
-                        class="btn btn-default hover:bg-grey-lightest  transition-250ms h-13 w-rem-13 border-1 border-solid border-grey rounded-full">
+                        class="btn btn-default hover:bg-grey-lightest  transition-250ms xs:h-12 xs:w-rem-12 xl:h-13 xl:w-rem-13 border-1 border-solid border-grey rounded-full">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
