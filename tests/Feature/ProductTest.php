@@ -24,7 +24,7 @@ class ProductTest extends TestCase
     {
         $category = factory(Category::class)->create();
         $subcategory = factory(SubCategory::class)->create(['category_id' => $category->id]);
-        $product = factory(Product::class)->create(['subcategory_id' => $subcategory->id]);
+        $product = factory(Product::class)->create(['subcategory_id' => $subcategory->id, 'status' => 1]);
         dump($category->stripped_name);
         $this->get(action('ProductsController@index', [$category->stripped_name, $category->id]))
             ->assertSuccessful()

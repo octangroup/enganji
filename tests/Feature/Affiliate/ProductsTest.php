@@ -40,7 +40,6 @@ class ProductsTest extends TestCase
             'price' => $this->faker->randomNumber(3),
             'color' => $this->faker->word,
             'size' => $this->faker->word,
-            'status' => $this->faker->boolean,
             'description' => $this->faker->text,
         ];
         $this->actingAs($this->affiliate, 'affiliate')->post(action('Affiliate\ProductsController@store'), $attributes)
