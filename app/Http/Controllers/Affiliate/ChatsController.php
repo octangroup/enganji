@@ -9,13 +9,18 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('affiliate.auth');
+    }
+
     //
     public function index()
     {
 
-
-        return view('affiliate.chat.index');
-//                ->with('conversations','$conversations');
+        $conversations = Auth::guard('affiliate')->user()->conversation()->with('user', 'affiliate')->get();
+        return view('affiliate.chat.index')
+            ->with('conversations', $conversations);
     }
 
     public function fetchConversations()
@@ -29,6 +34,7 @@ class ChatsController extends Controller
 
     public function send(Request $request)
     {
+
         $this->validate(
             $request, [
                 'conversation_id' => 'required|int',
@@ -36,15 +42,15 @@ class ChatsController extends Controller
             ]
         );
 
-        $conversation = Auth::guard('affiliate')->user()->conversation()->findOrFail($request->conversation_id);
-
+        $conversation = Auth::guard('affiliate')->user()->conversation()->find($request->conversation_id);
         $conversation->messages()->create(
             [
-                'conversation_id'=>$request->conversation_id
-,                'body' => $request->body,
+                'conversation_id' => $request->conversation_id
+                , 'body' => $request->body,
                 'from_affiliate' => true,
             ]
         );
+
         return ['message' => 'success'];
 
 

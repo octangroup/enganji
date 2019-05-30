@@ -52,5 +52,5 @@ Route::patch('profile/update/picture', 'ProfileController@updateProfile');
 
 Route::get('/index/chat/','ChatsController@index');
 Route::post('/chat/send','ChatsController@send');
-Route::get('/chat/fetch/messages','ChatsController@fetch');
-Route::get('/conversation/fetch','ChatsController@fetchConversation');
+Route::get('/chat/fetch/messages','ChatsController@fetchMessages');
+Route::get('/conversation/fetch','ChatsController@fetchConversations');

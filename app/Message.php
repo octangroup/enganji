@@ -8,7 +8,7 @@ class Message extends Model
 {
     //
 
-    protected $fillable=['conversation_id', 'body', 'from_affiliate'];
+    protected $fillable=['conversation_id','product_id', 'body', 'from_affiliate'];
 
 
     public function conversation(){

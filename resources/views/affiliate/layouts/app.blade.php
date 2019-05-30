@@ -19,49 +19,49 @@
     <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
 </head>
 <body>
-    <div id="app" class="relative">
+<div id="app" class="relative">
 
 
-        <div class="mx-5 my-3 lg:hidden">
+    <div class="mx-5 my-3 lg:hidden">
 
-            <button data-toggle="#nav-affiliate" class=" text-black  bg-transparent toggler border-0 ">
-                <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
+        <button data-toggle="#nav-affiliate" class=" text-black  bg-transparent toggler border-0 ">
+            <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
 
-            </button>
+        </button>
 
-        </div>
+    </div>
 
-        <div class="flex ">
+    <div class="flex ">
 
-            <div class="w-15 xs:hidden">
-                @if(Auth::guard('affiliate')->check())
+        <div class="w-15 xs:hidden">
+            @if(Auth::guard('affiliate')->check())
                 @include('affiliate.layouts.sidebar')
-                    @endif
-            </div>
+            @endif
+        </div>
 
-            <div class="w-85 xs:w-90 xs:mx-auto xl:px-3">
-                @yield('content')
-
-            </div>
-
-            </div>
+        <div class="w-85 xs:w-90 xs:mx-auto xl:px-3">
+            @include('affiliate.layouts.navbar')
+            @yield('content')
 
         </div>
 
+    </div>
+
+</div>
 
 
 <script src="{{ asset('js/app.js') }}"></script>
 
-    <script defer>
-        $('.toggler').click(function () {
-            let toggle = $(this).data('toggle');
-            $(toggle).toggle(150);
-            //   alert('hello');
-        });
-        // $(document).ready(function (){
-        //     alert('hello');
-        // })
-    </script>
+<script defer>
+    $('.toggler').click(function () {
+        let toggle = $(this).data('toggle');
+        $(toggle).toggle(150);
+        //   alert('hello');
+    });
+    // $(document).ready(function (){
+    //     alert('hello');
+    // })
+</script>
 @yield('script')
 
 </body>

@@ -48,7 +48,6 @@
                              v-bind:class="{ 'ml-auto': message.from_affiliate}">
                             <div v-if="!message.from_affiliate"
                                  class="w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden">
-                                <img src="/img/bobo.jpg" class="clip-full">
                             </div>
                             <div class="w-80 rounded p-2  xs:p-1 shadow"
                                  v-bind:class="{ 'bg-primary text-white': !message.from_affiliate,'bg-white text-black': message.from_affiliate}">
@@ -98,10 +97,11 @@
              messages: [],
              body: '',
          }
-        }, methods:{
+        }
+        , methods:{
 
             fetchConversations(){
-            axios.get("/inganji/public/affiliate/fetch/conversations")
+            axios.get("/affiliate/fetch/conversations")
                 .then((response) => {
                     // passing the conversation to the local variable
                     console.log(response.data.conversations);
@@ -115,7 +115,7 @@
             }, fetchMessages() {
                 if (this.selected_conversation) {
                     // fetching conversation messages from the server
-                    axios.get("/inganji/public/affiliate/fetch/messages", {
+                    axios.get("/affiliate/fetch/messages", {
                         params: {
                             conversation_id: this.selected_conversation.id
                         }
@@ -153,7 +153,7 @@
                 // this.scrollDown();
 
                 // initiate the axios request to the server
-                axios.post("/inganji/public/affiliate/send/message", {
+                axios.post("/affiliate/send/message", {
                     conversation_id: this.selected_conversation.id,
                     body: body
                 }).then((response) => {

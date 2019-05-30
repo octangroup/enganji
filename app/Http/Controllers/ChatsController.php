@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     public function index(){
         return view('chat.index');
@@ -17,7 +21,7 @@ class ChatsController extends Controller
 
     public function fetchConversations(){
         $conversations=Auth::User()->conversations()->with('user','affiliate')->get();
-        return response($conversations);
+        return response(['conversations'=>$conversations]);
     }
 
 
@@ -31,11 +35,13 @@ class ChatsController extends Controller
         $conversation = Conversation::firstOrCreate(
             [
                 'user_id' => \Auth::user()->id,
+                'affiliate_id'=>$request->affiliate_id,
             ]
         );
         $conversation->save();
         $conversation->messages()->create(
             [
+                'product_id'=>$request->product_id,
                 'body' => $request->body,
                 'from_affiliate' => false,
             ]
@@ -48,14 +54,24 @@ class ChatsController extends Controller
     }
 
 
-    public function fetch(Request $request)
+    public function fetchMessages(Request $request)
     {
-        $this->validate($request, [
-            'affiliate_id' => 'required|int|exists:affiliate_master,id',
+        $this->validate($request,[
+            'conversation_id'=>'required|int',
         ]);
-        $conversation = Auth::user()->conversations()->firstOrNew([
-            'affiliate_id' => $request->affiliate_id]);
-        $messages = $conversation->messages()->get();
-        return response(['messages'=> $messages]);
+
+        $conversation=Auth::user()->conversations()->firstOrNew([
+           'id'=> $request->conversation_id]);
+        dump($conversation);
+        $messages=$conversation->messages()->get();
+        return response()->json($messages);
+//        $this->validate($request, [
+//            'affiliate_id' => 'required|int|exists:affiliate_master,id',
+//        ]);
+//
+//        $conversation = Auth::user()->conversations()->firstOrNew([
+//            'affiliate_id' => $request->affiliate_id]);
+//        $messages = $conversation->messages()->get();
+//        return response(['messages'=> $messages]);
     }
 }
