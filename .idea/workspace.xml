@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="">
+    <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="Fix affiliate status test&#10;&#10;Fixed the test by casting the status field to boolean in the &#10;affiliate table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="277">
+              <caret line="22" selection-start-line="22" selection-end-line="23" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -57,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="670">
@@ -75,44 +74,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/ProductTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
-              <folding>
-                <element signature="e#33#50#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-332">
-              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-              <folding>
-                <element signature="e#40#53#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
+            <state relative-caret-position="273">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Affiliate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+              <folding>
+                <element signature="e#23#78#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/Admin/ConditionsTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-67">
               <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/CartTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -136,6 +132,7 @@
       <find>tracl</find>
       <find>reviews</find>
       <find>ProductsController@index</find>
+      <find>cast</find>
     </findStrings>
   </component>
   <component name="Git.Rebase.Settings">
@@ -148,8 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/components/product/card.vue" />
-        <option value="$PROJECT_DIR$/app/Product.php" />
         <option value="$PROJECT_DIR$/resources/views/product/components/reviews/form.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/resources/views/Profile/index.blade.php" />
@@ -196,9 +191,11 @@
         <option value="$PROJECT_DIR$/tests/Feature/ProductTest.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php" />
-        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
+        <option value="$PROJECT_DIR$/app/Affiliate.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php" />
       </list>
     </option>
   </component>
@@ -208,6 +205,7 @@
       <select />
     </treeState>
   </component>
+  <component name="PhpDebugGeneral" xdebug_show_addresses="true" hide_empty_superglobals="false" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
@@ -351,6 +349,14 @@
               <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
               <item name="enganji" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Affiliate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="enganji" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Providers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -417,6 +423,13 @@
               <item name="enganji" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="Feature" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="enganji" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Feature" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="enganji" type="b2602c69:ProjectViewProjectNode" />
@@ -505,7 +518,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.Feature">
+  <component name="RunManager" selected="PHPUnit.AffiliatesTest.test_admin_can_changeStatus">
+    <configuration name="AffiliatesTest.test_admin_can_changeStatus" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\AffiliatesTest" file="$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php" method="test_admin_can_changeStatus" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="CartTest.test_user_can_add_to_cart" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\CartTest" file="$PROJECT_DIR$/tests/Feature/CartTest.php" method="test_user_can_add_to_cart" scope="Method" />
       <method v="2" />
@@ -516,10 +533,6 @@
     </configuration>
     <configuration name="Feature" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner directory="$PROJECT_DIR$/tests/Feature" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ProductsTest.test_affiliate_create_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ProductsTest" file="$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php" method="test_affiliate_create_product" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -541,11 +554,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.AffiliatesTest.test_admin_can_changeStatus" />
         <item itemvalue="PHPUnit.Feature" />
         <item itemvalue="PHPUnit.tests" />
         <item itemvalue="PHPUnit.CartTest.test_user_can_add_to_cart" />
         <item itemvalue="PHPUnit.ConditionsTest.test_can_retrieve_conditions" />
-        <item itemvalue="PHPUnit.ProductsTest.test_affiliate_create_product" />
       </list>
     </recent_temporary>
   </component>
@@ -592,7 +605,7 @@
       <workItem from="1559219147225" duration="361000" />
       <workItem from="1559226311702" duration="24000" />
       <workItem from="1559226382302" duration="1529000" />
-      <workItem from="1559227951304" duration="2277000" />
+      <workItem from="1559227951304" duration="3186000" />
     </task>
     <task id="LOCAL-00001" summary="Fix duplicate class package for forgot password&#10;&#10;Rename class ForgotPasswordController package form&#10;admin to affiliate">
       <created>1552394851667</created>
@@ -741,49 +754,72 @@
       <option name="project" value="LOCAL" />
       <updated>1559230196351</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Include admin and affiliate routes directly in route&#10;&#10;Included them directly to allow route caching">
+      <created>1559230693735</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1559230693735</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Fix affiliate status test&#10;&#10;Fixed the test by casting the status field to boolean in the &#10;affiliate table">
+      <created>1559231372900</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1559231372900</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 26s.xml">
+    <history-entry file="tests - 2019.05.30 at 17h 36m 29s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.05.30 at 17h 36m 36s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature - 2019.05.30 at 17h 36m 43s.xml">
       <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 30s.xml">
+    <history-entry file="Feature - 2019.05.30 at 17h 37m 05s.xml">
       <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 33s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 46m 05s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 35s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 46m 09s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 38s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 46m 12s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 40s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 47m 14s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 42s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 47m 16s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 45s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 07m 49s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 26m 31s.xml">
-      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AffiliatesTest_test_admin_can_changeStatus - 2019.05.30 at 17h 48m 11s.xml">
+      <configuration name="AffiliatesTest.test_admin_can_changeStatus" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76145000" />
+    <option name="totallyTimeSpent" value="77054000" />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4954296" visible="true" weight="0.18097281" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4954296" visible="true" weight="0.18097281" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" sideWeight="0.5009141" side_tool="true" weight="0.27110156" />
       <window_info id="npm" order="3" sideWeight="0.50457036" side_tool="true" weight="0.29756796" />
@@ -795,10 +831,10 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923833" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3280098" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3992629" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32923833" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" weight="0.3243243" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -850,7 +886,9 @@
     <MESSAGE value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continious integration &#10;script." />
     <MESSAGE value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continuous integration &#10;script." />
     <MESSAGE value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continuous integration&#10;script." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continuous integration&#10;script." />
+    <MESSAGE value="Include admin and affiliate routes directly in route&#10;&#10;Included them directly to allow route caching" />
+    <MESSAGE value="Fix affiliate status test&#10;&#10;Fixed the test by casting the status field to boolean in the &#10;affiliate table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix affiliate status test&#10;&#10;Fixed the test by casting the status field to boolean in the &#10;affiliate table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -873,16 +911,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
@@ -1076,9 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-          <folding>
-            <element signature="e#33#47#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1099,13 +1124,6 @@
           <folding>
             <element signature="e#7#46#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/CartTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1136,13 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1154,13 +1165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="59" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -1180,6 +1184,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="670">
           <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/Admin/ConditionsTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-67">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/CartTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="22" selection-start-line="22" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Affiliate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+          <folding>
+            <element signature="e#23#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/AffiliatesTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
         </state>
       </provider>
     </entry>
