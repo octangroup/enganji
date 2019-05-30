@@ -82,7 +82,8 @@
 
                     <div id="modify-form{{$category->id}}" class="card-body hidden-temp">
                         <form action="{{action('Admin\CategoriesController@update',[$category->id])}}" method="POST">
-                            {{ csrf_field() }}
+                           @method('patch')
+                            @csrf
 
                             <div class="row">
                                 <div class="col">

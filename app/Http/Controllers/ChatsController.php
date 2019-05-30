@@ -10,21 +10,39 @@ use Illuminate\Support\Facades\Auth;
 class ChatsController extends Controller
 {
     //
+    public function index(){
+        return view('chat.index');
+    }
+
+
+    public function fetchConversations(){
+        $conversations=Auth::User()->conversations()->with('user','affiliate')->get();
+        return response($conversations);
+    }
+
+
     public function send(Request $request)
     {
-        $this->validate($request, [
-            'affiliate_id' => 'required|int|exists:affiliate_master,id',
-            'body' => 'required|string'
-        ]);
-        $conversation = Auth::user()->conversations()
-            ->firstorCreate([
-                'affiliate_id' => $request->affiliate_id,
-            ]);
-        $message = Message::create([
-            'conversation_id' => $conversation->id,
-            'body' => $request->body,
-            'from_affiliate'
-        ]);
+        $this->validate(
+            $request, [
+                'body' => 'required|string',
+            ]
+        );
+        $conversation = Conversation::firstOrCreate(
+            [
+                'user_id' => \Auth::user()->id,
+            ]
+        );
+        $conversation->save();
+        $conversation->messages()->create(
+            [
+                'body' => $request->body,
+                'from_affiliate' => false,
+            ]
+        );
+        $conversation->notify(new NewMessageArrivedNotification());
+        return ['message' => 'success'];
+
 
 
     }

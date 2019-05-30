@@ -6,24 +6,24 @@
     </chat>
     <div class="panel panel-default">
         <div class="panel-body w-90 mx-auto">
-            <div class="flex">
+            <div class="xl:flex ">
                 <div class="w-50">
-                    <div class="flex">
-                        <div class="w-40 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">
+                    <div class="flex ">
+                        <div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
 
                         </div>
                         <div
-                            class="w-40 p-3  border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">
+                            class="w-40 p-3 xs:w-50 border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
                         </div>
 
                     </div>
-                    <div class="flex mt-2">
-                        <div class="w-40 p-3 border border-solid border-grey-light rounded-bl-xxl overflow-hidden">
+                    <div class="flex mt-2 ">
+                        <div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-bl-xxl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
                         </div>
-                        <div class="w-40 p-3 border border-solid mx-2 border-grey-light rounded-br-xxl overflow-hidden">
+                        <div class="w-40 xs:w-50 p-3 border border-solid mx-2 border-grey-light rounded-br-xxl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
                         </div>
 
@@ -31,8 +31,8 @@
 
                 </div>
                 <div class="w-50">
-                    <div>
-                        <h1 class="text-4xl  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
+                    <div class="mt-3">
+                        <h1 class="xl:text-4xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                     </div>
                     <div class="mt-3">
 
@@ -49,8 +49,8 @@
                     </div>
 
                     <div class="w-100">
-                        <p class="my-1"><span class="mr-3">Price:</span> <span
-                                class="text-accent text-3xl font-primary font-medium">
+                        <p class="my-1"><span class="mr-3 inline-block">Price:</span> <span
+                                class="text-accent xl:text-3xl xs:text-base font-primary inline-block font-medium">
                                 {{$product->currency->name}} {{$product->price}}
                             </span></p>
                     </div>

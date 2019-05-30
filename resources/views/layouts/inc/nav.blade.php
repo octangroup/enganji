@@ -1,4 +1,4 @@
-<nav class="w-90 mx-auto rounded-b-xlg -mt-3  mb-4 py-4 bg-white-smoke ">
+<nav class="xs:hidden w-90 mx-auto rounded-b-xlg -mt-3  mb-4 py-4 bg-white-smoke ">
     <div class="w-90 mx-auto flex flex-wrap">
         <ul class="w-50 list my-0   text-black-dark">
             <li class="pb-4 pt-1">
@@ -33,7 +33,15 @@
                 <a href="{{action('CartController@index')}}" class="inherit-color no-underline">
                     <i class="fi flaticon-shopping-cart"></i>
                 </a>
+
             </li>
+
+            <li class="text-xl mt-0 pt-2 mr-4 inline-block font-primary font-medium hover:text-accent transition-250ms">
+                    <a href="{{action('ChatsController@index')}}" class="inherit-color no-underline">
+                        <i class="fi flaticon-chat"></i>
+                    </a>
+            </li>
+
             <li class="text-xl  mt-0 pt-2  inline-block font-primary font-medium hover:text-accent transition-250ms relative dropdown mx-0 z-999">
                 <a class="inherit-color font-primary"><i class="fi flaticon-user"></i> <i
                         class="fas fa-chevron-down text-xs"></i></a>

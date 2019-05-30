@@ -20,6 +20,7 @@ Route::get('home', 'HomeController@index');
 //Product's route
 Route::get('c/{name}/{id}/{subcategory_name?}/{subcategory_id?}', 'ProductsController@index');
 Route::get('itm/view/{id}/{name?}', 'ProductsController@show');
+Route::get('index/products','ProductsController@index');
 Route::get('search', 'ProductsController@search');
 Route::get('filter', 'ProductsController@filter');
 
@@ -30,7 +31,7 @@ Route::post('review/{id}','ReviewController@store');
 
 //WishList's Route
 Route::resource('wishlist','WishListController');
-Route::get('add/wishLlist/{id}','WishListController@add');
+Route::post('add/wishLlist/{id}','WishListController@add');
 Route::get('/delete/wish list/{id}','WishListController@destroy');
 
 
@@ -49,5 +50,7 @@ Route::patch('profile/update/picture', 'ProfileController@updateProfile');
 
 //Chat Routes
 
+Route::get('/index/chat/','ChatsController@index');
 Route::post('/chat/send','ChatsController@send');
 Route::get('/chat/fetch/messages','ChatsController@fetch');
+Route::get('/conversation/fetch','ChatsController@fetchConversation');

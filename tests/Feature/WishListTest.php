@@ -32,9 +32,11 @@ class WishListTest extends TestCase
 
           $data = [
             'user_id'=>$this->user->id,
+              'product_id'=>$product->id,
+
           ];
-          $this->actingAs($this->user)->post(action('ProductsController@addToWishList',$product->id),$data)
-              ->assertRedirect()->assertSessionHasNoErrors();
+          $this->actingAs($this->user)->post(action('WishListController@add',$product->id),$data)
+            ->assertRedirect() ->assertSessionHasNoErrors();
           $this->assertDatabaseHas('wish_list',$data);
 
   }
@@ -47,7 +49,7 @@ class WishListTest extends TestCase
 
             $this->withExceptionHandling();
             $wishList = factory(WishList::class)->create();
-            $this->actingAs($this->user)->get(action('ProductsController@deleteWishList',$wishList->id))
+            $this->actingAs($this->user)->get(action('WishListController@destroy',$wishList->id))
                 ->assertSessionHasNoErrors()->assertRedirect();
             $wishList = $wishList->fresh();
             $this->assertEquals(0,$wishList);
@@ -61,7 +63,7 @@ class WishListTest extends TestCase
 
             $this->withExceptionHandling();
             $wishList = factory(WishList::class)->create();
-            $this->actingAs($this->user)->get(action('ProductsController@viewWishList'))->assertSessionHasNoErrors()
+            $this->actingAs($this->user)->get(action('WishListController@index'))->assertSessionHasNoErrors()
                 ->assertSuccessful()->assertSee($wishList->id);
         }
 

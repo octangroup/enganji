@@ -54,7 +54,7 @@ class ConditionsTest extends TestCase
         $attributes = [
             'name' => $this->faker->name,
         ];
-        $this->actingAs($this->admin, 'admin')->post(action('Admin\ConditionsController@update', $condition->id), $attributes)
+        $this->actingAs($this->admin, 'admin')->patch(action('Admin\ConditionsController@update', $condition->id), $attributes)
             ->assertSessionHasNoErrors()->assertRedirect();
         $condition = $condition->fresh();
         $this->assertEquals($condition->name, $attributes['name']);
@@ -70,7 +70,7 @@ class ConditionsTest extends TestCase
     {
         $this->withExceptionHandling();
         $condition = factory(Condition::class)->create();
-        $this->actingAs($this->admin, 'admin')->get(action('Admin\ConditionsController@delete', $condition->id))
+        $this->actingAs($this->admin, 'admin')->get(action('Admin\ConditionsController@destroy', $condition->id))
             ->assertSessionHasNoErrors()->assertRedirect();
         $condition = $condition->fresh();
         $this->assertEquals(0,$condition);

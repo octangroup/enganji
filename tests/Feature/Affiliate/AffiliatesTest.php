@@ -43,7 +43,7 @@ class AffiliatesTest extends TestCase
         $data = [
            'status'=>$this->faker->boolean,
         ];
-        $this->actingAs($this->admin,'admin')->post(action('Admin\AffiliatesController@changeStatus',$affiliate->id),$data)
+        $this->actingAs($this->admin,'admin')->get(action('Admin\AffiliatesController@changeStatus',$affiliate->id),$data)
             ->assertSessionHasNoErrors()->assertRedirect();
         $affiliate = $affiliate->fresh();
         $this->assertNotEquals($affiliate->status,$data['status']);

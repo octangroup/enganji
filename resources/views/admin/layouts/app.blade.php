@@ -20,10 +20,20 @@
 
 <body>
 <div id="app" class="relative">
+<div class="mx-5 my-3 lg:hidden">
+
+            <button data-toggle="#nav-mobile-admin"
+                    class=" text-black  bg-transparent toggler border-0 ">
+                <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
+
+            </button>
+
+</div>
+
     <div class="bg-transparent  w-100  ">
 
         <form name="search_form" method="get"  class="flex my-4">
-            <div class="w-50 mx-auto  py-2 ">
+            <div class="w-50 md:w-80 xs:w-80 mx-auto  py-2 ">
                 <input name="keyword" type="text" placeholder="Search...."
                        class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
             </div>
@@ -42,13 +52,13 @@
             {{--</form>--}}
 
 
-    <div class="flex">
-        <div class="w-15">
+    <div class="flex xs:block md:block">
+        <div class="w-15 ">
             @if(Auth::guard('admin')->check())
             @include('admin.layouts.sidebar.index')
                 @endif
         </div>
-        <div class="w-85 px-3">
+        <div class="w-85 xs:w-90 xs:mx-auto xl:px-3">
             @yield('content')
         </div>
     </div>

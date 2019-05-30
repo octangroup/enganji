@@ -28,6 +28,7 @@
 </head>
 <body>
 <div id="app">
+    @include('layouts.inc.sidebar')
     @include('layouts.inc.nav')
     @yield('notification')
     <div id="notification-section"

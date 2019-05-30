@@ -40,7 +40,7 @@ class BrandTest extends TestCase
         $attributes = [
             'name' => $this->faker->name,
         ];
-        $this->actingAs($this->admin, 'admin')->post(action('Admin\BrandController@update', $brand->id), $attributes)
+        $this->actingAs($this->admin, 'admin')->patch(action('Admin\BrandController@update', $brand->id), $attributes)
             ->assertSessionHasNoErrors()->assertRedirect();
         $brand = $brand->fresh();
         $this->assertEquals($brand->name, $attributes['name']);
@@ -55,7 +55,7 @@ class BrandTest extends TestCase
     {
         $this->withExceptionHandling();
         $brand = factory(Brand::class)->create();
-        $this->actingAs($this->admin, 'admin')->get(action('Admin\BrandController@delete', $brand->id))
+        $this->actingAs($this->admin, 'admin')->get(action('Admin\BrandController@destroy', $brand->id))
             ->assertSessionHasNoErrors()->assertRedirect();
         $brand = $brand->fresh();
         $this->assertEquals(0,$brand);

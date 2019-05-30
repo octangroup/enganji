@@ -25,11 +25,14 @@ class RolesTest extends TestCase
      */
     public function test_admin_can_add_role(){
         $this->withExceptionHandling();
+        (new \RolesTableSeeder())->run();
+        $roles=Role::get();
+        $this->admin->roles()->attach($roles);
         $data = [
           'name'=>$this->faker->name,
-          'slug'=>$this->faker->slug,
+
         ];
-        $this->actingAs($this->admin, 'admin')->post(action('Admin\RolesController@store'))
+        $this->actingAs($this->admin, 'admin')->post(action('Admin\RolesController@store'),$data)
             ->assertSessionHasNoErrors()
             ->assertRedirect();
         $this->assertDatabaseHas('roles',$data);

@@ -14,7 +14,7 @@
                             {{$cart->quantity}}
                         </span></p>
                     @endcomponent
-                @endforeach
+
             </div>
 
             <div class="w-30 pl-3">
@@ -60,7 +60,7 @@
                 </div>
 
             </div>
-
+            @endforeach
         </div>
 
     </div>
