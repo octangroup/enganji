@@ -76,6 +76,7 @@
                 </form>
 
 
+
             </div>
             <div v-if="is_guest" v-show="show"
                  v-bind:class="{'xs:flex sm:flex':show}"

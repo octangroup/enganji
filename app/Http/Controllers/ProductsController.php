@@ -21,7 +21,7 @@ class ProductsController extends Controller
 
     public function index(ProductFilterForm $filterForm, $category_name, $category_id, $subcategory_name = null, $subcategory_id = null)
     {
-        dump($category_name);
+
         $query = Product::query();
         $category = Category::with('subcategories')->findOrFail($category_id);
         if ($subcategory_id) {
