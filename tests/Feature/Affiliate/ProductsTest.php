@@ -30,7 +30,6 @@ class ProductsTest extends TestCase
     {
 
         $attributes = [
-            'affiliate_id' => $this->affiliate->id,
             'subcategory_id' => factory(SubCategory::class)->create()->id,
             'currency_id' => factory(Currency::class)->create()->id,
             'brand_id' => factory(Brand::class)->create()->id,
