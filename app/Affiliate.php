@@ -27,9 +27,6 @@ class Affiliate extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $casts = [
-        'status' => 'boolean'
-    ];
 
     protected $table = 'affiliate_master';
 
@@ -43,24 +40,31 @@ class Affiliate extends Authenticatable
 //function to check if the affiliate is active
 
 
-
 //checks if the affiliate is active
+    public function isActive()
+    {
+        return $this->status == 1;
+    }
+
     public function is_Active()
     {
-        return $this->status == true;
+        return $this->isActive();
     }
+
 //activating the affiliate's status
     public function activate()
     {
-        $this->status = true;
+        $this->status = 1;
         $this->save();
     }
+
 //deactivating the affiliate's status
     public function deactivate()
     {
-        $this->status = false;
+        $this->status = 0;
         $this->save();
     }
+
     public function conversation()
     {
         return $this->hasMany(Conversation::class, 'affiliate_id');
