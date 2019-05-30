@@ -1,5 +1,5 @@
 <template>
-    <div class="w-20  mr-3 p-3 border-1 border-grey-light border-solid rounded-xlg inline-block">
+    <div class="xl:w-20 md:w-40 xs:w-100 md:mr-3  xl:mr-3 xs:mr-2 p-3 border-1 border-grey-light border-solid rounded-xlg inline-block">
         <div class="py-1 pt-0 z-50 relative bg-white  px-2  w-100 mx-auto">
             <h4 class="text-lg font-primary font-semibold sm:text-base md:text-base lg:text-xl xs:text-base m-0 p-0 whitespace-no-wrap overflow-hidden">
                 {{product.name}}</h4>
@@ -19,9 +19,9 @@
 
 
         </div>
-        <div class=" w-100 py-1 relative z-50 bg-white text-left">
+        <div class=" w-100 py-1 relative md:w-80 text-center z-50 bg-white text-left">
             <a :href="'/itm/view/'+product.id+'/'+product.stripped_name">
-                <img class="w-100" :src="product.thumbnail">
+                <img class="xl:w-100 xs:w-80 md:w-100 md:mx-3 text-center xs:mx-4" :src="product.thumbnail">
             </a>
         </div>
     </div>
