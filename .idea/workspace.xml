@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="Remove import of global inside app.scss&#10;&#10;Remove unused and unavailable import of global.scss file inside &#10;the app.scss file">
-      <change afterPath="$PROJECT_DIR$/app/Repository/Seeders/RolesSeeder.php" afterDir="false" />
+    <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/CartTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CartTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/RolesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/RolesTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/database/seeds/RolesTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
                 <element signature="e#7#46#0#PHP" expanded="true" />
               </folding>
@@ -65,11 +54,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="328">
               <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/ProductTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
+              <folding>
+                <element signature="e#33#50#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,16 +100,7 @@
         <entry file="file://$PROJECT_DIR$/app/Repository/Seeders/RolesSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="445">
-              <caret line="41" column="10" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="41" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+              <caret line="41" column="10" selection-start-line="17" selection-start-column="7" selection-end-line="41" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -122,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/cart/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="193">
-              <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+              <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
               <folding>
                 <element signature="e#704#2002#0#HTML" />
               </folding>
@@ -161,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/admin/layouts/nav.blade.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/resources/js/components/product/card.vue" />
         <option value="$PROJECT_DIR$/app/Product.php" />
@@ -212,6 +203,7 @@
         <option value="$PROJECT_DIR$/resources/views/cart/index.blade.php" />
         <option value="$PROJECT_DIR$/tests/Feature/CartTest.php" />
         <option value="$PROJECT_DIR$/tests/Feature/Affiliate/ProductsTest.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/ProductTest.php" />
       </list>
     </option>
   </component>
@@ -572,7 +564,7 @@
       <workItem from="1559219147225" duration="361000" />
       <workItem from="1559226311702" duration="24000" />
       <workItem from="1559226382302" duration="1529000" />
-      <workItem from="1559227951304" duration="787000" />
+      <workItem from="1559227951304" duration="1444000" />
     </task>
     <task id="LOCAL-00001" summary="Fix duplicate class package for forgot password&#10;&#10;Rename class ForgotPasswordController package form&#10;admin to affiliate">
       <created>1552394851667</created>
@@ -693,43 +685,50 @@
       <option name="project" value="LOCAL" />
       <updated>1558358434460</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fix product listing not found page error&#10;&#10;Fixed the error and made sure all the tests are green">
+      <created>1559229039532</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1559229039532</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 05m 07s.xml">
-      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 05m 09s.xml">
-      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 05m 10s.xml">
-      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 05m 11s.xml">
-      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 05m 12s.xml">
-      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 05m 27s.xml">
-      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ProductsTest_test_affiliate_create_product - 2019.05.30 at 17h 05m 29s.xml">
-      <configuration name="ProductsTest.test_affiliate_create_product" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 05m 35s.xml">
+    <history-entry file="Feature - 2019.05.30 at 17h 06m 57s.xml">
       <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 05m 41s.xml">
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 26s.xml">
       <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature - 2019.05.30 at 17h 05m 47s.xml">
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 30s.xml">
+      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 33s.xml">
+      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 35s.xml">
+      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 38s.xml">
+      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 40s.xml">
+      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 42s.xml">
+      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 45s.xml">
+      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature - 2019.05.30 at 17h 07m 49s.xml">
       <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74655000" />
+    <option name="totallyTimeSpent" value="75312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -745,13 +744,13 @@
       <window_info id="UI Designer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923833" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3280098" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3280098" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" weight="0.325" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" visible="true" weight="0.3243243" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007153" side_tool="true" weight="0.32555282" />
       <window_info anchor="bottom" content_ui="combo" id="Terminal" order="11" sideWeight="0.49928468" weight="0.45823097" />
@@ -796,7 +795,8 @@
     <MESSAGE value="Remove artisan routes cache command  from gitlab script&#10;&#10;Removed the artisan route cache command from the script which &#10;may cause conflict due to different types of routes as admin &#10;and affiliate routes" />
     <MESSAGE value="Fix package json dependencies&#10;&#10;Added all the dependencies required by the project inside the&#10;package.json file which we removed fixing the mockery test issue" />
     <MESSAGE value="Remove import of global inside app.scss&#10;&#10;Remove unused and unavailable import of global.scss file inside &#10;the app.scss file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove import of global inside app.scss&#10;&#10;Remove unused and unavailable import of global.scss file inside &#10;the app.scss file" />
+    <MESSAGE value="Fix product listing not found page error&#10;&#10;Fixed the error and made sure all the tests are green" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix product listing not found page error&#10;&#10;Fixed the error and made sure all the tests are green" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -985,16 +985,6 @@
         <state relative-caret-position="-1491" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/ProductTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding>
-            <element signature="e#33#50#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -1062,7 +1052,7 @@
     <entry file="file://$PROJECT_DIR$/app/Repository/Seeders/RolesSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
-          <caret line="41" column="10" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="41" selection-end-column="10" />
+          <caret line="41" column="10" selection-start-line="17" selection-start-column="7" selection-end-line="41" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1086,7 +1076,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/cart/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
-          <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+          <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
           <folding>
             <element signature="e#704#2002#0#HTML" />
           </folding>
@@ -1096,7 +1086,7 @@
     <entry file="file://$PROJECT_DIR$/database/seeds/RolesTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
             <element signature="e#7#46#0#PHP" expanded="true" />
           </folding>
@@ -1124,6 +1114,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/ProductTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
+          <folding>
+            <element signature="e#33#50#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
