@@ -7,9 +7,9 @@
              {{Session::get('message')}}
          </div>
      @endif
-     <div class="card">
-         <div class="card-header">
-             {{__('Deals')}}
+     <div class="w-80 mx-auto">
+         <div class="w-80">
+             <h4 class=" py-0 font-primary   text-xl"> {{__('Deals')}}</h4>
          </div>
      </div>
  </div>
@@ -20,7 +20,7 @@
 
          <br>
          @foreach($deals as $deal)
-             <div class="mx-4 bg-white border-1 w-80 border-solid border-grey-light rounded mx-auto mb-4 p-2  ">
+             <div class="mx-4 bg-white border-1 w-80 border-solid border-grey-light rounded-xlg mx-auto mb-4 p-2  ">
                  <div class="flex xs:block">
                      <div class="w-40 xs:w-100 px-2 text-base">
                          <h4 class="font-primary">{{$deal->product->name}}</h4>

@@ -48,8 +48,26 @@
 
                     </div>
                     <div class="xl:w-70 xs:w-100 ">
-                        <div class="mt-2 ">
-                            <h1 class="xl:text-4xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
+                        <div class=" xl:hidden">
+                            <div class="mt-2 ">
+                                <h1 class="xl:text-4xl xs:text-xl  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
+                            </div>
+                            <div class="mt-3 flex">
+
+                        <span class="text-accent w-50   rd5">
+                            @for($j=1;$j<=$product->rating;$j++)
+                                <i class="fi flaticon-star-4"></i>
+                            @endfor
+                            @for($j=1;$j<=(5- $product->rating);$j++)
+                                <i class="fi flaticon-star"></i>
+                            @endfor
+                        </span>
+                                <div class="w-50">
+                                    <p class="text-black mx-2 text-xs  mt-2 ">{{$product->reviews->count()}} reviews</p>
+                                </div>
+
+
+                            </div>
                         </div>
                         <div class="  border border-solid border-grey-light rounded-xlg overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
@@ -57,11 +75,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-50 mx-5">
-                    <div class="mt-2 ">
+                <div class="w-50 mx-5 ">
+                    <div class="mt-2 xs:hidden">
                         <h1 class="xl:text-4xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 xs:hidden">
 
                         <span class="text-accent">
                             @for($j=1;$j<=$product->rating;$j++)
@@ -72,7 +90,7 @@
                             @endfor
                         </span>
 
-                        <p class="text-black mx-2 text-xs  mt-2 inline-block">{{$product->reviews->count()}} reviews</p>
+                        <p class="text-black mx-2 text-xs xs:hidden  mt-2 inline-block">{{$product->reviews->count()}} reviews</p>
                     </div>
 
                     <div class="w-100">

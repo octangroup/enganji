@@ -52,13 +52,13 @@
             {{--</form>--}}
 
 
-    <div class="flex xs:block md:block">
+    <div class="flex  xs:block md:block">
         <div class="w-15 ">
             @if(Auth::guard('admin')->check())
             @include('admin.layouts.sidebar.index')
                 @endif
         </div>
-        <div class="w-85 xs:w-90 xs:mx-auto xl:px-3">
+        <div class="w-85 mx-auto xs:w-90 xs:mx-auto xl:px-3">
             @yield('content')
         </div>
     </div>

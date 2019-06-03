@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container ">
         <div class="bg-white py-5  border-1 border-solid border-grey-light my-5 w-60 mt-5 xs:w-100 mx-auto rounded-xlg">
             <div class="w-75 xs:w-100 xs:px-3 mx-auto mb-5 pt-3">
                 <div class="w-50 mx-auto text-center mb-5">
@@ -15,7 +15,7 @@
                                class="my-0 absolute  z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
                                style="top: -25%;">{{ __('Email') }}</label>
                         <input id="password" type="email"
-                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} my-0 border-none px-3 relative shadow-none py-0 mt-2 rounded-none"
+                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} my-0 border-none px-3 w-100 py-1 relative shadow-none py-0 mt-2 rounded-none"
                                autocomplete="false"
                                name="email"
                                required>
@@ -25,7 +25,7 @@
                                class="my-0 absolute z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
                                style="top: -25%;">{{ __('Password') }}</label>
                         <input id="password" type="password"
-                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} my-0 border-none relative px-3 shadow-none py-0 mt-2 rounded-none"
+                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} my-0 border-none w-100 py-1 relative px-3 shadow-none py-0 mt-2 rounded-none"
                                name="password"
                                required>
                     </div>

@@ -30,12 +30,12 @@
             </button>
 
         </div>
-        <div class="bg-transparent  w-100  ">
+        <div class="bg-transparent  mt-2 my-4">
 
-            <form name="search_form" method="get"  class="flex my-4">
-                <div class="w-50 md:w-80 xs:w-80 mx-auto  py-2 ">
+            <form name="search_form" method="get"  class="mx-5  w-40 mx-auto text-right text-center ">
+                <div class=" w-90 md:w-80 xs:w-80 mx-auto text-center border-1 border-solid border-grey-light rounded-full  py-2 ">
                     <input name="keyword" type="text" placeholder="Search...."
-                           class="bg-white-smoke appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
+                           class="bg-white appearance-none  rounded-full px-3 outline-none border-none  m-0 w-100">
                 </div>
 
 
@@ -43,15 +43,16 @@
 
             </form>
         </div>
-        <div class="flex ">
 
-            <div class="w-15 xs:hidden">
+        <div class="flex  mx-auto xs:block md:block">
+
+            <div class="w-15 ">
                 @if(Auth::guard('affiliate')->check())
                 @include('affiliate.layouts.sidebar')
                     @endif
             </div>
 
-            <div class="w-85 xs:w-90 xs:mx-auto xl:px-3">
+            <div class="w-85 mx-auto xs:w-90 xs:mx-auto xl:px-3">
                 @yield('content')
 
             </div>
