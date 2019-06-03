@@ -1,9 +1,9 @@
 @extends('affiliate.layouts.app')
 
 @section('content')
-    <div class="container pt-5">
-        <div class="bg-white py-5 pt-5  border-1 border-solid border-grey-light my-5 w-60 mt-5 xs:w-100 mx-auto rounded-xlg">
-            <div class="w-75 xs:w-100 xs:px-3 mx-auto mb-5 ">
+    <div>
+        <div class="bg-white py-5  border-1 border-solid border-grey-light my-5 w-60 mt-5 xs:w-100 mx-auto rounded-xlg">
+            <div class="w-75 xs:w-100 xs:px-3 mx-auto mb-5 pt-3">
                 <div class="w-50 mx-auto text-center mb-5">
 
                     <h3 class="font-primary">Login</h3>

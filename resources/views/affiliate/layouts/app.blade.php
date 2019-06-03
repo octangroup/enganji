@@ -17,64 +17,40 @@
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/_flaticon.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
-    <div id="app" class="relative">
+<div id="app" class="relative">
 
-
-        <div class="mx-3 my-3 lg:hidden">
-
-            <button data-toggle="#nav-affiliate" class=" hidden xs:block text-black  bg-transparent toggler border-0 ">
-                <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
-
-            </button>
-
-        </div>
-        <div class="bg-transparent  mt-2 my-4">
-
-            <form name="search_form" method="get"  class="mx-5  w-40 mx-auto text-right text-center ">
-                <div class=" w-90 md:w-80 xs:w-80 mx-auto text-center border-1 border-solid border-grey-light rounded-full  py-2 ">
-                    <input name="keyword" type="text" placeholder="Search...."
-                           class="bg-white appearance-none  rounded-full px-3 outline-none border-none  m-0 w-100">
-                </div>
-
-
-
-
-            </form>
-        </div>
-
-        <div class="flex  mx-auto xs:block md:block">
-
+    <div class="flex  mx-auto xs:block md:block">
+        @if(Auth::guard('affiliate')->check())
             <div class="w-15 ">
-                @if(Auth::guard('affiliate')->check())
                 @include('affiliate.layouts.sidebar')
-                    @endif
             </div>
-
-            <div class="w-85 mx-auto xs:w-90 xs:mx-auto xl:px-3">
-                @yield('content')
-
-            </div>
-
-            </div>
-
+        @endif
+        <div class="@if(Auth::guard('affiliate')->check()) w-85 @else w-100 @endif xs:w-90 xs:mx-auto xl:px-3">
+            @include('affiliate.layouts.nav')
+            @yield('content')
         </div>
 
+    </div>
+
+</div>
 
 
 <script src="{{ asset('js/app.js') }}"></script>
 
-    <script defer>
-        $('.toggler').click(function () {
-            let toggle = $(this).data('toggle');
-            $(toggle).toggle(150);
-            //   alert('hello');
-        });
-        // $(document).ready(function (){
-        //     alert('hello');
-        // })
-    </script>
+<script defer>
+    $('.toggler').click(function () {
+        let toggle = $(this).data('toggle');
+        $(toggle).toggle(150);
+        //   alert('hello');
+    });
+    // $(document).ready(function (){
+    //     alert('hello');
+    // })
+</script>
 @yield('script')
 
 </body>

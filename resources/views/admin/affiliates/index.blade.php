@@ -21,7 +21,7 @@
             {{--</div>--}}
 
         <div class="card">
-            <div class=" w-80 mx-auto ">
+            <div class=" w-90 mx-auto ">
                 <h4 class=" font-primary   text-2xl">Affiliates</h4>
 
             </div>
@@ -36,7 +36,7 @@
 
             @if(count($affiliates))
                 @foreach($affiliates as $affiliate)
-                    <div class=" w-80 xs:w-100 mx-auto mt-5">
+                    <div class=" w-90 xs:w-100 mx-auto mt-5">
                     <div class="  bg-white border-1 border-solid border-grey-light rounded-xlg w-100 mb-4 p-2 py-5 ">
                         <div class="flex">
                             <div class="w-60 xs:mx-2 font-primary font-bold mx-5">

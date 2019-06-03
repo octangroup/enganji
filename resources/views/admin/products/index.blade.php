@@ -19,14 +19,14 @@
         {{--</form>--}}
         {{--</div>--}}
 
-        <div class=" w-80 mx-auto  flex">
+        <div class=" w-90 mx-auto  flex">
             <div class="w-80">
                 <h4 class=" py-0 font-primary   text-xl">Product</h4>
             </div>
 
         </div>
         {{--@if(count($products))--}}
-        <div class="w-80 mx:w-90 xs:w-100 mx-auto mt-3">
+        <div class="w-90 mx:w-90 xs:w-100 mx-auto mt-3">
 
 
             <div class="w-100">
