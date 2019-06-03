@@ -13,23 +13,40 @@
 
         {{--</form>--}}
     {{--</div>--}}
-    <div class="w-80 mx-auto  pb-4  ">
-        <div class="inline-block">
-            <h1 class="font-normal text-2xl font-primary">Roles</h1>
+    <div class=" w-80 mx-auto  flex">
+        <div class="w-80">
+            <h4 class=" py-0 font-primary   text-xl">Roles</h4>
         </div>
-        <div class="inline-block mx-3">
-            <button data-toggle="#add-post-form"
-                    class="btn btn-primary text-sm  rounded-full mx-2 border-0 toggler">{{__('ADD NEW')}}</button>
+        <div class="w-20 my-3 mx-0 ">
+            <button data-toggle="#add-post-form" class="btn  btn-primary text-sm rounded-xlg border-0  toggler ">
+                {{__('ADD NEW')}}
+            </button>
         </div>
+
     </div>
+
 
     <div id="add-post-form" class="card hidden-temp rounded-none border-none shadow">
         <div class="">
             <form action="{{action('Admin\RolesController@store')}}" method="POST flex" >
                 {{ csrf_field() }}
-                <div class="">
-                    <input class="inline-block" name="name" type="text" placeholder="name">
-                    <button class="btn inline-block btn-success rounded-full uppercase px-3 text-sm mt-2 mr-1">Save</button>
+                <div class=" w-90 flex mx-auto">
+                    <div class="w-30  mx-5 ">
+                        <div class="border-1 border-solid border-grey relative mb-4">
+                            <label for="password"
+                                   class="my-0 absolute  z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
+                                   style="top: -25%;">name</label>
+                            <input id="password" type="name"
+                                   class="form-control my-0 border-none px-3 w-100 py-1 relative shadow-none py-0 mt-2 rounded-none"
+                                   autocomplete="false"
+                                   name="email"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="w-70 mx-4 py-1">
+                        <button class="btn btn-success rounded py-2 ">{{__('save')}}</button>
+                    </div>
+
                 </div>
 
 

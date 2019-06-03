@@ -34,17 +34,20 @@
         </div>
 
         <div class="panel panel-default">
+            <div  class="w-80 mx-auto">
+                <div class="mt-6 w-50 md:w-100 ml-5">
+                    {!! $chart->container() !!}
+                    {{--{!! $userChart->container() !!}--}}
 
+                </div>
+                <div class="mt-6 w-50 md:w-100 ml-5">
+                    {!! $userChart->container() !!}
 
-            <div class="mt-6 w-50 md:w-100 ml-5">
-                {!! $chart->container() !!}
-                {{--{!! $userChart->container() !!}--}}
-
+                </div>
             </div>
-            <div class="mt-6 w-50 md:w-100 ml-5">
-                {!! $userChart->container() !!}
 
-            </div>
+
+
         </div>
 
     </div>

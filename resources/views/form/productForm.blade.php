@@ -1,4 +1,4 @@
-<div class="row">
+  <div class="row">
     <div class="col-md-6">
         <label>Name: </label>
         <input class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}} "

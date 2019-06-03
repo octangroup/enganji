@@ -1,19 +1,23 @@
 @extends('affiliate.layouts.app')
 @section('content')
     <div class="container mx-3">
-        <div class=" w-80 xs:w-100 mx-auto ">
-            <h4 class=" font-primary inline-block  text-xl">Product</h4>
-            <a href="{{action('Affiliate\ProductsController@create')}}" class="btn btn-primary text-sm text-white  rounded-full mx-2 border-0   inline-block">ADD PRODUCT</a>
-
+        <div class=" w-55 mx-auto  flex">
+            <div class="w-80">
+                <h4 class=" py-0 font-primary   text-xl">Product</h4>
+            </div>
+            <div class="w-20 my-3 mx-0 ">
+                <a href="{{action('Affiliate\ProductsController@create')}}" class="btn btn-primary text-sm text-white  rounded-xlg mx-2 border-0   inline-block">ADD PRODUCT</a>
+            </div>
 
         </div>
+
 
         <div >
             <i data-toggle="#filter" class="fi flaticon-menu-4 hidden xs:block text-2xl  toggler text-black"></i>
         </div>
         <div  class="flex xs:block ">
             <div id="filter" class="w-20 xs:w-90 xs:hidden-temp ">
-                <div class=" mt-3 bg-white mb-4 px-4 font-primary text-black border-1 border-solid border-grey-light rounded-xl">
+                <div class=" mt-3 bg-white mb-4 px-4 font-primary text-black border-1 border-solid border-grey-light rounded-xlg">
 
                         <form method="GET" action="{{action('Affiliate\ProductsController@filter')}}">
                             <div class="my-2">
@@ -53,7 +57,7 @@
                                 @endif
                             </div>
                             <div class="w-50 mx-auto">
-                                <button type="submit" class="btn btn-outline-primary text-center rounded my-3">Filter</button>
+                                <button type="submit" class="btn btn-outline-primary text-center rounded-xlg my-3">Filter</button>
                             </div>
                         </form>
                 </div>
@@ -63,7 +67,7 @@
                 @if($products && count($products))
                     @foreach($products as $product)
 
-                        <div class=" mx-4 xs:mx-0 bg-white border-1 border-solid border-grey-light rounded  mb-4 p-2 py-3">
+                        <div class=" mx-4 xs:mx-0 bg-white border-1 border-solid border-grey-light rounded-xlg  mb-4 p-2 py-3">
                             <div class="xl:flex ">
 
                             <div class="w-20 xs:w-80 mx-auto  text-center">
@@ -77,11 +81,11 @@
                                 </div>
                                 <div class="flex">
                                     <div class="w-50">
-                                        <h4><a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}" class="btn btn-primary bg-white text-black hover:text-red hover:bg-primary rounded mx-3"><i
+                                        <h4><a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}" class="btn btn-primary bg-white text-black hover:text-red hover:bg-primary rounded-xlg mx-3"><i
                                                         class="fas fa-plus-circle"></i> Update</a></h4>
                                     </div>
                                     <div class="w-50">
-                                        <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-primary bg-white text-black hover:text-white hover:bg-primary rounded mx-3"><i
+                                        <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-primary bg-white text-black hover:text-white hover:bg-primary rounded-xlg mx-3"><i
                                                         class="fas fa-plus-circle"></i> Delete</a></h4>
                                     </div>
 
