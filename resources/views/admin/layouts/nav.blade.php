@@ -1,63 +1,36 @@
-<div id="app">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+@if(Auth::guard('admin')->check())
+    <div class="mx-5 my-3 xl:hidden lg:hidden">
+        <button data-toggle="#nav-mobile"
+                class=" text-black xl:hidden bg-transparent toggler border-0 ">
+            <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
 
-                <!-- Collapsed Hamburger -->
-
-                <!-- Branding Image -->
-                {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
-                    {{--{{ config('app.name', 'Laravel') }}--}}
-                {{--</a>--}}
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (!Auth::guard('admin')->check())
-                        <li><a href="{{ URL::to('admin') }}">Login</a></li>
-                        {{--<li><a href="{{ URL::to('admin/register') }}">Add admin</a></li>--}}
-                    @else
-                        {{--<li><a href="{{action('Admin\ProductsController@index')}}">Manage products</a></li>--}}
-                        {{--<li><a href="{{action('Admin\AffiliatesController@index')}}">Affiliates</a></li>--}}
-                        {{--<li><a href="{{action('Admin\BrandController@index')}}">Brand</a></li>--}}
-                        {{--<li><a href="{{action('Admin\CurrencyController@index')}}">Currency</a></li>--}}
-                        {{--<li><a href="{{action('Admin\ConditionsController@index')}}">Manage Conditions</a></li>--}}
-                        {{--<li><a href="{{action('Admin\CategoriesController@index')}}">Manage Categories</a></li>--}}
-                        {{--<li><a href="{{action('Admin\RolesController@index')}}">Roles</a></li>--}}
-                        {{--<li><a href="{{action('Admin\AdsController@index')}}">Ads</a></li>--}}
-                        {{--<li><a href="{{action('Admin\Auth\RegisterController@showRegistrationForm')}}">Add admin</a></li>--}}
-                        {{--<li><a href="{{action('Admin\AdminsController@index')}}">Manage admins</a></li>--}}
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ route('admin.logout') }}"
-                                       onclick="event.preventDefault();
+        </button>
+    </div>
+    <div class="w-100 mx-auto flex">
+        <div class="bg-transparent  mt-2 my-4 w-80">
+            <form name="search_form" method="get" class="w-60 mx-auto text-right text-center ">
+                <div
+                    class=" mx-auto text-center border-1 border-solid border-grey-light rounded-full  py-2 ">
+                    <input name="keyword" type="text" placeholder="Search...."
+                           class="bg-white appearance-none  rounded-full px-3 outline-none border-none  m-0 w-100">
+                </div>
+            </form>
+        </div>
+        <div class="w-20 flex align-items-center justify-content-end">
+            <div class="w-100 flex align-content-end">
+                <p class="my-0">{{ \Illuminate\Support\Str::title(Auth::guard('admin')->user()->name) }}</p>
+                <div class="my-0 ml-3 cursor-pointer">
+                    <a href="{{ route('admin.logout') }}"
+                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                        <i class="fi flaticon-login"></i>
+                    </a>
 
-                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </div>
             </div>
         </div>
-    </nav>
-
-
-</div>
+    </div>
+@endif

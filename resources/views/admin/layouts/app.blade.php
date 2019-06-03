@@ -20,45 +20,15 @@
 
 <body>
 <div id="app" class="relative">
-<div class="mx-5 my-3 lg:hidden">
-
-            <button data-toggle="#nav-mobile"
-                    class=" text-black xl:hidden bg-transparent toggler border-0 ">
-                <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
-
-            </button>
-
-</div>
-
-    <div class="bg-transparent  mt-2 my-4">
-
-        <form name="search_form" method="get"  class="mx-5  w-40 mx-auto text-right text-center ">
-            <div class=" w-90 md:w-80 xs:w-80 mx-auto text-center border-1 border-solid border-grey-light rounded-full  py-2 ">
-                <input name="keyword" type="text" placeholder="Search...."
-                       class="bg-white appearance-none  rounded-full px-3 outline-none border-none  m-0 w-100">
-            </div>
-
-
-
-
-        </form>
-    </div>
-
-            {{--<form name="search_form" method="get" action="{{action('Admin\AdsController@search')}}">--}}
-                {{--<input name="keyword" type="text" placeholder="Search.." value="{{$keyword ?? null}}"--}}
-                       {{--class="bg-transparent appearance-none outline-none border-none p-3 xs:text-xs m-0 w-80 md:w-70 xs:w-60"--}}
-                       {{--required>--}}
-                {{--<button class="rounded-full btn bg-primary text-white ">Search</button>--}}
-            {{--</form>--}}
-
 
     <div class="flex xs:block md:block">
-        <div class="w-15 ">
-            @if(Auth::guard('admin')->check())
-            @include('admin.layouts.sidebar.index')
-                @endif
-        </div>
-        <div class="w-85 xs:w-90 xs:mx-auto xl:px-3">
+        @if(Auth::guard('admin')->check())
+            <div class="w-15 ">
+                @include('admin.layouts.sidebar.index')
+            </div>
+        @endif
+        <div class="@if(Auth::guard('admin')->check()) w-85 @else w-100 @endif xs:w-90 xs:mx-auto xl:px-3">
+            @include('admin.layouts.nav')
             @yield('content')
         </div>
     </div>

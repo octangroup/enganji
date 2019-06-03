@@ -7,7 +7,7 @@ cache:
     - node_modules/
     - vendor/
 test:
-  image: edbizarro/gitlab-ci-pipeline-php:7.2
+  image: edbizarro/gitlab-ci-pipeline-php:7.3
   stage: test
   services:
     - mysql:5.7
