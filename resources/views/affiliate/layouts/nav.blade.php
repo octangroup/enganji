@@ -1,4 +1,4 @@
-@if(Auth::guard('admin')->check())
+@if(Auth::guard('affiliate')->check())
     <div class="mx-5 my-3 xl:hidden lg:hidden">
         <button data-toggle="#nav-mobile"
                 class=" text-black xl:hidden bg-transparent toggler border-0 ">
@@ -27,7 +27,7 @@
             <div class="w-100 flex align-content-end">
                 <p class="my-0"><i class="fi flaticon-user-2"></i></p>
                 <div class="my-0 ml-3 cursor-pointer dropdown z-999">
-                    <p class="my-0 font-primary font-medium">{{ \Illuminate\Support\Str::title(Auth::guard('admin')->user()->name) }}
+                    <p class="my-0 font-primary font-medium">{{ \Illuminate\Support\Str::title(Auth::guard('affiliate')->user()->name) }}
                         <i class="ml-2 -mt-1 fas fa-angle-down"></i></p>
                     <div class="dropdown-content w-rem-74 mx-0 -ml-10 -mt-1 md:-ml-8 text-left font-roboto font-normal shadow
                                border-2 border-solid border-white cursor-pointer z-999 absolute">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="relative bg-white">
                             <p class="text-center text-xs bg-grey-lighter py-2">My Account</p>
-                            <p><a href="{{ route('admin.logout') }}"
+                            <p><a href="{{ route('affiliate.logout') }}"
                                   class="hover:bg-grey-lightest px-4 text-sm"
                                   onclick="event.preventDefault();
                                                           document.getElementById('logout-form').submit();">
@@ -49,7 +49,7 @@
 
                         </div>
                     </div>
-                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('affiliate.logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 </div>

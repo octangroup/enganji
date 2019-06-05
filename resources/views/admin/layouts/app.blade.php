@@ -16,6 +16,8 @@
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/_flaticon.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 
 <body>
@@ -39,11 +41,7 @@
     $('.toggler').click(function () {
         let toggle = $(this).data('toggle');
         $(toggle).toggle(150);
-        //   alert('hello');
     });
-    // $(document).ready(function (){
-    //     alert('hello');
-    // })
 </script>
 @yield('script')
 </body>

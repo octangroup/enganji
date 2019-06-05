@@ -3,49 +3,54 @@
 @section('content')
 
 
-    <div class="container">
+    <div class="w-90 mx-auto">
 
 
-        <div class=" w-85 md:w-90 mx-auto  mt-2 text-center">
+        <div class="w-100 mx-auto px-2 mt-2 flex">
 
-            <div class="w-25 xs:w-100 bg-orange my-5 xs:my-2 rounded-lg inline-block">
+            <div class="w-25 xs:w-100 mx-3 bg-orange my-5 xs:my-2 rounded-xlg ">
                 <div class="text-center text-white">
-                    <h4 class="my-4 text-2xl">{{$affiliates->count()}}</h4>
+                    <h4 class="my-4 text-4xl font-primary">{{$affiliates->count()}}</h4>
                     <p class="my-3">{{__('Affiliates')}}</p>
                 </div>
             </div>
 
 
-            <div class="w-25 xs:w-100 mx-3 xs:mx-0 bg-blue-light my-5 xs:my-2  rounded-lg inline-block">
+            <div class="w-25 xs:w-100 mx-3 xs:mx-0 bg-blue-light my-5 xs:my-2  rounded-xlg">
                 <div class="text-center text-white">
-                    <h4 class="my-4 text-2xl"> {{$users->count()}}</h4>
+                    <h4 class="my-4 text-4xl font-primary"> {{$users->count()}}</h4>
                     <p class="my-3">{{__('Users')}}</p>
                 </div>
             </div>
 
 
-            <div class="w-25 xs:w-100 mx-3 xs:mx-0 bg-pink-darker opacity-75 my-5 xs:my-2 rounded-lg inline-block">
+            <div class="w-25 xs:w-100 mx-3 xs:mx-0 bg-pink-darker opacity-75 my-5 xs:my-2 rounded-xlg">
                 <div class="text-center text-white">
-                    <h4 class="my-4 text-2xl">{{$products->count()}}</h4>
+                    <h4 class="my-4 text-4xl font-primary">{{$products->count()}}</h4>
                     <p class="my-3">{{__('Products')}}</p>
+                </div>
+            </div>
+            <div class="w-25 xs:w-100 mx-3 xs:mx-0 bg-green-darker opacity-75 my-5 xs:my-2 rounded-xlg">
+                <div class="text-center text-white">
+                    <h4 class="my-4 text-4xl font-primary">3</h4>
+                    <p class="my-3">{{__('Ads')}}</p>
                 </div>
             </div>
 
         </div>
 
         <div class="panel panel-default">
-            <div  class="w-80 mx-auto">
-                <div class="mt-6 w-50 md:w-100 ml-5">
+            <div class="w-100 mx-auto flex">
+                <div class="w-50 md:w-100 mx-3 border-1 border-solid border-grey-light rounded-xlg overflow-hidden p-3">
                     {!! $chart->container() !!}
                     {{--{!! $userChart->container() !!}--}}
 
                 </div>
-                <div class="mt-6 w-50 md:w-100 ml-5">
+                <div class="w-50 md:w-100 mx-3 border-1 border-solid border-grey-light rounded-xlg overflow-hidden p-3">
                     {!! $userChart->container() !!}
 
                 </div>
             </div>
-
 
 
         </div>

@@ -1,11 +1,11 @@
 @extends('affiliate.layouts.app')
 @section('content')
-    <div class="container mx-3">
-        <div class=" w-55 mx-auto  flex">
+    <div class="w-95 mx-auto">
+        <div class=" w-100 mx-auto  flex">
             <div class="w-80">
-                <h4 class=" py-0 font-primary   text-xl">Product</h4>
+                <h2 class="py-0 font-primary text-2xl font-bold">Product</h2>
             </div>
-            <div class="w-20 my-3 mx-0 ">
+            <div class="w-20 my-3 mx-0  text-right">
                 <a href="{{action('Affiliate\ProductsController@create')}}" class="btn btn-primary text-sm text-white  rounded-xlg mx-2 border-0   inline-block">ADD PRODUCT</a>
             </div>
 
@@ -18,10 +18,9 @@
         <div  class="flex xs:block ">
             <div id="filter" class="w-20 xs:w-90 xs:hidden-temp ">
                 <div class=" mt-3 bg-white mb-4 px-4 font-primary text-black border-1 border-solid border-grey-light rounded-xlg">
-
                         <form method="GET" action="{{action('Affiliate\ProductsController@filter')}}">
                             <div class="my-2">
-                                <h4>Categories</h4>
+                                <h5>Categories</h5>
                                 @foreach ($categories as $category)
                                     <p>
                                         <input type="checkbox" name="categories[]"
@@ -30,7 +29,7 @@
                                 @endforeach
                             </div>
                             <div class="my-2">
-                                <h4>Conditions</h4>
+                                <h5>Conditions</h5>
                                 @foreach ($conditions as $condition)
                                     <p>
                                         <input type="checkbox" name="conditions[]" value="{{$condition->id}}"> {{$condition->name}}
@@ -38,7 +37,7 @@
                                 @endforeach
                             </div>
                             <div class="my-2">
-                                <h4>Brands</h4>
+                                <h5>Brands</h5>
                                 @foreach ($brands as $brand)
                                     <p>
                                         <input type="checkbox" name="brands[]" value="{{$brand->id}}"> {{$brand->name}}
@@ -47,7 +46,7 @@
                             </div>
                             <div>
                                 @if($products && count($products))
-                                    <h4>Price</h4>
+                                    <h5>Price</h5>
                                     @foreach ($products as $product)
                                         <p>
                                             <input type="checkbox" name="price[]"
@@ -81,12 +80,12 @@
                                 </div>
                                 <div class="flex">
                                     <div class="w-50">
-                                        <h4><a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}" class="btn btn-primary bg-white text-black hover:text-red hover:bg-primary rounded-xlg mx-3"><i
+                                        <h4><a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}" class="btn border-green text-green bg-white text-black hover:text-red hover:bg-green rounded-xlg mx-3"><i
                                                         class="fas fa-plus-circle"></i> Update</a></h4>
                                     </div>
                                     <div class="w-50">
-                                        <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-primary bg-white text-black hover:text-white hover:bg-primary rounded-xlg mx-3"><i
-                                                        class="fas fa-plus-circle"></i> Delete</a></h4>
+                                        <h4><a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}" class="btn btn-outline-danger bg-white text-red hover:text-white hover:bg-red rounded-xlg mx-3"><i
+                                                        class="fas fa-minus-circle"></i> Delete</a></h4>
                                     </div>
 
                                 </div>
@@ -99,6 +98,5 @@
 
                 </div>
         </div>
-        </div>
-    </div>
+
 @endsection
