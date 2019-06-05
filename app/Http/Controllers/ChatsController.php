@@ -56,15 +56,15 @@ class ChatsController extends Controller
 
     public function fetchMessages(Request $request)
     {
+
         $this->validate($request,[
             'conversation_id'=>'required|int',
         ]);
 
         $conversation=Auth::user()->conversations()->firstOrNew([
            'id'=> $request->conversation_id]);
-        dump($conversation);
         $messages=$conversation->messages()->get();
-        return response()->json($messages);
+        return response(['messages'=>$messages]);
 //        $this->validate($request, [
 //            'affiliate_id' => 'required|int|exists:affiliate_master,id',
 //        ]);

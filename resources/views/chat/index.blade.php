@@ -5,5 +5,6 @@
         <h1 class=" text-2xl font-primary">Messages</h1>
     </div>
         <chat-window></chat-window>
+
     </div>
 @endsection
