@@ -21,7 +21,7 @@
 
         <div class=" w-90 mx-auto  flex">
             <div class="w-80">
-                <h4 class=" py-0 font-primary   text-xl">Product</h4>
+                <h4 class=" font-primary   text-2xl">Product</h4>
             </div>
 
         </div>
@@ -37,7 +37,7 @@
 
                             <div class="w-70 xs:w-100 flex xs:block">
                                 <div class="w-35 xs:w-100 ">
-                                    <h4 class="text-base  font-primary  font-bold my-3">
+                                    <h4 class="text-lg  font-primary  font-bold my-3">
                                         {{$product->name}}
                                     </h4>
                                 </div>

@@ -11,7 +11,7 @@
                     :leave-active-class="leave_animation"
                     :duration="{ enter: enter, leave: leave }">
                     <img v-bind:key="index" :src="ads[index].picture"
-                         class="w-95 absolute h-100">
+                         class="w-100 absolute h-100">
                 </transition>
             </div>
             <div class="absolute w-100 b-5 z-60 text-center">

@@ -36,8 +36,8 @@
 
             @if(count($affiliates))
                 @foreach($affiliates as $affiliate)
-                    <div class=" w-90 xs:w-100 mx-auto mt-5">
-                    <div class="  bg-white border-1 border-solid border-grey-light rounded-xlg w-100 mb-4 p-2 py-5 ">
+                    <div class=" w-90 mx:w-90 xs:w-100 mx-auto mt-3">
+                    <div class="  xs:mx-0 bg-white border-1 border-solid border-grey-light rounded-xlg w-100 mb-4 p-2 py-5">
                         <div class="flex">
                             <div class="w-60 xs:mx-2 font-primary font-bold mx-5">
                                <p class="my-0 capitalize">{!! $affiliate->name !!}</p>
