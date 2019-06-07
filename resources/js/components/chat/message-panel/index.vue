@@ -7,7 +7,7 @@
             <div id="messages-container" class="pt-4 overflow-y-scroll z-10" style="height: 70.5%">
                 <message  v-for="message in messages" :message="message"></message>
             </div>
-            <chat-form :conversation="conversation"></chat-form>
+            <chat-form :conversation="conversation" v-on:message_append="appendMessage($event)"></chat-form>
         </div>
     </div>
 </template>
@@ -38,6 +38,8 @@
                 }).catch((error)=>{
                     console.log(error.response);
                 })
+            },appendMessage(message){
+                this.messages.push(message);
             }
         },watch: {
             conversation: function (val, old) {
@@ -48,7 +50,7 @@
         },mounted(){
             this.$parent.$on('selected_conversation',(conversation)=>{
                 this.conversation=conversation;
-            })
+            });
         }
 
 

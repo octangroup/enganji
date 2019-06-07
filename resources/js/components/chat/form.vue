@@ -7,7 +7,7 @@
                         >
                         </textarea>
         <button type="submit"
-                @click="send"
+                @click="send()"
                 class="btn text-white cursor-pointer rounded-full bg-primary text-xs align-top pr-3 mt-0 border-0  focus:outline-none w-10 xs:w-25"
         >
             Send <i class="fi flaticon-paper-plane text-xl"></i>
@@ -18,13 +18,22 @@
 <script>
     export default {
         name: "chat-form",
-        data(){
+        props: {
+            isAffiliate: {
+                default: false,
+                type: Boolean
+            }, send_message_url: {
+                type: String,
+                default: "/chat/send"
+            },conversation:Object,
+        },
+        data() {
             return {
                 body: "",
 
             }
         },
-        methods:{
+        methods: {
             send() {
                 //checking if the message is not empty
                 if (_.isEmpty(_.trim(this.body))) {
@@ -36,24 +45,24 @@
                 this.body = '';
 
                 // adding thr message to be sent to the list of messages to be shown in the message list
-                this.messages.push({
+                this.$emit('message_append', {
+
                     'body': body,
-                    'from_affiliate': 1,
+                    'from_affiliate': this.isAffiliate ? 0 : 1,
                     // 'sent_date': moment().format('YYYY-MM-DD'),
                     // 'day': 'Today',
                     // 'time': moment().format('LT'),
                 });
-                // scroll down below the message added to the list
-                // this.scrollDown();
+
 
                 // initiate the axios request to the server
-                axios.post("/affiliate/send/message", {
-                    conversation_id: this.conversation.id,
+                axios.post(this.send_message_url, {
+                    affiliate_id: this.conversation.affiliate_id,
                     body: body
                 }).then((response) => {
                     console.log(response);
-                    //refresh conversation list and update glimpse messages
-                    this.fetchConversations();
+                    // //refresh conversation list and update glimpse messages
+                    // this.fetchConversations();
                 }).catch((error) => {
                     console.log(error.response.data);
                 });

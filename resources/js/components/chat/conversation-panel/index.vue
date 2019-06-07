@@ -7,10 +7,7 @@
                 <h1 class="text-base">Chat</h1>
             </div>
 
-            <div class="w-90">
-                <input name="keyword" type="text" placeholder="Search.."
-                       class="outline-none bg-grey-lighter border-none p-3 m-0  w-100">
-            </div>
+           <search-form></search-form>
 
         </form>
 
@@ -23,10 +20,11 @@
 <script>
     import MessagePanel from "../message-panel/index";
     import Conversation from "./conversation";
+    import SearchForm from "../../searchForm";
 
     export default {
         name: "conversation-panel",
-        components: {Conversation, MessagePanel},
+        components: {SearchForm, Conversation, MessagePanel},
         props: {
             is_affiliate: Boolean,
             fetch_conversation_url: {

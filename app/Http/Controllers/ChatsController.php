@@ -46,12 +46,13 @@ class ChatsController extends Controller
                 'from_affiliate' => false,
             ]
         );
-        $conversation->notify(new NewMessageArrivedNotification());
+//        $conversation->notify(new NewMessageArrivedNotification());
         return ['message' => 'success'];
 
 
 
     }
+
 
 
     public function fetchMessages(Request $request)
