@@ -6,35 +6,80 @@
     </chat>
     <div class="panel panel-default">
         <div class="panel-body w-90 mx-auto">
-            <div class="flex">
-                <div class="w-50">
-                    <div class="flex">
-                        <div class="w-40 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">
+            <div class="xl:flex ">
+                <div class="xl:w-50 xs:w-100 xl:flex">
+                    {{--<div class="flex ">--}}
+                        {{--<div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+
+                        {{--</div>--}}
+                        {{--<div--}}
+                            {{--class="w-40 p-3 xs:w-50 border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                        {{--</div>--}}
+
+                    {{--</div>--}}
+                    {{--<div class="flex mt-2 ">--}}
+                        {{--<div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-bl-xxl overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                        {{--</div>--}}
+                        {{--<div class="w-40 xs:w-50 p-3 border border-solid mx-2 border-grey-light rounded-br-xxl overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                        {{--</div>--}}
+
+                    {{--</div>--}}
+
+                {{--</div>--}}
+
+                    <div class="w-30 xs:hidden">
+                        <div class=" w-65 p-3 border border-solid border-grey-light rounded-xl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
 
                         </div>
-                        <div
-                            class="w-40 p-3  border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">
+                        <div class=" w-65 p-3 border border-solid border-grey-light mt-4 rounded-xl overflow-hidden">
                             <img src="{{$product->cover()}}" class="transition-500ms ">
+
+                        </div>
+
+                        <div class=" w-65 p-3 border border-solid border-grey-light mt-4 rounded-xl overflow-hidden">
+                            <img src="{{$product->cover()}}" class="transition-500ms ">
+
                         </div>
 
                     </div>
-                    <div class="flex mt-2">
-                        <div class="w-40 p-3 border border-solid border-grey-light rounded-bl-xxl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
-                        </div>
-                        <div class="w-40 p-3 border border-solid mx-2 border-grey-light rounded-br-xxl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
-                        </div>
+                    <div class="xl:w-70 xs:w-100 ">
+                        <div class=" xl:hidden">
+                            <div class="mt-2 ">
+                                <h1 class="xl:text-4xl xs:text-xl  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
+                            </div>
+                            <div class="mt-3 flex">
 
+                        <span class="text-accent w-50   rd5">
+                            @for($j=1;$j<=$product->rating;$j++)
+                                <i class="fi flaticon-star-4"></i>
+                            @endfor
+                            @for($j=1;$j<=(5- $product->rating);$j++)
+                                <i class="fi flaticon-star"></i>
+                            @endfor
+                        </span>
+                                <div class="w-50">
+                                    <p class="text-black mx-2 text-xs  mt-2 ">{{$product->reviews->count()}} reviews</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="  border border-solid border-grey-light rounded-xlg overflow-hidden">
+                            <img src="{{$product->cover()}}" class="transition-500ms ">
+
+                        </div>
                     </div>
-
                 </div>
-                <div class="w-50">
-                    <div>
-                        <h1 class="text-4xl  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
+                <div class="xl:w-50 xs:w-80 xl:mx-5 xs:mt-4">
+                    <div class="mt-2 xs:hidden">
+                        <h1 class="xl:text-4xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 xs:hidden">
 
                         <span class="text-accent">
                             @for($j=1;$j<=$product->rating;$j++)
@@ -45,18 +90,18 @@
                             @endfor
                         </span>
 
-                        <p class="text-black mx-2 text-xs  mt-2 inline-block">{{$product->reviews->count()}} reviews</p>
+                        <p class="text-black mx-2 text-xs xs:hidden  mt-2 inline-block">{{$product->reviews->count()}} reviews</p>
                     </div>
 
                     <div class="w-100">
-                        <p class="my-1"><span class="mr-3">Price:</span> <span
-                                class="text-accent text-3xl font-primary font-medium">
+                        <p class="my-1"><span class="mr-3 inline-block">Price:</span> <span
+                                class="text-accent xl:text-3xl xs:text-base font-primary inline-block font-medium">
                                 {{$product->currency->name}} {{$product->price}}
                             </span></p>
                     </div>
                     <div class="w-100 mx-1  text-base ">
 
-                        <form action="{{action('CartController@store')}}" method="post" class="w-50">
+                        <form action="{{action('CartController@store')}}" method="post" class="xl:w-50 xs:w-100">
                             {{csrf_field()}}
 
                             <div class="flex my-3">
@@ -71,31 +116,23 @@
                                 </div>
 
                             </div>
-                            <div class="w-100 my-4">
-                                <button class="btn btn-accent rounded">
-                                    AddCart
-                                </button>
+                            <div class="w-100 xs:flex my-4">
+                                <div class="w-50">
+                                    <button class="btn btn-accent rounded">
+                                        AddCart
+                                    </button>
+                                </div>
+                                <div class="w-50">
+
                                 <a href="{{action('WishListController@add',[$product->id])}}"
                                    class="btn btn-outline-accent rounded ml-3">
                                     WishList
                                 </a>
+                                </div>
                             </div>
 
                         </form>
                     </div>
-                    <div class="flex w-40">
-                        <div class="w-50">
-
-
-                        </div>
-                        <div class="w-50 mx-3">
-
-                        </div>
-
-                    </div>
-{{--                    <div class="mt-3">--}}
-{{--                        <p class="fi flaticon-menu"> Share</p>--}}
-{{--                    </div>--}}
 
 
                 </div>
@@ -108,17 +145,17 @@
 
     <div class="panel panel-default px-2">
         <div class="mt-3 w-90 mx-auto">   
-            <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
+            <h3 class="text-2xl font-primary font-bold text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Product Details</h3>
-            <div class="px-3">
+            <div class="xl:px-3 ">
                 <p class="text-base">{{$product->description}}</p>
             </div>
         </div>
 
         <div class="my-3 w-90 mx-auto">   
-            <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
+            <h3 class="text-2xl font-primary font-bold text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Specifications</h3>
-            <div class="px-3">
+            <div class="xl:px-3">
                 <p class="text-md my-0">Brand Name:{{$product->brand->name}}</p>
                 <p class="text-md my-0">Condition:{{$product->condition->name}}</p>
                 <p class="text-md my-0">Color:{{$product->color}}</p>
@@ -127,7 +164,7 @@
         <div class="my-3 w-90 mx-auto">   
             <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Reviews</h3>
-            <div class="flex px-3 pb-4">
+            <div class="xl:flex px-3 pb-4">
                 <div class="w-30  xs:text-xs2 xs:w-60 pt-3">
                     @for($i = 5;$i>0;$i--)
                         <p title="0 Star item" class="mb-2 mt-2 w-auto tooltip">
@@ -146,7 +183,7 @@
                     @endfor
                 </div>
                 <div class="w-70">
-                    <div class="w-70 xs:w-100 pl-5 xs:pl-3">
+                    <div class="w-70 xs:w-100 xl:pl-5 mt-4">
                         <h5 class="text-xl  mt-0 mb-3 p-0 font-medium font-primary">Overview Rating</h5>
                         <p class="text-dodge-blue xs:text-sm m-0 mb-4">{{$product->rating()}} {{$product->ratingCategory()}}</p>
                         @guest()

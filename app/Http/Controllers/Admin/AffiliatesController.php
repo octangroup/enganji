@@ -37,7 +37,7 @@ class AffiliatesController extends Controller
     public function changeStatus($id){
 
         $affiliate= Affiliate::findorfail($id);
-        if(!$affiliate->is_Active()){
+        if(!$affiliate->isActive()){
             $affiliate->activate();
             Session::flash('message','Affiliate has been activated');
             event(new ActivateAffiliate($affiliate));

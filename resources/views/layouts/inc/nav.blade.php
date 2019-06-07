@@ -1,6 +1,8 @@
-<nav class="w-90 mx-auto rounded-b-xlg -mt-3  mb-4 py-4 bg-white-smoke ">
+<nav class=" w-90 mx-auto rounded-b-xlg xl:-mt-3  xs:py-3 mb-4 xl:py-4 xs:bg-white xl:bg-white-smoke ">
+
+
     <div class="w-90 mx-auto flex flex-wrap">
-        <ul class="w-50 list my-0   text-black-dark">
+        <ul class="xs:w-90 md:w-80 xl:w-50 list my-0 mt-2  text-black-dark">
             <li class="pb-4 pt-1">
                 <a href="{{action('HomeController@index')}}"
                    class="font-primary font-medium text-3xl inherit-color no-underline">
@@ -8,7 +10,13 @@
                 </a>
             </li>
         </ul>
-        <ul class="w-50 list my-0 text-right text-black-dark">
+        <ul data-toggle="#sidebar" class="w-10 md:w-20 xl:hidden list my-0 mt-2 toggler text-black-dark">
+            <li class="pb-4 pt-1">
+                <i class="fi flaticon-menu-4 text-black text-2xl"></i>
+            </li>
+        </ul>
+
+        <ul class="w-50 hidden xl:block list my-0 text-right text-black-dark">
             <li class="text-xl mt-0 pt-0 w-60 mr-4 inline-block font-primary font-medium">
                 <form name="search_form" method="get" action="{{action('ProductsController@search')}}"
                       class="flex my-0">
@@ -86,7 +94,7 @@
                 </div>
             </li>
         </ul>
-        <ul class="list w-100 text-center text-black-dark   text-sm">
+        <ul class="list w-100 hidden xl:block text-center text-black-dark   text-sm">
             @foreach(\App\Category::get()->take(6) as $category)
                 <li class="inline-block mx-3"><a
                         href="{{action('ProductsController@index',[$category->stripped_name,$category->id])}}"

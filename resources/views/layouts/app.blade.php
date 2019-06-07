@@ -11,9 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/desktop.css')}}" rel="stylesheet">
     <link href="{{asset('css/mobile.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/_flaticon.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
@@ -28,6 +28,7 @@
 </head>
 <body>
 <div id="app">
+    @include('layouts.inc.sidebar')
     @include('layouts.inc.nav')
     @yield('notification')
     <div id="notification-section"

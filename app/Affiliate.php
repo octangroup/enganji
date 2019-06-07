@@ -15,7 +15,7 @@ class Affiliate extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone_number','location'
+        'name', 'email', 'password', 'phone_number', 'location'
     ];
 
     /**
@@ -27,9 +27,11 @@ class Affiliate extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $table = "affiliate_master";
 
-    public function product(){
+    protected $table = 'affiliate_master';
+
+    public function product()
+    {
         return $this->hasMany(Product::class);
     }
 
@@ -38,23 +40,34 @@ class Affiliate extends Authenticatable
 //function to check if the affiliate is active
 
 
-
 //checks if the affiliate is active
-    public function is_Active(){
-        return $this->status==true;
+    public function isActive()
+    {
+        return $this->status == 1;
     }
+
+    public function is_Active()
+    {
+        return $this->isActive();
+    }
+
 //activating the affiliate's status
-    public function activate(){
-        $this->status=true;
+    public function activate()
+    {
+        $this->status = 1;
         $this->save();
     }
+
 //deactivating the affiliate's status
-    public function deactivate(){
-        $this->status=false;
+    public function deactivate()
+    {
+        $this->status = 0;
         $this->save();
     }
-    public function conversation(){
-        return $this->hasMany(Conversation::class,'affiliate_id');
+
+    public function conversation()
+    {
+        return $this->hasMany(Conversation::class, 'affiliate_id');
     }
 
 

@@ -20,9 +20,8 @@ class CartController extends Controller
 
 
     public function index(){
-        $categories = Category::get()->take(8);
         $carts = Auth::User()->cart()->with('product')->get();
-        return view('cart.index', compact('carts','categories'));
+        return view('cart.index', compact('carts'));
     }
 
 

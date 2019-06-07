@@ -80,10 +80,10 @@
                     </div>
                     <div class="w-60 mx-auto xs:w-100 mt-2 text-center mt-4">
                         <a href="{{ route('login') }}"
-                           class="btn border-1 text-primary border-primary hover:bg-grey-dark rounded-full mx-3">
+                           class="btn border-1 btn-outline-primary border-primary hover:text-white hover:bg-primary rounded-full mx-3">
                             {{ __('Already have an account?') }}
                         </a>
-                        <button type="submit" class="btn btn-primary xs:mt-3 hover:bg-grey-dark rounded-full mx-3">
+                        <button type="submit" class="btn btn-primary xs:mt-3 hover:bg-black rounded-full mx-3">
                             {{ __('Register') }}
                         </button>
                     </div>

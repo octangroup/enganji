@@ -17,32 +17,21 @@
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/_flaticon.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
 <div id="app" class="relative">
 
-
-    <div class="mx-5 my-3 lg:hidden">
-
-        <button data-toggle="#nav-affiliate" class=" text-black  bg-transparent toggler border-0 ">
-            <i class="fi flaticon-menu text-black text-2xl md:text-3xl"></i>
-
-        </button>
-
-    </div>
-
-    <div class="flex ">
-
-        <div class="w-15 xs:hidden">
-            @if(Auth::guard('affiliate')->check())
+    <div class="flex  mx-auto xs:block md:block">
+        @if(Auth::guard('affiliate')->check())
+            <div class="w-15 ">
                 @include('affiliate.layouts.sidebar')
-            @endif
-        </div>
-
-        <div class="w-85 xs:w-90 xs:mx-auto xl:px-3">
-            @include('affiliate.layouts.navbar')
+            </div>
+        @endif
+        <div class="@if(Auth::guard('affiliate')->check()) w-85 @else w-100 @endif xs:w-90 xs:mx-auto xl:px-3">
+            @include('affiliate.layouts.nav')
             @yield('content')
-
         </div>
 
     </div>
