@@ -112,6 +112,31 @@ $factory->define(\App\Cart::class, function (Faker $faker) {
     ];
 });
 
+
+//conversation's factory
+$factory->define(\App\Conversation::class, function (Faker $faker) {
+    return [
+        'user_id'=>factory(\App\User::class)->create(),
+        'affiliate_id'=>factory(\App\Affiliate::class)->create(),
+
+    ];
+});
+
+
+//message"s factory
+$factory->define(\App\Message::class, function (Faker $faker) {
+    return [
+        'conversation_id'=>factory(\App\Conversation::class)->create(),
+        'product_id'=>factory(\App\Product::class)->create(),
+        'body'=>$faker->text,
+        'from_affiliate'=>0,
+
+    ];
+});
+
+
+
+
 /*
  * factory of condition's class
  */

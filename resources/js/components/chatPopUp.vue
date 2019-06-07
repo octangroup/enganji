@@ -112,8 +112,9 @@
             send() {
                 let body = this.message;
                 if (body) {
-                    axios.post('/inganji/public/chat/send', {
+                    axios.post('/chat/send', {
                         affiliate_id: this.product.affiliate_id,
+                        product_id:this.product.id,
                         body: body
                     }).then(response => {
                         console.log(response.data)
@@ -123,6 +124,7 @@
                     this.messages.push({
                         'affiliate_id':this.product.affiliate_id,
                         'body':this.message,
+                        'product_id':this.product.id,
                         'from_affiliate':false,
                     });
                     this.message = '';
@@ -130,7 +132,7 @@
             },
 
             fetch() {
-                axios.get('/inganji/public/chat/fetch/messages?affiliate_id=' + this.product.affiliate_id).then(response => {
+                axios.get('/chat/fetch/messages?affiliate_id=' + this.product.affiliate_id).then(response => {
                     console.log(response.data.messages);
                     this.messages = response.data.messages;
                 }).catch(error => {

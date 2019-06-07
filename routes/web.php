@@ -20,6 +20,7 @@ Route::get('home', 'HomeController@index');
 //Product's route
 Route::get('c/{name}/{id}/{subcategory_name?}/{subcategory_id?}', 'ProductsController@index');
 Route::get('itm/view/{id}/{name?}', 'ProductsController@show');
+Route::get('index/products','ProductsController@index');
 Route::get('search', 'ProductsController@search');
 Route::get('filter', 'ProductsController@filter');
 
@@ -51,9 +52,5 @@ Route::patch('profile/update/picture', 'ProfileController@updateProfile');
 
 Route::get('/index/chat/','ChatsController@index');
 Route::post('/chat/send','ChatsController@send');
-Route::get('/chat/fetch/messages','ChatsController@fetch');
-Route::get('/conversation/fetch','ChatsController@fetchConversation');
-
-
-include 'admin.php';
-include 'affiliate.php';
+Route::get('/chat/fetch/messages','ChatsController@fetchMessages');
+Route::get('/conversation/fetch','ChatsController@fetchConversations');

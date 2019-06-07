@@ -4,6 +4,7 @@
     <div class="pt-2 pb-4">
         <h1 class=" text-2xl font-primary">Messages</h1>
     </div>
-        <user-chat-room></user-chat-room>
+        <chat-window></chat-window>
+
     </div>
 @endsection
