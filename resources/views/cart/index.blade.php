@@ -6,8 +6,8 @@
         <div class="pt-2 pb-4">
             <h1 class=" text-2xl font-primary">Shopping Cart</h1>
         </div>
-        <div class="flex">
-            <div class="w-70 pr-4">
+        <div class="flex xs:block md:block sm:block">
+            <div class="w-70 xs:w-100 xl:pr-4 hidden xl:block ">
                 @foreach($carts as $cart)
                     @component('product.components.listing.horizontal-card',['product'=>$cart->product])
                         <p class="text-sm">Quantity: <span class="font-medium">
@@ -17,7 +17,7 @@
                 @endforeach
             </div>
 
-            <div class="w-30 pl-3">
+            <div class="w-30 xs:w-100 md:w-100 sm:w-100 xl:pl-3">
                 @if($carts && count($carts))
                     <div class="bg-white-smoke rounded-xlg w-100 mb-4 p-4 ">
                         <h5 class="text-lg font-bold my-2 font-primary">
@@ -61,7 +61,15 @@
                     </div>
                 @endif
             </div>
-
+            <div class="w-70 xs:w-100 md:w-100 sm:w-100 xl:pr-4 xl:hidden">
+                @foreach($carts as $cart)
+                    @component('product.components.listing.horizontal-card',['product'=>$cart->product])
+                        <p class="text-sm">Quantity: <span class="font-medium">
+                            {{$cart->quantity}}
+                        </span></p>
+                    @endcomponent
+                @endforeach
+            </div>
         </div>
 
     </div>
