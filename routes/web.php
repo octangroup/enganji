@@ -20,7 +20,6 @@ Route::get('home', 'HomeController@index');
 //Product's route
 Route::get('c/{name}/{id}/{subcategory_name?}/{subcategory_id?}', 'ProductsController@index');
 Route::get('itm/view/{id}/{name?}', 'ProductsController@show');
-Route::get('index/products','ProductsController@index');
 Route::get('search', 'ProductsController@search');
 Route::get('filter', 'ProductsController@filter');
 
