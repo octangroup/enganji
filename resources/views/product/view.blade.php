@@ -9,27 +9,27 @@
             <div class="xl:flex ">
                 <div class="xl:w-50 xs:w-100 xl:flex">
                     {{--<div class="flex ">--}}
-                        {{--<div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">--}}
-                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                    {{--<div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-tl-xxl overflow-hidden">--}}
+                    {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
 
-                        {{--</div>--}}
-                        {{--<div--}}
-                            {{--class="w-40 p-3 xs:w-50 border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">--}}
-                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
-                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div--}}
+                    {{--class="w-40 p-3 xs:w-50 border border-solid mx-2  border-grey-light rounded-tr-xxl overflow-hidden">--}}
+                    {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                    {{--</div>--}}
 
                     {{--</div>--}}
                     {{--<div class="flex mt-2 ">--}}
-                        {{--<div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-bl-xxl overflow-hidden">--}}
-                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
-                        {{--</div>--}}
-                        {{--<div class="w-40 xs:w-50 p-3 border border-solid mx-2 border-grey-light rounded-br-xxl overflow-hidden">--}}
-                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
-                        {{--</div>--}}
+                    {{--<div class="w-40 xs:w-50 p-3 border border-solid border-grey-light rounded-bl-xxl overflow-hidden">--}}
+                    {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                    {{--</div>--}}
+                    {{--<div class="w-40 xs:w-50 p-3 border border-solid mx-2 border-grey-light rounded-br-xxl overflow-hidden">--}}
+                    {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
+                    {{--</div>--}}
 
                     {{--</div>--}}
 
-                {{--</div>--}}
+                    {{--</div>--}}
 
                     <div class="w-30 xs:hidden">
                         <div class=" w-65 p-3 border border-solid border-grey-light rounded-xl overflow-hidden">
@@ -90,12 +90,13 @@
                             @endfor
                         </span>
 
-                        <p class="text-black mx-2 text-xs xs:hidden  mt-2 inline-block">{{$product->reviews->count()}} reviews</p>
+                        <p class="text-black mx-2 text-xs xs:hidden  mt-2 inline-block">{{$product->reviews->count()}}
+                            reviews</p>
                     </div>
 
                     <div class="w-100">
                         <p class="my-1"><span class="mr-3 inline-block">Price:</span> <span
-                                class="text-accent xl:text-3xl xs:text-base font-primary inline-block font-medium">
+                                    class="text-accent xl:text-3xl xs:text-base font-primary inline-block font-medium">
                                 {{$product->currency->name}} {{$product->price}}
                             </span></p>
                     </div>
@@ -122,16 +123,22 @@
                                         AddCart
                                     </button>
                                 </div>
-                                <div class="w-50">
 
-                                <a href="{{action('WishListController@add',[$product->id])}}"
-                                   class="btn btn-outline-accent rounded ml-3">
-                                    WishList
-                                </a>
-                                </div>
                             </div>
 
                         </form>
+                        <div class="w-50">
+                            <form action="{{action('WishListController@add',[$product->id])}}">
+                                {{csrf_field()}}
+                                <button class="btn btn-outline-accent rounded ml-3">
+                                    WishList
+                                </button>
+                            </form>
+                            {{--<a href="{{action('WishListController@add',[$product->id])}}"--}}
+                               {{--class="btn btn-outline-accent rounded ml-3">--}}
+                                {{--WishList--}}
+                            {{--</a>--}}
+                        </div>
                     </div>
 
 

@@ -25,6 +25,12 @@ class ChatsController extends Controller
     }
 
 
+    public function searchConversation($keyword){
+        $conversations=Auth::User()->conversations()->user()->where('user','=',$keyword)->get();
+        return response(['conversations'=>$conversations]);
+    }
+
+
     public function send(Request $request)
     {
         $this->validate(
