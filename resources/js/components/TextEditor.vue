@@ -1,7 +1,9 @@
 <template>
-    <div>
+    <div class="w-100" v-bind:class="cssClass">
+        <label class="text-sm font-secondary font-medium text-purple-darkest">{{title}}</label>
         <vue-editor v-model="content"></vue-editor>
-        <input type="hidden" :name="field_name" v-model="content">
+        <input type="hidden" :name="name" v-model="content">
+        <span v-if="errors && errors.has(name)" class="text-danger my-1 text-xs" v-text="errors.get(name)"></span>
     </div>
 </template>
 
@@ -9,26 +11,40 @@
     import {VueEditor} from 'vue2-editor'
 
     export default {
-
+        name: 'TextEditor',
         components: {
             VueEditor
         },
         props: {
-            field_name: {
-                default: 'editor',
-                type: String
+            title: {
+                type: String,
+                default: 'Title'
             },
-            value: {
-                default: '',
-                type: String
+            name: {
+                type: String,
+                default: 'field'
+            },
+            required: {
+                type: Boolean,
+                default: false
+            },
+            cssClass: {
+                type: String,
+                default: ''
+            }, placeholder: {
+                type: String,
+                default: null
+            }, value: [String, Number],
+            errors: Object
+        }
+        , data() {
+            return {content: this.value}
+        }, watch: {
+            content(val) {
+                this.$emit('input', val);
+            }, value(val) {
+                this.content = val
             }
-        },
-        data() {
-            return {
-                content: ''
-            }
-        }, mounted() {
-            this.content = this.value ? this.value : '';
         }
     }
 </script>

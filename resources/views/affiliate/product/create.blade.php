@@ -11,6 +11,6 @@
                 @include('form.productForm')
             </form>
         </div>
-
+    </div>
 
 @endsection
