@@ -7,11 +7,11 @@
             </div>
 
         @endif
-        <div class="flex ">
-            <div class="w-25">
+        <div class="flex xs:block">
+            <div class="w-25 xs:w-100">
                 @include('product.components.filter.main')
             </div>
-            <div class="w-75 bg-white px-5">
+            <div class="w-75 xs:w-100 xs:mt-3 bg-white xl:px-5">
 
                 @foreach($products as $product)
                     @component('product.components.listing.horizontal-card',['product'=>$product])

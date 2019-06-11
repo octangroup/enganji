@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <div class="w-90 mx-auto flex">
-        <div class="w-30">
+    <div class="w-90 mx-auto xs:block flex">
+        <div class="w-30 xs:w-100">
             <div class="bg-white-smoke py-4 rounded-xlg text-center">
                 <div class="w-60 py-3 mx-auto">
                     <img src="{{Auth::user()->avatar_original}}" class="w-100 rounded-full">
