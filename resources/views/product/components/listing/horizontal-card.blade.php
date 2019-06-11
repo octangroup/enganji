@@ -24,9 +24,11 @@
             </span>
         </div>
         {!! $slot !!}
-        <div class="my-3">
-            <p class="text-lg font-primary font-medium text-accent md:text-sm lg:text-base my-0">{{$product->currency->name}} {{$product->price}}</p>
-        </div>
+        @if(!$product->isService())
+            <div class="my-3">
+                <p class="text-lg font-primary font-medium text-accent md:text-sm lg:text-base my-0">{{$product->currency->name}} {{$product->price}}</p>
+            </div>
+        @endif
     </div>
     @if($right_section ?? null)
         <div class="w-20 p-3">

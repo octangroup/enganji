@@ -12,7 +12,7 @@
                              :required="true"
                              v-model="form.type"></select-form>
             </div>
-            <div v-if="form.service == 1" class="w-50 px-3 mt-3">
+            <div v-if="form.type == 1" class="w-50 px-3 mt-3">
                 <input-form title="Quantity:" name="quantity"
                             type="number"
                             :errors="form.errors"
@@ -77,21 +77,22 @@
     export default {
         name: "ProductForm",
         components: {SelectForm, InputForm},
-        props: ['categories', 'brands', 'conditions', 'currencies'],
+        props: ['categories', 'brands', 'conditions', 'currencies', 'product'],
         data() {
             return {
                 form: new Form({
-                    name: '',
-                    quantity: 1,
-                    category: '',
-                    subcategory: '',
-                    brand: '',
-                    currency: '',
-                    color: '',
-                    price: '',
-                    size: '',
-                    description: '',
-                    type: 1,
+                    name: this.product.name ? this.product.name : '',
+                    quantity: this.product.quantity ? this.product.quantity : 1,
+                    category: this.product.subcategory ? this.product.subcategory.category_id : '',
+                    subcategory: this.product.subcategory ? this.product.subcategory.id : '',
+                    brand: this.product.brand_id ? this.product.brand_id : '',
+                    currency: this.product.currency_id ? this.product.currency_id : '',
+                    condition: this.product.condition_id ? this.product.condition_id : '',
+                    color: this.product.color ? this.product.color : '',
+                    price:  this.product.price ? this.product.price : '',
+                    size: this.product.size ? this.product.size : '',
+                    description:  this.product.description ? this.product.description : '',
+                    type:  this.product.is_service ? 2 : 1,
                 }),
                 types: [{
                     id: 1,
@@ -106,10 +107,10 @@
                 let categories = this.categories.filter(function (category) {
                     if (category.id == id) return category;
                 });
-                if (categories.length > 0) {
+                if (categories && categories.length > 0) {
                     return categories[0]
                 }
-                return {}
+                return null
             }
         }, computed: {
             subcategories: function () {

@@ -191,6 +191,7 @@ class Product extends Model implements HasMedia
     {
         return round($this->reviews()->average('rating'), 2);
     }
+
     /**
      * this functions counts the number of reviews having that rating
      * @param $rate
@@ -210,6 +211,11 @@ class Product extends Model implements HasMedia
     {
         $rating = $this->rating();
         return RatingCategoryCalculator::handle($rating);
+    }
+
+    public function isService()
+    {
+        return (int)$this->is_service === 1;
     }
 
 }

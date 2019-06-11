@@ -3022,21 +3022,22 @@ __webpack_require__.r(__webpack_exports__);
     SelectForm: _ui_inputs_SelectForm__WEBPACK_IMPORTED_MODULE_2__["default"],
     InputForm: _ui_inputs_InputForm__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['categories', 'brands', 'conditions', 'currencies'],
+  props: ['categories', 'brands', 'conditions', 'currencies', 'product'],
   data: function data() {
     return {
       form: new _utilities_Form__WEBPACK_IMPORTED_MODULE_1__["default"]({
-        name: '',
-        quantity: 1,
-        category: '',
-        subcategory: '',
-        brand: '',
-        currency: '',
-        color: '',
-        price: '',
-        size: '',
-        description: '',
-        type: 1
+        name: this.product.name ? this.product.name : '',
+        quantity: this.product.quantity ? this.product.quantity : 1,
+        category: this.product.subcategory ? this.product.subcategory.category_id : '',
+        subcategory: this.product.subcategory ? this.product.subcategory.id : '',
+        brand: this.product.brand_id ? this.product.brand_id : '',
+        currency: this.product.currency_id ? this.product.currency_id : '',
+        condition: this.product.condition_id ? this.product.condition_id : '',
+        color: this.product.color ? this.product.color : '',
+        price: this.product.price ? this.product.price : '',
+        size: this.product.size ? this.product.size : '',
+        description: this.product.description ? this.product.description : '',
+        type: this.product.is_service ? 2 : 1
       }),
       types: [{
         id: 1,
@@ -3053,11 +3054,11 @@ __webpack_require__.r(__webpack_exports__);
         if (category.id == id) return category;
       });
 
-      if (categories.length > 0) {
+      if (categories && categories.length > 0) {
         return categories[0];
       }
 
-      return {};
+      return null;
     }
   },
   computed: {
@@ -40708,7 +40709,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm.form.service == 1
+        _vm.form.type == 1
           ? _c(
               "div",
               { staticClass: "w-50 px-3 mt-3" },
@@ -41031,23 +41032,25 @@ var render = function() {
               2
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "text-right w-50" }, [
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "text-lg font-primary font-medium text-accent md:text-sm lg:text-base my-0"
-                },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.product.currency.name) +
-                      " " +
-                      _vm._s(_vm.product.price)
+            !_vm.product.is_service
+              ? _c("div", { staticClass: "text-right w-50" }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "text-lg font-primary font-medium text-accent md:text-sm lg:text-base my-0"
+                    },
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.product.currency.name) +
+                          " " +
+                          _vm._s(_vm.product.price)
+                      )
+                    ]
                   )
-                ]
-              )
-            ])
+                ])
+              : _vm._e()
           ])
         ]
       ),
