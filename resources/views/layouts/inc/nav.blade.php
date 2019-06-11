@@ -1,4 +1,4 @@
-<nav class=" w-90 mx-auto rounded-b-xlg xl:-mt-3 xl:mb-4 xl:py-4 xs:bg-white xl:bg-white-smoke ">
+<nav class=" w-90 mx-auto rounded-b-xlg xl:-mt-3 xl:mb-4 xl:py-4 xs:bg-white-smoke xl:bg-white-smoke border-1 border-grey-light border-solid">
 
 
     <div class="w-90 mx-auto flex flex-wrap">
@@ -17,7 +17,7 @@
             </li>
         </ul>
 
-        <div data-toggle="#search" class="w-15 toggler mt-3 text-center hidden xs:block md:block  py-3 flex align-items-center justify-content-center ">
+        <div data-toggle="#search" class="w-15 toggler mt-3 text-center hidden xs:block md:block sm:block  py-3 flex align-items-center justify-content-center ">
             <p class="m-0 text-xl"><i class="fi flaticon-search"></i></p>
         </div>
         <div id="search" class="w-90 xl:hidden  text-center mx-auto py-3 hidden-temp " style="display: none;">

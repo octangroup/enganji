@@ -1,4 +1,7 @@
-<div class="px-5 py-4 bg-white-smoke rounded-xlg">
+<div class=" w-100  p-0 m-0 my-2 px-3 toggler xl:hidden lg:hidden xs:block">
+    <i data-toggle="#filter" class="fi flaticon-menu-4 hidden xs:block text-2xl  toggler text-black"></i>
+</div>
+<div id="filter" class="px-5 py-4 bg-white-smoke xs:hidden-temp rounded-xlg">
     @if($category ?? null)
         <h3 class="text-base font-bold font-primary mx-auto ">{{$category->name}}</h3>
         <div class="py-2 ">

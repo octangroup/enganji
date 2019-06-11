@@ -1,6 +1,6 @@
 <template>
 
-    <div class=" w-100 relative  mt-5">
+    <div class=" w-100 relative  xl:mt-5">
         <div class=" w-90 mx-auto rounded-xlg  overflow-hidden relative z-40">
 
             <div class="w-100 relative h-px-400 xs:h-px-150">
