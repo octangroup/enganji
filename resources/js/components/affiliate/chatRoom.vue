@@ -9,13 +9,13 @@
                             <i class="fas fa-search"></i>
                         </div>
                         <div class="w-90">
-                            <input name="keyword" type="text" placeholder="Search.."
+                            <input name="search" type="text" placeholder="Search.." v-model="search"
                                    class="bg-white-smoke rounded-full appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100">
                         </div>
                     </div>
                 </form>
                 <div class="py-3 mt-3">
-                    <div v-for="conversation in conversations" @click="selected_conversation=conversation" class="px-2  flex py-1 border-0 border-b-1 border-solid border-grey-lighter cursor-pointer
+                    <div v-for="conversation in filterConversations" @click="selected_conversation=conversation" class="px-2  flex py-1 border-0 border-b-1 border-solid border-grey-lighter cursor-pointer
                         hover:bg-grey-lightest">
                         <div class="w-20">
                             <div class="w-rem-12 h-12 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden">
@@ -71,7 +71,7 @@
                                 @click="send"
                                 class="btn text-white cursor-pointer rounded-full bg-primary text-xs align-top pr-3 mt-0 border-0  focus:outline-none w-10 xs:w-25"
                         >
-                           Send <i class="fi flaticon-paper-plane text-xl"></i>
+                            Send <i class="fi flaticon-paper-plane text-xl"></i>
                         </button>
                     </div>
                 </div>
@@ -89,29 +89,30 @@
 <script>
     export default {
         name: "chatRoom",
-        data(){
-         return{
-             conversations:[],
-             chat_view_visible: false,
-             selected_conversation: null,
-             messages: [],
-             body: '',
-         }
+        data() {
+            return {
+                conversations: [],
+                chat_view_visible: false,
+                selected_conversation: null,
+                messages: [],
+                body: '',
+                search:'',
+            }
         }
-        , methods:{
+        , methods: {
 
-            fetchConversations(){
-            axios.get("/affiliate/fetch/conversations")
-                .then((response) => {
-                    // passing the conversation to the local variable
-                    console.log(response.data.conversations);
-                    this.conversations = response.data.conversations;
-                    this.chat_view_visible = true;
+            fetchConversations() {
+                axios.get("/affiliate/fetch/conversations")
+                    .then((response) => {
+                        // passing the conversation to the local variable
+                        console.log(response.data.conversations);
+                        this.conversations = response.data.conversations;
+                        this.chat_view_visible = true;
 
 
-                }).catch(function (error) {
-                console.log(error.response.data);
-            });
+                    }).catch(function (error) {
+                    console.log(error.response.data);
+                });
             }, fetchMessages() {
                 if (this.selected_conversation) {
                     // fetching conversation messages from the server
@@ -164,9 +165,15 @@
                     console.log(error.response.data);
                 });
             },
-        }  ,mounted() {
+        }, mounted() {
             this.fetchConversations();
-        },watch: {
+        }, computed: {
+            filterConversations: function () {
+                return this.conversations.filter((conversation) => {
+                    return conversation.user.name.match(this.search);
+                });
+            }
+        }, watch: {
             selected_conversation: function (val, old) {
                 if (val != old) {
                     this.fetchMessages();
