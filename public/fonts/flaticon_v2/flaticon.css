@@ -1,0 +1,69 @@
+/*
+  Flaticon icon font: Flaticon
+  Creation date: 27/03/2019 10:05
+  */
+
+@font-face {
+    font-family: "Flaticon";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./Flaticon.eot");
+    src: url("./Flaticon.eot?#iefix") format("embedded-opentype"), url("./Flaticon.woff") format("woff"), url("./Flaticon.ttf") format("truetype"), url("./Flaticon.svg#Flaticon") format("svg");
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "Flaticon";
+        src: url("./Flaticon.svg#Flaticon") format("svg");
+    }
+}
+
+.fi::before {
+    display: inline-block;
+    font-family: "Flaticon";
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+}
+
+.flaticon-supermarket:before {
+    content: "\f100";
+}
+
+.flaticon-chat:before {
+    content: "\f101";
+}
+
+.flaticon-speech-bubble:before {
+    content: "\f102";
+}
+
+.flaticon-chat-1:before {
+    content: "\f103";
+}
+
+.flaticon-shopping-cart:before {
+    content: "\f104";
+}
+
+.flaticon-phone-call:before {
+    content: "\f105";
+}
+
+.flaticon-up-chevron:before {
+    content: "\f106";
+}
+
+.flaticon-up-chevron-1:before {
+    content: "\f107";
+}
+
+.flaticon-mail:before {
+    content: "\f108";
+}
