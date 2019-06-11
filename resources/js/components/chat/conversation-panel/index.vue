@@ -1,18 +1,20 @@
 <template>
     <div class="w-30 xs:w-100 p-3 border-2 border-solid border-primary bg-white">
         <form>
-
-
             <div class="w-30 xs:w-100 p-3 border-2 border-solid border-primary bg-white">
-                <h1 class="text-base">Chat</h1>
+                <h1 class="text-base">Chatter</h1>
             </div>
-
-           <search-form></search-form>
-
+            <div class="w-90">
+                <input name="search" type="text" placeholder="Search.." v-model="search"
+                       class="outline-none bg-grey-lighter border-none p-3 m-0  w-100">
+            </div>
+            <!--<search-form></search-form>-->
         </form>
 
         <div class="py-3 mt-3">
-            <conversation v-for="conversation in conversations"  v-on:select_conversation="selectConversation(conversation)" :conversation="conversation" :key="conversation.id"/>
+            <conversation v-for="conversation in  filterConversations"
+                          v-on:select_conversation="selectConversation(conversation)" :conversation="conversation"
+                          :key="conversation.id"/>
         </div>
     </div>
 </template>
@@ -37,6 +39,7 @@
                 conversations: [],
                 messages: [],
                 body: "",
+                search:'',
                 selected_conversation: null,
             }
         }, methods: {
@@ -48,13 +51,19 @@
                     }).catch((error) => {
                     console.log(error.response);
                 })
-            },selectConversation(conversation){
-                this.$parent.$emit("selected_conversation",conversation);
+            }, selectConversation(conversation) {
+                this.$parent.$emit("selected_conversation", conversation);
             }
         }, mounted() {
             this.fetchConversations();
 
-        }
+        },computed:{
+          filterConversations:function(){
+              return this.conversations.filter((conversation)=>{
+                  return conversation.user.name.match(this.search);
+              });
+          }
+        },
 
     }
 </script>

@@ -2254,7 +2254,8 @@ __webpack_require__.r(__webpack_exports__);
       chat_view_visible: false,
       selected_conversation: null,
       messages: [],
-      body: ''
+      body: '',
+      search: ''
     };
   },
   methods: {
@@ -2327,6 +2328,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.fetchConversations();
+  },
+  computed: {
+    filterConversations: function filterConversations() {
+      var _this4 = this;
+
+      return this.conversations.filter(function (conversation) {
+        return conversation.user.name.match(_this4.search);
+      });
+    }
   },
   watch: {
     selected_conversation: function selected_conversation(val, old) {
@@ -2432,6 +2442,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2454,6 +2466,7 @@ __webpack_require__.r(__webpack_exports__);
       conversations: [],
       messages: [],
       body: "",
+      search: '',
       selected_conversation: null
     };
   },
@@ -2474,6 +2487,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.fetchConversations();
+  },
+  computed: {
+    filterConversations: function filterConversations() {
+      var _this2 = this;
+
+      return this.conversations.filter(function (conversation) {
+        return conversation.user.name.match(_this2.search);
+      });
+    }
   }
 });
 
@@ -3246,7 +3268,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "searchForm"
+  name: "searchForm",
+  data: function data() {
+    return {
+      search: ''
+    };
+  },
+  methods: {
+    searchConversations: function searchConversations() {
+      this.emit('conversation', {
+        'keyword': keyword
+      });
+      axios.get('/conversation/search').then(function (response) {
+        console.log(response.data.conversation);
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    }
+  },
+  computed: function computed() {}
 });
 
 /***/ }),
@@ -39318,7 +39358,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: " w-100 relative  mt-5" }, [
+  return _c("div", { staticClass: " w-100 relative  xl:mt-5" }, [
     _c(
       "div",
       {
@@ -39656,12 +39696,45 @@ var render = function() {
         [
           _c("h1", { staticClass: "text-base" }, [_vm._v("Chat")]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("form", { attrs: { name: "search_form", method: "get" } }, [
+            _c("div", { staticClass: "flex" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-90" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.search,
+                      expression: "search"
+                    }
+                  ],
+                  staticClass:
+                    "bg-white-smoke rounded-full appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100",
+                  attrs: {
+                    name: "search",
+                    type: "text",
+                    placeholder: "Search.."
+                  },
+                  domProps: { value: _vm.search },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.search = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "div",
             { staticClass: "py-3 mt-3" },
-            _vm._l(_vm.conversations, function(conversation) {
+            _vm._l(_vm.filterConversations, function(conversation) {
               return _c(
                 "div",
                 {
@@ -39829,7 +39902,7 @@ var render = function() {
                       on: { click: _vm.send }
                     },
                     [
-                      _vm._v("\n                       Send "),
+                      _vm._v("\n                        Send "),
                       _c("i", {
                         staticClass: "fi flaticon-paper-plane text-xl"
                       })
@@ -39850,20 +39923,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { attrs: { name: "search_form", method: "get" } }, [
-      _c("div", { staticClass: "flex" }, [
-        _c("div", { staticClass: "w-10 py-3 text-center" }, [
-          _c("i", { staticClass: "fas fa-search" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "w-90" }, [
-          _c("input", {
-            staticClass:
-              "bg-white-smoke rounded-full appearance-none rounded-full px-5 outline-none border-none p-2 m-0 w-100",
-            attrs: { name: "keyword", type: "text", placeholder: "Search.." }
-          })
-        ])
-      ])
+    return _c("div", { staticClass: "w-10 py-3 text-center" }, [
+      _c("i", { staticClass: "fas fa-search" })
     ])
   },
   function() {
@@ -39992,12 +40053,39 @@ var render = function() {
         "w-30 xs:w-100 p-3 border-2 border-solid border-primary bg-white"
     },
     [
-      _c("form", [_vm._m(0), _vm._v(" "), _c("search-form")], 1),
+      _c("form", [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-90" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search,
+                expression: "search"
+              }
+            ],
+            staticClass:
+              "outline-none bg-grey-lighter border-none p-3 m-0  w-100",
+            attrs: { name: "search", type: "text", placeholder: "Search.." },
+            domProps: { value: _vm.search },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.search = $event.target.value
+              }
+            }
+          })
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "py-3 mt-3" },
-        _vm._l(_vm.conversations, function(conversation) {
+        _vm._l(_vm.filterConversations, function(conversation) {
           return _c("conversation", {
             key: conversation.id,
             attrs: { conversation: conversation },
@@ -40024,7 +40112,7 @@ var staticRenderFns = [
         staticClass:
           "w-30 xs:w-100 p-3 border-2 border-solid border-primary bg-white"
       },
-      [_c("h1", { staticClass: "text-base" }, [_vm._v("Chat")])]
+      [_c("h1", { staticClass: "text-base" }, [_vm._v("Chatter")])]
     )
   }
 ]
@@ -41227,21 +41315,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "w-90" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.search,
+          expression: "search"
+        }
+      ],
+      staticClass: "outline-none bg-grey-lighter border-none p-3 m-0  w-100",
+      attrs: { name: "keyword", type: "text", placeholder: "Search.." },
+      domProps: { value: _vm.search },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.search = $event.target.value
+        }
+      }
+    })
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-90" }, [
-      _c("input", {
-        staticClass: "outline-none bg-grey-lighter border-none p-3 m-0  w-100",
-        attrs: { name: "keyword", type: "text", placeholder: "Search.." }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -57761,8 +57859,8 @@ function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/yannick/Sites/enganji/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/yannick/Sites/enganji/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\inganji\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\inganji\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

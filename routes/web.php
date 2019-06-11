@@ -29,9 +29,9 @@ Route::post('review/{id}','ReviewController@store');
 
 
 //WishList's Route
-Route::resource('wishlist','WishListController');
-Route::post('add/wishLlist/{id}','WishListController@add');
-Route::get('/delete/wish list/{id}','WishListController@destroy');
+Route::resource('/wishlist','WishListController');
+Route::get('add/wishlist/{id}','WishListController@add');
+Route::get('/delete/wishlist/{id}','WishListController@destroy');
 
 
 //Cart's Route
@@ -49,10 +49,12 @@ Route::patch('profile/update/picture', 'ProfileController@updateProfile');
 
 //Chat Routes
 
-Route::get('/index/chat/','ChatsController@index');
+Route::get('/chat/','ChatsController@index');
 Route::post('/chat/send','ChatsController@send');
 Route::get('/chat/fetch/messages','ChatsController@fetchMessages');
 Route::get('/conversation/fetch','ChatsController@fetchConversations');
+Route::get('/conversation/search','ChatsController@searchConversation');
+
 
 include 'affiliate.php';
 include 'admin.php';
