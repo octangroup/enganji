@@ -53,3 +53,6 @@ Route::get('/index/chat/','ChatsController@index');
 Route::post('/chat/send','ChatsController@send');
 Route::get('/chat/fetch/messages','ChatsController@fetchMessages');
 Route::get('/conversation/fetch','ChatsController@fetchConversations');
+
+include 'affiliate.php';
+include 'admin.php';
