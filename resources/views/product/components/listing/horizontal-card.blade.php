@@ -1,8 +1,8 @@
-<div class="flex bg-white w-100 mb-4 p-3  border-1 border-grey-light border-solid rounded-xlg">
-    <div class="w-30 mx-auto text-center p-3 py-2">
+<div class="flex xs:block sm:block bg-white w-100 mb-4 p-3  border-1 border-grey-light border-solid rounded-xlg">
+    <div class="w-30 xs:w-100 md:w-60 sm:w-60 mx-auto text-center xl:p-3 xl:py-2">
         <a class="inherit-color no-underline"
            href="{{action('ProductsController@show',[$product->id,$product->stripped_name])}}">
-            <img class="w-80" src="{{$product->thumbnail()}}">
+            <img class="w-80 xs:w-100 sm:w-100" src="{{$product->thumbnail()}}">
         </a>
     </div>
     <div class="{{($right_section ?? null) ? 'w-50' : 'w-70'}} p-3">

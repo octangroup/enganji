@@ -45,11 +45,11 @@ class ProductsController extends Controller
     {
         //
         $conditions = Condition::get();
-        $subcategories = SubCategory::get();
+        $categories = Category::with('subcategories')->get();
         $brands = Brand::get();
         $currencies = Currency::get();
         $products = Product::get();
-        return view('affiliate.product.create', compact('products','subcategories','brands','currencies','conditions'));
+        return view('affiliate.product.create', compact('products','categories','brands','currencies','conditions'));
     }
 
     /**
@@ -193,11 +193,11 @@ class ProductsController extends Controller
     {
         //
         $conditions = Condition::get();
-        $subcategories = SubCategory::get();
+        $categories = Category::with('subcategories')->get();
         $brands = Brand::get();
         $currencies = Currency::get();
         $product = Product::findorfail($id);
-        return view('affiliate.product.edit', compact('product','conditions','subcategories','brands','currencies'));
+        return view('affiliate.product.edit', compact('product','conditions','categories','brands','currencies'));
     }
 
     /**
