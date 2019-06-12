@@ -25,6 +25,12 @@
             @endslot
             Roles
         @endcomponent
+            @component('admin.layouts.sidebar.sidebar-item',['url'=>action('Admin\CategoriesController@index')])
+                @slot('icon')
+                    <i class="fi flaticon-menu-4"></i>
+                @endslot
+                Categories
+            @endcomponent
         @component('admin.layouts.sidebar.sidebar-item',['url'=>action('Admin\AdsController@index')])
             @slot('icon')
                 <i class="fi flaticon-paper-plane"></i>

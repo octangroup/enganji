@@ -9,7 +9,7 @@
     <div class="w-100 mx-auto flex">
         <div class="bg-transparent  mt-2 my-4 w-80">
             @if($has_search ?? null)
-                <form name="search_form" method="get" class="w-50 mx-auto text-right text-center mt-2">
+                <form name="search_form" action="{{$search_url ?? null}}" method="get" class="w-50 mx-auto text-right text-center mt-2">
                     <div
                         class=" mx-auto text-center border-1 border-solid border-grey-light rounded-full flex">
                         <div class="w-10 flex align-items-center justify-content-center">
