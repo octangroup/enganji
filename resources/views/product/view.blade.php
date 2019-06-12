@@ -54,49 +54,50 @@
                         <p class="text-black mx-2 text-xs xs:hidden md:hidden  mt-2 inline-block">{{$product->reviews->count()}}
                             reviews</p>
                     </div>
-
-                    <div class="w-100">
-                        <p class="my-1"><span class="mr-3 inline-block">Price:</span> <span
-                                class="text-accent xl:text-3xl xs:text-base font-primary inline-block font-medium">
+                    @if(!$product->isService())
+                        <div class="w-100">
+                            <p class="my-1"><span class="mr-3 inline-block">Price:</span> <span
+                                    class="text-accent xl:text-3xl xs:text-base font-primary inline-block font-medium">
                                 {{$product->currency->name}} {{$product->price}}
                             </span></p>
-                    </div>
-                    <div class="w-100  text-base ">
+                        </div>
+                        <div class="w-100  text-base ">
 
-                        <form action="{{action('CartController@store')}}" method="post"
-                              class="xl:w-50 xs:w-100 md:w-100">
-                            {{csrf_field()}}
+                            <form action="{{action('CartController@store')}}" method="post"
+                                  class="xl:w-50 xs:w-100 md:w-100">
+                                {{csrf_field()}}
 
-                            <div class="flex my-3">
-                                <div class="pr-3 flex align-items-center justify-content-center">
-                                    <p class="m-0">Quantity:</p>
+                                <div class="flex my-3">
+                                    <div class="pr-3 flex align-items-center justify-content-center">
+                                        <p class="m-0">Quantity:</p>
+                                    </div>
+                                    <div class="w-20  py-0 m-0">
+                                        <input min="1" type="number" name="quantity"
+                                               class="border-1 py-2 xs:py-1 border-grey border-solid outline-none rounded text-center"
+                                               value="1" required>
+                                        <input value="{{$product->id}}" type="hidden" name="product_id">
+                                    </div>
+
                                 </div>
-                                <div class="w-20  py-0 m-0">
-                                    <input min="1" type="number" name="quantity"
-                                           class="border-1 py-2 xs:py-1 border-grey border-solid outline-none rounded text-center"
-                                           value="1" required>
-                                    <input value="{{$product->id}}" type="hidden" name="product_id">
+                                <div class="w-100 flex my-4">
+                                    <div class="xl:w-35 xs:w-50">
+                                        <button class="btn btn-accent rounded">
+                                            AddCart
+                                        </button>
+                                    </div>
+                                    <div class="xl:w-65 xs:w-50 mr-4">
+
+                                        <a href="{{action('WishListController@add',[$product->id])}}"
+                                           class="btn btn-outline-accent rounded ml-3">
+                                            WishList
+                                        </a>
+                                    </div>
                                 </div>
 
-                            </div>
-                            <div class="w-100 flex my-4">
-                                <div class="xl:w-35 xs:w-50">
-                                    <button class="btn btn-accent rounded">
-                                        AddCart
-                                    </button>
-                                </div>
-                                <div class="xl:w-65 xs:w-50 mr-4">
+                            </form>
 
-                                    <a href="{{action('WishListController@add',[$product->id])}}"
-                                       class="btn btn-outline-accent rounded ml-3">
-                                        WishList
-                                    </a>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-
+                        </div>
+                    @endif
 
                 </div>
             </div>
@@ -109,27 +110,28 @@
     <div class="panel panel-default">
         <div class="xl:mt-3 w-90 xs:w-85 mx-auto">   
             <h3 class="w-80 md:text-lg text-2xl  xs:text-lg font-bold font-primary">
-                Product Details</h3>
+                @if(!$product->isService()) Product @endif Details</h3>
             <div class="xl:px-3 w-90 mx-auto">
-                <p class="text-base">{{$product->description}}</p>
+                <p class="text-base">{!! $product->description !!}</p>
             </div>
         </div>
-
-        <div class="w-90 xs:w-85 mx-auto">   
-            <h3 class="w-80 md:text-lg text-2xl  xs:text-lg font-bold font-primary">
-                Specifications</h3>
-            <div class="xl:px-3 w-90 mx-auto">
-                @if($product->brand)
-                    <p class="text-md my-0">Brand Name:{{$product->brand->name}}</p>
-                @endif
-                @if($product->condition)
-                    <p class="text-md my-0">Condition:{{$product->condition->name}}</p>
-                @endif
-                @if($product->color)
-                    <p class="text-md my-0">Color:{{$product->color}}</p>
-                @endif
+        @if(!$product->isService())
+            <div class="w-90 xs:w-85 mx-auto">   
+                <h3 class="w-80 md:text-lg text-2xl  xs:text-lg font-bold font-primary">
+                    Specifications</h3>
+                <div class="xl:px-3 w-90 mx-auto">
+                    @if($product->brand)
+                        <p class="text-md my-0">Brand Name:{{$product->brand->name}}</p>
+                    @endif
+                    @if($product->condition)
+                        <p class="text-md my-0">Condition:{{$product->condition->name}}</p>
+                    @endif
+                    @if($product->color)
+                        <p class="text-md my-0">Color:{{$product->color}}</p>
+                    @endif
+                </div>
             </div>
-        </div>
+        @endif
         <div class="my-3 w-90 xs:w-85 mx-auto">   
             <h3 class="text-2xl font-primary text-left sm:text-base md:text-base xs:text-base  xl:py-1 font-medium text-black">
                 Reviews</h3>

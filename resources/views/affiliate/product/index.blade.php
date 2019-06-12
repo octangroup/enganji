@@ -47,17 +47,6 @@
                                 </p>
                             @endforeach
                         </div>
-                        <div>
-                            @if($products && count($products))
-                                <h5>Price</h5>
-                                @foreach ($products as $product)
-                                    <p>
-                                        <input type="checkbox" name="price[]"
-                                               value="{{$product->price}}">
-                                    </p>
-                                @endforeach
-                            @endif
-                        </div>
                         <div class="w-50 mx-auto">
                             <button type="submit" class="btn btn-outline-primary text-center rounded-xlg my-3">Filter
                             </button>
@@ -78,18 +67,23 @@
                                             src="{{$product->thumbnail()}}" class="w-100  mx-auto text-center"></a>
                                 </div>
                                 <div class="w-50 xs:w-100 px-4">
-                                    <h5 class="font-primary mb-2 mt-0 mx-2 text-xl font-bold">{!! $product->name !!}</h5>
-                                    <p class="my-2  font-primary mx-2 ">
-                                        <strong>Quantity: </strong>{{$product->quantity}}</p>
-                                    <p class="my-2 font-primary mx-2 "><strong>Price: </strong>{{$product->price}}</p>
+                                    <a class="inherit-color no-underline" href="{{action('Affiliate\ProductsController@show',[$product->id])}}">
+                                        <h5 class="font-primary mb-2 mt-0 mx-2 text-xl font-bold">{!! $product->name !!}</h5>
+                                    </a>
+                                    @if(!$product->isService())
+                                        <p class="my-2  font-primary mx-2 ">
+                                            <strong>Quantity: </strong>{{$product->quantity}}</p>
+                                        <p class="my-2 font-primary mx-2 "><strong>Price: </strong>{{$product->price}}
+                                        </p>
+                                    @endif
                                 </div>
                                 <div class="w-30 text-right pt-1">
                                     <a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}"
-                                           class="btn border-green text-green bg-white text-black hover:text-red hover:bg-green rounded-xlg mr-2"><i
-                                                class="fas fa-plus-circle"></i> Update</a>
+                                       class="btn border-green text-green bg-white text-black hover:text-red hover:bg-green rounded-xlg mr-2"><i
+                                            class="fas fa-plus-circle"></i> Update</a>
                                     <a href="{{action('Affiliate\ProductsController@destroy', [$product->id])}}"
-                                           class="btn btn-outline-danger bg-white text-red hover:text-white hover:bg-red rounded-xlg ml-2"><i
-                                                class="fas fa-minus-circle"></i> Delete</a>
+                                       class="btn btn-outline-danger bg-white text-red hover:text-white hover:bg-red rounded-xlg ml-2"><i
+                                            class="fas fa-minus-circle"></i> Delete</a>
                                 </div>
                             </div>
                         </div>

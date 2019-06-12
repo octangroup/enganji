@@ -196,7 +196,7 @@ class ProductsController extends Controller
         $categories = Category::with('subcategories')->get();
         $brands = Brand::get();
         $currencies = Currency::get();
-        $product = Product::findorfail($id);
+        $product = Product::with('subcategory')->findorfail($id);
         return view('affiliate.product.edit', compact('product','conditions','categories','brands','currencies'));
     }
 
