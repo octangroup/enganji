@@ -8,21 +8,7 @@
         <div class="panel-body w-90 md:w-80 mx-auto">
             <div class="xl:flex ">
                 <div class="xl:w-50 xs:w-100 xl:flex">
-                    <div class="w-30 hidden xl:block">
-                        <div class="w-65 p-3 border border-solid border-grey-light rounded-xl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
-
-                        </div>
-                        <div class=" w-65 p-3 border border-solid border-grey-light mt-4 rounded-xl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
-
-                        </div>
-
-                        <div class=" w-65 p-3 border border-solid border-grey-light mt-4 rounded-xl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
-
-                        </div>
-                    </div>
+                    <gallery :pictures="{{$medias}}"></gallery>
                     <div class="w-100 lg:hidden  mb-5 ">
                         <div class="xl:hidden">
                             <div class=" ">
@@ -43,11 +29,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class=" md:w-70 md:mx-auto border border-solid border-grey-light rounded-xlg overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
+                        {{--<div--}}
+                            {{--class=" md:w-70 md:mx-auto border border-solid border-grey-light rounded-xlg overflow-hidden">--}}
+                            {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
 
-                        </div>
+                        {{--</div>--}}
                     </div>
                 </div>
                 <div class="xl:w-50 xs:w-80 md:w-50 xl:mx-5 xs:mt-4">
