@@ -1,5 +1,5 @@
 <template>
-    <div class="xl:w-20 md:w-40 xs:w-100 md:mr-3  xl:mr-3 xs:mr-2 p-3 border-1 border-grey-light border-solid rounded-xlg inline-block">
+    <div class="w-20 sm:w-50 md:w-40  lg:mr-3 xs:w-100 md:mr-3 sm:mr-3  xl:mr-3 xs:mr-2 p-3 border-1 border-grey-light border-solid rounded-xlg inline-block">
         <div class="py-1 pt-0 z-50 relative bg-white  px-2  w-100 mx-auto">
             <h4 class="text-lg font-primary font-semibold sm:text-base md:text-base lg:text-xl xs:text-base m-0 p-0 whitespace-no-wrap overflow-hidden">
                 {{product.name}}</h4>

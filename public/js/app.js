@@ -3166,6 +3166,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "gallery",
   data: function data() {
@@ -39427,7 +39429,7 @@ var render = function() {
       [
         _c(
           "div",
-          { staticClass: "w-100 relative h-px-400 xs:h-px-150" },
+          { staticClass: "w-100 relative h-px-400 xs:h-px-150 sm:h-px-150" },
           [
             _c(
               "transition",
@@ -41143,7 +41145,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "xl:w-20 md:w-40 xs:w-100 md:mr-3  xl:mr-3 xs:mr-2 p-3 border-1 border-grey-light border-solid rounded-xlg inline-block"
+        "w-20 sm:w-50 md:w-40  lg:mr-3 xs:w-100 md:mr-3 sm:mr-3  xl:mr-3 xs:mr-2 p-3 border-1 border-grey-light border-solid rounded-xlg inline-block"
     },
     [
       _c(
@@ -41256,32 +41258,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
+  return _c("div", { staticClass: "w-100" }, [
+    _c("div", { staticClass: "flex xs:block w-100" }, [
       _c(
-        "ul",
+        "div",
+        {
+          staticClass:
+            "w-25 rounded-xlg mt-1 hidden xl:block lg:block md:block  "
+        },
         _vm._l(_vm.pictures, function(picture, i) {
           return _c(
-            "li",
+            "div",
             {
+              staticClass:
+                "w-80 md:w-70 mx-auto p-3 border border-solid border-grey-light cursor-pointer  rounded-xl overflow-hidden",
+              class: { "mt-4": i > 0 },
               on: {
                 click: function($event) {
                   return _vm.currentImage(i)
                 }
               }
             },
-            [_c("img", { attrs: { src: picture } })]
+            [
+              _c("img", {
+                staticClass: "transition-500ms",
+                attrs: { src: picture }
+              })
+            ]
           )
         }),
         0
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "w-75 xs:w-100 ml-4 xs:ml-0 md:ml-0 md:mb-0 mb-5 " },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                " md:w-80 md:mx-auto border border-solid border-grey-light rounded-xlg overflow-hidden "
+            },
+            [
+              _c("img", {
+                staticClass: "transition-500ms w-100",
+                attrs: { src: _vm.pictures[_vm.index] }
+              })
+            ]
+          )
+        ]
       )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "w-100 xl:hidden lg:hidden" }, [
-      _c("img", {
-        staticClass: "transition-500ms w-100",
-        attrs: { src: _vm.pictures[_vm.index] }
-      })
     ])
   ])
 }
