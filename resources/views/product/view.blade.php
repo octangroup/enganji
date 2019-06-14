@@ -40,7 +40,7 @@
                 </div>
                 <div class="xl:w-50 lg:w-50 xs:w-80 md:w-50 xl:mx-5 lg:mx-5 xs:mt-4 md:mt-4">
                     <div class="mt-2 xs:hidden md:hidden sm:hidden ">
-                        <h1 class="xl:text-4xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
+                        <h1 class="xl:text-4xl lg:text-2xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                     </div>
                     <div class="mt-3 xs:hidden md:hidden sm:hidden ">
 
