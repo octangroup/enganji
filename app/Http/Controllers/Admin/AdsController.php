@@ -20,12 +20,12 @@ class AdsController extends Controller
     }
     public function index()
     {
-
-        if (\Auth::guard('admin')->user()->canManageAffiliates()) {
+//dd("lewis");
+//        if (\Auth::guard('admin')->user()->canManageAffiliates()) {
             $ads = Advertisment::paginate(20);
             return view('admin.ads.index', compact('ads'));
-        }
-        return back();
+//        }
+//        return back();
     }
 
     /**
@@ -46,6 +46,7 @@ class AdsController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate(
             $request, [
                 'title' => 'required|string',
@@ -58,7 +59,7 @@ class AdsController extends Controller
 
             ]
         );
-        if (\Auth::guard('admin')->user()->canManageAffiliates()) {
+//        if (\Auth::guard('admin')->user()->canManageAffiliates()) {
             $ad =  Advertisment::create(
                 [
                     'admin_id'=>\Auth::guard('admin')->user()->id,
@@ -78,7 +79,7 @@ class AdsController extends Controller
                     ->usingFileName(time() . '-' . random_int(1, 999999999))
                     ->toMediaCollection();
             }
-        }
+//        }
         return back();
     }
 

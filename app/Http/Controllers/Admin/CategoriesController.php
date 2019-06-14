@@ -45,8 +45,8 @@ class CategoriesController extends Controller
     public function store(CategoryForm $category)
     {
        $category->createCategory();
-        Session::flash('message','Category Uploaded');
-        return back();
+       Session::flash('message','Category Uploaded');
+       return back();
     }
 
     public function search(Request $request){

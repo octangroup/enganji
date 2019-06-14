@@ -12,7 +12,7 @@
                     </span>
                 </div>
                 <div class="text-right w-50" v-if="!product.is_service">
-                    <p class="text-lg font-primary font-medium text-accent md:text-sm lg:text-base my-0">
+                    <p v-if="product.currency" class="text-lg font-primary font-medium text-accent md:text-sm lg:text-base my-0">
                         {{product.currency.name}} {{product.price}}</p>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-    @if(Auth::guard('admin')->user()->canManageAffiliates())
+    {{--@if(Auth::guard('admin')->user()->canManageAffiliates())--}}
         <div class="container xs:mx-2">
             <div class="w-100 flex pb-4 border-0 border-b-1 border-solid border-grey">
                 <div class="w-70">
@@ -93,7 +93,9 @@
                     <div class="row py-4">
                         <div class="col-md-3">
                             <h5 class="font-normal font-primary">
+                                <img src="{{asset($ad->getFirstMediaUrl())}}" class="h-25 w-fit" >
                                 {{$ad->title}}
+
                             </h5>
                         </div>
                         <div class="col-md-7 text-right">
@@ -109,15 +111,16 @@
                         <form action="{{action('Admin\AdsController@update',[$ad->id])}}" method="POST"
                               enctype="multipart/form-data">
                             {{ csrf_field() }}
+                            @method('put')
                             <div class="row">
                                 <div class="col-md-5">
                                     <label>Title</label>
-                                    <input class="form-control" type="text" name="title">
+                                    <input class="form-control" type="text" name="title" value="{{$ad->title}}">
                                 </div>
 
                                 <div class="col-md-5">
                                     <label>body</label>
-                                    <input class="form-control" type="text" name="body">
+                                    <input class="form-control" type="text" name="body" value="{{$ad->body}}">
                                 </div>
 
 
@@ -166,6 +169,7 @@
                                 <input type="file" name="file">
                             </div>
 
+
                             <button class="btn btn-success rounded-full uppercase px-3 text-sm mt-2 mr-1">Save
                             </button>
                         </form>
@@ -173,5 +177,5 @@
                 </div>
             @endforeach
         </div>
-    @endif
+
 @endsection
