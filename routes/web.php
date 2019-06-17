@@ -56,5 +56,11 @@ Route::get('/conversation/fetch','ChatsController@fetchConversations');
 Route::get('/conversation/search','ChatsController@searchConversation');
 
 
+//categories
+Route::get('category','CategoryController@index');
+Route::get('category/show/{id}','CategoryController@show');
+
+
+
 include 'affiliate.php';
 include 'admin.php';
