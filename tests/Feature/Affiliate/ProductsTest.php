@@ -28,22 +28,10 @@ class ProductsTest extends TestCase
      */
     public function test_affiliate_create_product()
     {
-
-        $attributes = [
-            'subcategory_id' => factory(SubCategory::class)->create()->id,
-            'currency_id' => factory(Currency::class)->create()->id,
-            'brand_id' => factory(Brand::class)->create()->id,
-            'condition_id' => factory(Condition::class)->create()->id,
-            'name' => $this->faker->name,
-            'quantity' => $this->faker->randomNumber(2),
-            'price' => $this->faker->randomNumber(3),
-            'color' => $this->faker->word,
-            'size' => $this->faker->word,
-            'description' => $this->faker->text,
-        ];
-        $this->actingAs($this->affiliate, 'affiliate')->post(action('Affiliate\ProductsController@store'), $attributes)
+        $subcategory = factory(SubCategory::class)->create();
+        $attributes = $this->generateAttributes($subcategory);
+        $this->actingAs($this->affiliate, 'affiliate')->post(action('Affiliate\ProductsController@store'), $this->formData($subcategory, $attributes))
             ->assertRedirect()->assertSessionHasNoErrors();
-
         $this->assertDatabaseHas('products', $attributes);
     }
 
@@ -55,22 +43,9 @@ class ProductsTest extends TestCase
     {
         $this->withExceptionHandling();
         $product = factory(Product::class)->create();
-        $attributes = [
-            'affiliate_id' => $this->affiliate->id,
-            'subcategory_id' => factory(SubCategory::class)->create()->id,
-            'currency_id' => factory(Currency::class)->create()->id,
-            'brand_id' => factory(Brand::class)->create()->id,
-            'condition_id' => factory(Condition::class)->create()->id,
-            'name' => $this->faker->name,
-            'quantity' => $this->faker->randomNumber(2),
-            'price' => $this->faker->randomNumber(3),
-            'color' => $this->faker->word,
-            'size' => $this->faker->word,
-            'location' => $this->faker->address,
-            'status' => $this->faker->boolean,
-            'description' => $this->faker->text,
-        ];
-        $this->actingAs($this->affiliate, 'affiliate')->patch(action('Affiliate\ProductsController@update', $product->id), $attributes)
+        $subcategory = factory(SubCategory::class)->create();
+        $attributes = $this->generateAttributes($subcategory);
+        $this->actingAs($this->affiliate, 'affiliate')->patch(action('Affiliate\ProductsController@update', $product->id), $this->formData($subcategory, $attributes))
             ->assertSessionHasNoErrors()->assertRedirect();
         $product = $product->fresh();
         $this->assertEquals($product->price, $attributes['price']);
@@ -89,4 +64,50 @@ class ProductsTest extends TestCase
         $product = $product->fresh();
         $this->assertEquals(0, $product);
     }
+
+    /**
+     * @param $subcategory
+     * @return array
+     */
+    public function generateAttributes($subcategory): array
+    {
+        $attributes = [
+            'affiliate_id' => $this->affiliate->id,
+            'subcategory_id' => $subcategory->id,
+            'currency_id' => factory(Currency::class)->create()->id,
+            'brand_id' => factory(Brand::class)->create()->id,
+            'condition_id' => factory(Condition::class)->create()->id,
+            'name' => $this->faker->name,
+            'quantity' => $this->faker->randomNumber(2),
+            'price' => $this->faker->randomNumber(3),
+            'color' => $this->faker->word,
+            'size' => $this->faker->word,
+            'description' => $this->faker->text,
+        ];
+        return $attributes;
+    }
+
+    /**
+     * @param $subcategory
+     * @param array $attributes
+     * @return array
+     */
+    public function formData($subcategory, array $attributes): array
+    {
+        return [
+            'category' => $subcategory->category_id,
+            'subcategory' => $attributes['subcategory_id'],
+            'currency' => $attributes['currency_id'],
+            'brand' => $attributes['brand_id'],
+            'condition' => $attributes['condition_id'],
+            'name' => $attributes['name'],
+            'quantity' => $attributes['quantity'],
+            'price' => $attributes['price'],
+            'color' => $attributes['color'],
+            'size' => $attributes['size'],
+            'description' => $attributes['description'],
+            'type' => '1'
+        ];
+    }
+
 }
