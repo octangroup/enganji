@@ -1,14 +1,14 @@
-<nav class=" w-90 mx-auto rounded-b-xlg xl:-mt-3 xl:mb-4 xl:py-4 xs:bg-white-smoke xl:bg-white-smoke border-1 border-grey-light border-solid">
+<nav class=" w-90 mx-auto rounded-b-xlg xl:-mt-3 xl:mb-4 xl:py-4  bg-white-smoke ">
 
 
     <div class="w-90 mx-auto flex flex-wrap">
-        <ul data-toggle="#sidebar" class="w-10 md:w-40 xs:w-25 xl:hidden mt-3 list my-0  toggler text-black-dark">
+        <ul data-toggle="#sidebar" class="w-10 md:w-40 xs:w-25 xl:hidden lg:hidden mt-3 list my-0  toggler text-black-dark">
             <li class="pb-4 pt-1">
                 <i class="fi flaticon-menu text-black text-2xl"></i>
             </li>
         </ul>
 
-        <ul class="w-50 md:w-40 xs:w-60  list my-0 mt-2  text-black-dark">
+        <ul class="w-50 lg:w-30 lg:my-3 md:w-40 xs:w-60  list my-0 mt-2  text-black-dark">
             <li class="pb-4 pt-1">
                 <a href="{{action('HomeController@index')}}"
                    class="font-primary font-medium text-3xl inherit-color no-underline">
@@ -20,7 +20,7 @@
         <div data-toggle="#search" class="w-15 toggler mt-3 text-center hidden xs:block md:block sm:block  py-3 flex align-items-center justify-content-center ">
             <p class="m-0 text-xl"><i class="fi flaticon-search"></i></p>
         </div>
-        <div id="search" class="w-90 xl:hidden  text-center mx-auto py-3 hidden-temp " style="display: none;">
+        <div id="search" class="w-90 xl:hidden lg:hidden  text-center mx-auto py-3 hidden-temp " style="display: none;">
             <form name="search_form" method="get" action="{{action('ProductsController@search')}}">
                 <div class="bg-white rounded-full border-1 border-solid border-grey-light w-85 mx-auto overflow-x-hidden  flex">
                     <div class="w-80 md:w-90 sm:w-90">
@@ -36,7 +36,7 @@
         </div>
 
 
-        <ul class="w-50 hidden xl:block list my-0 text-right text-black-dark">
+        <ul class="w-50 hidden xl:block lg:block lg:w-70 list my-0 text-right text-black-dark">
             <li class="text-xl mt-0 pt-0 w-60 mr-4 inline-block font-primary font-medium">
                 <form name="search_form" method="get" action="{{action('ProductsController@search')}}"
                       class="flex my-0">
@@ -114,7 +114,7 @@
                 </div>
             </li>
         </ul>
-        <ul class="list w-100 hidden xl:block text-center text-black-dark   text-sm">
+        <ul class="list w-100 hidden lg:my-3 xl:block lg:block text-center text-black-dark   text-sm">
             @foreach(\App\Category::get()->take(6) as $category)
                 <li class="inline-block mx-3"><a
                             href="{{action('ProductsController@index',[$category->stripped_name,$category->id])}}"
