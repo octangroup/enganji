@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Advertisment;
 use App\Deal;
 use App\Product;
 use Illuminate\Http\Request;
@@ -27,10 +28,7 @@ class HomeController extends Controller
     {
         $products = Product::with('currency')->get();
         $deals = Deal::with('product')->get();
-        $ads[] = ['picture' => 'img/cover.png'];
-        $ads[] = ['picture' => 'img/cover-2.png'];
-        $ads[] = ['picture' => 'img/cover-3.png'];
-        $ads = json_encode($ads);
+        $ads = Advertisment::get();
         return view('home', compact('products', 'deals', 'ads'));
     }
 

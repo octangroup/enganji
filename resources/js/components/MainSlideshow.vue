@@ -5,13 +5,15 @@
 
             <div class="w-100 relative h-px-400 xs:h-px-150 sm:h-px-150">
                 <transition
-                    mode="in-out"
-                    name="custom-classes-transition"
-                    :enter-active-class="enter_animation"
-                    :leave-active-class="leave_animation"
-                    :duration="{ enter: enter, leave: leave }">
-                    <img v-bind:key="index" :src="ads[index].picture"
-                         class="w-100 absolute h-100">
+                        mode="in-out"
+                        name="custom-classes-transition"
+                        :enter-active-class="enter_animation"
+                        :leave-active-class="leave_animation"
+                        :duration="{ enter: enter, leave: leave }">
+                    <a :href="ads[index].link ? ads[index].link : ''">
+                        <img v-bind:key="index" :src="ads[index].picture"
+                             class="w-100 absolute h-100">
+                    </a>
                 </transition>
             </div>
             <div class="absolute w-100 b-5 z-60 text-center">

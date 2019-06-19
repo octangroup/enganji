@@ -23,7 +23,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     // Ads Controller
 
-    Route::resource('ads/index','AdsController');
+    Route::resource('index','AdsController');
     Route::get('ads/delete/{id}','AdsController@destroy');
     Route::get('search/ads','AdsController@search');
 
