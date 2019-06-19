@@ -12,6 +12,8 @@ use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
 class ProductsController extends Controller
 {
     /**
@@ -207,8 +209,9 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductForm $form, Product $product)  // function to update product
+    public function update(ProductForm $form, $id)  // function to update product
     {
+        $product = Auth::guard('affiliate')->user()->products()->findOrFail($id);
         //
         $form->update($product);
         return redirect()->action([self::class, 'show'],[$product->id,$product->name]);
