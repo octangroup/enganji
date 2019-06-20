@@ -53812,7 +53812,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-80 xs:w-100 mx-auto" }, [
+  return _c("div", { staticClass: "w-80 md:w-100 sm:w-100 xs:w-100 mx-auto" }, [
     _c(
       "div",
       { staticClass: "flex xs:block" },
@@ -53889,7 +53889,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "w-40 xs:w-100 p-3  bg-primary  border-1 border-solid border-grey-light mx-auto  rounded-l-xlg"
+        "w-40 xs:w-100 p-3  bg-primary xs:rounded-lg border-1 border-solid border-grey-light mx-auto  rounded-l-xlg"
     },
     [
       _c("form", [
@@ -53971,17 +53971,23 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "w-80 text-white text-primary" }, [
-        _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
-          _vm._v("Karema Arsene")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "my-1 text-xs text-grey " }, [
-          _vm._v(
-            "hello, how are you doing arsy?\n                    how is your day!"
-          )
-        ])
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "w-80  text-white xs:px-2 sm:px-2 md:px-2 text-primary"
+        },
+        [
+          _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
+            _vm._v("Karema Arsene")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "my-1 text-xs text-grey " }, [
+            _vm._v(
+              "hello, how are you doing arsy?\n                    how is your day!"
+            )
+          ])
+        ]
+      )
     ])
   },
   function() {
@@ -53998,17 +54004,21 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "w-80 text-white text-primary" }, [
-        _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
-          _vm._v("Nkuranga Lewis")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "my-1 text-xs text-grey " }, [
-          _vm._v(
-            "hello, how are you doing arsy?\n                    how is your day!"
-          )
-        ])
-      ])
+      _c(
+        "div",
+        { staticClass: "w-80 text-white xs:px-2 sm:px-2 md:px-2 text-primary" },
+        [
+          _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
+            _vm._v("Nkuranga Lewis")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "my-1 text-xs text-grey " }, [
+            _vm._v(
+              "hello, how are you doing arsy?\n                    how is your day!"
+            )
+          ])
+        ]
+      )
     ])
   },
   function() {
@@ -54025,17 +54035,23 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "w-80 text-white text-primary" }, [
-        _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
-          _vm._v("Musafiri Yannick")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "my-1 text-xs text-grey " }, [
-          _vm._v(
-            "hello, how are you doing arsy?\n                    how is your day!"
-          )
-        ])
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "w-80 text-white xs:px-2 md:px-2 sm:px-2  text-primary"
+        },
+        [
+          _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
+            _vm._v("Musafiri Yannick")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "my-1 text-xs text-grey " }, [
+            _vm._v(
+              "hello, how are you doing arsy?\n                    how is your day!"
+            )
+          ])
+        ]
+      )
     ])
   }
 ]
@@ -54145,7 +54161,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "w-60 xs:w-100 mx-auto  rounded-r-xlg border-1 border-solid border-grey-light  bg-grey-lightest"
+        "w-60 xs:w-100 mx-auto  rounded-r-lg border-1 border-solid border-grey-light  bg-grey-lightest"
     },
     [
       _vm.conversation
@@ -54205,7 +54221,7 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: " -mt-2 ml-5  w-60" }, [
+        _c("div", { staticClass: " -mt-2 ml-5 xs:w-85 w-60" }, [
           _c(
             "div",
             {
@@ -54213,7 +54229,7 @@ var staticRenderFns = [
                 "bg-primary my-0 text-white border-1 border-solid border-grey rounded-r-xlg rounded-bl-xlg"
             },
             [
-              _c("p", { staticClass: "text-xs w-90 mx-3" }, [
+              _c("p", { staticClass: "text-xs w-90 mx-3 xs:mx-2" }, [
                 _vm._v(
                   "Please be polite. We appreciat.\n                        Your email address will not be d\n                        and required fields are marked"
                 )
@@ -54223,7 +54239,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mr-0 px-4" }, [
+      _c("div", { staticClass: "mr-0 px-4 xs:mt-3" }, [
         _c("div", { staticClass: "text-right" }, [
           _c("img", {
             staticClass: "w-rem-12 h-12 rounded-full",
@@ -54231,22 +54247,33 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "ml-32 -mt-2 mx-5 " }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "bg-white text-black  border-1 border-solid border-grey text-right rounded-l-xlg rounded-br-xlg "
-            },
-            [
-              _c("p", { staticClass: "text-xs text-left w-90 mx-3 " }, [
-                _vm._v(
-                  "Please be polite. We appreciat.\n\n                        Your email address will not be d\n                        and required fields are marked"
+        _c(
+          "div",
+          {
+            staticClass:
+              "ml-32 xs:mr-4 md:ml-2 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 "
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "bg-white text-black  border-1 border-solid border-grey text-right rounded-l-xlg rounded-br-xlg "
+              },
+              [
+                _c(
+                  "p",
+                  { staticClass: "text-xs text-left w-90 mx-3 xs:mx-2" },
+                  [
+                    _vm._v(
+                      "Please be polite. We appreciat.\n\n                        Your email address will not be d\n                        and required fields are marked"
+                    )
+                  ]
                 )
-              ])
-            ]
-          )
-        ])
+              ]
+            )
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "mt-5 px-4 " }, [
@@ -54257,7 +54284,7 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: " -mt-2 ml-5  w-60" }, [
+        _c("div", { staticClass: " -mt-2 ml-5 xs:w-85 w-60" }, [
           _c(
             "div",
             {
@@ -54265,7 +54292,7 @@ var staticRenderFns = [
                 "bg-primary my-0 text-white border-1 border-solid border-grey rounded-r-xlg rounded-bl-xlg"
             },
             [
-              _c("p", { staticClass: "text-xs w-90 mx-3" }, [
+              _c("p", { staticClass: "text-xs w-90 mx-3 xs:mx-2" }, [
                 _vm._v(
                   "Please be polite. We appreciat.\n                        Your email address will not be d\n                        and required fields are marked"
                 )
@@ -54275,7 +54302,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mr-0 px-4" }, [
+      _c("div", { staticClass: "mr-0 px-4 xs:mt-3" }, [
         _c("div", { staticClass: "text-right" }, [
           _c("img", {
             staticClass: "w-rem-12 h-12 rounded-full",
@@ -54283,22 +54310,33 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "ml-32 -mt-2 mx-5 " }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "bg-white text-black  border-1 border-solid border-grey text-right rounded-l-xlg rounded-br-xlg "
-            },
-            [
-              _c("p", { staticClass: "text-xs text-left w-90 mx-3 " }, [
-                _vm._v(
-                  "Please be polite. We appreciat.\n\n                        Your email address will not be d\n                        and required fields are marked"
+        _c(
+          "div",
+          {
+            staticClass:
+              "ml-32 xs:mr-4 md:ml-2 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 "
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "bg-white text-black  border-1 border-solid border-grey text-right rounded-l-xlg rounded-br-xlg "
+              },
+              [
+                _c(
+                  "p",
+                  { staticClass: "text-xs text-left w-90 mx-3 xs:mx-2" },
+                  [
+                    _vm._v(
+                      "Please be polite. We appreciat.\n\n                        Your email address will not be d\n                        and required fields are marked"
+                    )
+                  ]
                 )
-              ])
-            ]
-          )
-        ])
+              ]
+            )
+          ]
+        )
       ])
     ])
   },

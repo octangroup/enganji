@@ -1,5 +1,5 @@
 <template>
-    <div class="w-60 xs:w-100 mx-auto  rounded-r-xlg border-1 border-solid border-grey-light  bg-grey-lightest">
+    <div class="w-60 xs:w-100 mx-auto  rounded-r-lg border-1 border-solid border-grey-light  bg-grey-lightest">
         <div v-if="conversation" class="h-100 overflow-hidden px-2">
             <div class="shadow p-3 bg-white z-99 -mx-2">
                 <h1 class="text-xl font-roboto">{{conversation.user.name}}</h1>
@@ -12,20 +12,20 @@
         <div class="mb-5">
             <div class="mt-5 px-4 ">
                 <div class=" text-left "><img src="/img/lewis.jpg" class="w-rem-12 h-12 rounded-full"></div>
-                <div class=" -mt-2 ml-5  w-60">
+                <div class=" -mt-2 ml-5 xs:w-85 w-60">
                     <div class="bg-primary my-0 text-white border-1 border-solid border-grey rounded-r-xlg rounded-bl-xlg">
-                        <p class="text-xs w-90 mx-3">Please be polite. We appreciat.
+                        <p class="text-xs w-90 mx-3 xs:mx-2">Please be polite. We appreciat.
                             Your email address will not be d
                             and required fields are marked</p>
                     </div>
                 </div>
             </div>
-            <div class="mr-0 px-4">
+            <div class="mr-0 px-4 xs:mt-3">
                 <div class="text-right"><img src="/img/arsy.jpg" class="w-rem-12 h-12 rounded-full"></div>
-                <div class="ml-32 -mt-2 mx-5 ">
+                <div class="ml-32 xs:mr-4 md:ml-2 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 ">
                     <div class="bg-white text-black  border-1 border-solid border-grey text-right rounded-l-xlg rounded-br-xlg ">
 
-                        <p class="text-xs text-left w-90 mx-3 ">Please be polite. We appreciat.
+                        <p class="text-xs text-left w-90 mx-3 xs:mx-2">Please be polite. We appreciat.
 
                             Your email address will not be d
                             and required fields are marked</p>
@@ -37,20 +37,20 @@
 
             <div class="mt-5 px-4 ">
                 <div class=" text-left "><img src="/img/lewis.jpg" class="w-rem-12 h-12 rounded-full"></div>
-                <div class=" -mt-2 ml-5  w-60">
+                <div class=" -mt-2 ml-5 xs:w-85 w-60">
                     <div class="bg-primary my-0 text-white border-1 border-solid border-grey rounded-r-xlg rounded-bl-xlg">
-                        <p class="text-xs w-90 mx-3">Please be polite. We appreciat.
+                        <p class="text-xs w-90 mx-3 xs:mx-2">Please be polite. We appreciat.
                             Your email address will not be d
                             and required fields are marked</p>
                     </div>
                 </div>
             </div>
-            <div class="mr-0 px-4">
+            <div class="mr-0 px-4 xs:mt-3">
                 <div class="text-right"><img src="/img/arsy.jpg" class="w-rem-12 h-12 rounded-full"></div>
-                <div class="ml-32 -mt-2 mx-5 ">
+                <div class="ml-32 xs:mr-4 md:ml-2 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 ">
                     <div class="bg-white text-black  border-1 border-solid border-grey text-right rounded-l-xlg rounded-br-xlg ">
 
-                        <p class="text-xs text-left w-90 mx-3 ">Please be polite. We appreciat.
+                        <p class="text-xs text-left w-90 mx-3 xs:mx-2">Please be polite. We appreciat.
 
                             Your email address will not be d
                             and required fields are marked</p>

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-40 xs:w-100 p-3  bg-primary  border-1 border-solid border-grey-light mx-auto  rounded-l-xlg">
+    <div class="w-40 xs:w-100 p-3  bg-primary xs:rounded-lg border-1 border-solid border-grey-light mx-auto  rounded-l-xlg">
         <form>
             <div class="text-white mx-3">
                 <h1 class="text-xl">Chat</h1>
@@ -21,7 +21,7 @@
                     <div class="  "><img src="/img/arsy.jpg" class="w-rem-12 h-12 rounded-full"></div>
                 </div>
 
-                <div class="w-80 text-white text-primary">
+                <div class="w-80  text-white xs:px-2 sm:px-2 md:px-2 text-primary">
                     <h6 class="inline-block  text-lg  my-0">Karema Arsene</h6>
                     <p class="my-1 text-xs text-grey ">hello, how are you doing arsy?
                         how is your day!</p>
@@ -33,7 +33,7 @@
                     <div class="  "><img src="/img/lewis.jpg" class="w-rem-12 h-12 rounded-full"></div>
                 </div>
 
-                <div class="w-80 text-white text-primary">
+                <div class="w-80 text-white xs:px-2 sm:px-2 md:px-2 text-primary">
                     <h6 class="inline-block  text-lg  my-0">Nkuranga Lewis</h6>
                     <p class="my-1 text-xs text-grey ">hello, how are you doing arsy?
                         how is your day!</p>
@@ -45,7 +45,7 @@
                     <div class="  "><img src="/img/yannick.jpg" class="w-rem-12 h-12 rounded-full"></div>
                 </div>
 
-                <div class="w-80 text-white text-primary">
+                <div class="w-80 text-white xs:px-2 md:px-2 sm:px-2  text-primary">
                     <h6 class="inline-block  text-lg  my-0">Musafiri Yannick</h6>
                     <p class="my-1 text-xs text-grey ">hello, how are you doing arsy?
                         how is your day!</p>
