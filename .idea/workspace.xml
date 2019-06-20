@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="Design the chat on the user side&#10;&#10;make a new design of chat on the user side">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="Fix the responsiveness of  the user &#10;&#10;Design the chat responsiveness in all device">
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/chat/chat-window.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/chat/chat-window.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/chat/conversation-panel/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/chat/conversation-panel/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,20 +77,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+            <state relative-caret-position="272">
+              <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
               <folding>
                 <element signature="n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#div#2;n#div#1;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/chat/conversation-panel/index.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -200,9 +199,9 @@
         <option value="$PROJECT_DIR$/public/css/helpers.css" />
         <option value="$PROJECT_DIR$/resources/views/category/index.blade.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/chat/chat-window.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/chat/conversation-panel/index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue" />
       </list>
     </option>
   </component>
@@ -690,7 +689,7 @@
       <workItem from="1560505608882" duration="12047000" />
       <workItem from="1560871194817" duration="9995000" />
       <workItem from="1560928186315" duration="9013000" />
-      <workItem from="1560946241013" duration="17347000" />
+      <workItem from="1560946241013" duration="17608000" />
     </task>
     <task id="LOCAL-00001" summary="Fix duplicate class package for forgot password&#10;&#10;Rename class ForgotPasswordController package form&#10;admin to affiliate">
       <created>1552394851667</created>
@@ -958,7 +957,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561014329236</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Fix the responsiveness of  the user &#10;&#10;Design the chat responsiveness in all device">
+      <created>1561036538868</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1561036538868</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -994,7 +1000,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199599000" />
+    <option name="totallyTimeSpent" value="199860000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1062,7 +1068,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fix package json dependencies&#10;&#10;Added all the dependencies required by the project inside the&#10;package.json file which we removed fixing the mockery test issue" />
     <MESSAGE value="Remove import of global inside app.scss&#10;&#10;Remove unused and unavailable import of global.scss file inside &#10;the app.scss file" />
     <MESSAGE value="Fix product listing not found page error&#10;&#10;Fixed the error and made sure all the tests are green" />
     <MESSAGE value="Remove deleted seeder from database seeder&#10;&#10;Replaced the roles seeder class in database seeder with the RolesTableSeeder class" />
@@ -1087,7 +1092,8 @@
     <MESSAGE value="Fix ads on the admin side and the home page&#10;&#10;Fixed the upload of ads on the admin side and the display of ads&#10;on the home page" />
     <MESSAGE value="Design the category page&#10;&#10;Redesign the design of category on all devices" />
     <MESSAGE value="Design the chat on the user side&#10;&#10;make a new design of chat on the user side" />
-    <option name="LAST_COMMIT_MESSAGE" value="Design the chat on the user side&#10;&#10;make a new design of chat on the user side" />
+    <MESSAGE value="Fix the responsiveness of  the user &#10;&#10;Design the chat responsiveness in all device" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix the responsiveness of  the user &#10;&#10;Design the chat responsiveness in all device" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1459,21 +1465,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/chat/conversation-panel/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

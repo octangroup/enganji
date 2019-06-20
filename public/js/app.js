@@ -2640,7 +2640,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -54221,7 +54220,7 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: " -mt-2 ml-5 xs:w-85 w-60" }, [
+        _c("div", { staticClass: " -mt-2 ml-5 xs:w-85 w-60 sm:w-80" }, [
           _c(
             "div",
             {
@@ -54239,7 +54238,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mr-0 px-4 xs:mt-3" }, [
+      _c("div", { staticClass: "mr-0 px-4 xs:mt-3 sm:mt-2" }, [
         _c("div", { staticClass: "text-right" }, [
           _c("img", {
             staticClass: "w-rem-12 h-12 rounded-full",
@@ -54251,7 +54250,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "ml-32 xs:mr-4 md:ml-2 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 "
+              "ml-32 xs:mr-4 md:ml-2 sm:ml-0 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 "
           },
           [
             _c(
@@ -54284,7 +54283,7 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: " -mt-2 ml-5 xs:w-85 w-60" }, [
+        _c("div", { staticClass: " -mt-2 ml-5 xs:w-85 w-60 sm:w-80" }, [
           _c(
             "div",
             {
@@ -54302,7 +54301,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mr-0 px-4 xs:mt-3" }, [
+      _c("div", { staticClass: "mr-0 px-4 xs:mt-3 sm:mt-2" }, [
         _c("div", { staticClass: "text-right" }, [
           _c("img", {
             staticClass: "w-rem-12 h-12 rounded-full",
@@ -54314,7 +54313,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "ml-32 xs:mr-4 md:ml-2 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 "
+              "ml-32 xs:mr-4 md:ml-2 sm:ml-0 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 "
           },
           [
             _c(
