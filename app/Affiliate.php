@@ -35,10 +35,10 @@ class Affiliate extends Authenticatable
         return $this->hasMany(Product::class);
     }
 
-
-
-//function to check if the affiliate is active
-
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 
 //checks if the affiliate is active
     public function isActive()

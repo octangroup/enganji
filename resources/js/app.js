@@ -36,6 +36,7 @@ Vue.component('product-section', require('./components/product/section').default
 Vue.component('main-slideshow', require('./components/MainSlideshow').default);
 Vue.component('text-editor', require('./components/TextEditor').default);
 Vue.component('product-form', require('./components/product/Form').default);
+Vue.component('gallery', require('./components/product/gallery').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

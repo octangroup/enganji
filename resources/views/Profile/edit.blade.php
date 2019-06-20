@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+<div class=" border-1 border-grey-light border-solid w-70 xs:w-90 mb-4 mx-auto rounded-xlg">
 
 
     <div class="w-50 mx-auto text-center mb-5">
     <p><i class="fi flaticon-user-3 text-5xl"></i></p>
     <h4 class="font-primary">Edit</h4>
     </div>
-    <div class="w-90 mx-auto">
+    <div class="w-100 mx-auto">
         <form method="post" action="{{ action('ProfileController@update', [$user->id]) }}}">
             {{ csrf_field() }}
             @method('PATCH')
@@ -23,7 +23,7 @@
                                class="my-0 absolute  z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
                                style="top: -25%;">{{ __('Name') }}" </label>
                         <input id="name" type="text"
-                               class="form-control my-0 border-none px-3 relative shadow-none py-0 mt-2 rounded-none"
+                               class="form-control my-0 border-none px-3 relative w-100 shadow-none py-0 mt-2 rounded-none"
                                autocomplete="false"
                                value="{{ $user->name }}"
                                name="name"
@@ -152,6 +152,7 @@
                 </form>
             </div>
         </div>
+
 
     </div>
 
