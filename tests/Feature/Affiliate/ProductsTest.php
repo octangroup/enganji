@@ -30,6 +30,7 @@ class ProductsTest extends TestCase
     {
         $this->withExceptionHandling();
         $subcategory = factory(SubCategory::class)->create();
+        $count  =
         $attributes = $this->generateAttributes($subcategory);
         $this->actingAs($this->affiliate, 'affiliate')->post(action('Affiliate\ProductsController@store'), $this->formData($subcategory, $attributes))
             ->assertRedirect()->assertSessionHasNoErrors();
