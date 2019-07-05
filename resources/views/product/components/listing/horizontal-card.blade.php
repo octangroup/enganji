@@ -24,7 +24,7 @@
             </span>
         </div>
         {!! $slot !!}
-        @if(!$product->isService())
+        @if(!$product->isService() && $product->currency)
             <div class="my-3">
                 <p class="text-lg font-primary font-medium text-accent md:text-sm lg:text-base my-0">{{$product->currency->name}} {{$product->price}}</p>
             </div>

@@ -47,6 +47,7 @@ class ProductsController extends Controller
         $query = $filterForm->handle($query);
         $products = $query->with('currency', 'brand', 'affiliate')->get();
         $attributes = $filterForm;
+
         return view('product.index', compact('products', 'brands', 'conditions', 'attributes', 'category'));
     }
 
@@ -103,6 +104,7 @@ class ProductsController extends Controller
             $medias->push($media->getFullUrl('main'));
             $thumbnails->push($media->getFullUrl('thumb'));
         }
+
         $similar_products = $product->subcategory->products()->with('currency','brand')->where('id', '!=', $product->id)->get()->take(15);
         return view('product.view', compact('product', 'medias', 'thumbnails', 'similar_products'))
             ->with('hot_products', Product::latest()->with('currency')->where('id', '!=', $product->id)->get()->take(8));

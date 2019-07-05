@@ -27,7 +27,7 @@
                 <div
                     class="bg-white rounded-full border-1 border-solid border-grey-light w-85 mx-auto overflow-x-hidden  flex">
                     <div class="w-80 md:w-90 sm:w-90">
-                        <input name="keyword" type="text" placeholder="Search.." value="" required="required"
+                        <input name="keyword" type="text" placeholder="Search.." value="" required
                                class="bg-transparent appearance-none outline-none border-none w-100 pl-4 m-0 py-2 ">
                     </div>
                     <div class="w-20 md:w-10 sm:w-10  pr-2">
@@ -138,9 +138,12 @@
     </div>
 
 </nav>
-<div id="all-categories-div" class="w-100 mx-auto absolute t-20 hidden-temp">
-    <div class="w-50 mx-auto h-100 bg-white rounded-xlg border-1 border-grey-light border-solid">
-        <ul class="list w-100  h-px-300 p-4 lg:my-3  text-left text-black-dark   text-sm flex flex-wrap flex-col">
+<div id="all-categories-div" class="w-100 mx-auto absolute t-15 hidden-temp">
+    <div class="w-50 mx-auto h-100 bg-white rounded-xlg border-1 border-grey-light border-solid relative">
+        <div class="absolute r-0 px-4 w-20 text-right z-99">
+            <p data-toggle="#all-categories-div" class="text-xl cursor-pointer  mt-3 text-grey-darker mb-0 toggler"><i class="fi flaticon-close"></i></p>
+        </div>
+        <ul class="list w-100  h-px-300 p-4 lg:my-3  text-left text-black-dark   text-sm flex flex-wrap flex-col relative">
             @foreach(\App\Category::get() as $category)
                 <li class="mx-3 w-30" ><a
                         href="{{action('ProductsController@index',[$category->stripped_name,$category->id])}}"

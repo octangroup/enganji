@@ -12,11 +12,12 @@
                 @include('product.components.filter.main')
             </div>
             <div class="w-75 xs:w-100 xs:mt-3 bg-white xl:px-5">
-
-                @foreach($products as $product)
-                    @component('product.components.listing.horizontal-card',['product'=>$product])
-                    @endcomponent
-                @endforeach
+                @if($products ?? null)
+                    @foreach($products as $product)
+                        @component('product.components.listing.horizontal-card',['product'=>$product])
+                        @endcomponent
+                    @endforeach
+                @endif
             </div>
 
         </div>
