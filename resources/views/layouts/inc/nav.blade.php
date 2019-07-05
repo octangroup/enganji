@@ -50,7 +50,7 @@
                     </div>
                     <div class="flex-10 text-right p-0">
                         <button type="submit"
-                                class="btn bg-transparent shadow-none py-0 m-0 appearance-none -mt-2 hover:text-accent transition-250ms focus:text-primary">
+                                class="btn bg-transparent shadow-none py-0 m-0 appearance-none hover:text-accent transition-250ms focus:text-primary">
                             <i
                                 class="fi flaticon-search  text-xl leading-0"></i></button>
                     </div>
