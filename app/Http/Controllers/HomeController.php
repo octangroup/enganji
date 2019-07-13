@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::with('currency')->get();
+        $products = Product::with('currency')->whereActive()->get();
         $deals = Deal::with('product')->get();
         $ads = Advertisment::get();
         return view('home', compact('products', 'deals', 'ads'));

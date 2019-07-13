@@ -138,14 +138,14 @@
     </div>
 
 </nav>
-<div id="all-categories-div" class="w-100 mx-auto absolute t-15 hidden-temp">
-    <div class="w-50 mx-auto h-100 bg-white rounded-xlg border-1 border-grey-light border-solid relative">
+<div id="all-categories-div" class="w-20 mx-auto fixed h-100 t-0 l-0 hidden-temp z-999">
+    <div class="w-100 h-100 bg-white rounded-xlg border-1 border-grey-light border-solid relative">
         <div class="absolute r-0 px-4 w-20 text-right z-99">
             <p data-toggle="#all-categories-div" class="text-xl cursor-pointer  mt-3 text-grey-darker mb-0 toggler"><i class="fi flaticon-close"></i></p>
         </div>
-        <ul class="list w-100  h-px-300 p-4 lg:my-3  text-left text-black-dark   text-sm flex flex-wrap flex-col relative">
+        <ul class="list w-100 h-100 overflow-scroll p-4 lg:my-3  text-left text-black-dark   text-sm relative">
             @foreach(\App\Category::get() as $category)
-                <li class="mx-3 w-30" ><a
+                <li class="mx-3 w-100 my-3" ><a
                         href="{{action('ProductsController@index',[$category->stripped_name,$category->id])}}"
                         class="inherit-color text-sm font-primary font-medium  no-underline font-bold">{{__($category->name)}}</a>
                     <ul>
@@ -153,7 +153,6 @@
                             <li class="mx-3"><a
                                     href="{{action('ProductsController@index',[$category->stripped_name,$subcategory->id])}}"
                                     class="inherit-color text-sm font-primary font-medium  no-underline">{{__($subcategory->name)}}</a>
-
                             </li>
                         @endforeach
                     </ul>
