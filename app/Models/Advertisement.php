@@ -26,11 +26,17 @@ class Advertisement extends Model implements HasMedia
 
     public function getThumbnailAttribute()
     {
-        return $this->getFirstMedia()->getUrl('thumb');
+        if ($this->getFirstMedia()) {
+            return $this->getFirstMedia()->getUrl('thumb');
+        }
+        return null;
     }
 
     public function getPictureAttribute()
     {
-        return $this->getFirstMedia()->getUrl('main');
+        if ($this->getFirstMedia()) {
+            return $this->getFirstMedia()->getUrl('main');
+        }
+        return null;
     }
 }
