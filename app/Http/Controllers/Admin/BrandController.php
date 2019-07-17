@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Brand;
 use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin.auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('admin.auth');
-    }
     public function index()
     {
         //

@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Condition;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Condition;
 use Illuminate\Support\Facades\Session;
 
 class ConditionsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __construct()
     {
         $this->middleware('admin.auth');
@@ -39,7 +34,7 @@ class ConditionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -51,14 +46,14 @@ class ConditionsController extends Controller
         $add = new Condition();
         $add->name = $request->name;
         $add->save();
-        Session::flash('message','Condition Stored');
+        Session::flash('message', 'Condition Stored');
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +64,7 @@ class ConditionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,8 +75,8 @@ class ConditionsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -93,21 +88,21 @@ class ConditionsController extends Controller
         $add = Condition::findOrFail($id);
         $add->name = $request->name;
         $add->save();
-        Session::flash('message','Condition Updated');
+        Session::flash('message', 'Condition Updated');
         return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
         Condition::findOrFail($id)->delete();
-        Session::flash('message','Condition deleted');
+        Session::flash('message', 'Condition deleted');
         return back();
     }
 }

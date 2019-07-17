@@ -2,7 +2,14 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Event;
+use App\Events\Admin\ActivateAffiliate;
+use App\Events\Admin\ProductApproved;
+use App\Events\Affiliate\ProductUploaded;
+use App\Listeners\Admin\ActivateAffiliateListener;
+use App\Listeners\Admin\ProductUploadedListener;
+use App\Listeners\Affiliate\ProductApprovedListener;
+use App\Listeners\UserCreatedListener;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -13,17 +20,17 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Affiliate\ProductUploaded' => [
-            'App\Listeners\Admin\ProductUploadedListener',
+        ProductUploaded::class => [
+            ProductUploadedListener::class,
         ],
-        'App\Events\Admin\ProductApproved' => [
-            'App\Listeners\Affiliate\ProductApprovedListener',
+        ProductApproved::class => [
+            ProductApprovedListener::class,
         ],
-        'App\Events\Admin\ActivateAffiliate' => [
-            'App\Listeners\Admin\ActivateAffiliateListener',
+        ActivateAffiliate::class => [
+            ActivateAffiliateListener::class,
         ],
-        'Illuminate\Auth\Events\Registered' => [
-            'App\Listeners\UserCreatedListener',
+        Registered::class => [
+            UserCreatedListener::class,
         ],
     ];
 

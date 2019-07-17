@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Affiliate;
 
-use App\Conversation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -67,9 +66,7 @@ class ChatsController extends Controller
         );
 
         $conversations = Auth::guard('affiliate')->user()->conversation()->findOrFail($request->conversation_id);
-        $messages =
-            $conversations
-                ->messages()
+        $messages = $conversations->messages()
                 ->latest()
                 ->paginate(20);
 

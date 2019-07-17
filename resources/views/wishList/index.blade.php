@@ -3,10 +3,10 @@
 
 
     <div class="panel mx-auto w-90">
-        <div class="pt-2 pb-4">
+        <div class="xl:pt-2 xl:pb-4">
             <h1 class=" text-2xl font-primary">Wishlist</h1>
         </div>
-        <div class="w-70 mx-auto">
+        <div class="w-70 xs:w-100 mx-auto">
             @foreach($wishLists as $wishList)
                 @component('product.components.listing.horizontal-card',['product'=>$wishList->product])
                     @slot('right_section')

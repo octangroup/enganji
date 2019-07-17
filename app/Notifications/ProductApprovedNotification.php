@@ -19,13 +19,13 @@ class ProductApprovedNotification extends Notification implements ShouldQueue
      */
     public function __construct($product)
     {
-       $this->product = $product;
+        $this->product = $product;
     }
 
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -36,21 +36,21 @@ class ProductApprovedNotification extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Your product has been approved successful.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using E-nganji!');
+            ->line('Your product has been approved successful.')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using ' . env('APP_NAME') . '!');
     }
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helpers\Flash;
-use App\Role;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;
 
 class RolesController extends Controller
 {
@@ -19,30 +18,26 @@ class RolesController extends Controller
      * This function displays the index page of roles
      */
 
-    public function index(){
+    public function index()
+    {
         $roles = Role::get();
-        return view('admin.roles.index',compact('roles'));
+        return view('admin.roles.index', compact('roles'));
     }
+
     /*
      * This function store a role in database
      */
-    public function store(Request $request){
-
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|string'
+        ]);
         if (\Auth::guard('admin')->user()->canUpdateContent()) {
-            $this->validate($request, [
-                'name' => 'required|string'
-            ]);
 
-
-
-       $this->validate($request,[
-           'name'=>'required|string'
-       ]) ;
-
-       $add = new Role();
-       $add->name = $request->name;
-       $add->save();
-       return back();
+            $add = new Role();
+            $add->name = $request->name;
+            $add->save();
+            return back();
         }
         Flash::push(
             'success', 'Not allowed to add roles',
@@ -51,18 +46,19 @@ class RolesController extends Controller
         return back();
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
 
-            $this->validate($request, [
-                'name' => 'required|string'
-            ]);
-            $add = Role::findOrFail($id);
-            $add->name = $request->name;
-            $add->save();
-            return back();
+        $this->validate($request, [
+            'name' => 'required|string'
+        ]);
+        $add = Role::findOrFail($id);
+        $add->name = $request->name;
+        $add->save();
+        return back();
 
     }
+
     /*
     * this function is in charge of deleting  a role
     */
@@ -70,8 +66,8 @@ class RolesController extends Controller
     public function delete($id)
     {
 
-            $role = Role::findOrFail($id)->delete();
-            return back();
+        $role = Role::findOrFail($id)->delete();
+        return back();
 
     }
 }

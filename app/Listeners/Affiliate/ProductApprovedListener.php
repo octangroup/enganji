@@ -2,10 +2,9 @@
 
 namespace App\Listeners\Affiliate;
 
-use App\Affiliate;
 use App\Events\Admin\ProductApproved;
+use App\Models\Affiliate;
 use App\Notifications\ProductApprovedNotification;
-use App\Product;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

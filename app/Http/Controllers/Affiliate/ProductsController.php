@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Affiliate;
 
-use App\Brand;
-use App\Category;
-use App\Condition;
-use App\Currency;
-use App\Events\Affiliate\ProductUploaded;
-use App\Http\Requests\ProductForm;
-use App\Product;
-use App\SubCategory;
-use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductForm;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Condition;
+use App\Models\Currency;
+use App\Models\Product;
+use App\Models\SubCategory;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class ProductsController extends Controller
 {
     /**
@@ -23,6 +25,7 @@ class ProductsController extends Controller
     {
         $this->middleware('affiliate.auth');
     }
+
     public function index()
     {
         //
@@ -207,8 +210,9 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductForm $form, Product $product)  // function to update product
+    public function update(ProductForm $form, $id)  // function to update product
     {
+        $product = Auth::guard('affiliate')->user()->products()->findOrFail($id);
         //
         $form->update($product);
         return redirect()->action([self::class, 'show'],[$product->id,$product->name]);

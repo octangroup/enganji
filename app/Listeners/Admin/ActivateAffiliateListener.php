@@ -2,8 +2,8 @@
 
 namespace App\Listeners\Admin;
 
-use App\Affiliate;
 use App\Events\Admin\ActivateAffiliate;
+use App\Models\Affiliate;
 use App\Notifications\ActivateAffiliateNotification;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;

@@ -5,25 +5,11 @@
     >
     </chat>
     <div class="panel panel-default">
-        <div class="panel-body w-90 md:w-80 mx-auto">
-            <div class="xl:flex ">
-                <div class="xl:w-50 xs:w-100 xl:flex">
-                    <div class="w-30 hidden xl:block">
-                        <div class="w-65 p-3 border border-solid border-grey-light rounded-xl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
+        <div class="panel-body w-90 md:w-90 mx-auto">
 
-                        </div>
-                        <div class=" w-65 p-3 border border-solid border-grey-light mt-4 rounded-xl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
-
-                        </div>
-
-                        <div class=" w-65 p-3 border border-solid border-grey-light mt-4 rounded-xl overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
-
-                        </div>
-                    </div>
-                    <div class="w-100 lg:hidden  mb-5 ">
+            <div class="xl:flex lg:flex">
+                <div class="xl:w-50 lg:w-50 xs:w-100 xl:flex">
+                    <div class="w-100 hidden xs:block md:block  sm:block mb-2 md:mb-3 ">
                         <div class="xl:hidden">
                             <div class=" ">
                                 <h1 class="text-3xl sm:text-2xl xs:text-2xl font-normal m-0 font-primary">{!! $product->name !!}</h1>
@@ -43,18 +29,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class=" md:w-70 md:mx-auto border border-solid border-grey-light rounded-xlg overflow-hidden">
-                            <img src="{{$product->cover()}}" class="transition-500ms ">
+                        {{--<div--}}
+                        {{--class=" md:w-70 md:mx-auto border border-solid border-grey-light rounded-xlg overflow-hidden">--}}
+                        {{--<img src="{{$product->cover()}}" class="transition-500ms ">--}}
 
-                        </div>
+                        {{--</div>--}}
                     </div>
+                    <gallery :pictures="{{$medias}}"></gallery>
+
                 </div>
-                <div class="xl:w-50 xs:w-80 md:w-50 xl:mx-5 xs:mt-4">
-                    <div class="mt-2 xs:hidden md:hidden">
-                        <h1 class="xl:text-4xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
+                <div class="xl:w-50 lg:w-50 xs:w-80 md:w-50 xl:mx-5 lg:mx-5 xs:mt-4 md:mt-4">
+                    <div class="mt-2 xs:hidden md:hidden sm:hidden ">
+                        <h1 class="xl:text-4xl lg:text-2xl xs:text-base  my-0 font-medium m-0 font-primary">{!! $product->name !!}</h1>
                     </div>
-                    <div class="mt-3 xs:hidden md:hidden">
+                    <div class="mt-3 xs:hidden md:hidden sm:hidden ">
 
                         <span class="text-accent">
                             @for($j=1;$j<=$product->rating;$j++)
@@ -69,10 +57,10 @@
                             reviews</p>
                     </div>
                     @if(!$product->isService())
-                        <div class="w-100">
+                        <div class="w-100 ">
                             <p class="my-1"><span class="mr-3 inline-block">Price:</span> <span
                                     class="text-accent xl:text-3xl xs:text-base font-primary inline-block font-medium">
-                                {{$product->currency->name}} {{$product->price}}
+                                {{$product->currency ? $product->currency->name : ''}} {{$product->price}}
                             </span></p>
                         </div>
                         <div class="w-100  text-base ">

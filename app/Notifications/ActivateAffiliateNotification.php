@@ -11,6 +11,7 @@ class ActivateAffiliateNotification extends Notification
 {
     use Queueable;
     public $affiliate;
+
     /**
      * Create a new notification instance.
      *
@@ -24,7 +25,7 @@ class ActivateAffiliateNotification extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -35,22 +36,22 @@ class ActivateAffiliateNotification extends Notification
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject($this->affiliate->status != true ? 'Unfortunately You have been deactivated' : 'Congrats You are activate')
-                    ->line('Enganji.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using Enganji!');
+            ->subject($this->affiliate->status != true ? 'Unfortunately You have been deactivated' : 'Congrats You are activate')
+            ->line('Enganji.')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using ' . env('APP_NAME') . '!');
     }
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)
