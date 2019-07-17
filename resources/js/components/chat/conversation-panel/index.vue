@@ -2,7 +2,7 @@
     <div class="w-40 xs:w-100 p-3  bg-primary xs:rounded-lg border-1 border-solid border-grey-light mx-auto  rounded-l-xlg">
         <form>
             <div class="text-white mx-3">
-                <h1 class="text-xl">Chat</h1>
+                <h1 class="text-xl font-primary text-primary">Chat</h1>
             </div>
             <div class="w-90 mx-2 mt-4">
                 <input name="search" type="text" placeholder=" Search.." v-model="search"
