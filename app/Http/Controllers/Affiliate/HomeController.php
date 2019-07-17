@@ -30,8 +30,8 @@ class HomeController extends Controller
     {
         $affiliate = Auth::guard('affiliate')->user();
 
-        $products = $affiliate->product()->WhereActivated()->get();
-        $productVisits = $affiliate->product()->WhereActivated()->with('visits')->get();
+        $products = $affiliate->products()->WhereActivated()->get();
+        $productVisits = $affiliate->products()->WhereActivated()->with('visits')->get();
 
         $todayProducts = Product::WhereActivated()->whereDate('created_at', '=', Carbon::now()->startOfDay()->toDateTimeString())->count();
         $thisWeekProducts = Product::WhereActivated()->whereDate('created_at', '>=', Carbon::now()->startOfWeek()->toDateTimeString())->count();

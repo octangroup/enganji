@@ -19,9 +19,6 @@ test:
     - composer update --no-interaction --no-progress  --prefer-dist --optimize-autoloader --ignore-platform-reqs
     - cp .env.testing .env
     - php artisan key:generate
-    - php artisan config:cache
-    - npm install
-    - npm run prod
     - php artisan migrate --seed
     - php artisan storage:link
     - php artisan serve &

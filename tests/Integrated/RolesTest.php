@@ -33,8 +33,8 @@ class RolesTest extends TestCase
         $this->admin->roles()->attach($roles);
         $data = [
             'name' => $this->faker->name,
-
         ];
+
         $this->actingAs($this->admin, 'admin')->post(action('Admin\RolesController@store'), $data)
             ->assertSessionHasNoErrors()
             ->assertRedirect();
