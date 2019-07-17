@@ -2,22 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Advertisment;
-use App\Deal;
-use App\Product;
+use App\Models\Advertisement;
+use App\Models\Deal;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+
 
     /**
      * Show the application dashboard.
@@ -26,9 +18,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::with('currency')->whereActive()->get();
+        $products = Product::with('currency')->whereActive()->get()->take(20);
         $deals = Deal::with('product')->get();
-        $ads = Advertisment::get();
+        $ads = Advertisement::get();
         return view('home', compact('products', 'deals', 'ads'));
     }
 

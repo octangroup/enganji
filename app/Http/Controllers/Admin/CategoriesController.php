@@ -3,22 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CategoryForm;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Category;
 use Illuminate\Support\Facades\Session;
 
 class CategoriesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin.auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('admin.auth');
-    }
     public function index()
     {
         //
@@ -39,26 +41,27 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryForm $category)
     {
-       $category->createCategory();
-       Session::flash('message','Category Uploaded');
-       return back();
+        $category->createCategory();
+        Session::flash('message', 'Category Uploaded');
+        return back();
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $keyword = $request->keyword;
-        $categories = Category::where('name','like','%'.$keyword.'%')->get();
-        return view('admin.categories.index', compact('categories','keyword'));
+        $categories = Category::where('name', 'like', '%' . $keyword . '%')->get();
+        return view('admin.categories.index', compact('categories', 'keyword'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +72,7 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,28 +83,28 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(CategoryForm $form, $id)
     {
         $form->update($id);
-        Session::flash('message','Category Updated');
+        Session::flash('message', 'Category Updated');
         return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
         Category::findOrFail($id)->delete();
-        Session::flash('message','Category Deleted');
+        Session::flash('message', 'Category Deleted');
         return back();
     }
 }

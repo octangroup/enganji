@@ -124,7 +124,7 @@
                     class="text-sm font-primary font-medium text-accent no-underline cursor-pointer toggler"><i
                         class="fi flaticon-menu"></i> </a></li>
 
-            @foreach(\App\Category::get()->take(6) as $category)
+            @foreach(\App\Models\Category::get()->take(6) as $category)
                 <li class="inline-block mx-3"><a
                         href="{{action('ProductsController@index',[$category->stripped_name,$category->id])}}"
                         class="inherit-color text-sm font-primary font-medium  no-underline">{{__($category->name)}}</a>
@@ -144,7 +144,7 @@
             <p data-toggle="#all-categories-div" class="text-xl cursor-pointer  mt-3 text-grey-darker mb-0 toggler"><i class="fi flaticon-close"></i></p>
         </div>
         <ul class="list w-100 h-100 overflow-scroll p-4 lg:my-3  text-left text-black-dark   text-sm relative">
-            @foreach(\App\Category::get() as $category)
+            @foreach(\App\Models\Category::get() as $category)
                 <li class="mx-3 w-100 my-3" ><a
                         href="{{action('ProductsController@index',[$category->stripped_name,$category->id])}}"
                         class="inherit-color text-sm font-primary font-medium  no-underline font-bold">{{__($category->name)}}</a>

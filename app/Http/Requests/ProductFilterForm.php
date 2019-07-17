@@ -28,7 +28,7 @@ class ProductFilterForm extends FormRequest
             'brands' => 'nullable',
             'brands.*' => 'nullable|int',
             'categories' => 'nullable',
-            'categories.*'=>'nullable|int',
+            'categories.*' => 'nullable|int',
             'min' => 'nullable|required_with:max',
             'max' => 'nullable|required_with:min',
             'conditions' => 'nullable',

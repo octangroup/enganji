@@ -2,8 +2,8 @@
 
 namespace App\Listeners\Admin;
 
-use App\Admin;
 use App\Events\Affiliate\ProductUploaded;
+use App\Models\Admin;
 use App\Notifications\ProductUploadedNotification;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Queue\InteractsWithQueue;

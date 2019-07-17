@@ -2,9 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Category;
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
 class CategoryForm extends FormRequest
 {

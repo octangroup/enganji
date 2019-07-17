@@ -4,7 +4,7 @@
 namespace App\Repository\Seeders;
 
 
-use App\Role;
+use App\Models\Role;
 
 class RolesSeeder
 {
@@ -18,26 +18,26 @@ class RolesSeeder
         Role::truncate();
         Role::create(
             [
-                'id'=> 1,
-                'name'=> 'Manage product'
+                'id' => 1,
+                'name' => 'Manage product'
             ]
         );
         Role::create(
             [
-                'id'=> 2,
-                'name'=> 'Manage affiliate'
+                'id' => 2,
+                'name' => 'Manage affiliate'
             ]
         );
         Role::create(
             [
-                'id'=> 3,
-                'name'=> 'Update Content'
+                'id' => 3,
+                'name' => 'Update Content'
             ]
         );
         Role::create(
             [
-                'id'=> 4,
-                'name'=> 'Communication'
+                'id' => 4,
+                'name' => 'Communication'
             ]
         );
     }

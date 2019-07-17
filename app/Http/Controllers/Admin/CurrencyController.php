@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Currency;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Currency;
 use Illuminate\Support\Facades\Session;
 
 class CurrencyController extends Controller

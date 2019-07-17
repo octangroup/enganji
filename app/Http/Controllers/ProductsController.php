@@ -2,44 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Brand;
-use App\Category;
-use App\Condition;
-use App\Currency;
+
 use App\Http\Requests\ProductFilterForm;
-use App\Product;
-use App\SubCategory;
-use App\WishList;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\SubCategory;
 
 
 class ProductsController extends Controller
 {
     //
 
-
-    public function index(ProductFilterForm $filterForm, $category_name, $category_id, $subcategory_name = null, $subcategory_id = null)
+    public function index(ProductFilterForm $filterForm, $categoryName, $categoryId, $subcategoryName = null, $subcategoryId = null)
     {
 
         $query = Product::query();
-        $category = Category::with('subcategories')->findOrFail($category_id);
-        if ($subcategory_id) {
-            $selected_subcategory = Subcategory::whereHas('category')
-                ->findOrFail($subcategory_id);
+        $category = Category::with('subcategories')->findOrFail($categoryId);
 
-            $query = $query->where('subcategory_id', $subcategory_id);
-
+        if ($subcategoryId) {
+            Subcategory::whereHas('category')->findOrFail($subcategoryId);
+            $query = $query->where('subcategory_id', $subcategoryId);
         } else {
-            $selected_subcategory = null;
-
-
             $query = $query->whereHas(
-                'subcategory', function ($q) use ($category_id) {
-                $q->where('category_id', $category_id);
+                'subcategory', function ($q) use ($categoryId) {
+                $q->where('category_id', $categoryId);
             }
             );
-
         }
         $query = $query->whereActive();
         $brands = $this->findBrands($query);
@@ -58,8 +46,6 @@ class ProductsController extends Controller
      */
     public function search(ProductFilterForm $filterForm)
     {
-
-
         $categories = Category::get();
         $query = Product::query();
         $query = $query->whereActive();
@@ -105,7 +91,7 @@ class ProductsController extends Controller
             $thumbnails->push($media->getFullUrl('thumb'));
         }
 
-        $similar_products = $product->subcategory->products()->with('currency','brand')->where('id', '!=', $product->id)->get()->take(15);
+        $similar_products = $product->subcategory->products()->with('currency', 'brand')->where('id', '!=', $product->id)->get()->take(15);
         return view('product.view', compact('product', 'medias', 'thumbnails', 'similar_products'))
             ->with('hot_products', Product::latest()->with('currency')->where('id', '!=', $product->id)->get()->take(8));
     }
@@ -159,36 +145,6 @@ class ProductsController extends Controller
         }
         return $conditions;
     }
-    /*
-     * the function that will add a product to wish list
-     */
-//    public function addToWishList(Request $request,$id){
-//
-//        $add = new WishList();
-//        $add->user_id =Auth::user()->id;
-//        $add->product_id = $id;
-//        $add->save();
-//        return back();
-//
-//    }
-//
-//    /*
-//     * this function will delete a certain product in item
-//     */
-//    public function deleteWishList($id){
-//        $product = WishList::findOrFail($id)->delete();
-//        return back();
-//    }
-//
-//    /*
-//   * this function will view products in a wishList of a certain user
-//   */
-//
-//    public function viewWishList(){
-//        $wishLists = WishList::with('product.condition')->where('user_id','=',Auth::user()->id)->get();
-//        return view('wishList.index',compact('wishLists'));
-//    }
-
 
 
 }

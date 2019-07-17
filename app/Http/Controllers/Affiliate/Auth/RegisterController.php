@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Affiliate\Auth;
 
-use App\Admin;
-use App\Affiliate;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\Affiliate;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;

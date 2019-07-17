@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Brand;
-use App\Category;
-use App\Condition;
-use App\Currency;
 use App\Events\Admin\ProductApproved;
-use App\Notifications\ProductApprovedNotification;
-use App\Product;
-use App\SubCategory;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Condition;
+use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
@@ -20,33 +17,39 @@ class ProductsController extends Controller
     {
         $this->middleware('admin.auth');
     }
+
     /*
      * This function displays the index page of products in admin side
      */
-    public function index(){
-        $products= Product::get();
+    public function index()
+    {
+        $products = Product::get();
         $categories = Category::get();
         $conditions = Condition::get();
         $brands = Brand::get();
-        return view('admin.products.index',compact('products','categories','conditions','brands'));
+        return view('admin.products.index', compact('products', 'categories', 'conditions', 'brands'));
     }
+
     /*
      * This method changes the status of a product
      */
-    public function changeStatus($id){
-        $product=Product::findorfail($id);
+    public function changeStatus($id)
+    {
+        $product = Product::findorfail($id);
 
-        if(!$product->isActive()){
+        if (!$product->isActive()) {
             $product->activate();
             event(new ProductApproved($product));
-           Session::flash('success', 'The Product has been activated');
+            Session::flash('success', 'The Product has been activated');
             return back();
         }
         $product->deactivate();
         Session::flash('success', 'The Product has been deactivated');
         return back();
     }
-    public function search(Request $request){     // function to search product according to the keyword which will be input
+
+    public function search(Request $request)
+    {     // function to search product according to the keyword which will be input
 
         $keyword = $request->keyword;
         $conditions = Condition::get();
@@ -58,7 +61,8 @@ class ProductsController extends Controller
         return view('admin.products.index', compact('products', 'keyword', 'conditions', 'subcategories', 'brands', 'currencies', 'categories'));
     }
 
-    public function filter(Request $request){    // function which will filter according to the brand, categories, price and condition of product
+    public function filter(Request $request)
+    {    // function which will filter according to the brand, categories, price and condition of product
         $this->validate($request, [
             'categories' => 'nullable',
             'categories.*' => 'int|exists:categories,id',
@@ -83,8 +87,7 @@ class ProductsController extends Controller
             }
         }
 
-        if ($request->conditions)
-        {
+        if ($request->conditions) {
             foreach ($request->conditions as $condition) {
                 $query = $query->where('condition_id', $condition);
             }
@@ -96,15 +99,14 @@ class ProductsController extends Controller
             }
         }
 
-        if ($request->price)
-        {
-            foreach ($request->price as $price){
+        if ($request->price) {
+            foreach ($request->price as $price) {
                 $query = $query->where('price', $price);
             }
         }
         $products = $query->get();
 
-        return view('admin.products.index', compact('products','brands', 'conditions', 'categories'));
+        return view('admin.products.index', compact('products', 'brands', 'conditions', 'categories'));
 
     }
 }

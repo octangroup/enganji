@@ -13,8 +13,8 @@
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
 
-        <testsuite name="Feature">
-            <directory suffix="Test.php">./tests/Feature</directory>
+        <testsuite name="Integrated">
+            <directory suffix="Test.php">./tests/Integrated</directory>
         </testsuite>
     </testsuites>
     <filter>
@@ -31,7 +31,7 @@
         <server name="SESSION_DRIVER" value="array"/>
         <env name="APP_URL" value="http://localhost"/>
         <env name="APP_KEY" value="base64:OBRJV6aI1H8EiqNxOFTPMtnGI0mPs4VxwtjaeVZ+5d4="/>
-<!--        <env name="DB_CONNECTION" value="sqlite"/>-->
-<!--        <env name="DB_DATABASE" value=":memory:"/>-->
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
     </php>
 </phpunit>

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Review;
-use Auth;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -19,8 +19,6 @@ class ReviewController extends Controller
 
     public function store(Request $request, $id)
     {
-
-
          $this->validate($request, [
             'rating' => 'required|numeric',
             'title' => 'required|string',
@@ -34,6 +32,7 @@ class ReviewController extends Controller
             'title' => $request->title,
             'body' => $request->body,
         ]);
+
         return redirect()->back();
     }
 }

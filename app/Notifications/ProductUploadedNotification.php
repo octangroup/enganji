@@ -27,7 +27,7 @@ class ProductUploadedNotification extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -38,22 +38,22 @@ class ProductUploadedNotification extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Inganji Platform.')
-                    ->line('Product uploaded successful')
-                    ->action('view that product', url('/'))
-                    ->line('Thank you for using Inganji!');
+            ->line(env('APP_NAME') . ' Platform.')
+            ->line('Product uploaded successful')
+            ->action('view that product', url('/'))
+            ->line('Thank you for using' . env('APP_NAME') . '!');
     }
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)
