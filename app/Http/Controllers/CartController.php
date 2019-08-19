@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Cart;
-use App\Category;
-use App\Product;
+use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -23,8 +22,6 @@ class CartController extends Controller
         $carts = Auth::User()->cart()->with('product')->get();
         return view('cart.index', compact('carts'));
     }
-
-
 
 
   //function to store cart

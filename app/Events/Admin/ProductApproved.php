@@ -30,8 +30,5 @@ class ProductApproved
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
-//    public function broadcastOn()
-//    {
-//        return new PrivateChannel('channel-name');
-//    }
+
 }

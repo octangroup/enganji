@@ -11,7 +11,7 @@
             <div class="bg-white-smoke w-100 border-1  rounded-xlg mt-3 border-solid border-grey-lighter">
                 @foreach($categories as $category)
                     <div class="border-0 border-b-1 py-3 border-solid border-grey-lighter">
-                        <div class="text-center font-primary text-white">
+                        <div class="mx-4 my-2 font-primary text-white">
                             <a href="{{action('CategoryController@show',[$category->id])}}">
                         {{$category->name}}
                             </a>

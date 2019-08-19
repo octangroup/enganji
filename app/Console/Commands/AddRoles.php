@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Admin;
-use App\Role;
+use App\Models\Admin;
+use App\Models\Role;
 use Illuminate\Console\Command;
 
 class AddRoles extends Command
@@ -41,7 +41,8 @@ class AddRoles extends Command
     {
         $admin = Admin::where('email', $this->argument('email'))->firstOrFail();
         $roles = Role::get();
-        foreach ($roles as $role){
+
+        foreach ($roles as $role) {
             $admin->roles()->detach($role->id);
             $admin->roles()->attach($role->id);
         }

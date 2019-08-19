@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
+use App\Models\User;
 use App\Notifications\UserCreatedNotification;
-use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;

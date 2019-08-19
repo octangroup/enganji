@@ -76,16 +76,16 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => \App\Models\User::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Admin::class,
+            'model' => \App\Models\Admin::class,
         ],
 
         'affiliates' => [
             'driver' => 'eloquent',
-            'model' => App\Affiliate::class,
+            'model' => \App\Models\Affiliate::class,
         ],
         // 'users' => [
         //     'driver' => 'database',

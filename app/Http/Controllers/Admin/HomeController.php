@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Affiliate;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Product;
 use Carbon\Carbon;
 use App\Charts\Echarts;
-use App\Affiliate;
-use App\User;
 
 
 class HomeController extends Controller

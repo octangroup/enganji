@@ -60,7 +60,7 @@
                         <div class="w-100 ">
                             <p class="my-1"><span class="mr-3 inline-block">Price:</span> <span
                                     class="text-accent xl:text-3xl xs:text-base font-primary inline-block font-medium">
-                                {{$product->currency->name}} {{$product->price}}
+                                {{$product->currency ? $product->currency->name : ''}} {{$product->price}}
                             </span></p>
                         </div>
                         <div class="w-100  text-base ">

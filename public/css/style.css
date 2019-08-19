@@ -5061,6 +5061,14 @@ a.text-danger:hover, a.text-danger:focus {
 .rounded-bl-lg {
     border-bottom-left-radius: 0.5rem !important;
 }
+.rounded-bl-xlg {
+    border-bottom-left-radius: 1.5625rem !important;
+
+}
+.rounded-br-xlg {
+    border-bottom-right-radius: 1.5625rem !important;
+
+}
 
 .rounded-tl-full {
     border-top-left-radius: 9999px !important;

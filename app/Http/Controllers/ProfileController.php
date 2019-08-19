@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Auth;
-use App\User;
 use App\Helpers\Flash;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class ProfileController extends Controller
@@ -66,11 +65,10 @@ class ProfileController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
         $user = Auth::user();
         return view('profile.edit', compact('user'));
-
     }
 
     /**
@@ -82,7 +80,6 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-
         $this->validate($request, [
             'name' => 'required',
         ]);
@@ -114,11 +111,15 @@ class ProfileController extends Controller
             $new_password = bcrypt($new_password);
             $user->password = $new_password;
             $user->save();
-
-            Session::flash('message', 'Password changed');
-
+            Flash::push(
+                'success', 'Password changed',
+                'Account Settings'
+            );
         } else {
-            Session::flash('message', 'Password not changed');
+            Flash::push(
+                'error', 'Unable to verify the password',
+                'Account Settings'
+            );
         }
 
         return back();
@@ -132,6 +133,7 @@ class ProfileController extends Controller
         ]);
 
         $user = Auth::user();
+
         if ($request->fileToUpload) {
             $user->clearMediaCollection();
             $user->addMediaFromRequest('fileToUpload')
@@ -139,8 +141,8 @@ class ProfileController extends Controller
                 ->preservingOriginal()
                 ->toMediaCollection();
         }
-        return back();
 
+        return back();
     }
 
     /**
