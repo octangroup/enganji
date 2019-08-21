@@ -36,6 +36,7 @@ class ChatsController extends Controller
 
     public function send(Request $request)
     {
+
         $this->validate(
             $request, [
                 'body' => 'required|string',
@@ -55,7 +56,6 @@ class ChatsController extends Controller
                 'from_affiliate' => false,
             ]
         );
-//        $conversation->notify(new NewMessageArrivedNotification());
         return ['message' => 'success'];
 
 
@@ -66,11 +66,11 @@ class ChatsController extends Controller
     {
 
         $this->validate($request, [
-            'conversation_id' => 'required|int',
+            'affiliate_id' => 'required|int',
         ]);
 
         $conversation = Auth::user()->conversations()->firstOrNew([
-            'id' => $request->conversation_id]);
+            'id' => $request->affiliate_id]);
         $messages = $conversation->messages()->get();
         return response(['messages' => $messages]);
 
