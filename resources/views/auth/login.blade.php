@@ -22,7 +22,7 @@
                         </div>
                         @error('email')
                         <div>
-                            {{--<p class="my-0 text-sm text-red">{!! $message !!}</p>--}}
+                            <p class="my-0 text-sm text-red">{!! $message !!}</p>
                         </div>
                         @enderror
                         <div
@@ -37,7 +37,7 @@
                         </div>
                         @error('password')
                         <div>
-                            {{--<p class="my-0 text-sm text-red">{!! $message !!}</p>--}}
+                            <p class="my-0 text-sm text-red">{!! $message !!}</p>
                         </div>
                         @enderror
                         <div class="w-50 xs:w-100 mx-auto mt-4 text-sm mx-auto text-center">

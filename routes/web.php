@@ -49,6 +49,8 @@ Route::patch('profile/update/picture', 'ProfileController@updateProfile');
 
 //Chat Routes
 
+Route::resource('/chat','ChatsController@index');
+
 Route::get('/chat/','ChatsController@index');
 Route::post('/chat/send','ChatsController@send');
 Route::get('/chat/fetch/messages','ChatsController@fetchMessages');

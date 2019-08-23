@@ -2380,45 +2380,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2449,9 +2410,19 @@ __webpack_require__.r(__webpack_exports__);
     fetchConversations: function fetchConversations() {
       var _this = this;
 
+      axios.get('/conversation/fetch').then(function (response) {
+        console.log(response.data);
+        _this.conversations = response.data.conversations;
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
+    },
+    fetcheConversations: function fetcheConversations() {
+      var _this2 = this;
+
       axios.get(this.fetch_conversation_url).then(function (response) {
         console.log(response.data.conversations);
-        _this.conversations = response.data.conversations;
+        _this2.conversations = response.data.conversations;
       })["catch"](function (error) {
         console.log(error.response);
       });
@@ -2465,10 +2436,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     filterConversations: function filterConversations() {
-      var _this2 = this;
+      var _this3 = this;
 
       return this.conversations.filter(function (conversation) {
-        return conversation.user.name.match(_this2.search);
+        return conversation.user.name.match(_this3.search);
       });
     }
   }
@@ -2485,6 +2456,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2598,53 +2571,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2665,7 +2591,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/chat/fetch/messages", {
         params: {
-          conversation_id: this.conversation.id
+          affiliate_id: this.conversation.affiliate.id
         }
       }).then(function (response) {
         console.log(response.data.messages);
@@ -2705,6 +2631,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -20829,7 +20756,7 @@ return jQuery;
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
  * @license
  * Lodash <https://lodash.com/>
- * Copyright JS Foundation and other contributors <https://js.foundation/>
+ * Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
  * Released under MIT license <https://lodash.com/license>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -20840,7 +20767,7 @@ return jQuery;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.11';
+  var VERSION = '4.17.15';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -23499,16 +23426,10 @@ return jQuery;
         value.forEach(function(subValue) {
           result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
         });
-
-        return result;
-      }
-
-      if (isMap(value)) {
+      } else if (isMap(value)) {
         value.forEach(function(subValue, key) {
           result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
         });
-
-        return result;
       }
 
       var keysFunc = isFull
@@ -24432,8 +24353,8 @@ return jQuery;
         return;
       }
       baseFor(source, function(srcValue, key) {
+        stack || (stack = new Stack);
         if (isObject(srcValue)) {
-          stack || (stack = new Stack);
           baseMergeDeep(object, source, key, srcIndex, baseMerge, customizer, stack);
         }
         else {
@@ -26250,7 +26171,7 @@ return jQuery;
       return function(number, precision) {
         number = toNumber(number);
         precision = precision == null ? 0 : nativeMin(toInteger(precision), 292);
-        if (precision) {
+        if (precision && nativeIsFinite(number)) {
           // Shift with exponential notation to avoid floating-point issues.
           // See [MDN](https://mdn.io/round#Examples) for more details.
           var pair = (toString(number) + 'e').split('e'),
@@ -27433,7 +27354,7 @@ return jQuery;
     }
 
     /**
-     * Gets the value at `key`, unless `key` is "__proto__".
+     * Gets the value at `key`, unless `key` is "__proto__" or "constructor".
      *
      * @private
      * @param {Object} object The object to query.
@@ -27441,6 +27362,10 @@ return jQuery;
      * @returns {*} Returns the property value.
      */
     function safeGet(object, key) {
+      if (key === 'constructor' && typeof object[key] === 'function') {
+        return;
+      }
+
       if (key == '__proto__') {
         return;
       }
@@ -31241,6 +31166,7 @@ return jQuery;
           }
           if (maxing) {
             // Handle invocations in a tight loop.
+            clearTimeout(timerId);
             timerId = setTimeout(timerExpired, wait);
             return invokeFunc(lastCallTime);
           }
@@ -35627,9 +35553,12 @@ return jQuery;
       , 'g');
 
       // Use a sourceURL for easier debugging.
+      // The sourceURL gets injected into the source that's eval-ed, so be careful
+      // with lookup (in case of e.g. prototype pollution), and strip newlines if any.
+      // A newline wouldn't be a valid sourceURL anyway, and it'd enable code injection.
       var sourceURL = '//# sourceURL=' +
-        ('sourceURL' in options
-          ? options.sourceURL
+        (hasOwnProperty.call(options, 'sourceURL')
+          ? (options.sourceURL + '').replace(/[\r\n]/g, ' ')
           : ('lodash.templateSources[' + (++templateCounter) + ']')
         ) + '\n';
 
@@ -35662,7 +35591,9 @@ return jQuery;
 
       // If `variable` is not specified wrap a with-statement around the generated
       // code to add the data object to the top of the scope chain.
-      var variable = options.variable;
+      // Like with sourceURL, we take care to not check the option's prototype,
+      // as this configuration is a code injection vector.
+      var variable = hasOwnProperty.call(options, 'variable') && options.variable;
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
       }
@@ -37867,10 +37798,11 @@ return jQuery;
     baseForOwn(LazyWrapper.prototype, function(func, methodName) {
       var lodashFunc = lodash[methodName];
       if (lodashFunc) {
-        var key = (lodashFunc.name + ''),
-            names = realNames[key] || (realNames[key] = []);
-
-        names.push({ 'name': methodName, 'func': lodashFunc });
+        var key = lodashFunc.name + '';
+        if (!hasOwnProperty.call(realNames, key)) {
+          realNames[key] = [];
+        }
+        realNames[key].push({ 'name': methodName, 'func': lodashFunc });
       }
     });
 
@@ -53990,26 +53922,18 @@ var render = function() {
       _c(
         "div",
         { staticClass: "py-3 mt-3" },
-        [
-          _vm._l(_vm.filterConversations, function(conversation) {
-            return _c("conversation", {
-              key: conversation.id,
-              attrs: { conversation: conversation },
-              on: {
-                select_conversation: function($event) {
-                  return _vm.selectConversation(conversation)
-                }
+        _vm._l(_vm.filterConversations, function(conversation) {
+          return _c("conversation", {
+            key: conversation.id,
+            attrs: { conversation: conversation },
+            on: {
+              select_conversation: function($event) {
+                return _vm.selectConversation(conversation)
               }
-            })
-          }),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3)
-        ],
-        2
+            }
+          })
+        }),
+        1
       )
     ]
   )
@@ -54023,103 +53947,6 @@ var staticRenderFns = [
       _c("h1", { staticClass: "text-xl font-primary text-primary" }, [
         _vm._v("Chat")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex my-3" }, [
-      _c("div", { staticClass: "w-20" }, [
-        _c("div", { staticClass: "  " }, [
-          _c("img", {
-            staticClass: "w-rem-12 h-12 rounded-full",
-            attrs: { src: "/img/arsy.jpg" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "w-80  text-white xs:px-2 sm:px-2 md:px-2 text-primary"
-        },
-        [
-          _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
-            _vm._v("Karema Arsene")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "my-1 text-xs text-grey " }, [
-            _vm._v(
-              "hello, how are you doing arsy?\n                    how is your day!"
-            )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex mt-5" }, [
-      _c("div", { staticClass: "w-20" }, [
-        _c("div", { staticClass: "  " }, [
-          _c("img", {
-            staticClass: "w-rem-12 h-12 rounded-full",
-            attrs: { src: "/img/lewis.jpg" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "w-80 text-white xs:px-2 sm:px-2 md:px-2 text-primary" },
-        [
-          _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
-            _vm._v("Nkuranga Lewis")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "my-1 text-xs text-grey " }, [
-            _vm._v(
-              "hello, how are you doing arsy?\n                    how is your day!"
-            )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex mt-5" }, [
-      _c("div", { staticClass: "w-20" }, [
-        _c("div", { staticClass: "  " }, [
-          _c("img", {
-            staticClass: "w-rem-12 h-12 rounded-full",
-            attrs: { src: "/img/yannick.jpg" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "w-80 text-white xs:px-2 md:px-2 sm:px-2  text-primary"
-        },
-        [
-          _c("h6", { staticClass: "inline-block  text-lg  my-0" }, [
-            _vm._v("Musafiri Yannick")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "my-1 text-xs text-grey " }, [
-            _vm._v(
-              "hello, how are you doing arsy?\n                    how is your day!"
-            )
-          ])
-        ]
-      )
     ])
   }
 ]
@@ -54144,64 +53971,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
+  return _c("div", { staticClass: "w-100 flex p-2 pt-0 " }, [
+    _c("textarea", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.body,
+          expression: "body"
+        }
+      ],
       staticClass:
-        " p-0 h-auto min-h-auto w-100 flex bg-white border-1 border-solid border-grey-light rounded-full overflow-hidden px-2 py-1 xs:py-0 xs:px-0"
-    },
-    [
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.body,
-            expression: "body"
+        "border-0  pl-4 pr-3 pt-2  pb-0 text-sm resize-none  w-90 xs:w-75 focus:outline-none ",
+      attrs: { name: "message", placeholder: "Enter a message.." },
+      domProps: { value: _vm.body },
+      on: {
+        keyup: function($event) {
+          if (
+            !$event.type.indexOf("key") &&
+            _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+          ) {
+            return null
           }
-        ],
+          return _vm.send($event)
+        },
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.body = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
         staticClass:
-          "border-0  pl-4 pr-3 pt-2  pb-0 text-sm resize-none  w-90 xs:w-75 focus:outline-none ",
-        attrs: { name: "message", placeholder: "Enter a message.." },
-        domProps: { value: _vm.body },
+          "btn bg-primary rounded-r-full text-white cursor-pointer text-xs align-top pr-3 mt-0 border-0 w-15 xs:w-30 shadow",
+        attrs: { type: "submit" },
         on: {
-          keyup: function($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.send($event)
-          },
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.body = $event.target.value
+          click: function($event) {
+            return _vm.send()
           }
         }
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "btn text-white cursor-pointer rounded-full bg-primary text-xs align-top pr-3 mt-0 border-0  focus:outline-none w-10 xs:w-25",
-          attrs: { type: "submit" },
-          on: {
-            click: function($event) {
-              return _vm.send()
-            }
-          }
-        },
-        [
-          _vm._v("\n        Send "),
-          _c("i", { staticClass: "fi flaticon-paper-plane text-xl" })
-        ]
-      )
-    ]
-  )
+      },
+      [_vm._v("\n        Send\n    ")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54239,7 +54056,7 @@ var render = function() {
             [
               _c("div", { staticClass: "shadow p-3 bg-white z-99 -mx-2" }, [
                 _c("h1", { staticClass: "text-xl font-roboto" }, [
-                  _vm._v(_vm._s(_vm.conversation.user.name))
+                  _vm._v(_vm._s(_vm.conversation.affiliate.name))
                 ])
               ]),
               _vm._v(" "),
@@ -54250,13 +54067,49 @@ var render = function() {
                   staticStyle: { height: "70.5%" },
                   attrs: { id: "messages-container" }
                 },
-                _vm._l(_vm.messages, function(message, index) {
-                  return _c("message", {
-                    key: index,
-                    attrs: { message: message }
-                  })
+                _vm._l(_vm.messages, function(message) {
+                  return _c("div", [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "flex max-w-65 xs:max-w-90  pb-3",
+                        class: { "ml-auto": message.from_affiliate }
+                      },
+                      [
+                        !message.from_affiliate
+                          ? _c("div", {
+                              staticClass:
+                                "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "w-80 rounded p-2  xs:p-1 shadow",
+                            class: {
+                              "bg-primary text-white": !message.from_affiliate,
+                              "bg-white text-black": message.from_affiliate
+                            }
+                          },
+                          [
+                            _c("p", { staticClass: " m-0 p-0 xs:text-sm" }, [
+                              _vm._v(_vm._s(message.body))
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        message.from_affiliate
+                          ? _c("div", {
+                              staticClass:
+                                "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
+                            })
+                          : _vm._e()
+                      ]
+                    )
+                  ])
                 }),
-                1
+                0
               ),
               _vm._v(" "),
               _c("chat-form", {
@@ -54270,170 +54123,11 @@ var render = function() {
             ],
             1
           )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1)
+        : _vm._e()
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-5" }, [
-      _c("div", { staticClass: "mt-5 px-4 " }, [
-        _c("div", { staticClass: " text-left " }, [
-          _c("img", {
-            staticClass: "w-rem-12 h-12 rounded-full",
-            attrs: { src: "/img/lewis.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: " -mt-2 ml-5 xs:w-85 w-60 sm:w-80" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "bg-primary my-0 text-white border-1 border-solid border-grey rounded-r-xlg rounded-bl-xlg"
-            },
-            [
-              _c("p", { staticClass: "text-xs w-90 mx-3 xs:mx-2" }, [
-                _vm._v(
-                  "Please be polite. We appreciat.\n                        Your email address will not be d\n                        and required fields are marked"
-                )
-              ])
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mr-0 px-4 xs:mt-3 sm:mt-2" }, [
-        _c("div", { staticClass: "text-right" }, [
-          _c("img", {
-            staticClass: "w-rem-12 h-12 rounded-full",
-            attrs: { src: "/img/arsy.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "ml-32 xs:mr-4 md:ml-2 sm:ml-0 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 "
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "bg-white text-black  border-1 border-solid border-grey text-right rounded-l-xlg rounded-br-xlg "
-              },
-              [
-                _c(
-                  "p",
-                  { staticClass: "text-xs text-left w-90 mx-3 xs:mx-2" },
-                  [
-                    _vm._v(
-                      "Please be polite. We appreciat.\n\n                        Your email address will not be d\n                        and required fields are marked"
-                    )
-                  ]
-                )
-              ]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mt-5 px-4 " }, [
-        _c("div", { staticClass: " text-left " }, [
-          _c("img", {
-            staticClass: "w-rem-12 h-12 rounded-full",
-            attrs: { src: "/img/lewis.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: " -mt-2 ml-5 xs:w-85 w-60 sm:w-80" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "bg-primary my-0 text-white border-1 border-solid border-grey rounded-r-xlg rounded-bl-xlg"
-            },
-            [
-              _c("p", { staticClass: "text-xs w-90 mx-3 xs:mx-2" }, [
-                _vm._v(
-                  "Please be polite. We appreciat.\n                        Your email address will not be d\n                        and required fields are marked"
-                )
-              ])
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mr-0 px-4 xs:mt-3 sm:mt-2" }, [
-        _c("div", { staticClass: "text-right" }, [
-          _c("img", {
-            staticClass: "w-rem-12 h-12 rounded-full",
-            attrs: { src: "/img/arsy.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "ml-32 xs:mr-4 md:ml-2 sm:ml-0 -mt-2 mx-5 md:mx-5 xs:mx-2 xs:mt-1 "
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "bg-white text-black  border-1 border-solid border-grey text-right rounded-l-xlg rounded-br-xlg "
-              },
-              [
-                _c(
-                  "p",
-                  { staticClass: "text-xs text-left w-90 mx-3 xs:mx-2" },
-                  [
-                    _vm._v(
-                      "Please be polite. We appreciat.\n\n                        Your email address will not be d\n                        and required fields are marked"
-                    )
-                  ]
-                )
-              ]
-            )
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-100 flex p-2 pt-0 " }, [
-      _c("textarea", {
-        staticClass:
-          "border-0 rounded-l-full align-top py-2 px-3  h-10  pb-0 text-sm resize-none outline-none w-85  xs:w-80 shadow",
-        attrs: { name: "message", placeholder: "Enter message.." }
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "btn bg-primary rounded-r-full text-white cursor-pointer text-xs align-top pr-3 mt-0 border-0 w-15 xs:w-30 shadow",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("\n            Send\n        ")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -54463,10 +54157,14 @@ var render = function() {
     },
     [
       !_vm.message.from_affiliate
-        ? _c("div", {
-            staticClass:
-              "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
-          })
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
+            },
+            [_vm._v("\n        " + _vm._s(_vm.message.body) + "\n    ")]
+          )
         : _vm._e(),
       _vm._v(" "),
       _c(
@@ -54920,10 +54618,10 @@ var render = function() {
         "border-1 border-solid border-grey-light rounded-xlg p-4 py-5"
     },
     [
-      _c("div", { staticClass: "row flex flex-wrap xs:block" }, [
+      _c("div", { staticClass: "row flex flex-wrap " }, [
         _c(
           "div",
-          { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+          { staticClass: "w-50 px-3 mt-3" },
           [
             _c("input-form", {
               attrs: {
@@ -54946,7 +54644,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+          { staticClass: "w-50 px-3 mt-3" },
           [
             _c("select-form", {
               attrs: {
@@ -54972,7 +54670,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+              { staticClass: "w-50 px-3 mt-3" },
               [
                 _c("input-form", {
                   attrs: {
@@ -54997,7 +54695,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+          { staticClass: "w-50 px-3 mt-3" },
           [
             _c("select-form", {
               attrs: {
@@ -55023,7 +54721,7 @@ var render = function() {
         _vm.subcategories.length > 0
           ? _c(
               "div",
-              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+              { staticClass: "w-50 px-3 mt-3" },
               [
                 _c("select-form", {
                   attrs: {
@@ -55049,7 +54747,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+              { staticClass: "w-50 px-3 mt-3" },
               [
                 _c("select-form", {
                   attrs: {
@@ -55075,7 +54773,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+              { staticClass: "w-50 px-3 mt-3" },
               [
                 _c("select-form", {
                   attrs: {
@@ -55101,7 +54799,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+              { staticClass: "w-50 px-3 mt-3" },
               [
                 _c("select-form", {
                   attrs: {
@@ -55127,7 +54825,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+              { staticClass: "w-50 px-3 mt-3" },
               [
                 _c("input-form", {
                   attrs: {
@@ -55153,7 +54851,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+              { staticClass: "w-50 px-3 mt-3" },
               [
                 _c("input-form", {
                   attrs: {
@@ -55178,7 +54876,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
+              { staticClass: "w-50 px-3 mt-3" },
               [
                 _c("input-form", {
                   attrs: {
@@ -55203,7 +54901,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "w-100 px-3 xs:px-0 my-3" },
+        { staticClass: "w-100 px-3 my-3" },
         [
           _c("text-editor", {
             attrs: {
@@ -55520,7 +55218,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "absolute r-0 t-40  xs:t-25  z-60" }, [
+        _c("div", { staticClass: "absolute r-0 t-40  z-60" }, [
           _c(
             "button",
             {
@@ -73112,8 +72810,8 @@ function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xamp1\htdocs\enganji\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xamp1\htdocs\enganji\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\inganji\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\inganji\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

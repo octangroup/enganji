@@ -3,6 +3,7 @@
          v-bind:class="{ 'ml-auto': message.from_affiliate}">
         <div v-if="!message.from_affiliate"
              class="w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden">
+            {{message.body}}
         </div>
         <div class="w-80 rounded p-2  xs:p-1 shadow"
              v-bind:class="{ 'bg-primary text-white': !message.from_affiliate,'bg-white text-black': message.from_affiliate}">
