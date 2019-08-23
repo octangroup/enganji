@@ -1,5 +1,5 @@
 <nav id="sidebar"
-     class=" md:w-45 w-65  h-screen hidden-temp rounded-b-xlg shadow mb-4  bg-white  z-9999 t-0  fixed xl:hidden lg:hidden  mt-0 overflow-hidden ">
+     class=" md:w-45 w-80  h-screen hidden-temp rounded-b-xlg shadow mb-4  bg-white  z-9999 t-0  fixed xl:hidden lg:hidden  mt-0 overflow-hidden ">
     <div class="w-100 ">
 
         <div class="bg-primary flex  ">
@@ -83,18 +83,18 @@
                     </div>
                     <div class="w-80 mx-2 font-primary">
                         <a href="{{route('register')}}">
-                            <p class="my-0 text-lg cursor-pointer font-primary">Sign Up</p></a>
+                            <p class="my-0 text-lg cursor-pointer font-primary">Join </p></a>
 
                     </div>
                 </li>
                 <li class=" w-40 mx-2 flex my-4">
-                    <div class="w-20 text-center">
+                    <div class="w-20 mt-1 text-center">
                         <i
                                 class="fi flaticon-login w-20  text-lg float-left "></i>
                     </div>
                     <div class="w-80 mx-2 font-primary">
                         <a href="{{route('login')}}">
-                            <p class="my-0 text-lg  font-primary">Sign in</p>
+                            <p class="my-0 text-lg  font-primary">Login</p>
                         </a>
 
                     </div>

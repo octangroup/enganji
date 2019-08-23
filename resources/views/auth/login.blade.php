@@ -57,7 +57,7 @@
                                class="btn border-1 btn-outline-primary border-primary hover:text-white hover:bg-primary rounded-full mx-3">
                                 {{ __('Register') }}
                             </a>
-                            <button type="submit" class="btn btn-primary  rounded-full mx-3 ">
+                            <button type="submit" class="btn btn-primary xs:mt-2  rounded-full mx-3 ">
                                 {{ __('Login') }}
                             </button>
                         </div>

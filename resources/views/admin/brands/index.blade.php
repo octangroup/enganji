@@ -9,10 +9,10 @@
             </div>
         @endif
         <div class="w-90 mx-auto  flex">
-            <div class="w-80">
+            <div class="w-80 xs:w-70">
                 <h4 class=" py-0 font-primary   text-xl"> {{__(' Brand')}}</h4>
             </div>
-            <div class="w-20 my-3 mx-0 text-right">
+            <div class="w-20 xs:w-30 my-3 mx-0 text-right">
                 <button data-toggle="#add-brand-form" class="btn  btn-primary text-sm rounded-xlg border-0  toggler ">
                     {{__('ADD NEW')}}
                 </button>
@@ -20,13 +20,13 @@
 
         </div>
         <div id="add-brand-form"
-             class="card w-80 mx-auto hidden-temp rounded-xlg py-5 border-1 border-solid border-grey-light">
+             class="card w-80 xs:w-90 mx-auto hidden-temp rounded-xlg py-5 border-1 border-solid border-grey-light">
             <form action="{{action('Admin\BrandController@store')}}" method="post">
                 {{csrf_field()}}
 
-                <div class=" w-90 flex mx-auto">
-                    <div class="w-70">
-                        <div class="border-1 border-solid border-grey relative mb-4">
+                <div class=" w-90  flex xs:block mx-auto">
+                    <div class="w-70 xs:w-100">
+                        <div class="border-1 border-solid border-grey relative mb-4 xs:mb-2">
                             <label for="password"
                                    class="my-0 absolute  z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
                                    style="top: -25%;">name</label>
@@ -37,7 +37,7 @@
                                    required>
                         </div>
                     </div>
-                    <div class="w-30 mx-4">
+                    <div class="w-30 mx-4 xs:mx-0">
                         <button class="btn btn-success rounded py-2 ">{{__('save')}}</button>
                     </div>
 
@@ -59,7 +59,7 @@
                                 Modify
                             </button>
                             <a href="{{action('Admin\BrandController@destroy',[$brand->id])}}"
-                               class="btn btn-outline-danger rounded-xlg xs:text-xs px-3 mx-2 text-sm py-2 font-primary">delete</a>
+                               class="btn btn-outline-danger rounded-xlg xs:text-xs px-3 mx-2 xs:mt-2  md:mx-1 xs:mx-1 text-sm py-2 font-primary">delete</a>
 
                         </div>
                     </div>

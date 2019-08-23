@@ -2,10 +2,10 @@
 @section('content')
     <div class="w-95 mx-auto">
         <div class=" w-100 mx-auto  flex">
-            <div class="w-80">
+            <div class="w-80 xs:w-60">
                 <h2 class="py-0 font-primary text-2xl font-bold">Product</h2>
             </div>
-            <div class="w-20 my-3 mx-0  text-right">
+            <div class="w-20 xs:w-40 my-3 mx-0 xs:mx-3  text-right">
                 <a href="{{action('Affiliate\ProductsController@create')}}"
                    class="btn btn-primary text-sm text-white  rounded-xlg mx-2 border-0   inline-block">ADD PRODUCT</a>
             </div>
@@ -55,13 +55,13 @@
                 </div>
             </div>
 
-            <div class=" w-80 xs:w-90 my-4">
+            <div class=" w-80 xs:mx-auto xs:w-100 my-4">
                 @if($products && count($products))
                     @foreach($products as $product)
 
                         <div
                             class=" mx-4 xs:mx-0 bg-white border-1 border-solid border-grey-light rounded-xlg  mb-4 p-2 py-3">
-                            <div class="xl:flex p-3">
+                            <div class="xl:flex p-3 xs:p-2">
                                 <div class="w-20 xs:w-80 mx-auto  text-center">
                                     <a href="{{action('Affiliate\ProductsController@show',[$product->id])}}"> <img
                                             src="{{$product->thumbnail()}}" class="w-100  mx-auto text-center"></a>
@@ -77,7 +77,7 @@
                                         </p>
                                     @endif
                                 </div>
-                                <div class="w-30 text-right pt-1">
+                                <div class="w-30 xs:flex xs:px-4 text-right pt-1">
                                     <a href="{{action('Affiliate\ProductsController@edit', [$product->id])}}"
                                        class="btn border-green text-green bg-white text-black hover:text-red hover:bg-green rounded-xlg mr-2"><i
                                             class="fas fa-plus-circle"></i> Update</a>

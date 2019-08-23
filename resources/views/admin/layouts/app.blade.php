@@ -29,7 +29,7 @@
                 @include('admin.layouts.sidebar.index')
             </div>
         @endif
-        <div class="@if(Auth::guard('admin')->check()) w-85 @else w-100 @endif xs:w-90 xs:mx-auto xl:px-3">
+        <div class="@if(Auth::guard('admin')->check()) w-85 @else w-100 @endif xs:w-90 mx-auto xs:mx-auto xl:px-3">
             @include('admin.layouts.nav')
             @yield('content')
         </div>

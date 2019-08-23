@@ -17,7 +17,7 @@
                               v-bind:product="product"
                 ></product-card>
             </div>
-            <div class="absolute r-0 t-40  z-60">
+            <div class="absolute r-0 t-40  xs:t-25  z-60">
                 <button v-show="hasRightSlide" @click="slideRight"
                         class="btn btn-default hover:bg-grey-lightest  transition-250ms xs:h-12 xs:w-rem-12 xl:h-13 xl:w-rem-13 border-1 border-solid border-grey rounded-full">
                     <i class="fas fa-chevron-right"></i>

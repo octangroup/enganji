@@ -13,12 +13,12 @@
             </div>
             <div class="w-20 mt-3 mx-0 text-right">
                 <button data-toggle="#add-post-form"
-                        class="btn  btn-primary text-sm rounded-xlg border-0  toggler ">{{__('Add')}}</button>
+                        class="btn  btn-primary text-sm rounded-xlg border-0  toggler ">{{__('Add Category')}}</button>
             </div>
 
         </div>
         <div id="add-post-form"
-             class="card w-80 mx-auto hidden-temp rounded-xlg py-5 border-1 border-solid border-grey-light">
+             class="card w-80 md:w-100 mx-auto hidden-temp rounded-xlg py-5 border-1 border-solid border-grey-light">
             <form action="{{action('Admin\CategoriesController@store')}}" method="POST"
                   enctype="multipart/form-data">
                 {{ csrf_field() }}
@@ -41,22 +41,22 @@
         @if(count($categories))
             @foreach($categories as $category)
                 <div class=" border-1 border-solid border-grey-light rounded-lg p-4 mt-3">
-                    <div class="flex p-2">
+                    <div class="flex p-2 xs:block">
                         {{--                        <div class="w-20">--}}
                         {{--                            <img class="w-100" src="{{$category->thumbnail()}}">--}}
                         {{--                        </div>--}}
-                        <div class="w-60">
+                        <div class="w-60 md:w-50 xs:w-100">
                             <strong> {{$category->name}}</strong>
                         </div>
-                        <div class="text-right w-40 text-right">
+                        <div class=" w-40 md:w-50 xs:w-100 md:flex xl:text-right">
                             <button data-toggle="#add-subcat-form{{$category->id}}"
-                                    class="btn btn-primary toggler rounded">Sub
+                                    class="btn btn-primary toggler xs:my-2 rounded md:mx-1 ">Sub
                                 category
                             </button>
-                            <button data-toggle="#modify-form{{$category->id}}" class="btn btn-success toggler rounded">
+                            <button data-toggle="#modify-form{{$category->id}}" class="btn btn-success toggler md:mx-1  rounded">
                                 Modify
                             </button>
-                            <a class="btn btn-danger rounded" data-toggle="modal"
+                            <a class="btn btn-danger rounded md:mx-1" data-toggle="modal"
                                data-target="#delete-Modal-{{$category->id}}">delete</a>
                         </div>
 
@@ -87,13 +87,13 @@
                         <form action="{{action('Admin\CategoriesController@update',[$category->id])}}" method="POST">
                             @method('patch')
                             @csrf
-                            <div class="w-100 flex">
+                            <div class="w-100 md:mt-3 flex">
                                 <div class="w-60">
                                     <input class="form-input rounded-r-none h-12 rounded-l-lg" value="{{$category->name}}" type="text"
                                            name="name">
 
                                 </div>
-                                <div class="w-40">
+                                <div class="w-40 ">
                                     <button type="submit" class="btn btn-success my-0 py-2 h-12 rounded-r-lg"> Update</button>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                         <form action="{{action('Admin\SubCategoriesController@store',[$category->id])}}" method="POST">
                             {{ csrf_field() }}
                             <p class="mt-0">Add Subcategories</p>
-                            <div class="w-100 flex">
+                            <div class="w-100 flex xs:mt-3">
                                 <div class="w-60">
                                     <input class="form-input rounded-r-none h-12 rounded-l-lg" type="text" placeholder="Subcategory Name"
                                            name="name">
@@ -117,15 +117,15 @@
                     </div>
                     @foreach($category->subCategory as $subcategory)
                         <div class="border-1 border-solid border-grey-light py-3 px-4 my-3 rounded-lg">
-                            <div class="flex">
+                            <div class="flex xs:block">
                                 <div class="w-60">
                                     {{$subcategory->name}}
                                 </div>
-                                <div class="w-40 text-right">
+                                <div class="w-40 xs:flex xs:mt-3 text-right">
                                     <button data-toggle="#modify-subcat-form{{$subcategory->id}}"
                                             class="btn btn-success rounded toggler">Modify
                                     </button>
-                                    <a class="btn btn-danger rounded" data-toggle="modal"
+                                    <a class="btn btn-danger rounded xs:mx-2" data-toggle="modal"
                                        data-target="#delete-Modal-{{$subcategory->id}}">delete</a>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                                     method="POST">
                                     {{ csrf_field() }}
 
-                                    <div class="w-100 flex">
+                                    <div class="w-100 xs:mt-3 flex">
                                         <div class="w-60">
                                             <input class="form-input rounded-r-none h-12 rounded-l-lg" value="{{$subcategory->name}}" type="text"
                                                    name="name">
