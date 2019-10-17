@@ -10,10 +10,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/desktop.css')}}" rel="stylesheet">
-    <link href="{{asset('css/mobile.css')}}" rel="stylesheet">
-    <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css?v1.1')}}" rel="stylesheet">
+    <link href="{{asset('css/desktop.css?v1.1')}}" rel="stylesheet">
+    <link href="{{asset('css/mobile.css?v1.1')}}" rel="stylesheet">
+    <link href="{{asset('css/tablet.css?v1.1')}}" rel="stylesheet">
     <link href="{{asset('fonts/_flaticon.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">

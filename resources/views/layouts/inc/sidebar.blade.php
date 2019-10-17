@@ -11,7 +11,7 @@
             <div class=" w-15 py-4">
                 <button data-toggle="#sidebar"
                         class="border-0 text-xl bg-transparent  text-white toggler font-bold "><i
-                            class="fi flaticon-error"></i></button>
+                        class="fi flaticon-error"></i></button>
             </div>
 
 
@@ -22,7 +22,7 @@
             <li class="flex my-4">
                 <div class="w-20 text-center">
                     <i
-                            class="fi flaticon-home w-20  text-lg float-left "></i>
+                        class="fi flaticon-home w-20  text-lg float-left "></i>
                 </div>
                 <div class="w-80 mx-3">
                     <a href="{{action('HomeController@index')}}">
@@ -35,7 +35,7 @@
             <li class="flex my-4">
                 <div class="w-20 text-center">
                     <i
-                            class="fi flaticon-list w-20  text-lg float-left "></i>
+                        class="fi flaticon-list w-20  text-lg float-left "></i>
                 </div>
                 <div class="w-80 mx-3 font-primary">
                     <a href="{{action('CategoryController@index')}}">
@@ -47,7 +47,7 @@
             <li class="flex my-4">
                 <div class="w-20 text-center">
                     <i
-                            class="fi flaticon-shopping-cart w-20  text-lg float-left "></i>
+                        class="fi flaticon-shopping-cart w-20  text-lg float-left "></i>
                 </div>
                 <div class="w-80 mx-3 font-primary">
                     <a href="{{action('CartController@index')}}">
@@ -60,7 +60,7 @@
             <li class="flex my-4">
                 <div class="w-20 text-center">
                     <i
-                            class="fi flaticon-like-2 w-20 cursor-pointer text-lg float-left "></i>
+                        class="fi flaticon-like-2 w-20 cursor-pointer text-lg float-left "></i>
                 </div>
                 <div class="w-80 mx-3 font-primary">
                     <a href="{{action('WishListController@index')}}">
@@ -74,34 +74,31 @@
         </ul>
 
 
-        <ul class="list-type-0 px-4 md:px-5 py-2 pb-3 my-0 text-base w-90  text-black font-light ">
-            <div class="flex">
-                <li class=" w-60 flex  my-4">
-                    <div class="w-20 text-center">
-                        <i
-                                class="fi flaticon-upload cursor-pointer  w-20  text-lg float-left "></i>
-                    </div>
-                    <div class="w-80 mx-2 font-primary">
-                        <a href="{{route('register')}}">
-                            <p class="my-0 text-lg cursor-pointer font-primary">Sign Up</p></a>
+                                                                                                              
+       <ul class="list-type-0 px-4 mt-4 md:px-5 py-2 pb-3 my-0 text-base w-90 mx-auto text-black font-light ">
+            <li class="flex my-4">
+                <div class="w-20 text-center">
+                    <i
+                        class="fi flaticon-upload cursor-pointer  w-20  text-lg float-left "></i>
+                </div>
+                <div class="w-80 mx-2 font-primary">
+                    <a href="{{route('register')}}">
+                        <p class="my-0 text-lg cursor-pointer font-primary">Sign Up</p></a>
 
-                    </div>
-                </li>
-                <li class=" w-40 mx-2 flex my-4">
-                    <div class="w-20 text-center">
-                        <i
-                                class="fi flaticon-login w-20  text-lg float-left "></i>
-                    </div>
-                    <div class="w-80 mx-2 font-primary">
-                        <a href="{{route('login')}}">
-                            <p class="my-0 text-lg  font-primary">Sign in</p>
-                        </a>
+                </div>
+            </li>
+            <li class="flex my-4">
+                <div class="w-20 text-center">
+                    <i
+                        class="fi flaticon-login w-20  text-lg float-left "></i>
+                </div>
+                <div class="w-80 mx-2 font-primary">
+                    <a href="{{route('login')}}">
+                        <p class="my-0 text-lg  font-primary">Sign in</p>
+                    </a>
 
-                    </div>
-                </li>
-            </div>
-
-
+                </div>
+            </li>
         </ul>
 
         {{--<ul class="list w-100 my-3  text-black-dark mx-5 my-4 text-sm">--}}
