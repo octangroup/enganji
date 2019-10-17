@@ -17,6 +17,7 @@
     <link href="{{asset('css/tablet.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/_flaticon.css')}}" rel="stylesheet">
     <link href="{{asset('fonts/flaticonV2/flaticon.css')}}" rel="stylesheet">
+    <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
@@ -40,7 +41,7 @@
 
 
 <script src="{{ asset('js/app.js') }}"></script>
-
+<script src="{{ asset('js/dropzone.js') }}"></script>
 <script defer>
     $('.toggler').click(function () {
         let toggle = $(this).data('toggle');
