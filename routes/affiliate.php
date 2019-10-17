@@ -27,7 +27,7 @@ Route::group(['prefix' => 'affiliate', 'namespace' => 'Affiliate'], function () 
     Route::get('product/delete/{id}', 'ProductsController@destroy');
     Route::get('search', 'ProductsController@search');
     Route::get('filter', 'ProductsController@filter');
-    Route::get('products/uploadPictures/{id}', 'ProductsController@picturesPage');
+    Route::get('products/pictures/{id}', 'ProductsController@picturesPage');
     Route::post('product/pictures/add/{id}','ProductsController@addPictures');
     Route::get('products/show/{id}', 'ProductsController@show');
 

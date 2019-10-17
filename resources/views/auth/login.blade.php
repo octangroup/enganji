@@ -20,11 +20,11 @@
                                    name="email"
                                    required>
                         </div>
-                        @error('email')
+                        @if ($errors->has('email'))
                         <div>
-                            <p class="my-0 text-sm text-red">{!! $message !!}</p>
+                            <p class="my-0 text-sm text-red">{{ $errors->first('email') }}</p>
                         </div>
-                        @enderror
+                        @endif
                         <div
                                 class="border-1 border-solid  {{ $errors->has('password') ? ' border-red' : 'border-grey' }} relative mt-5">
                             <label for="password"
@@ -35,11 +35,11 @@
                                    name="password"
                                    required>
                         </div>
-                        @error('password')
+                        @if ($errors->has('password'))
                         <div>
-                            <p class="my-0 text-sm text-red">{!! $message !!}</p>
+                            <p class="my-0 text-sm text-red">{{ $errors->first('password') }}</p>
                         </div>
-                        @enderror
+                        @endif
                         <div class="w-50 xs:w-100 mx-auto mt-4 text-sm mx-auto text-center">
                             <input class="form-check-input" type="checkbox" name="remember"
                                    id="remember" {{ old('remember') ? 'checked' : '' }}>

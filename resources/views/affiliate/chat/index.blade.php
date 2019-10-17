@@ -1,6 +1,6 @@
 @extends('affiliate.layouts.app')
 @section('content')
-    <div class="container xs:mx-3">
+    <div class="container ">
         <chat-room>
 
         </chat-room>

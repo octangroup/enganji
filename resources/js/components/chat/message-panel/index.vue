@@ -7,18 +7,19 @@
             <div id="messages-container" class="pt-4 overflow-y-scroll z-10" style="height: 70.5%">
 <!--                <message v-for="(message, index) in messages" :key="index" :message="message"></message>-->
                 <div v-for="message in messages">
-                    <div class="flex max-w-65 xs:max-w-90  pb-3"
+                    <div class=" max-w-65 xs:max-w-90  pb-3"
                          v-bind:class="{ 'ml-auto': message.from_affiliate}">
                         <div v-if="!message.from_affiliate"
-                             class="w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden">
+                             class="w-rem-10 h-10 w-rem-l-12 h-l-12 mx-3 rounded-full  relative overflow-hidden">
                         </div>
-                        <div class="w-80 rounded p-2  xs:p-1 shadow"
+                        <div class="w-80 py-3 xs:p-1 mx-3 mx-auto rounded-br-xxl rounded-tr-xxl rounded-bl-xxl shadow "
                              v-bind:class="{ 'bg-primary text-white': !message.from_affiliate,'bg-white text-black': message.from_affiliate}">
-                            <p class=" m-0 p-0 xs:text-sm">{{message.body}}</p>
+                            <p class=" m-0 p-0 xs:text-sm mx-3">{{message.body}}</p>
                         </div>
                         <div v-if="message.from_affiliate"
                              class="w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden">
                             <!--<img :src="conversation.affiliate.avatar" class="clip-full">-->
+                            
                         </div>
                     </div>
                 </div>

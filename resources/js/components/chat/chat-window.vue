@@ -1,6 +1,6 @@
 <template>
     <div class="w-80 md:w-100 sm:w-100 xs:w-100 mx-auto">
-        <div class="flex xs:block">
+        <div class="flex h-px-500 xs:block">
             <conversation-panel></conversation-panel>
             <message-panel></message-panel>
 

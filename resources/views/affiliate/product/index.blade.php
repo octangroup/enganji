@@ -17,7 +17,7 @@
             <i data-toggle="#filter" class="fi flaticon-menu-4 hidden xs:block text-2xl  toggler text-black"></i>
         </div>
         <div class="flex xs:block ">
-            <div id="filter" class="w-20 xs:w-90 xs:hidden-temp ">
+            <div id="filter" class="w-20 xs:w-100 xs:hidden-temp ">
                 <div
                     class=" mt-3 bg-white mb-4 px-4 font-primary text-black border-1 border-solid border-grey-light rounded-xlg">
                     <form method="GET" action="{{action('Affiliate\ProductsController@filter')}}">

@@ -2181,6 +2181,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "chatRoom",
   data: function data() {
@@ -2328,6 +2331,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2539,6 +2547,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./message */ "./resources/js/components/chat/message-panel/message.vue");
 /* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../form */ "./resources/js/components/chat/form.vue");
+//
 //
 //
 //
@@ -53531,8 +53540,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass:
-            "w-30 xs:w-100 p-3 border-2 border-solid border-primary bg-white"
+          staticClass: "w-30 rounded-l-xlg xs:w-100 p-3 bg-primary text-white"
         },
         [
           _c("h1", { staticClass: "text-base" }, [_vm._v("Chat")]),
@@ -53580,7 +53588,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "px-2  flex py-1 border-0 border-b-1 border-solid border-grey-lighter cursor-pointer\n                    hover:bg-grey-lightest",
+                    "px-2  flex py-1  cursor-pointer\n                    hover:bg-blue-bg-blue-dark",
                   on: {
                     click: function($event) {
                       _vm.selected_conversation = conversation
@@ -53627,135 +53635,159 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "w-70 xs:w-100 h-px-500  bg-grey-lightest" }, [
-        _vm.chat_view_visible && _vm.selected_conversation
-          ? _c("div", { staticClass: "h-100 overflow-hidden px-2" }, [
-              _c("div", { staticClass: "shadow p-3 bg-white z-99 -mx-2" }, [
-                _c("h1", { staticClass: "text-xl font-roboto" }, [
-                  _vm._v(_vm._s(_vm.selected_conversation.user.name))
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "pt-4 overflow-y-scroll z-10",
-                  staticStyle: { height: "70.5%" },
-                  attrs: { id: "messages-container" }
-                },
-                _vm._l(_vm.messages, function(message) {
-                  return _c(
-                    "div",
-                    {
-                      staticClass: "flex max-w-65 xs:max-w-90  pb-3",
-                      class: { "ml-auto": message.from_affiliate }
-                    },
-                    [
-                      !message.from_affiliate
-                        ? _c("div", {
-                            staticClass:
-                              "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "w-80 rounded p-2  xs:p-1 shadow",
-                          class: {
-                            "bg-primary text-white": !message.from_affiliate,
-                            "bg-white text-black": message.from_affiliate
-                          }
-                        },
-                        [
-                          _c("p", { staticClass: " m-0 p-0 xs:text-sm" }, [
-                            _vm._v(_vm._s(message.body))
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      message.from_affiliate
-                        ? _c("div", {
-                            staticClass:
-                              "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
-                          })
-                        : _vm._e()
-                    ]
-                  )
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    " p-0 h-auto min-h-auto w-100 flex bg-white border-1 border-solid border-grey-light rounded-full overflow-hidden px-2 py-1 xs:py-0 xs:px-0"
-                },
-                [
-                  _c("textarea", {
-                    directives: [
+      _c(
+        "div",
+        {
+          staticClass:
+            "w-70 xs:w-100 h-px-500  bg-grey-lightest overflow-hidden"
+        },
+        [
+          _vm.chat_view_visible && _vm.selected_conversation
+            ? _c("div", { staticClass: "h-100 overflow-hidden px-2" }, [
+                _c("div", { staticClass: "shadow p-3 bg-white z-99 -mx-2" }, [
+                  _c("h1", { staticClass: "text-xl font-roboto" }, [
+                    _vm._v(_vm._s(_vm.selected_conversation.user.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "pt-4 overflow-y-scroll z-10",
+                    staticStyle: { height: "70.5%" },
+                    attrs: { id: "messages-container" }
+                  },
+                  _vm._l(_vm.messages, function(message) {
+                    return _c(
+                      "div",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.body,
-                        expression: "body"
-                      }
-                    ],
-                    staticClass:
-                      "border-0  pl-4 pr-3 pt-2  pb-0 text-sm resize-none  w-90 xs:w-75 focus:outline-none ",
-                    attrs: {
-                      name: "message",
-                      placeholder: "Enter a message.."
-                    },
-                    domProps: { value: _vm.body },
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !$event.type.indexOf("key") &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.send($event)
+                        staticClass: "flex max-w-65 xs:max-w-90  pb-3",
+                        class: { "ml-auto": message.from_affiliate }
                       },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.body = $event.target.value
-                      }
-                    }
+                      [
+                        !message.from_affiliate
+                          ? _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "w-rem-10 h-10 xs:w-rem-8 xs:h-8 bg-white border-1 border-solid border-primary rounded-full mt-1 flex mx-2 align-items-center justify-content-center"
+                              },
+                              [
+                                _c("p", { staticClass: "my-0 text-primary" }, [
+                                  _vm._v("YOU")
+                                ])
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "w-80  xs:p-1 p-3 mt-4 rounded-br-xxl rounded-tr-xxl rounded-bl-xxl shadow  ",
+                            class: {
+                              "bg-primary text-white": !message.from_affiliate,
+                              "bg-white text-black": message.from_affiliate
+                            }
+                          },
+                          [
+                            _c("p", { staticClass: " m-0 p-0 xs:text-sm" }, [
+                              _vm._v(_vm._s(message.body))
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        message.from_affiliate
+                          ? _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "w-rem-10 h-10 xs:w-rem-8 xs:h-8 bg-white border-1 border-solid border-primary rounded-full mt-1 flex mx-2 align-items-center justify-content-center"
+                              },
+                              [
+                                _c("p", { staticClass: "my-0 text-primary" }, [
+                                  _vm._v("Me")
+                                ])
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    )
                   }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
+                  0
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      " p-0 h-auto min-h-auto w-100 flex bg-white border-1 border-solid border-grey-light rounded-full overflow-hidden px-2 py-1 xs:py-0 xs:px-0"
+                  },
+                  [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.body,
+                          expression: "body"
+                        }
+                      ],
                       staticClass:
-                        "btn text-white cursor-pointer rounded-full bg-primary text-xs align-top pr-3 mt-0 border-0  focus:outline-none w-10 xs:w-25",
-                      attrs: { type: "submit" },
-                      on: { click: _vm.send }
-                    },
-                    [
-                      _vm._v("\n                        Send "),
-                      _c("i", {
-                        staticClass: "fi flaticon-paper-plane text-xl"
-                      })
-                    ]
-                  )
-                ]
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div")
-      ])
+                        "border-0  pl-4 pr-3 pt-2  pb-0 text-sm resize-none  w-90 xs:w-75 focus:outline-none ",
+                      attrs: {
+                        name: "message",
+                        placeholder: "Enter a message.."
+                      },
+                      domProps: { value: _vm.body },
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !$event.type.indexOf("key") &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.send($event)
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.body = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn text-white cursor-pointer rounded-full bg-primary text-xs align-top pr-3 mt-0 border-0  focus:outline-none w-10 xs:w-25",
+                        attrs: { type: "submit" },
+                        on: { click: _vm.send }
+                      },
+                      [
+                        _vm._v("\n                        Send "),
+                        _c("i", {
+                          staticClass: "fi flaticon-paper-plane text-xl"
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div")
+        ]
+      )
     ])
   ])
 }
@@ -53772,21 +53804,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-20" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "w-rem-12 h-12 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
-        },
-        [
-          _c("img", {
-            staticClass: "clip-full",
-            attrs: { src: "/img/ring.webp" }
-          })
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden border-solid border-1"
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "w-rem-12 h-12 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
+          },
+          [
+            _c("img", {
+              staticClass: "clip-full",
+              attrs: { src: "/img/ring.webp" }
+            })
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -53813,7 +53852,7 @@ var render = function() {
   return _c("div", { staticClass: "w-80 md:w-100 sm:w-100 xs:w-100 mx-auto" }, [
     _c(
       "div",
-      { staticClass: "flex xs:block" },
+      { staticClass: "flex h-px-500 xs:block" },
       [_c("conversation-panel"), _vm._v(" "), _c("message-panel")],
       1
     )
@@ -53844,8 +53883,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass:
-        "px-2  flex py-1 border-0 border-b-1 border-solid border-grey-lighter cursor-pointer\n                    hover:bg-grey-lightest",
+      staticClass: "px-2  flex py-1 cursor-pointer text-white",
       on: {
         click: function($event) {
           return _vm.$emit("select_conversation")
@@ -53853,6 +53891,8 @@ var render = function() {
       }
     },
     [
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "w-60 px-3 my-auto" }, [
         _c("h2", { staticClass: "text-base xs:text-sm" }, [
           _vm._v(_vm._s(_vm.conversation.user.name))
@@ -53861,7 +53901,19 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-20" }, [
+      _c("div", {
+        staticClass:
+          "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden border-solid border-1"
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -54072,30 +54124,33 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "flex max-w-65 xs:max-w-90  pb-3",
+                        staticClass: " max-w-65 xs:max-w-90  pb-3",
                         class: { "ml-auto": message.from_affiliate }
                       },
                       [
                         !message.from_affiliate
                           ? _c("div", {
                               staticClass:
-                                "w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden"
+                                "w-rem-10 h-10 w-rem-l-12 h-l-12 mx-3 rounded-full  relative overflow-hidden"
                             })
                           : _vm._e(),
                         _vm._v(" "),
                         _c(
                           "div",
                           {
-                            staticClass: "w-80 rounded p-2  xs:p-1 shadow",
+                            staticClass:
+                              "w-80 py-3 xs:p-1 mx-3 mx-auto rounded-br-xxl rounded-tr-xxl rounded-bl-xxl shadow ",
                             class: {
                               "bg-primary text-white": !message.from_affiliate,
                               "bg-white text-black": message.from_affiliate
                             }
                           },
                           [
-                            _c("p", { staticClass: " m-0 p-0 xs:text-sm" }, [
-                              _vm._v(_vm._s(message.body))
-                            ])
+                            _c(
+                              "p",
+                              { staticClass: " m-0 p-0 xs:text-sm mx-3" },
+                              [_vm._v(_vm._s(message.body))]
+                            )
                           ]
                         ),
                         _vm._v(" "),
@@ -54618,10 +54673,10 @@ var render = function() {
         "border-1 border-solid border-grey-light rounded-xlg p-4 py-5"
     },
     [
-      _c("div", { staticClass: "row flex flex-wrap " }, [
+      _c("div", { staticClass: "row flex flex-wrap xs:block" }, [
         _c(
           "div",
-          { staticClass: "w-50 px-3 mt-3" },
+          { staticClass: "w-50 xs:w-100 px-3 mt-3" },
           [
             _c("input-form", {
               attrs: {
@@ -54644,7 +54699,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "w-50 px-3 mt-3" },
+          { staticClass: "w-50 xs:w-100 px-3 mt-3" },
           [
             _c("select-form", {
               attrs: {
@@ -54670,7 +54725,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 px-3 mt-3" },
+              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
               [
                 _c("input-form", {
                   attrs: {
@@ -54695,7 +54750,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "w-50 px-3 mt-3" },
+          { staticClass: "w-50 xs:w-100 px-3 mt-3" },
           [
             _c("select-form", {
               attrs: {
@@ -54721,7 +54776,7 @@ var render = function() {
         _vm.subcategories.length > 0
           ? _c(
               "div",
-              { staticClass: "w-50 px-3 mt-3" },
+              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
               [
                 _c("select-form", {
                   attrs: {
@@ -54747,7 +54802,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 px-3 mt-3" },
+              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
               [
                 _c("select-form", {
                   attrs: {
@@ -54773,7 +54828,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 px-3 mt-3" },
+              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
               [
                 _c("select-form", {
                   attrs: {
@@ -54799,7 +54854,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 px-3 mt-3" },
+              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
               [
                 _c("select-form", {
                   attrs: {
@@ -54825,7 +54880,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 px-3 mt-3" },
+              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
               [
                 _c("input-form", {
                   attrs: {
@@ -54851,7 +54906,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 px-3 mt-3" },
+              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
               [
                 _c("input-form", {
                   attrs: {
@@ -54876,7 +54931,7 @@ var render = function() {
         _vm.form.type == 1
           ? _c(
               "div",
-              { staticClass: "w-50 px-3 mt-3" },
+              { staticClass: "w-50 xs:w-100 px-3 mt-3" },
               [
                 _c("input-form", {
                   attrs: {
@@ -54901,7 +54956,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "w-100 px-3 my-3" },
+        { staticClass: "w-100 px-3 xs:px-0 my-3" },
         [
           _c("text-editor", {
             attrs: {
@@ -54968,7 +55023,23 @@ var render = function() {
               staticClass:
                 "text-lg font-primary font-semibold sm:text-base md:text-base lg:text-xl xs:text-base m-0 p-0 whitespace-no-wrap overflow-hidden"
             },
-            [_vm._v("\n            " + _vm._s(_vm.product.name))]
+            [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "text-lg font-primary font-semibold sm:text-base md:text-base lg:text-xl xs:text-base",
+                  attrs: {
+                    href:
+                      "/itm/view/" +
+                      _vm.product.id +
+                      "/" +
+                      _vm.product.stripped_name
+                  }
+                },
+                [_vm._v("\n            " + _vm._s(_vm.product.name) + " ")]
+              )
+            ]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "w-100 flex my-1 text-sm" }, [
@@ -55218,7 +55289,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "absolute r-0 t-40  z-60" }, [
+        _c("div", { staticClass: "absolute r-0 t-40  xs:t-25  z-60" }, [
           _c(
             "button",
             {
@@ -72810,8 +72881,8 @@ function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\inganji\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\inganji\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! c:\xamp1\htdocs\enganji\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! c:\xamp1\htdocs\enganji\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
