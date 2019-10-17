@@ -14,10 +14,10 @@
         {{--</form>--}}
         {{--</div>--}}
         <div class="  w-90 mx-auto    flex">
-            <div class="w-80">
+            <div class="w-80 xs:w-70">
                 <h4 class=" font-primary   text-2xl">Roles</h4>
             </div>
-            <div class="w-20 mt-3 mx-0 text-right">
+            <div class="w-20 xs:w-30 mt-3 mx-0 text-right">
                 <button data-toggle="#add-post-form" class="btn  btn-primary text-sm rounded-xlg border-0  toggler ">
                     {{__('ADD NEW')}}
                 </button>
@@ -57,13 +57,13 @@
             @foreach($roles as $role)
                 <div class="w-90 mx:w-90 xs:w-100 mx-auto mt-3">
                     <div class=" xs:mx-0 bg-white border-1 border-solid border-grey-light rounded-xlg w-100 mb-4 p-2 py-5 ">
-                        <div class="flex ">
-                            <div class="w-60 xs:mx-2 font-primary font-bold mx-5">
+                        <div class="flex xs:block xs:mx-auto xs:text-center w-80 ">
+                            <div class="w-60 xs:w-100  xs:mx-0 font-primary font-bold mx-5">
                                 <h4 class="text-lg  font-primary  font-bold my-3">{{$role->name}}</h4>
                             </div>
 
 
-                            <div class=" w-40 text-right xs:mr-2 mr-5">
+                            <div class="  w-40 xs:w-100 xs:mx-4 mr-5 mx-auto flex ">
                                 <button data-toggle="#mod-post-form{{$role->id}}"
                                         class="btn btn-outline-success rounded-xlg  text-sm py-2 font-primary toggler">{{__('Modify')}}
                                 </button>
@@ -79,8 +79,8 @@
                             <div class="card-body">
                                 <form action="{{action('Admin\RolesController@update',[$role->id])}}" method="POST">
                                     {{ csrf_field() }}
-                                    <div class=" w-90 flex mx-auto">
-                                        <div class="w-70">
+                                    <div class=" w-90 flex xs:block mx-auto">
+                                        <div class="w-70 xs:w-100">
                                             <div class="border-1 border-solid border-grey relative">
                                                 <label for="password"
                                                        class="my-0 absolute  z-99 bg-white px-1 mx-2 text-grey-darker text-sm line-height-small"
@@ -93,7 +93,7 @@
                                                        required>
                                             </div>
                                         </div>
-                                        <div class="w-30 mx-4">
+                                        <div class="w-30 xs:mx-0 xs:mt-3 mx-4">
                                             <button class="btn btn-success rounded py-2 ">{{__('save')}}</button>
                                         </div>
 

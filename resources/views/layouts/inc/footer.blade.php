@@ -45,3 +45,8 @@
         </div>
     </div>
 </div>
+<div class="panel panel-default bg-black-darker w-100 min-h-auto h-auto  xs:mx-0 hidden xs:block">
+    <div class="panel-body py-0 flex w-85 xs:w-100 mx-auto  ">
+        <div class=" text-white w-40 mt-2 text-sm xs:text-xs">
+            © 2019 Inganji · All rights reserved ·
+        </div> <div class="text-white ml-auto mt-2 w-60 text-right text-sm xs:text-xs"><p class="m-0">Developed by <a href="https://octangrp.com/" target="_blank" class="text-accent"><b>Octan Grp.</b></a></p></div></div></div>

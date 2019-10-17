@@ -1,5 +1,5 @@
 <nav id="sidebar"
-     class=" md:w-45 w-65  h-screen hidden-temp rounded-b-xlg shadow mb-4  bg-white  z-9999 t-0  fixed xl:hidden lg:hidden  mt-0 overflow-hidden ">
+     class=" md:w-45 w-80  h-screen hidden-temp rounded-b-xlg shadow mb-4  bg-white  z-9999 t-0  fixed xl:hidden lg:hidden  mt-0 overflow-hidden ">
     <div class="w-100 ">
 
         <div class="bg-primary flex  ">
@@ -74,31 +74,34 @@
         </ul>
 
 
-                                                                                                              
-       <ul class="list-type-0 px-4 mt-4 md:px-5 py-2 pb-3 my-0 text-base w-90 mx-auto text-black font-light ">
-            <li class="flex my-4">
-                <div class="w-20 text-center">
-                    <i
-                        class="fi flaticon-upload cursor-pointer  w-20  text-lg float-left "></i>
-                </div>
-                <div class="w-80 mx-2 font-primary">
-                    <a href="{{route('register')}}">
-                        <p class="my-0 text-lg cursor-pointer font-primary">Sign Up</p></a>
+        <ul class="list-type-0 px-4 md:px-5 py-2 pb-3 my-0 text-base w-90  text-black font-light ">
+            <div class="flex">
+                <li class=" w-60 flex  my-4">
+                    <div class="w-20 text-center">
+                        <i
+                                class="fi flaticon-upload cursor-pointer  w-20  text-lg float-left "></i>
+                    </div>
+                    <div class="w-80 mx-2 font-primary">
+                        <a href="{{route('register')}}">
+                            <p class="my-0 text-lg cursor-pointer font-primary">Join </p></a>
 
-                </div>
-            </li>
-            <li class="flex my-4">
-                <div class="w-20 text-center">
-                    <i
-                        class="fi flaticon-login w-20  text-lg float-left "></i>
-                </div>
-                <div class="w-80 mx-2 font-primary">
-                    <a href="{{route('login')}}">
-                        <p class="my-0 text-lg  font-primary">Sign in</p>
-                    </a>
+                    </div>
+                </li>
+                <li class=" w-40 mx-2 flex my-4">
+                    <div class="w-20 mt-1 text-center">
+                        <i
+                                class="fi flaticon-login w-20  text-lg float-left "></i>
+                    </div>
+                    <div class="w-80 mx-2 font-primary">
+                        <a href="{{route('login')}}">
+                            <p class="my-0 text-lg  font-primary">Login</p>
+                        </a>
 
-                </div>
-            </li>
+                    </div>
+                </li>
+            </div>
+
+
         </ul>
 
         {{--<ul class="list w-100 my-3  text-black-dark mx-5 my-4 text-sm">--}}

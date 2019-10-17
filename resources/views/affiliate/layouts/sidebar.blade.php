@@ -1,9 +1,9 @@
-<div id="nav-affiliate "
-     class="w-15 xs:w-60 lg:w-20 md:w-25 z-9999 h-100 fixed md:hidden-temp xs:hidden-temp  t-0 bg-white-smoke  rounded-r-xxl text-black">
-    <div class="">
-        <h2 class="w-70 mx-auto  font-primary py-4">{{env('APP_NAME')}}</h2>
+<div id="nav-affiliate"
+     class="w-15 xs:w-80 lg:w-20 md:w-25 z-9999 h-100 fixed md:hidden-temp xs:hidden-temp  t-0 bg-white-smoke  rounded-r-xxl text-black">
+    <div class="flex">
+        <h2 class="w-70 mx-auto text-center font-primary py-4">Engaji</h2>
         <button data-toggle="#nav-mobile-admin"
-                class=" text-black xl:hidden lg:hidden  bg-transparent inline-block toggler border-0 ">
+                class=" text-black xl:hidden w-30 px-3 lg:hidden  bg-transparent inline-block toggler border-0 ">
             <i class="fi flaticon-close text-red font-bold md:text-2xl text-lg"></i>
 
         </button>
@@ -24,7 +24,7 @@
                 <p class="my-3  font-primary  text-xl"><i class="fi flaticon-file"></i></p>
             </div>
             <div class="w-75 flex align-items-center">
-                <a class="w-75   font-primary my-3 no-underline"
+                <a class="  font-primary my-3 no-underline"
                    href="{{action('Affiliate\ProductsController@index')}}">Manage products</a>
             </div>
 

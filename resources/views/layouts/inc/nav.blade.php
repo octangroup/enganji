@@ -140,7 +140,7 @@
 </nav>
 <div id="all-categories-div" class="w-20 mx-auto fixed h-100 t-0 l-0 hidden-temp z-999">
     <div class="w-100 h-100 bg-white rounded-xlg border-1 border-grey-light border-solid relative">
-        <div class="absolute r-0 px-4 w-20 text-right z-99">
+        <div class="absolute r-0 mr-4 w-20 text-right z-99">
             <p data-toggle="#all-categories-div" class="text-xl cursor-pointer  mt-3 text-grey-darker mb-0 toggler"><i class="fi flaticon-close"></i></p>
         </div>
         <ul class="list w-100 h-100 overflow-scroll p-4 lg:my-3  text-left text-black-dark   text-sm relative">

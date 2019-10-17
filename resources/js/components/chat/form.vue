@@ -1,18 +1,20 @@
 <template>
-    <div class=" p-0 h-auto min-h-auto w-100 flex bg-white border-1 border-solid border-grey-light rounded-full overflow-hidden px-2 py-1 xs:py-0 xs:px-0">
-                        <textarea name="message" placeholder="Enter a message.."
-                                  v-on:keyup.enter="send"
-                                  class="border-0  pl-4 pr-3 pt-2  pb-0 text-sm resize-none  w-90 xs:w-75 focus:outline-none "
-                                  v-model="body"
-                        >
+    <div class="w-100 flex p-2 pt-0 ">
+
+              <textarea name="message" placeholder="Enter a message.."
+                        v-on:keyup.enter="send"
+                        class="border-0  pl-4 pr-3 pt-2  pb-0 text-sm resize-none  w-90 xs:w-75 focus:outline-none "
+                        v-model="body"
+              >
                         </textarea>
+
         <button type="submit"
                 @click="send()"
-                class="btn text-white cursor-pointer rounded-full bg-primary text-xs align-top pr-3 mt-0 border-0  focus:outline-none w-10 xs:w-25"
-        >
-            Send <i class="fi flaticon-paper-plane text-xl"></i>
+                class="btn bg-primary rounded-r-full text-white cursor-pointer text-xs align-top pr-3 mt-0 border-0 w-15 xs:w-30 shadow">
+            Send
         </button>
     </div>
+
 </template>
 
 <script>
@@ -25,7 +27,7 @@
             }, send_message_url: {
                 type: String,
                 default: "/chat/send"
-            },conversation:Object,
+            }, conversation: Object,
         },
         data() {
             return {
