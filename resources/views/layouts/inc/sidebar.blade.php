@@ -11,7 +11,7 @@
             <div class=" w-15 py-4">
                 <button data-toggle="#sidebar"
                         class="border-0 text-xl bg-transparent  text-white toggler font-bold "><i
-                            class="fi flaticon-error"></i></button>
+                        class="fi flaticon-error"></i></button>
             </div>
 
 
@@ -22,7 +22,7 @@
             <li class="flex my-4">
                 <div class="w-20 text-center">
                     <i
-                            class="fi flaticon-home w-20  text-lg float-left "></i>
+                        class="fi flaticon-home w-20  text-lg float-left "></i>
                 </div>
                 <div class="w-80 mx-3">
                     <a href="{{action('HomeController@index')}}">
@@ -35,7 +35,7 @@
             <li class="flex my-4">
                 <div class="w-20 text-center">
                     <i
-                            class="fi flaticon-list w-20  text-lg float-left "></i>
+                        class="fi flaticon-list w-20  text-lg float-left "></i>
                 </div>
                 <div class="w-80 mx-3 font-primary">
                     <a href="{{action('CategoryController@index')}}">
@@ -47,7 +47,7 @@
             <li class="flex my-4">
                 <div class="w-20 text-center">
                     <i
-                            class="fi flaticon-shopping-cart w-20  text-lg float-left "></i>
+                        class="fi flaticon-shopping-cart w-20  text-lg float-left "></i>
                 </div>
                 <div class="w-80 mx-3 font-primary">
                     <a href="{{action('CartController@index')}}">
@@ -60,7 +60,7 @@
             <li class="flex my-4">
                 <div class="w-20 text-center">
                     <i
-                            class="fi flaticon-like-2 w-20 cursor-pointer text-lg float-left "></i>
+                        class="fi flaticon-like-2 w-20 cursor-pointer text-lg float-left "></i>
                 </div>
                 <div class="w-80 mx-3 font-primary">
                     <a href="{{action('WishListController@index')}}">

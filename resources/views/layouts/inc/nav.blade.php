@@ -3,23 +3,23 @@
 
     <div class="w-90 mx-auto flex flex-wrap">
         <ul data-toggle="#sidebar"
-            class="w-10 md:w-40 xs:w-25 xl:hidden lg:hidden mt-3 list my-0  toggler text-black-dark">
+            class="w-10 w-20 xl:hidden lg:hidden mt-3 list my-0  toggler text-black-dark">
             <li class="pb-4 pt-1">
                 <i class="fi flaticon-menu text-black text-2xl"></i>
             </li>
         </ul>
 
-        <ul class="w-50 lg:w-30 lg:my-3 md:w-40 xs:w-60  list my-0 mt-2  text-black-dark">
-            <li class="pb-4 pt-1">
+        <ul class="lg:w-30 lg:my-3 w-60 xl:w-50   list my-0 mt-2  text-black-dark">
+            <li class="p-0 text-center xl:text-left lg:text-left pt-1 mx-auto m-0">
                 <a href="{{action('HomeController@index')}}"
-                   class="font-primary font-medium text-3xl inherit-color no-underline">
-                    <img src="{{asset('img/logo.png')}}" class="w-rem-32 mt-2 absolute t-0 pt-2">
+                   class="font-primary font-medium text-3xl inherit-color no-underline m-0">
+                    <img src="{{asset('img/logo.png')}}" class="w-rem-24 xs:w-rem-24 t-0 m-0">
                 </a>
             </li>
         </ul>
 
         <div data-toggle="#search"
-             class="w-15 toggler mt-3 text-center hidden xs:block md:block sm:block  py-3 flex align-items-center justify-content-center ">
+             class="w-20 toggler text-right mt-3 text-center hidden xs:block md:block sm:block  py-3 flex align-items-center justify-content-center ">
             <p class="m-0 text-xl"><i class="fi flaticon-search"></i></p>
         </div>
         <div id="search" class="w-90 xl:hidden lg:hidden  text-center mx-auto py-3 hidden-temp " style="display: none;">
@@ -151,7 +151,7 @@
                     <ul>
                         @foreach($category->subcategories as $subcategory)
                             <li class="mx-3"><a
-                                    href="{{action('ProductsController@index',[$category->stripped_name,$subcategory->id])}}"
+                                    href="{{action('ProductsController@index',[$category->stripped_name,$category->id,$subcategory->stripped_name,$subcategory->id])}}"
                                     class="inherit-color text-sm font-primary font-medium  no-underline">{{__($subcategory->name)}}</a>
                             </li>
                         @endforeach

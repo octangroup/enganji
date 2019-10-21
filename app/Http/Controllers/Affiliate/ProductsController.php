@@ -163,8 +163,14 @@ class ProductsController extends Controller
     public function picturesPage($id)
     {
         $product = Product::findOrFail($id);
-
-        return view('form.pictureForm',compact('product'));
+        $media = collect();
+        foreach ($product->media as $picture) {
+            $media->add(
+                ['id' => $picture->id,
+                    'url' => $picture->getUrl()]
+            );
+        }
+        return view('form.pictureForm',compact('product','media'));
     }
 
     public function addPictures($id){
@@ -184,6 +190,26 @@ class ProductsController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function deletePicture(Request $request)
+    {
+        $this->validate(
+            $request, [
+                'product_id' => 'required|int',
+                'picture_id' => 'required|int'
+            ]
+        );
+        $product = Product::with('media')->findOrFail($request->product_id);
+        $product->media->find($request->picture_id)->delete();
+        $media = collect();
+        foreach ($product->media as $picture) {
+            $media->add(
+                ['id' => $picture->id,
+                    'url' => $picture->getUrl()]
+            );
+        }
+        return response(['message' => 'success']);
     }
 
     /**
