@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52d85a9c-6e83-4d51-9f8d-5d0737a809a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/chat/conversation-panel/conversation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/chat/conversation-panel/conversation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/chat/message-panel/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -364,6 +359,10 @@
       <workItem from="1571049886072" duration="561000" />
       <workItem from="1571053315523" duration="588000" />
       <workItem from="1571061080441" duration="338000" />
+      <workItem from="1571317785884" duration="249000" />
+      <workItem from="1571318141523" duration="99000" />
+      <workItem from="1571318344716" duration="105000" />
+      <workItem from="1571642294709" duration="191000" />
     </task>
     <task id="LOCAL-00001" summary="Fix duplicate class package for forgot password&#10;&#10;Rename class ForgotPasswordController package form&#10;admin to affiliate">
       <created>1552394851667</created>
@@ -638,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566394713440</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Design the chat on affiliate and user side part">
+      <created>1571318019432</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1571318019432</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,7 +676,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Remove import of global inside app.scss&#10;&#10;Remove unused and unavailable import of global.scss file inside &#10;the app.scss file" />
     <MESSAGE value="Fix product listing not found page error&#10;&#10;Fixed the error and made sure all the tests are green" />
     <MESSAGE value="Remove deleted seeder from database seeder&#10;&#10;Replaced the roles seeder class in database seeder with the RolesTableSeeder class" />
     <MESSAGE value="Fix product affiliate create test&#10;&#10;Remove affiliate_id from passed in parameters (attributes)&#10;Removed the npm install and run prod form continious integration &#10;script." />
@@ -695,7 +700,8 @@
     <MESSAGE value="Fix mobile links &#10;&#10;Fixed mobile links on the nav bar" />
     <MESSAGE value="Fix mobile nav bar &#10;&#10;Fixed mobile links on the nav bar" />
     <MESSAGE value="Fix chat on both admin and affiliate &#10;&#10;Fixed chat functionality on both the user's and affiliates &#10;side" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix chat on both admin and affiliate &#10;&#10;Fixed chat functionality on both the user's and affiliates &#10;side" />
+    <MESSAGE value="Design the chat on affiliate and user side part" />
+    <option name="LAST_COMMIT_MESSAGE" value="Design the chat on affiliate and user side part" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
