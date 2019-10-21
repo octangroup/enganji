@@ -30,7 +30,7 @@
                 @include('affiliate.layouts.sidebar')
             </div>
         @endif
-        <div class="@if(Auth::guard('affiliate')->check()) w-85 @else w-100 @endif xs:w-90 xs:mx-auto xl:px-3">
+        <div class="@if(Auth::guard('affiliate')->check()) w-85 @else w-100 @endif xs:w-100 xs:mx-auto xl:px-3">
             @include('affiliate.layouts.nav')
             @yield('content')
         </div>

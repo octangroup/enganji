@@ -1,7 +1,7 @@
 <template>
     <div class="w-60 xs:w-100 mx-auto  rounded-r-lg border-1 border-solid border-grey-light  bg-grey-lightest">
-        <div v-if="conversation" class="h-100 overflow-hidden px-2">
-            <div class="shadow p-3 bg-white z-99 -mx-2">
+        <div v-if="conversation" class="h-100 overflow-hidden px-2 xs:px-0">
+            <div class="shadow p-3 bg-white z-99 -mx-2 xs:mx-0">
                 <h1 class="text-xl font-roboto">{{conversation.affiliate.name}}</h1>
             </div>
             <div id="messages-container" class="pt-4 overflow-y-scroll z-10" style="height: 70.5%">
@@ -14,12 +14,12 @@
                         </div>
                         <div class="w-80 py-3 xs:p-1 mx-3 mx-auto rounded-br-xxl rounded-tr-xxl rounded-bl-xxl shadow "
                              v-bind:class="{ 'bg-primary text-white': !message.from_affiliate,'bg-white text-black': message.from_affiliate}">
-                            <p class=" m-0 p-0 xs:text-sm mx-3">{{message.body}}</p>
+                            <p class=" m-0 p-2 xs:text-sm mx-3">{{message.body}}</p>
                         </div>
                         <div v-if="message.from_affiliate"
                              class="w-rem-10 h-10 w-rem-l-12 h-l-12 rounded-full mx-auto relative overflow-hidden">
                             <!--<img :src="conversation.affiliate.avatar" class="clip-full">-->
-                            
+
                         </div>
                     </div>
                 </div>

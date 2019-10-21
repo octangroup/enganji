@@ -1,7 +1,7 @@
 <template>
     <div class="panel panel-default p-0 w-100 mx-auto ">
         <div class="xl:flex lg:flex">
-            <div class="w-30 rounded-l-xlg xs:w-100 p-3 bg-primary text-white">
+            <div class="w-30 xl:rounded-l-xlg xs:w-100 p-3 bg-primary text-white">
                 <h1 class="text-base">Chat</h1>
                 <form name="search_form" method="get">
                     <div class="flex">
@@ -39,8 +39,8 @@
                 </div>
             </div>
             <div class="w-70 xs:w-100 h-px-500  bg-grey-lightest overflow-hidden">
-                <div v-if="chat_view_visible && selected_conversation" class="h-100 overflow-hidden px-2">
-                    <div class="shadow p-3 bg-white z-99 -mx-2">
+                <div v-if="chat_view_visible && selected_conversation" class="h-100 overflow-hidden px-2 xs:px-0">
+                    <div class="shadow p-3 bg-white z-99 -mx-2 xs:mx-0">
                         <h1 class="text-xl font-roboto">{{selected_conversation.user.name}}</h1>
                     </div>
                     <div id="messages-container" class="pt-4 overflow-y-scroll z-10" style="height: 70.5%">
@@ -48,17 +48,17 @@
                              v-bind:class="{ 'ml-auto': message.from_affiliate}">
                             <div v-if="!message.from_affiliate"
                                  class="w-rem-10 h-10 xs:w-rem-8 xs:h-8 bg-white border-1 border-solid border-primary rounded-full mt-1 flex mx-2 align-items-center justify-content-center">
-                    <p class="my-0 text-primary">YOU</p>
+                    <p class="my-0 text-primary xs:text-xs">YOU</p>
 
                             </div>
-                            <div class="w-80  xs:p-1 p-3 mt-4 rounded-br-xxl rounded-tr-xxl rounded-bl-xxl shadow  "
-                                 v-bind:class="{ 'bg-primary text-white': !message.from_affiliate,'bg-white text-black': message.from_affiliate}">
-                                <p class=" m-0 p-0 xs:text-sm">{{message.body}}</p>
+                            <div class="w-80  xs:p-1 p-3 mt-4  shadow  "
+                                 v-bind:class="{ 'bg-primary text-white rounded-br-xxl rounded-tr-xxl rounded-bl-xxl': !message.from_affiliate,'bg-white text-black rounded-br-xxl rounded-tl-xxl rounded-bl-xxl text-right pr-5': message.from_affiliate}">
+                                <p class=" m-0 p-0 xs:text-sm xs:p-3">{{message.body}}</p>
                                 <!--<p class="mr-2 mr-m-1 mt-0 mb-0 py-0 pt-2 text-xs text-right">{{message.time}}</p>-->
                             </div>
                             <div v-if="message.from_affiliate"
                                  class="w-rem-10 h-10 xs:w-rem-8 xs:h-8 bg-white border-1 border-solid border-primary rounded-full mt-1 flex mx-2 align-items-center justify-content-center">
-                                <p class="my-0 text-primary">Me</p>
+                                <p class="my-0 text-primary xs:text-xs">Me</p>
                                 <!--<img :src="selected_conversation.affiliate.avatar" class="clip-full">-->
                             </div>
                         </div>

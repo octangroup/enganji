@@ -25,7 +25,7 @@
         </div>
         <div class=" w-100 py-1 relative md:w-80 text-center z-50 bg-white text-left">
             <a :href="'/itm/view/'+product.id+'/'+product.stripped_name" class="inherit-color no-underline">
-                <img class="xl:w-100 xs:w-80 md:w-100 md:mx-3 text-center xs:mx-4" :src="product.thumbnail">
+                <img class="xl:w-100 xs:w-80 md:w-100 md:mx-3 text-center xs:mx-4 max-h-54" :src="product.thumbnail">
             </a>
         </div>
     </div>

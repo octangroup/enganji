@@ -1,5 +1,5 @@
 @if(Auth::guard('affiliate')->check())
-    <div class="xs:flex xs:w-100">
+    <div class="xs:flex xs:w-90 xs:mx-auto">
         <div class=" xs:w-70 my-3 xl:hidden lg:hidden">
             <button data-toggle="#nav-affiliate"
                     class=" text-black xl:hidden bg-transparent toggler border-0 ">
