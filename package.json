@@ -37,7 +37,7 @@
         "moment": "^2.24.0",
         "pusher-js": "^4.3.1",
         "tooltipster": "^4.2.7",
-        "vue-infinite-loading": "^2.4.3",
+        "vue-infinite-loading": "^2.4.5",
         "vue-phone-number-input": "^0.1.8",
         "vue2-editor": "^2.6.6",
         "vue-piczoom": "^1.0.6"
