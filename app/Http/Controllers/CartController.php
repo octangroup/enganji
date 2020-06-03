@@ -20,7 +20,20 @@ class CartController extends Controller
 
     public function index(){
         $carts = Auth::User()->cart()->with('product')->get();
-        return view('cart.index', compact('carts'));
+
+        $cartPrice = 0;
+        $cartCount = 0;
+
+        foreach ($carts as $data) {
+            $price = $data->product->price;
+            $cartPrice = $cartPrice + $price;
+
+            $cartCount = $cartCount + 1;
+        }
+
+        return view('cart.index', compact(
+            'carts', 'cartPrice', 'cartCount'
+        ));
     }
 
 

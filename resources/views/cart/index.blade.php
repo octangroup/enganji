@@ -27,37 +27,28 @@
                         <div class="flex my-0">
                             <p class="w-85 text-sm">
                                 Items :
-
-
                             </p>
                             <p class="w-15 text-right">
-                                {{$cart->product->quantity}}
+                                {{$cartCount}}
                             </p>
                         </div>
                         <div class="flex text-sm my-0">
                             <p class="w-85 ">
                                 Sub Total :
-
-
                             </p>
                             <p class="w-15 text-right">
-                                {{$cart->product->price}}
-
+                                {{$cartPrice}}
                             </p>
                         </div>
                         <div class="border-0 border-b-1 border-solid border-black"></div>
                         <div class="flex text-sm my-2">
                             <p class="w-85">
                                 Total :
-
-
                             </p>
                             <p class="w-15 text-accent font-bold text-right">
-                                {{$cart->product->price}}
-
+                                {{$cartPrice}}
                             </p>
                         </div>
-
                     </div>
                 @endif
             </div>
