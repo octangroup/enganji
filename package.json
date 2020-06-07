@@ -29,7 +29,7 @@
         "vue-stars": "^1.2.2",
         "vue-tel-input": "^2.0.12",
         "vue-template-compiler": "^2.6.11",
-        "vue2-touch-events": "^2.0.0"
+        "vue2-touch-events": "^2.2.1"
     },
     "dependencies": {
         "laravel-echo": "^1.8.0",
