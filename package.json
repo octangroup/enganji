@@ -39,7 +39,7 @@
         "tooltipster": "^4.2.8",
         "vue-infinite-loading": "^2.4.5",
         "vue-phone-number-input": "^0.1.8",
-        "vue2-editor": "^2.6.6",
+        "vue2-editor": "^2.10.2",
         "vue-piczoom": "^1.0.6"
     }
 }
