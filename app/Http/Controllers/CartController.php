@@ -19,20 +19,11 @@ class CartController extends Controller
 
 
     public function index(){
-        $carts = Auth::User()->cart()->with('product')->get();
+        $carts = Auth::User()->cart()->with('product.currency','product.reviews')->get();
 
-        $cartPrice = 0;
-        $cartCount = 0;
-
-        foreach ($carts as $data) {
-            $price = $data->product->price;
-            $cartPrice = $cartPrice + $price;
-
-            $cartCount = $cartCount + 1;
-        }
-
+        $cartPrice = $carts->sum('product.price');
         return view('cart.index', compact(
-            'carts', 'cartPrice', 'cartCount'
+            'carts', 'cartPrice'
         ));
     }
 

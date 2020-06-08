@@ -15,6 +15,7 @@ class Category extends Model implements HasMedia
     ];
 
     protected $appends = ['stripped_name'];
+    public $with = ['subcategories'];
 
     public function getStrippedNameAttribute()
     {

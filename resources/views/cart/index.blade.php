@@ -29,7 +29,7 @@
                                 Items :
                             </p>
                             <p class="w-15 text-right">
-                                {{$cartCount}}
+                                {{count($carts)}}
                             </p>
                         </div>
                         <div class="flex text-sm my-0">
@@ -37,7 +37,7 @@
                                 Sub Total :
                             </p>
                             <p class="w-15 text-right">
-                                {{$cartPrice}}
+                                {{$carts->first()->product->currency->name}} {{$cartPrice}}
                             </p>
                         </div>
                         <div class="border-0 border-b-1 border-solid border-black"></div>
@@ -46,7 +46,7 @@
                                 Total :
                             </p>
                             <p class="w-15 text-accent font-bold text-right">
-                                {{$cartPrice}}
+                                {{$carts->first()->product->currency->name}} {{$cartPrice}}
                             </p>
                         </div>
                     </div>
