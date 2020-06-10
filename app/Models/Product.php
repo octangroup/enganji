@@ -189,7 +189,7 @@ class Product extends Model implements HasMedia
      */
     public function rating(): float
     {
-        return round($this->reviews()->average('rating'), 2);
+        return round($this->reviews->average('rating'), 2);
     }
 
     /**

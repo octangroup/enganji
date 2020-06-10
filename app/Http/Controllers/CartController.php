@@ -19,8 +19,12 @@ class CartController extends Controller
 
 
     public function index(){
-        $carts = Auth::User()->cart()->with('product')->get();
-        return view('cart.index', compact('carts'));
+        $carts = Auth::User()->cart()->with('product.currency','product.reviews')->get();
+
+        $cartPrice = $carts->sum('product.price');
+        return view('cart.index', compact(
+            'carts', 'cartPrice'
+        ));
     }
 
 
