@@ -80,7 +80,7 @@ class AdsController extends Controller
                 ->toMediaCollection();
         }
 //        }
-        return back();
+        return back()->with('success', 'Advertisement Added Successfully!');
     }
 
     public function search(Request $request)
@@ -156,7 +156,7 @@ class AdsController extends Controller
                 ->usingFileName(time() . '-' . random_int(1, 999999999))
                 ->toMediaCollection();
         }
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Updated Advertisement Successfully!');
 
     }
 
@@ -168,7 +168,9 @@ class AdsController extends Controller
      */
     public function destroy($id)
     {
-        Auth::guard('admin')->user()->advertisement()->findOrFail($id)->delete();
-        return redirect()->back();
+        if(Auth::guard('admin')) {
+            Advertisement::findOrFail($id)->delete();
+        }
+        return redirect()->back()->with('success', 'Deleted Advertisement Successfully!');
     }
 }

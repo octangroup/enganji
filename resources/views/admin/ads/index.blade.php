@@ -2,6 +2,24 @@
 @section('content')
     {{--@if(Auth::guard('admin')->user()->canManageAffiliates())--}}
         <div class="container xs:mx-2">
+            @if(Session::has('success'))
+                <div class="alert alert-info">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+
+            @if($errors->any())
+
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                        <ul>
+                            <li>{{$error}}</li>
+                        </ul>
+                    @endforeach
+                </div>
+
+            @endif
+
             <div class="w-100 flex pb-4 border-0 border-b-1 border-solid border-grey">
                 <div class="w-70">
                     <h1 class="font-normal text-2xl font-primary">{{__('Ads')}}</h1>
@@ -27,63 +45,52 @@
                 <div class="card-body">
                     <form action="{{action('Admin\AdsController@store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label>Title</label>
-                                <input class="form-control" type="text" name="title">
-                            </div>
 
-                            <div class="col-md-5">
-                                <label>body</label>
-                                <input class="form-control" type="text" name="body">
-                            </div>
-
-
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">Title</label>
+                            <input class="form-control" type="text" name="title">
                         </div>
 
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">body</label>
+                            <input class="form-control" type="text" name="body">
+                        </div>
 
-                        <div class="row mt-2">
-                            <div class="col-md-5">
-                                <label>homePage</label>
+                        <div class="col-md-12 mt-3">
+                            <label>
                                 <input type="checkbox" name="home_page" value="1">
-                            </div>
+                                <span class="ml-2">Home Page</span>
+                            </label>
+                        </div>
 
-                            <div class="col-md-5">
-                                <label>product Listing</label>
+                        <div class="col-md-12 mt-2">
+                            <label>
                                 <input type="checkbox" name="product_listing" value="1">
-                            </div>
+                                <span class="ml-2">Product Listing</span>
+                            </label>
                         </div>
 
-
-                        <div class="row mt-2">
-                            <div class="col-md-5">
-                                <label>Link</label>
-                                <input class="form-control" type="text" name="link">
-                            </div>
-
+                        <div class="col-md-12 mt-3">
+                            <label class="mr-3">Link</label>
+                            <input class="form-control" type="text" name="link">
                         </div>
 
-                        <div class="row mt-3">
-
-                            <div class="col-md-5">
-                                <label>Start</label>
-                                <input class="form-control" type="date" name="starting_on">
-
-                            </div>
-
-                            <div class="col-md-5">
-                                <label>End</label>
-                                <input class="form-control" type="date" name="ending_on">
-
-                            </div>
-
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">Start</label>
+                            <input class="form-control" type="date" name="starting_on">
                         </div>
 
-                        <div class="col mt-6">
-                            <label>Picture</label>
-                            <input type="file" name="file">
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">End</label>
+                            <input class="form-control" type="date" name="ending_on">
                         </div>
-                        <button class="btn btn-primary">Save</button>
+
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">Picture</label>
+                            <input type="file" name="file" class="form-control">
+                        </div>
+
+                        <button class="btn btn-primary btn-block mt-4">Save</button>
                     </form>
                 </div>
             </div>
@@ -94,7 +101,8 @@
                         <div class="col-md-3">
                             <h5 class="font-normal font-primary">
                                 <img src="{{asset($ad->getFirstMediaUrl())}}" class="h-25 w-fit" >
-                                {{$ad->title}}
+                                
+                                <p class="mt-4">{{$ad->title}}</p>
 
                             </h5>
                         </div>
@@ -112,66 +120,54 @@
                               enctype="multipart/form-data">
                             {{ csrf_field() }}
                             @method('put')
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <label>Title</label>
-                                    <input class="form-control" type="text" name="title" value="{{$ad->title}}">
-                                </div>
+                            
+                            {{csrf_field()}}
 
-                                <div class="col-md-5">
-                                    <label>body</label>
-                                    <input class="form-control" type="text" name="body" value="{{$ad->body}}">
-                                </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">Title</label>
+                            <input class="form-control" type="text" name="title" value="{{ $ad->title }}">
+                        </div>
 
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">body</label>
+                            <input class="form-control" type="text" name="body" value="{{ $ad->body }}">
+                        </div>
 
-                            </div>
+                        <div class="col-md-12 mt-3">
+                            <label>
+                                <input type="checkbox" name="home_page" value="1" {{ ($ad->home_page == 1) ? 'checked' : '' }}>
+                                <span class="ml-2">Home Page</span>
+                            </label>
+                        </div>
 
+                        <div class="col-md-12 mt-2">
+                            <label>
+                                <input type="checkbox" name="product_listing" value="1" {{ ($ad->product_listing == 1) ? 'checked' : '' }}>
+                                <span class="ml-2">Product Listing</span>
+                            </label>
+                        </div>
 
-                            <div class="row mt-2">
-                                <div class="col-md-5">
-                                    <label>homePage</label>
-                                    <input type="checkbox" name="home_page" value="1">
-                                </div>
+                        <div class="col-md-12 mt-3">
+                            <label class="mr-3">Link</label>
+                            <input class="form-control" type="text" name="link" value="{{ $ad->link }}">
+                        </div>
 
-                                <div class="col-md-5">
-                                    <label>product Listing</label>
-                                    <input type="checkbox" name="product_listing" value="1">
-                                </div>
-                            </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">Start</label>
+                            <input class="form-control" type="date" name="starting_on" value="{{ $ad->starting_on }}">
+                        </div>
 
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">End</label>
+                            <input class="form-control" type="date" name="ending_on" value="{{ $ad->ending_on }}">
+                        </div>
 
-                            <div class="row mt-2">
-                                <div class="col-md-5">
-                                    <label>Link</label>
-                                    <input class="form-control" type="text" name="link">
-                                </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="mr-3">Picture</label>
+                            <input type="file" name="file" class="form-control">
+                        </div>
 
-                            </div>
-
-                            <div class="row mt-3">
-
-                                <div class="col-md-5">
-                                    <label>Start</label>
-                                    <input class="form-control" type="date" name="starting_on">
-
-                                </div>
-
-                                <div class="col-md-5">
-                                    <label>End</label>
-                                    <input class="form-control" type="date" name="ending_on">
-
-                                </div>
-
-                            </div>
-
-                            <div class="col mt-6">
-                                <label>Picture</label>
-                                <input type="file" name="file">
-                            </div>
-
-
-                            <button class="btn btn-success rounded-full uppercase px-3 text-sm mt-2 mr-1">Save
-                            </button>
+                        <button class="btn btn-success btn-block mt-4">Save</button>
                         </form>
                     </div>
                 </div>
