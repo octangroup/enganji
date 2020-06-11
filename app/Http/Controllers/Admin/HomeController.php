@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Affiliate;
+use App\Models\Advertisement;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -33,6 +34,7 @@ class HomeController extends Controller
         $users = User::get();           // to get users
         $affiliates = Affiliate::get();    // to get Affiliates
         $products = Product::get();
+        $ads = Advertisement::get();
         $today_products = Product::whereDate('created_at', '=',Carbon::now())->count();      // Analytics to view products added today
         $last_week_products = Product::whereDate('created_at', '>=', Carbon::now()->subWeek()->startOfWeek())   // Analytics to view products added last week
             ->whereDate('created_at','<=', Carbon::now()->subWeek()->endOfWeek())
@@ -53,6 +55,6 @@ class HomeController extends Controller
         $userChart->dataset('Users','line',[$thisWeekUsers, $todayUsers, $lastWeekUsers]);
         $userChart->loaderColor('#0d3659');
 
-        return view('admin.home', compact('today_products', 'this_week_products','last_week_products','chart', 'todayUsers', 'thisWeekUsers','lastWeekUsers', 'userChart', 'users', 'affiliates', 'products'));
+        return view('admin.home', compact('today_products', 'this_week_products','last_week_products','chart', 'todayUsers', 'thisWeekUsers','lastWeekUsers', 'userChart', 'users', 'affiliates', 'products', 'ads'));
     }
 }

@@ -32,7 +32,7 @@
             </div>
             <div class="w-25 xs:w-100 mx-3 xs:mx-0 bg-green-darker opacity-75 my-5 xs:my-2 rounded-xlg">
                 <div class="text-center text-white">
-                    <h4 class="my-4 text-4xl font-primary">3</h4>
+                    <h4 class="my-4 text-4xl font-primary">{{$ads->count()}}</h4>
                     <p class="my-3">{{__('Ads')}}</p>
                 </div>
             </div>
