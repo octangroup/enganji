@@ -1,4 +1,8 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.app', [
+    'has_search'=>true,
+    'search_url' => action('Admin\AffiliatesController@search')
+])
+
 @section('content')
     <div class="container">
         @if(Session::has('message'))
