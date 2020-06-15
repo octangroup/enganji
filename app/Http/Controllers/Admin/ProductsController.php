@@ -6,6 +6,8 @@ use App\Events\Admin\ProductApproved;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\SubCategory;
+use App\Models\Currency;
 use App\Models\Condition;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -50,7 +52,6 @@ class ProductsController extends Controller
 
     public function search(Request $request)
     {     // function to search product according to the keyword which will be input
-
         $keyword = $request->keyword;
         $conditions = Condition::get();
         $categories = Category::get();
