@@ -34,13 +34,19 @@
             <h3 class="text-base font-bold font-primary">Brand</h3>
 
         </div>
-        @foreach ($brands as $brand)
 
+        @foreach ($brands as $brand)
             <div class="ml-3 flex">
                 <p class="font-medium  my-1">
                     <label class="checkcontainer">
                         <input onChange="this.form.submit()" type="checkbox"
-                               name="brands[]" value="{{$brand->id}}">{{$brand->name}}<br>
+                               name="brands[]" value="{{$brand->id}}"
+                               @if($attributes['brands'] ?? '' && count($attributess['brands']) > 0)
+                                    @if(in_array($brand['id'], $attributes['brands']))
+                                        checked
+                                    @endif
+                                @endif
+                               >{{$brand->name}}<br>
                         <span class="checkmark "></span></label>
                 </p>
             </div>
