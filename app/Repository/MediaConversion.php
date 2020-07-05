@@ -38,7 +38,7 @@ trait MediaConversion
         return null;
     }
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
             ->fit('fill', 480, 480)

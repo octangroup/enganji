@@ -10,7 +10,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class User extends Authenticatable implements HasMedia
 {
-    use Notifiable, HasMediaTrait;
+    use Notifiable, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -52,7 +52,7 @@ class User extends Authenticatable implements HasMedia
         }
     }
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
 
         $this->addMediaConversion('avatar')
