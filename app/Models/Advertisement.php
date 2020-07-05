@@ -15,7 +15,7 @@ class Advertisement extends Model implements HasMedia
 
     protected $fillable = ['admin_id', 'title', 'body', 'product_listing', 'home_page', 'link', 'starting_on', 'ending_on'];
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
 
         $this->addMediaConversion('thumb')

@@ -17,12 +17,18 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Product extends Model implements HasMedia
 {
     use MediaConversion;
+    use InteractsWithMedia;
 
     protected $fillable = ['affiliate_id', 'subcategory_id', 'currency_id', 'condition_id',
         'brand_id', 'name', 'quantity', 'price', 'color', 'size', 'status', 'description'
     ];
 
     protected $appends = ['thumbnail', 'cover', 'cover_srcset', 'stripped_name', 'rating'];
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb');
+    }
 
     public function getStrippedNameAttribute()
     {
