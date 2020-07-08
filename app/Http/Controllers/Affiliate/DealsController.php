@@ -20,7 +20,7 @@ class DealsController extends Controller
     {
 
 
-        $products = Auth::guard('affiliate')->User()->product()->get();
+        $products = Auth::guard('affiliate')->User()->products()->get();
         $deals = Deal::get();
 
         return view('affiliate.deals.index', compact('products', 'deals'));
