@@ -2,13 +2,13 @@
 
 @section('content')
     <div>
-        <div class="bg-white py-5  border-1 border-solid border-grey-light my-5 w-60 mt-5 xs:w-100 mx-auto rounded-xlg">
+        <div class="bg-white py-5  border-1 border-solid border-grey-light my-5 w-50 mt-5 xs:w-100 mx-auto rounded-xlg">
             <div class="w-75 xs:w-100 xs:px-3 mx-auto mb-5 pt-3">
                 <div class="w-50 mx-auto text-center mb-5">
 
                     <h3 class="font-primary">Login</h3>
                 </div>
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('affiliate.login') }}">
+                        <form class="form-horizontal w-80 xs:w-100 sm:w-100 md:w-100 mx-auto mt-5" role="form" method="POST" action="{{ route('affiliate.login') }}">
                             {{ csrf_field() }}
 
                             <div class="border-1 border-solid border-grey relative mb-4">
@@ -31,17 +31,19 @@
                                        required>
                             </div>
 
-                            <div class="w-100 xl:flex md:flex mt-4">
-                                <div class="w-50 xs:w-100">
-                                    <a class="btn btn-link px-0" href="{{ route('password.request') }}">
+                            <div class="w-50 xs:w-100 mx-auto mt-4 text-sm mx-auto text-center">
+                                    <a class="btn shadow-none text-sm" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                </div>
-                                <div class="w-50 xs:w-100 text-right">
-                                    <button class="btn btn-dark px-4 hover:bg-white hover:text-black py-2 uppercase text-xs rounded-full mx-0">
-                                        Login
-                                    </button>
-                                </div>
+                            </div>
+                            <div class="w-100 mx-auto mt-1 text-center mt-4">
+                                <a href="{{ route('affiliate.register') }}"
+                                   class="btn border-1 btn-outline-primary border-primary hover:text-white hover:bg-primary rounded-full mx-3">
+                                    {{ __('Register') }}
+                                </a>
+                                <button type="submit" class="btn btn-primary xs:mt-2  rounded-full mx-3 ">
+                                    {{ __('Login') }}
+                                </button>
                             </div>
                         </form>
             </div>
