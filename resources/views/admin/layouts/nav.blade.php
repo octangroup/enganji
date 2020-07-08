@@ -61,7 +61,7 @@
 
 @else
     <div class="w-90 mx-auto p-4">
-        <img src="{{asset('img/logo.svg')}}" class="w-rem-24">
+        <a href="{{action('HomeController@index')}}"><img src="{{asset('img/logo.svg')}}" class="w-rem-24"></a>
     </div>
 @endif
 
