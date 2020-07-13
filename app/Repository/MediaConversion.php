@@ -9,13 +9,13 @@
 namespace App\Repository;
 
 
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 trait MediaConversion
 {
 
-    use HasMediaTrait;
+    use InteractsWithMedia;
 
     public function thumbnail()
     {
@@ -38,7 +38,7 @@ trait MediaConversion
         return null;
     }
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
             ->fit('fill', 480, 480)
