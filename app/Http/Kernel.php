@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'admin.guest' => AdminRedirectIfAuthenticated::class,
         'affiliate.auth' => AffiliateRedirectIfNotAuthenticated::class,
         'affiliate.guest' => AffiliateRedirectIfAuthenticated::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
 }

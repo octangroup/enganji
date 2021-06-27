@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Verified;
 
 class WishListController extends Controller
 {
@@ -19,7 +20,7 @@ class WishListController extends Controller
     public function __construct()
     {
 
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
     }
 
 
